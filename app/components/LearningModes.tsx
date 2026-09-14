@@ -177,7 +177,7 @@ export default function LearningModes() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 group text-center"
+                className="bg-white rounded-3xl p-5 sm:p-8 border-2 border-amber-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 group text-center"
               >
                 <div className="flex flex-col items-center">
                   {/* Centered 3D Illustrated Icon */}
@@ -193,7 +193,7 @@ export default function LearningModes() {
                   </div>
 
                   {/* Centered Title */}
-                  <h3 className="text-2xl font-black text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-2 group-hover:text-orange-600 transition-colors leading-tight">
                     {mode.title}
                   </h3>
                   

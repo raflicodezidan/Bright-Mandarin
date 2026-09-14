@@ -1,10 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Image from 'next/image';
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PromoModal from './components/PromoModal';
 import { getPopupPromo, mockSiteSettings } from '@/lib/sanity';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'Bright Mandarin Education — Kursus Bahasa Mandarin Berstandar HSK 6',
@@ -42,10 +48,10 @@ export default async function RootLayout({
   const promoData = await getPopupPromo();
 
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className="antialiased text-brand-charcoal bg-[#FFFBEB] selection:bg-orange-500 selection:text-white">
+    <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
+      <body className="antialiased text-brand-charcoal bg-[#FFFBEB] selection:bg-orange-500 selection:text-white overflow-x-hidden w-full max-w-full">
         <Navbar />
-        <main>{children}</main>
+        <main className="overflow-x-hidden w-full max-w-full">{children}</main>
         <Footer />
         <PromoModal promoData={promoData} />
 
@@ -55,7 +61,7 @@ export default async function RootLayout({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Mau cobain Free Trial Class? Chat WhatsApp Bright Mandarin"
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-white/95 hover:bg-white text-slate-900 font-extrabold text-sm pl-2 pr-4 py-2.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-emerald-500/80 group"
+          className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-white/95 hover:bg-white text-slate-900 font-extrabold text-sm pl-2 pr-3.5 sm:pr-4 py-2 sm:py-2.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-emerald-500/80 group max-w-[calc(100vw-24px)]"
         >
           <div className="relative w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform">
             <Image

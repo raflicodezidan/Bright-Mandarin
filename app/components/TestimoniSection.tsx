@@ -399,7 +399,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
             href={mockSiteSettings.whatsappUtama}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-white hover:bg-amber-50 text-emerald-800 text-sm font-black px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80"
+            className="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-emerald-800 text-xs sm:text-sm font-black px-4 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80 max-w-full"
           >
             <div className="w-5 h-5 shrink-0">
               <Image
@@ -410,7 +410,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                 className="w-full h-full object-contain"
               />
             </div>
-            <span>Chat dengan Konsultan Kami</span>
+            <span className="whitespace-nowrap">Chat dengan Konsultan Kami</span>
           </a>
         </div>
       </div>

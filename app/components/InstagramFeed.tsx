@@ -145,30 +145,29 @@ export default function InstagramFeed({ widgetEmbedHtml }: InstagramFeedProps) {
   return (
     <section className="py-20 bg-amber-100/50 border-b border-amber-300/70">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
+            MEDIA SOSIAL & EDUKASI
+          </h2>
+          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+            Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
+          <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
+            Dapatkan edukasi kosakata harian, tips lolos ujian HSK, serta update peluang beasiswa kuliah ke China.
+          </p>
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              MEDIA SOSIAL & EDUKASI
-            </h2>
-            <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin
-            </p>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full my-3" />
-            <p className="text-slate-700 text-sm sm:text-base max-w-xl font-medium leading-relaxed">
-              Dapatkan edukasi kosakata harian, tips lolos ujian HSK, serta update peluang beasiswa kuliah ke China.
-            </p>
+            <a
+              href={mockSiteSettings.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+            >
+              <InstagramIcon className="w-4 h-4" />
+              <span>Follow @brightmandarin</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+            </a>
           </div>
-
-          <a
-            href={mockSiteSettings.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all self-start md:self-auto"
-          >
-            <InstagramIcon className="w-4 h-4" />
-            <span>Follow @brightmandarin</span>
-            <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-          </a>
         </div>
 
         {/* Carousel Container */}

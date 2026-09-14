@@ -49,8 +49,8 @@ export default function Navbar() {
                   明辉
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[11px] text-slate-600 font-semibold tracking-wide mt-0.5 whitespace-nowrap">
-                明辉补习班 • Professional Mandarin Course Center
+              <span className="text-[9.5px] sm:text-[11px] text-slate-600 font-semibold tracking-wide mt-0.5 whitespace-nowrap truncate max-w-[210px] sm:max-w-none">
+                明辉补习班 - Professional Mandarin Course Center
               </span>
             </div>
           </Link>

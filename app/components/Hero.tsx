@@ -7,10 +7,10 @@ import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-300 to-orange-400 pt-10 pb-20 lg:pt-16 lg:pb-28 border-b-4 border-amber-500/30">
+    <section className="relative overflow-hidden w-full max-w-full bg-gradient-to-br from-amber-400 via-yellow-300 to-orange-400 pt-10 pb-20 lg:pt-16 lg:pb-28 border-b-4 border-amber-500/30">
       {/* Playful Sunshine & Cloud Doodles in Background */}
       <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-white/20 blur-2xl pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-orange-500/20 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-orange-500/20 blur-3xl pointer-events-none" />
       
       {/* Decorative SVG Sunbeams & Sparkles */}
       <div className="absolute top-8 left-12 text-white/30 hidden md:block">
@@ -32,10 +32,9 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
             
             {/* Playful Pill Badge (Centered with Animation) */}
             <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-black shadow-lg border-2 border-white/90 animate-wiggle hover:scale-105 transition-all cursor-default">
-                <span className="text-orange-600 font-extrabold">#BisaMandarin</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-sky-600 font-bold">Kursus Mandarin Paling Seru & Terbukti!</span>
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white text-slate-800 text-[11px] sm:text-xs md:text-sm font-black shadow-lg border-2 border-white/90 animate-wiggle hover:scale-105 transition-all cursor-default max-w-full text-center">
+                <span className="text-orange-600 font-extrabold whitespace-nowrap shrink-0">#BRIGHTMANDARIN</span>
+                <span className="text-sky-600 font-bold whitespace-nowrap">Kursus Mandarin Paling Seru & Terbukti!</span>
               </div>
             </div>
 
@@ -86,9 +85,9 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                 href={currentSettings.whatsappUtama || mockSiteSettings.whatsappUtama}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-base font-black px-7 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:translate-y-0 border-2 border-white/80 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-sm sm:text-base font-black px-5 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:translate-y-0 border-2 border-white/80 group"
               >
-                <div className="w-6 h-6 shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-transform">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-transform">
                   <Image
                     src="/whatsapp-logo.png"
                     alt="WhatsApp"
@@ -97,7 +96,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span>Konsultasi & Placement Test Gratis</span>
+                <span className="whitespace-nowrap">Konsultasi & Placement Test Gratis</span>
               </a>
 
               <Link
@@ -131,7 +130,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Floating "Well done" Sticker */}
-              <div className="absolute -top-6 -right-3 z-30 bg-gradient-to-tr from-amber-400 to-yellow-300 border-3 border-white rounded-2xl px-3.5 py-1.5 shadow-xl rotate-12 flex items-center gap-1.5">
+              <div className="absolute -top-6 right-2 sm:-right-3 z-30 bg-gradient-to-tr from-amber-400 to-yellow-300 border-3 border-white rounded-2xl px-3.5 py-1.5 shadow-xl rotate-12 flex items-center gap-1.5">
                 <Star className="w-5 h-5 text-amber-700 fill-amber-500" />
                 <div className="leading-tight">
                   <p className="text-[9px] font-black text-amber-950 uppercase">WELL</p>
@@ -165,13 +164,13 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     "Dari Nol Dasar hingga Percakapan Percaya Diri dalam Hitungan Bulan!"
                   </h3>
                   <p className="text-xs text-amber-200 font-bold">
-                    Bright Mandarin (明辉补习班) • Metode Cepat & Menyenangkan
+                    Bright Mandarin (明辉补习班) - Metode Cepat & Menyenangkan
                   </p>
                 </div>
               </div>
 
               {/* Floating Badge 1: HSK Top Tier */}
-              <div className="absolute -top-5 -left-5 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 animate-float hover:scale-105 transition-all">
+              <div className="absolute -top-5 left-2 sm:-left-5 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 animate-float hover:scale-105 transition-all">
                 <div className="w-12 h-12 rounded-xl overflow-hidden shadow-xs shrink-0 border border-purple-200/80 flex items-center justify-center bg-purple-600">
                   <Image
                     src="/icon-jaminan-kualitas-hsk6.png"
@@ -188,7 +187,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               </div>
 
               {/* Floating Badge 2: Beasiswa Tiongkok */}
-              <div className="absolute -bottom-5 -right-3 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 hover:scale-105 transition-all">
+              <div className="absolute -bottom-5 right-2 sm:-right-3 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 hover:scale-105 transition-all">
                 <div className="w-12 h-12 flex items-center justify-center shrink-0">
                   <Image
                     src="/icon-scholarship.png"

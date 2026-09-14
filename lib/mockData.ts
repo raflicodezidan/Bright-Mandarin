@@ -278,7 +278,7 @@ export const mockPengajar: PengajarItem[] = [
     gelar: "Master of Education (BLCU Beijing)",
     spesialisasi: "Senior HSK 5-6 & Beasiswa Specialist",
     bio: "Berpengalaman lebih dari 8 tahun membimbing ribuan murid Indonesia menembus skor HSK 6 dan meraih beasiswa penuh di kampus ternama seperti Tsinghua dan Peking University.",
-    sertifikasi: "HSK 6 (Score 292/300) • CTCSOL Certified",
+    sertifikasi: "HSK 6 (Score 292/300), CTCSOL Certified",
     fotoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
     urutan: 1
   },
@@ -288,7 +288,7 @@ export const mockPengajar: PengajarItem[] = [
     gelar: "Bachelor in Chinese Linguistics (Fudan University)",
     spesialisasi: "Kids & Teens Pedagogical Specialist",
     bio: "Dikenal dengan gaya mengajarnya yang sangat ceria, sabar, dan interaktif, mampu membuat anak-anak yang awalnya enggan belajar menjadi sangat antusias menguasai Hanzi.",
-    sertifikasi: "HSK 6 Certified • Early Childhood Education",
+    sertifikasi: "HSK 6 Certified, Early Childhood Education",
     fotoUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80",
     urutan: 2
   },
@@ -298,7 +298,7 @@ export const mockPengajar: PengajarItem[] = [
     gelar: "MBA in International Trade (Shanghai Jiao Tong)",
     spesialisasi: "Business Chinese & Negotiation Consultant",
     bio: "Praktisi bisnis bilateral Indonesia-Tiongkok dengan pemahaman mendalam tentang budaya negosiasi, kontrak dagang, dan korespondensi bisnis korporat.",
-    sertifikasi: "HSK 6 • Business Chinese Trainer Certified",
+    sertifikasi: "HSK 6, Business Chinese Trainer Certified",
     fotoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
     urutan: 3
   },
@@ -308,7 +308,7 @@ export const mockPengajar: PengajarItem[] = [
     gelar: "Bachelor in Chinese Language (Zhejiang University)",
     spesialisasi: "Daily Conversation & Pronunciation Coach",
     bio: "Spesialis dalam membedah 4 nada pinyin dan melatih otot bicara murid Indonesia agar bisa berbicara dengan intonasi natural layaknya penutur asli.",
-    sertifikasi: "HSK 6 Certified • Putonghua Shuiping Ceshi (Grade 1)",
+    sertifikasi: "HSK 6 Certified, Putonghua Shuiping Ceshi (Grade 1)",
     fotoUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80",
     urutan: 4
   }

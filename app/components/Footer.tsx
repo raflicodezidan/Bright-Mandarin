@@ -102,7 +102,7 @@ export default function Footer() {
                   <span className="text-rose-600">BRIGHT</span>
                   <span className="text-sky-600 ml-1">MANDARIN</span>
                 </span>
-                <p className="text-xs text-amber-900 font-bold mt-1">明辉补习班 • Professional Mandarin Course Center</p>
+                <p className="text-xs text-amber-900 font-bold mt-1">明辉补习班 - Professional Mandarin Course Center</p>
               </div>
             </div>
 
