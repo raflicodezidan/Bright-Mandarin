@@ -30,11 +30,11 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
           {/* Left Column: Headlines & CTAs (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Playful Pill Badge (Centered with Animation) */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white text-slate-800 text-[11px] sm:text-xs md:text-sm font-black shadow-lg border-2 border-white/90 animate-wiggle hover:scale-105 transition-all cursor-default max-w-full text-center">
-                <span className="text-orange-600 font-extrabold whitespace-nowrap shrink-0">#BRIGHTMANDARIN</span>
-                <span className="text-sky-600 font-bold whitespace-nowrap">Kursus Mandarin Paling Seru & Terbukti!</span>
+            {/* Playful Responsive Pill Badge */}
+            <div className="flex justify-center px-2">
+              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white text-slate-800 text-xs sm:text-sm font-black shadow-lg border-2 border-white/90 hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
+                <span className="text-orange-600 font-extrabold tracking-wide shrink-0">#BRIGHTMANDARIN</span>
+                <span className="text-sky-600 font-bold leading-tight">Kursus Mandarin Paling Seru & Terbukti!</span>
               </div>
             </div>
 

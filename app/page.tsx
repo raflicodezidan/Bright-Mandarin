@@ -136,8 +136,8 @@ export default async function HomePage() {
       <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden border-t-2 border-amber-300">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:20px_20px]" />
         <div className="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10">
-          <div className="flex justify-center">
-            <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-wide bg-white text-slate-800 px-4 py-1.5 rounded-full shadow-xs border border-white/80">
+          <div className="flex justify-center px-2">
+            <span className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold tracking-wide bg-white text-slate-800 px-4 sm:px-5 py-2 sm:py-1.5 rounded-2xl sm:rounded-full shadow-xs border border-white/80 max-w-full text-center">
               <span className="text-orange-600 font-extrabold">#BRIGHTMANDARIN</span>
               <span className="text-slate-700">Bersama Bright Mandarin!</span>
             </span>
