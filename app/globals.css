@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-red: #E11D48;
+  --color-brand-red-dark: #BE123C;
+  --color-brand-red-light: #FFE4E6;
+  --color-brand-red-hover: #9F1239;
+
+  --color-brand-blue: #0284C7;
+  --color-brand-blue-light: #E0F2FE;
+  --color-brand-blue-dark: #0369A1;
+
+  --color-brand-yellow: #FACC15;
+  --color-brand-yellow-light: #FEF9C3;
+  --color-brand-yellow-dark: #CA8A04;
+
+  --color-brand-orange: #F97316;
+  --color-brand-orange-light: #FFEDD5;
+  --color-brand-orange-dark: #C2410C;
+
+  --color-brand-gold: #F59E0B;
+  --color-brand-gold-dark: #D97706;
+  --color-brand-gold-light: #FEF3C7;
+
+  --color-brand-cream: #FFFDF9;
+  --color-brand-cream-dark: #FEF3C7;
+
+  --color-brand-charcoal: #1E293B;
+  --color-brand-charcoal-light: #334155;
+  --color-brand-gray: #475569;
+  --color-brand-gray-light: #F8FAFC;
+  --color-brand-border: #FED7AA;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFFDF9;
+  --foreground: #1E293B;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
 }
+
+/* Custom scrollbar in warm sunny colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FEF3C7;
+}
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E11D48;
+}
+
+/* Fun patterned background */
+.chinese-pattern-bg {
+  background-color: #FFFBEB;
+  background-image: radial-gradient(#F59E0B 1px, transparent 1px), radial-gradient(#F59E0B 1px, #FFFBEB 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Fun Doodles & Sticker Animations */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-4px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 35px rgba(255, 255, 255, 0.9);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-slow 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.2s ease-in-out infinite;
+}
+
+
