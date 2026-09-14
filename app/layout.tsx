@@ -51,7 +51,7 @@ export default async function RootLayout({
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
       <body className="antialiased text-brand-charcoal bg-[#FFFBEB] selection:bg-orange-500 selection:text-white overflow-x-hidden w-full max-w-full">
         <Navbar />
-        <main className="overflow-x-hidden w-full max-w-full">{children}</main>
+        <main className="pt-[66px] sm:pt-[70px] overflow-x-hidden w-full max-w-full">{children}</main>
         <Footer />
         <PromoModal promoData={promoData} />
 

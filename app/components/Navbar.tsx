@@ -21,9 +21,9 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all">
       {/* Main Navbar */}
-      <nav className="bg-gradient-to-r from-amber-50/95 via-yellow-50/95 to-orange-50/95 backdrop-blur-md border-b border-amber-200/80 px-4 lg:px-8 py-2.5 transition-all">
+      <nav className="bg-gradient-to-r from-amber-50/98 via-yellow-50/98 to-orange-50/98 backdrop-blur-md border-b border-amber-200/90 shadow-md px-4 lg:px-8 py-2.5 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
           {/* Logo Brand */}
