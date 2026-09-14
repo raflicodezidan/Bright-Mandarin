@@ -132,7 +132,7 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
       <button
         onClick={handlePrev}
         className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
-        aria-label="Previous Article Slide"
+        aria-label="Previous Blog Slide"
       >
         <ChevronLeft className="w-6 h-6 text-orange-600" />
       </button>
@@ -140,7 +140,7 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
       <button
         onClick={handleNext}
         className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
-        aria-label="Next Article Slide"
+        aria-label="Next Blog Slide"
       >
         <ChevronRight className="w-6 h-6 text-orange-600" />
       </button>

@@ -34,29 +34,30 @@ export default async function GaleriPage() {
           {galeriList.map((item) => (
             <div
               key={item._id}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-border shadow-sm space-y-6"
+              className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-200/80 shadow-md hover:shadow-lg transition-shadow space-y-6"
             >
               {/* Block Header */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-brand-border/60 pb-5">
-                <div>
-                  <div className="flex items-center gap-2 text-xs text-brand-gold-dark font-bold uppercase tracking-wider mb-1">
-                    <span className="px-2.5 py-0.5 rounded-full bg-brand-gold-light border border-brand-gold/30">
-                      {item.kategori}
-                    </span>
-                    <span className="flex items-center gap-1 text-brand-gray font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-brand-red" />
-                      {item.tanggal}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-extrabold text-brand-charcoal">
+              <div className="border-b border-amber-200/80 pb-5 space-y-2.5">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs">
+                  <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold tracking-wide">
+                    {item.kategori}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-slate-500 font-medium">
+                    <Calendar className="w-3.5 h-3.5 text-orange-600" />
+                    <span>{item.tanggal}</span>
+                  </span>
+                </div>
+
+                <div className="space-y-1.5">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
                     {item.judul}
                   </h2>
+                  {item.deskripsi && (
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl font-normal pt-1">
+                      {item.deskripsi}
+                    </p>
+                  )}
                 </div>
-                {item.deskripsi && (
-                  <p className="text-xs sm:text-sm text-brand-gray max-w-md">
-                    {item.deskripsi}
-                  </p>
-                )}
               </div>
 
               {/* Photos Grid inside document block */}
@@ -64,7 +65,7 @@ export default async function GaleriPage() {
                 {item.foto?.map((pic, pIdx) => (
                   <div
                     key={pIdx}
-                    className="group relative rounded-2xl overflow-hidden aspect-4/3 bg-brand-charcoal shadow-sm hover:shadow-xl transition-all duration-300"
+                    className="group relative rounded-2xl overflow-hidden aspect-4/3 bg-slate-900 border border-amber-200/60 shadow-xs hover:shadow-xl transition-all duration-300"
                   >
                     <img
                       src={pic.url}
@@ -72,7 +73,7 @@ export default async function GaleriPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {pic.caption && (
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <p className="text-white text-xs font-semibold leading-snug">
                           {pic.caption}
                         </p>

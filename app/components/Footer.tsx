@@ -195,7 +195,7 @@ export default function Footer() {
                 <Link href="/galeri" className="hover:text-orange-600 transition-colors">Galeri & Suasana Kelas</Link>
               </li>
               <li>
-                <Link href="/berita" className="hover:text-orange-600 transition-colors">Artikel & Tips HSK</Link>
+                <Link href="/berita" className="hover:text-orange-600 transition-colors">Blog & Artikel Mandarin</Link>
               </li>
               <li>
                 <Link href="/#lokasi" className="hover:text-orange-600 transition-colors">Lokasi Learning Center</Link>

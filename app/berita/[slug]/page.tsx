@@ -45,7 +45,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-charcoal hover:text-brand-red transition-colors bg-white px-4 py-2 rounded-xl border border-brand-border shadow-xs"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Kembali ke Daftar Artikel</span>
+            <span>Kembali ke Daftar Blog</span>
           </Link>
         </div>
 

@@ -94,12 +94,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 6. Preview Berita & Tips Mandarin (Background: Kuning-Oranye Hangat) */}
+      {/* 6. Preview Blog & Tips Mandarin (Background: Kuning-Oranye Hangat) */}
       <section className="py-20 bg-yellow-100/50 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              ARTIKEL & TIPS MANDARIN
+              BLOG BRIGHT MANDARIN
             </h2>
             <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
               Tips Belajar & Info Beasiswa Kuliah ke Tiongkok
@@ -113,7 +113,7 @@ export default async function HomePage() {
                 href="/berita"
                 className="inline-flex items-center gap-2 text-amber-950 hover:text-orange-600 font-bold text-sm bg-white hover:bg-amber-100 px-6 py-3 rounded-2xl border-2 border-amber-300 hover:shadow-md transition-all shadow-xs"
               >
-                <span>Semua Artikel</span>
+                <span>Lihat Semua Blog</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

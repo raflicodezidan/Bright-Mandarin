@@ -15,7 +15,7 @@ export default function Navbar() {
     { label: 'Beranda', href: '/' },
     { label: 'Program Kelas', href: '/program' },
     { label: 'Pengajar (Laoshi)', href: '/pengajar' },
-    { label: 'Berita & Tips', href: '/berita' },
+    { label: 'Blog', href: '/berita' },
     { label: 'Galeri Kegiatan', href: '/galeri' },
     { label: 'Lokasi Center', href: '/#lokasi' },
   ];

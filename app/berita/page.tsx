@@ -6,8 +6,8 @@ import { getBerita } from '@/lib/sanity';
 export const revalidate = 60;
 
 export const metadata = {
-  title: 'Berita & Tips Belajar Mandarin — Bright Mandarin',
-  description: 'Artikel edukasi, tips cepat menguasai nada pinyin & hanzi, info jadwal ujian HSK, dan panduan beasiswa kuliah ke China.',
+  title: 'Blog & Edukasi Mandarin — Bright Mandarin',
+  description: 'Kumpulan artikel blog edukasi, tips cepat menguasai nada pinyin & hanzi, info jadwal ujian HSK, dan panduan beasiswa kuliah ke China.',
 };
 
 export default async function BeritaPage() {
@@ -16,21 +16,21 @@ export default async function BeritaPage() {
   return (
     <div className="py-12 lg:py-20 bg-gradient-to-b from-amber-50/70 via-yellow-50/50 to-orange-50/60 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        {/* Formal Section Header */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            PUSAT INFORMASI & BERITA
+            BLOG BRIGHT MANDARIN
           </h1>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
             Tips Belajar Bahasa Mandarin & Info Beasiswa Tiongkok
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-            Perkaya wawasan bahasa Mandarin Anda dengan tips praktis, pemahaman budaya, serta informasi pendaftaran resmi ujian HSK dan peluang studi di Tiongkok.
+            Perkaya wawasan bahasa Mandarin Anda melalui kumpulan artikel blog pilihan: tips praktis, pemahaman budaya, serta informasi ujian HSK dan peluang studi di Tiongkok.
           </p>
         </div>
 
-        {/* News Grid */}
+        {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {beritaList.map((item) => (
             <Link
