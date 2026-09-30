@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PromoModal from './components/PromoModal';
 import { getPopupPromo, mockSiteSettings } from '@/lib/sanity';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -79,6 +80,7 @@ export default async function RootLayout({
             <span className="text-[11px] font-extrabold text-emerald-600">WhatsApp sekarang juga</span>
           </div>
         </a>
+        <SpeedInsights />
       </body>
     </html>
   );
