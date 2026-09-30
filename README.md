@@ -126,7 +126,7 @@ Masuk ke **Settings > Domains** di dashboard Vercel, masukkan domain, lalu tamba
 
 ---
 
-## 🌟 Fitur Utama
+## Fitur Utama
 
 - **Landing Page Lengkap**:
   - Hero Section dengan CTA WhatsApp & badge jaminan tutor HSK 6
@@ -144,7 +144,7 @@ Masuk ke **Settings > Domains** di dashboard Vercel, masukkan domain, lalu tamba
 
 ---
 
-## 🚀 Menjalankan Secara Lokal
+## Menjalankan Secara Lokal
 
 ### 1. Website Frontend (Next.js)
 ```bash
@@ -165,7 +165,7 @@ Buka Sanity Studio di `http://localhost:3333`.
 
 ---
 
-## ⚙️ Konfigurasi Environment Variables
+##  Konfigurasi Environment Variables
 
 Salin `.env.example` menjadi `.env.local`:
 ```env
@@ -179,7 +179,7 @@ SANITY_WEBHOOK_SECRET=token_rahasia_webhook_anda
 
 ---
 
-## 🌐 Panduan Deploy ke GitHub & Vercel
+## Panduan Deploy ke GitHub & Vercel
 
 ### 1. Push ke GitHub
 ```bash
@@ -210,7 +210,7 @@ git push -u origin main
 
 ---
 
-## 🔄 Setup Webhook Sanity (Instant Revalidation)
+##  Setup Webhook Sanity (Instant Revalidation)
 
 1. Buka dashboard Sanity di [sanity.io/manage](https://sanity.io/manage).
 2. Pilih project Anda -> masuk ke tab **API** -> **Webhooks**.
