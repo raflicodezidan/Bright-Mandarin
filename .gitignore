@@ -37,7 +37,10 @@ yarn-error.log*
 
 # env files (do NOT commit secrets to GitHub)
 .env*
-!.env.example
+
+# internal AI agent config files (not for public repo)
+AGENTS.md
+CLAUDE.md
 
 # vercel
 .vercel
