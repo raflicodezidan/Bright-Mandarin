@@ -1,6 +1,128 @@
-# Bright Mandarin Education (亮华教育)
+# Bright Mandarin (亮华教育)
 
-Website profil modern untuk lembaga kursus bahasa Mandarin terkemuka **Bright Mandarin**, terinspirasi dari arsitektur dan penawaran [Panda Education](https://pandaedc.com/). Dibangun menggunakan **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, dan **Sanity CMS**.
+Website profil untuk lembaga kursus bahasa Mandarin **Bright Mandarin**. Dibangun dengan **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, dan **Sanity CMS** sebagai headless CMS.
+
+---
+
+## Halaman & Fitur
+
+**Landing Page (`/`)**
+- Hero section dengan CTA WhatsApp dan badge #BRIGHTMANDARIN
+- Section keunggulan dan alasan memilih Bright Mandarin
+- Tiga tipe pembelajaran: Kelas Online, Kelas Offline di Center, VIP Home Private 1-on-1
+- Preview program kelas unggulan
+- Profil dewan pengajar (Laoshi)
+- Empat cabang lokasi: MOI Kelapa Gading, Tanjung Duren, Pluit, Citra 2 Kalideres — dilengkapi tautan Google Maps dan nomor WhatsApp per cabang
+- Feed Instagram dan FAQ
+
+**Program (`/program`)**
+Katalog kelas Kids, Dewasa, HSK 1–6, Bisnis, dan Bimbingan Beasiswa ke Tiongkok.
+
+**Pengajar (`/pengajar`)**
+Direktori Laoshi bersertifikasi HSK 6 dari universitas di Tiongkok.
+
+**Blog (`/berita` & `/berita/[slug]`)**
+Artikel dan informasi seputar belajar bahasa Mandarin, dikelola via Sanity CMS dengan PortableText renderer.
+
+**Galeri (`/galeri`)**
+Dokumentasi foto kegiatan pembelajaran dan workshop kebudayaan Tionghoa.
+
+**Webhook ISR (`/api/revalidate`)**
+Revalidasi konten otomatis saat data diperbarui di Sanity CMS.
+
+---
+
+## Menjalankan Secara Lokal
+
+### Website (Next.js)
+
+```bash
+npm install
+npm run dev
+```
+
+Buka `http://localhost:3000`.
+
+### Sanity Studio (Panel Admin CMS)
+
+```bash
+cd studio
+npm install
+npm run dev
+```
+
+Buka `http://localhost:3333`.
+
+---
+
+## Environment Variables
+
+Buat file `.env.local` di root project dengan isi berikut:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=isi_project_id_sanity_anda
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-03-12
+SANITY_STUDIO_PROJECT_ID=isi_project_id_sanity_anda
+SANITY_STUDIO_DATASET=production
+SANITY_WEBHOOK_SECRET=token_rahasia_webhook_anda
+```
+
+---
+
+## Deploy
+
+### Push ke GitHub
+
+```bash
+git add .
+git commit -m "pesan commit"
+git push
+```
+
+File `.env.local` sudah dikecualikan via `.gitignore` dan tidak akan ikut ter-push.
+
+### Deploy ke Vercel
+
+1. Login ke [vercel.com](https://vercel.com) dengan akun GitHub.
+2. Klik **Add New > Project**, pilih repository ini.
+3. Tambahkan environment variables di bagian **Environment Variables**:
+   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
+   - `NEXT_PUBLIC_SANITY_DATASET`
+   - `NEXT_PUBLIC_SANITY_API_VERSION`
+   - `SANITY_WEBHOOK_SECRET`
+4. Klik **Deploy**.
+
+### Custom Domain
+
+Masuk ke **Settings > Domains** di dashboard Vercel, masukkan domain, lalu tambahkan DNS record sesuai instruksi yang ditampilkan. SSL aktif otomatis.
+
+---
+
+## Setup Webhook Sanity
+
+1. Buka [sanity.io/manage](https://sanity.io/manage), pilih project.
+2. Masuk ke tab **API > Webhooks**, klik **Create Webhook**.
+3. Isi konfigurasi:
+   - **Name**: `Vercel Revalidate`
+   - **URL**: `https://domain-vercel-anda.vercel.app/api/revalidate`
+   - **Dataset**: `production`
+   - **Trigger on**: Create, Update, Delete
+   - **Filter**: `_type in ["program", "pengajar", "berita", "galeri", "siteSettings"]`
+   - **Secret**: sama dengan nilai `SANITY_WEBHOOK_SECRET` di environment variables
+
+---
+
+## Tech Stack
+
+| Layer | Teknologi |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| CMS | Sanity v3 |
+| Deploy | Vercel |
+| Font | Google Fonts (Inter) |
 
 ---
 
