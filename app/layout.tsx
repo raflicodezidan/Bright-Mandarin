@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import PromoModal from './components/PromoModal';
 import { getPopupPromo, mockSiteSettings } from '@/lib/sanity';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -81,6 +82,7 @@ export default async function RootLayout({
           </div>
         </a>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
