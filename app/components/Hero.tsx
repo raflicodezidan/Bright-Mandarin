@@ -140,9 +140,13 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
 
               {/* Main Photo Container */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 transform hover:scale-[1.02] transition-transform duration-300">
-                <img
+                <Image
                   src={currentSettings.heroPhotoUrl || "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&auto=format&fit=crop&q=80"}
                   alt="Suasana Belajar Mandarin Interaktif di Bright Mandarin"
+                  width={600}
+                  height={420}
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
                   className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
@@ -177,6 +181,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     alt="Laoshi Min. HSK 6"
                     width={48}
                     height={48}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -194,6 +199,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     alt="Beasiswa Kuliah ke China"
                     width={48}
                     height={48}
+                    loading="lazy"
                     className="w-full h-full object-contain drop-shadow-sm"
                   />
                 </div>

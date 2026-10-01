@@ -50,6 +50,12 @@ export default async function RootLayout({
 
   return (
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+      </head>
       <body className="antialiased text-brand-charcoal bg-[#FFFBEB] selection:bg-orange-500 selection:text-white overflow-x-hidden w-full max-w-full">
         <Navbar />
         <main className="pt-[66px] sm:pt-[70px] overflow-x-hidden w-full max-w-full">{children}</main>
@@ -72,7 +78,7 @@ export default async function RootLayout({
               height={36}
               className="w-9 h-9 object-contain drop-shadow-sm group-hover:scale-110 transition-transform"
             />
-            <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping" />
+            <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping" style={{ willChange: 'transform, opacity' }} />
             <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full" />
           </div>
           <div className="flex flex-col text-left leading-tight pr-1">
