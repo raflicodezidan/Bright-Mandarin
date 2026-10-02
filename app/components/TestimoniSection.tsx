@@ -262,14 +262,14 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            TESTIMONI & ULASAN SISWA
+            {settings?.testimoniSectionTitle || 'TESTIMONI & ULASAN SISWA'}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin
+            {settings?.testimoniSectionSubtitle || 'Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-            Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.
+            {settings?.testimoniSectionDesc || 'Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.'}
           </p>
         </div>
 

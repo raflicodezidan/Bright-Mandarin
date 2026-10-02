@@ -294,13 +294,14 @@ function IconGuarantee() {
 }
 
 
-import { KeunggulanItem } from '@/lib/sanity';
+import { KeunggulanItem, SiteSettings } from '@/lib/sanity';
 
 interface FeatureWhyUsProps {
   keunggulan?: KeunggulanItem[];
+  settings?: SiteSettings;
 }
 
-export default function FeatureWhyUs({ keunggulan }: FeatureWhyUsProps) {
+export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps) {
   const defaultIcons = [IconHSK6, IconKidsAdults, IconStudyPlan, IconFreeReg, IconCustomLearning, IconGuarantee];
   const colorClasses = [
     'text-amber-600',
@@ -382,14 +383,14 @@ export default function FeatureWhyUs({ keunggulan }: FeatureWhyUsProps) {
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            MENGAPA MEMILIH BRIGHT MANDARIN?
+            {settings?.whyUsTitle || 'MENGAPA MEMILIH BRIGHT MANDARIN?'}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus
+            {settings?.whyUsSubtitle || 'Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-            Kurikulum akselerasi terbukti, materi interaktif yang menyenangkan, serta bimbingan intensif dari para Laoshi terbaik lulusan Tiongkok.
+            {settings?.whyUsDesc || 'Kurikulum akselerasi terbukti, materi interaktif yang menyenangkan, serta bimbingan intensif dari para Laoshi terbaik lulusan Tiongkok.'}
           </p>
         </div>
 

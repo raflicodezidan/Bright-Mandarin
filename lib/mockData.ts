@@ -116,12 +116,60 @@ export interface SiteSettings {
   linkedinUrl?: string;
   linkedinName?: string;
   cabang: CabangItem[];
+  // 3. Hero Section
+  heroBadgeText?: string;
   heroHeadlineMain?: string;
   heroHeadlineHighlight?: string;
   heroSubheadline?: string;
+  heroPrimaryCtaText?: string;
+  heroSecondaryCtaText?: string;
+  heroBgImageUrl?: string;
   heroPhotoUrl?: string;
+  heroCard1Number?: string;
+  heroCard1Text?: string;
+  heroCard2Number?: string;
+  heroCard2Text?: string;
+  heroCard3Number?: string;
+  heroCard3Text?: string;
+  // 4. Why Us
+  whyUsTitle?: string;
+  whyUsSubtitle?: string;
+  whyUsDesc?: string;
+  // 5. Learning Modes
+  learningModesTitle?: string;
+  learningModesSubtitle?: string;
+  learningModesDesc?: string;
+  // 6. Program Section
+  programSectionTitle?: string;
+  programSectionSubtitle?: string;
+  programSectionDesc?: string;
+  // 7. Pengajar Section
+  pengajarSectionTitle?: string;
+  pengajarSectionSubtitle?: string;
+  pengajarSectionDesc?: string;
+  // 8. Berita Section
+  beritaSectionTitle?: string;
+  beritaSectionSubtitle?: string;
+  beritaSectionDesc?: string;
+  // 9. Lokasi Center Section
+  lokasiSectionTitle?: string;
+  lokasiSectionSubtitle?: string;
+  lokasiSectionDesc?: string;
+  // 10. Social Section
+  socialSectionTitle?: string;
+  socialSectionSubtitle?: string;
+  socialSectionDesc?: string;
+  // 11. Testimoni Section
+  testimoniSectionTitle?: string;
+  testimoniSectionSubtitle?: string;
+  testimoniSectionDesc?: string;
+  // 12. CTA Banner
+  ctaBannerBadge?: string;
   ctaBannerTitle?: string;
   ctaBannerSubtitle?: string;
+  ctaBannerButtonWhatsapp?: string;
+  ctaBannerButtonProgram?: string;
+  ctaBannerBgImageUrl?: string;
 }
 
 export const mockSiteSettings: SiteSettings = {
@@ -143,11 +191,57 @@ export const mockSiteSettings: SiteSettings = {
   youtubeChannel: "Bright Mandarin Channel",
   linkedinUrl: "https://linkedin.com/company/bright-mandarin",
   linkedinName: "Bright Mandarin Education",
-  heroHeadlineMain: "Bicara Mandarin Lancar & Raih",
-  heroHeadlineHighlight: "Beasiswa ke Tiongkok",
+  // Hero
+  heroBadgeText: "Kursus Mandarin Paling Seru & Terbukti!",
+  heroHeadlineMain: "Kursus Mandarin No. 1 di Kelapa Gading",
+  heroHeadlineHighlight: "Kuasai Mandarin, Buka Peluang ke Tiongkok!",
   heroSubheadline: "Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi ceria bersertifikasi HSK 6 dari universitas top Tiongkok!",
+  heroPrimaryCtaText: "Daftar Sekarang",
+  heroSecondaryCtaText: "Lihat Program Kelas",
+  heroCard1Number: "5.000+",
+  heroCard1Text: "Alumni Puas & Fasih",
+  heroCard2Number: "98.7%",
+  heroCard2Text: "Kelulusan Ujian HSK",
+  heroCard3Number: "100%",
+  heroCard3Text: "Laoshi Lulusan China",
+  // Why Us
+  whyUsTitle: "MENGAPA MEMILIH BRIGHT MANDARIN?",
+  whyUsSubtitle: "Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus",
+  whyUsDesc: "Kurikulum akselerasi terbukti, materi interaktif yang menyenangkan, serta bimbingan intensif dari para Laoshi terbaik lulusan Tiongkok.",
+  // Learning Modes
+  learningModesTitle: "PILIHAN METODE BELAJAR",
+  learningModesSubtitle: "Pilihan Format Belajar Online, Offline Center, & Home Private",
+  learningModesDesc: "Mulai dari kelas tatap muka interaktif di Learning Center Kelapa Gading, kelas daring live dari rumah, hingga guru privat eksklusif.",
+  // Program Section
+  programSectionTitle: "PROGRAM KURSUS UNGGULAN",
+  programSectionSubtitle: "Pilihan Program Kursus Mandarin Favorit & Terstruktur",
+  programSectionDesc: "Kurikulum terstruktur mulai dari anak-anak hingga persiapan profesional dan beasiswa universitas di China.",
+  // Pengajar Section
+  pengajarSectionTitle: "DEWAN PENGAJAR PROFESIONAL",
+  pengajarSectionSubtitle: "Dibimbing Langsung oleh Laoshi Tersertifikasi Min. HSK 6",
+  pengajarSectionDesc: "Lulusan universitas top Tiongkok dengan keahlian pedagogi ramah murid, dedikasi tinggi, dan metode yang komunikatif.",
+  // Berita Section
+  beritaSectionTitle: "BLOG BRIGHT MANDARIN",
+  beritaSectionSubtitle: "Tips Belajar & Info Beasiswa Kuliah ke Tiongkok",
+  beritaSectionDesc: "Wawasan praktis seputar tata bahasa Mandarin, persiapan ujian HSK, dan kisah sukses para alumni.",
+  // Lokasi Center Section
+  lokasiSectionTitle: "LOKASI LEARNING CENTER",
+  lokasiSectionSubtitle: "Kunjungi Kantor & Ruang Kelas Resmi Bright Mandarin",
+  lokasiSectionDesc: "Pusat bimbingan belajar bahasa Mandarin modern di Kelapa Gading, Jakarta Utara dengan fasilitas ruang kelas ber-AC, smart multimedia, dan konsultasi gratis.",
+  // Social Section
+  socialSectionTitle: "MEDIA SOSIAL KAMI",
+  socialSectionSubtitle: "Ikuti Keseharian, Tips Edukasi, & Aktivitas Seru di Instagram",
+  socialSectionDesc: "Pantau tips praktis bahasa Mandarin harian, info beasiswa Tiongkok terbaru, dan keceriaan suasana kelas kami setiap hari.",
+  // Testimoni Section
+  testimoniSectionTitle: "TESTIMONI & ULASAN SISWA",
+  testimoniSectionSubtitle: "Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin",
+  testimoniSectionDesc: "Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.",
+  // CTA Banner
+  ctaBannerBadge: "Bersama Bright Mandarin!",
   ctaBannerTitle: "Yuk, Mulai Petualangan Baru! Belajar Mandarin Seru & Pasti Lulus!",
   ctaBannerSubtitle: "Daftarkan diri Anda atau putra-putri tercinta sekarang juga. Dapatkan FREE Placement Test dan konsultasi kurikulum langsung bersama Laoshi.",
+  ctaBannerButtonWhatsapp: "Daftar via WhatsApp Sekarang",
+  ctaBannerButtonProgram: "Eksplorasi Program Kelas",
   cabang: [
     {
       nama: "Bright Mandarin Learning Center",

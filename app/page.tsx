@@ -31,24 +31,24 @@ export default async function HomePage() {
       <Hero settings={siteSettings} />
 
       {/* 2. Mengapa Memilih Bright Mandarin */}
-      <FeatureWhyUs keunggulan={allKeunggulan} />
+      <FeatureWhyUs keunggulan={allKeunggulan} settings={siteSettings} />
 
       {/* 3. Tipe Pembelajaran (Online, Offline, Home Private) */}
-      <LearningModes />
+      <LearningModes settings={siteSettings} />
 
       {/* 4. Preview Program Unggulan (Background: Kuning-Oranye Hangat) */}
       <section className="py-20 bg-amber-100/60 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              PROGRAM KURSUS UNGGULAN
+              {siteSettings.programSectionTitle || 'PROGRAM KURSUS UNGGULAN'}
             </h2>
             <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              Pilihan Program Kursus Mandarin Favorit & Terstruktur
+              {siteSettings.programSectionSubtitle || 'Pilihan Program Kursus Mandarin Favorit & Terstruktur'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
             <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              Kurikulum terstruktur mulai dari anak-anak hingga persiapan profesional dan beasiswa universitas di China.
+              {siteSettings.programSectionDesc || 'Kurikulum terstruktur mulai dari anak-anak hingga persiapan profesional dan beasiswa universitas di China.'}
             </p>
             <div>
               <Link
@@ -70,14 +70,14 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              DEWAN PENGAJAR PROFESIONAL
+              {siteSettings.pengajarSectionTitle || 'DEWAN PENGAJAR PROFESIONAL'}
             </h2>
             <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              Dibimbing Langsung oleh Laoshi Tersertifikasi Min. HSK 6
+              {siteSettings.pengajarSectionSubtitle || 'Dibimbing Langsung oleh Laoshi Tersertifikasi Min. HSK 6'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
             <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              Lulusan universitas top Tiongkok dengan keahlian pedagogi ramah murid, dedikasi tinggi, dan metode yang komunikatif.
+              {siteSettings.pengajarSectionDesc || 'Lulusan universitas top Tiongkok dengan keahlian pedagogi ramah murid, dedikasi tinggi, dan metode yang komunikatif.'}
             </p>
             <div>
               <Link
@@ -99,14 +99,14 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              BLOG BRIGHT MANDARIN
+              {siteSettings.beritaSectionTitle || 'BLOG BRIGHT MANDARIN'}
             </h2>
             <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              Tips Belajar & Info Beasiswa Kuliah ke Tiongkok
+              {siteSettings.beritaSectionSubtitle || 'Tips Belajar & Info Beasiswa Kuliah ke Tiongkok'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
             <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              Wawasan praktis seputar tata bahasa Mandarin, persiapan ujian HSK, dan kisah sukses para alumni.
+              {siteSettings.beritaSectionDesc || 'Wawasan praktis seputar tata bahasa Mandarin, persiapan ujian HSK, dan kisah sukses para alumni.'}
             </p>
             <div>
               <Link
@@ -127,19 +127,34 @@ export default async function HomePage() {
       <BranchLocations settings={siteSettings} />
 
       {/* 8. Instagram Feed (Background: Putih) */}
-      <InstagramFeed />
+      <InstagramFeed settings={siteSettings} />
 
       {/* 9. Testimoni Siswa & Alumni (Background: Kuning-Oranye) */}
       <TestimoniSection testimoni={allTestimoni} settings={siteSettings} />
 
-      {/* 10. Call to Action Banner: Yuk, Mulai Petualangan Baru! */}
+      {/* 10. Call to Action Banner: Yuk, Mulai Petualangan Baru! (Dapat dicustom via Sanity) */}
       <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden border-t-2 border-amber-300">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:20px_20px]" />
+        {/* Custom Uploaded Background Image from Sanity or fallback pattern */}
+        {siteSettings.ctaBannerBgImageUrl ? (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={siteSettings.ctaBannerBgImageUrl}
+              alt="CTA Background"
+              fill
+              sizes="100vw"
+              className="object-cover object-center select-none pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-950/40 via-transparent to-orange-950/25 pointer-events-none" />
+          </div>
+        ) : (
+          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:20px_20px]" />
+        )}
+
         <div className="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10">
           <div className="flex justify-center px-2">
             <span className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold tracking-wide bg-white text-slate-800 px-4 sm:px-5 py-2 sm:py-1.5 rounded-2xl sm:rounded-full shadow-xs border border-white/80 max-w-full text-center">
               <span className="text-orange-600 font-extrabold">#BRIGHTMANDARIN</span>
-              <span className="text-slate-700">Bersama Bright Mandarin!</span>
+              <span className="text-slate-700">{siteSettings.ctaBannerBadge || 'Bersama Bright Mandarin!'}</span>
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight drop-shadow-md">
@@ -164,14 +179,14 @@ export default async function HomePage() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span>Daftar via WhatsApp Sekarang</span>
+              <span>{siteSettings.ctaBannerButtonWhatsapp || 'Daftar via WhatsApp Sekarang'}</span>
             </a>
 
             <Link
               href="/program"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-600/30 hover:bg-amber-600/50 backdrop-blur-xs border-2 border-white/80 text-white font-black text-base px-8 py-4 rounded-full transition-all hover:scale-105"
             >
-              <span>Eksplorasi Program Kelas</span>
+              <span>{siteSettings.ctaBannerButtonProgram || 'Eksplorasi Program Kelas'}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

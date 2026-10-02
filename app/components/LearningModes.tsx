@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
-import { mockSiteSettings } from '@/lib/mockData';
+import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 // ===============================================
 // PINTEREST / DRIBBBLE 3D ILLUSTRATED ICONS
@@ -101,7 +101,8 @@ function IconVipPrivateMode() {
   );
 }
 
-export default function LearningModes() {
+export default function LearningModes({ settings }: { settings?: SiteSettings }) {
+  const currentSettings = settings || mockSiteSettings;
   const modes = [
     {
       IconComponent: IconOnlineMode,
@@ -148,7 +149,7 @@ export default function LearningModes() {
         'Sangat direkomendasikan untuk anak-anak & eksekutif'
       ],
       ctaText: 'Konsultasi Home Private',
-      link: mockSiteSettings.whatsappUtama,
+      link: currentSettings.whatsappUtama || mockSiteSettings.whatsappUtama,
       isExternal: true,
     }
   ];
@@ -159,14 +160,14 @@ export default function LearningModes() {
         {/* Formal Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            PILIHAN METODE BELAJAR
+            {currentSettings.learningModesTitle || 'PILIHAN METODE BELAJAR'}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Pilihan Format Belajar Online, Offline Center, & Home Private
+            {currentSettings.learningModesSubtitle || 'Pilihan Format Belajar Online, Offline Center, & Home Private'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-            Mulai dari kelas tatap muka interaktif di Learning Center Kelapa Gading, kelas daring live dari rumah, hingga guru privat eksklusif.
+            {currentSettings.learningModesDesc || 'Mulai dari kelas tatap muka interaktif di Learning Center Kelapa Gading, kelas daring live dari rumah, hingga guru privat eksklusif.'}
           </p>
         </div>
 

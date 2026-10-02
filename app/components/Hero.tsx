@@ -7,206 +7,236 @@ import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
   return (
-    <section className="relative overflow-hidden w-full max-w-full bg-gradient-to-br from-amber-400 via-yellow-300 to-orange-400 pt-10 pb-20 lg:pt-16 lg:pb-28 border-b-4 border-amber-500/30">
-      {/* Playful Sunshine & Cloud Doodles in Background */}
-      <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-white/20 blur-2xl pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-orange-500/20 blur-3xl pointer-events-none" />
-      
-      {/* Decorative SVG Sunbeams & Sparkles */}
-      <div className="absolute top-8 left-12 text-white/30 hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor">
-          <circle cx="50" cy="50" r="20" fill="white" opacity="0.4" />
-          <line x1="50" y1="10" x2="50" y2="25" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-          <line x1="50" y1="75" x2="50" y2="90" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-          <line x1="10" y1="50" x2="25" y2="50" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-          <line x1="75" y1="50" x2="90" y2="50" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-          <line x1="22" y1="22" x2="33" y2="33" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-          <line x1="67" y1="67" x2="78" y2="78" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.5" />
-        </svg>
+    <section className="relative overflow-hidden w-full max-w-full bg-amber-400 pt-6 pb-12 lg:pt-8 lg:pb-14 border-b-4 border-amber-600/30">
+      {/* Traditional Chinese Hero Background Image (Customizable via Sanity) */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={currentSettings.heroBgImageUrl || "/hero-chinese-bg.png"}
+          alt="Bright Mandarin Oriental Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center select-none pointer-events-none"
+        />
+        {/* Soft atmospheric gradient overlay for balanced text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-300/20 via-transparent to-amber-400/15 pointer-events-none" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start lg:items-center">
           {/* Left Column: Headlines & CTAs (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            
+          <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 text-center lg:text-left">
+
             {/* Playful Responsive Pill Badge with Lively Motion */}
-            <div className="flex justify-center px-2">
-              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white text-slate-800 text-xs sm:text-sm font-black shadow-lg border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
+            <div className="flex justify-center lg:justify-start px-1">
+              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-white text-slate-800 text-xs sm:text-sm font-black shadow-md border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
                 <span className="text-orange-600 font-extrabold tracking-wide shrink-0">#BRIGHTMANDARIN</span>
-                <span className="text-sky-600 font-bold leading-tight">Kursus Mandarin Paling Seru & Terbukti!</span>
+                <span className="text-sky-600 font-bold leading-tight">{currentSettings.heroBadgeText || 'Kursus Mandarin Paling Seru & Terbukti!'}</span>
               </div>
             </div>
 
-            {/* Main Headline with Fun Sunray & Color Pop */}
-            <div className="relative">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight drop-shadow-xs">
-                {currentSettings.heroHeadlineMain || 'Bicara Mandarin Lancar & Raih'}{' '}
-                <span className="inline-block relative">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-600 to-amber-700">
-                    {currentSettings.heroHeadlineHighlight || 'Beasiswa ke Tiongkok'}
-                  </span>
-                  {/* Playful underline squiggle */}
-                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-red-500/80" viewBox="0 0 200 12" fill="none">
-                    <path d="M2 7C40 2 80 12 120 5C150 1 180 8 198 6" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                  </svg>
-                </span>
+            {/* Main Headline with Hierarchy & Color Pop */}
+            <div className="space-y-2">
+              {/* Primary Title (Enlarged, Bold Navy) */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[3.15rem] font-black text-slate-900 tracking-tight leading-[1.12] drop-shadow-xs">
+                {currentSettings.heroHeadlineMain === 'Bicara Mandarin Lancar & Raih' ? (
+                  <>
+                    Kursus Mandarin No. 1<br />
+                    di Kelapa Gading
+                  </>
+                ) : currentSettings.heroHeadlineMain?.includes('Kelapa Gading') ? (
+                  <>
+                    {currentSettings.heroHeadlineMain.replace(/\s*di\s*Kelapa\s*Gading/i, '')}<br />
+                    di Kelapa Gading
+                  </>
+                ) : currentSettings.heroHeadlineMain ? (
+                  currentSettings.heroHeadlineMain
+                ) : (
+                  <>
+                    Kursus Mandarin No. 1<br />
+                    di Kelapa Gading
+                  </>
+                )}
               </h1>
+
+              {/* Secondary Highlight Sub-title (Smaller, Vibrant Red with Squiggle Underline) */}
+              <div className="text-xl sm:text-2xl lg:text-[1.85rem] font-black text-red-600 tracking-tight leading-tight">
+                {currentSettings.heroHeadlineHighlight && currentSettings.heroHeadlineHighlight !== 'Beasiswa ke Tiongkok' ? (
+                  currentSettings.heroHeadlineHighlight.includes('Tiongkok') ? (
+                    <>
+                      {currentSettings.heroHeadlineHighlight.includes(',') ? (
+                        <>
+                          {currentSettings.heroHeadlineHighlight.split(',')[0]},<br />
+                          {currentSettings.heroHeadlineHighlight.split(',')[1]?.replace(/Tiongkok!?/i, '').trim()}{' '}
+                        </>
+                      ) : (
+                        <>
+                          {currentSettings.heroHeadlineHighlight.replace(/Tiongkok!?/i, '').trim()}{' '}
+                        </>
+                      )}
+                      <span className="relative inline-block">
+                        Tiongkok!
+                        <svg
+                          className="absolute -bottom-1.5 left-0 w-full h-3 text-red-500"
+                          viewBox="0 0 100 12"
+                          preserveAspectRatio="none"
+                          fill="none"
+                        >
+                          <path
+                            d="M2 7C30 2 65 10 98 4"
+                            stroke="currentColor"
+                            strokeWidth="3.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </span>
+                    </>
+                  ) : (
+                    currentSettings.heroHeadlineHighlight
+                  )
+                ) : (
+                  <>
+                    Kuasai Mandarin,<br />
+                    Buka Peluang ke{' '}
+                    <span className="relative inline-block">
+                      Tiongkok!
+                      <svg
+                        className="absolute -bottom-1.5 left-0 w-full h-3 text-red-500"
+                        viewBox="0 0 100 12"
+                        preserveAspectRatio="none"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 7C30 2 65 10 98 4"
+                          stroke="currentColor"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
 
             {/* Sub-headline */}
-            <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 bg-white/40 backdrop-blur-xs p-4 rounded-2xl border border-white/60 shadow-xs">
+            <p className="text-xs sm:text-sm lg:text-[15px] text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 bg-white/40 backdrop-blur-xs p-3 sm:p-3.5 rounded-xl border border-white/60 shadow-xs">
               {currentSettings.heroSubheadline || 'Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi ceria bersertifikasi HSK 6 dari universitas top Tiongkok!'}
             </p>
 
             {/* Key Value Points in Cute Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 max-w-xl mx-auto lg:mx-0 text-left">
-              <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-xs px-3.5 py-2.5 rounded-xl border border-white shadow-xs text-sm text-slate-800 font-bold">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 pt-0.5 max-w-xl mx-auto lg:mx-0 text-left">
+              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Seluruh Laoshi Min. HSK 6</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-xs px-3.5 py-2.5 rounded-xl border border-white shadow-xs text-sm text-slate-800 font-bold">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>FREE Jasa Pendaftaran Ujian HSK</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-xs px-3.5 py-2.5 rounded-xl border border-white shadow-xs text-sm text-slate-800 font-bold">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Kelas Online, Offline & Private</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-xs px-3.5 py-2.5 rounded-xl border border-white shadow-xs text-sm text-slate-800 font-bold">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Garansi Lulus & Mengulang Gratis</span>
               </div>
             </div>
 
             {/* Call to Actions */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-1 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
               <a
                 href={currentSettings.whatsappUtama || mockSiteSettings.whatsappUtama}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-sm sm:text-base font-black px-5 sm:px-7 py-3.5 sm:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:translate-y-0 border-2 border-white/80 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black text-sm sm:text-base px-7 py-3 sm:py-3.5 rounded-full shadow-lg shadow-red-600/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group border-2 border-red-500/60"
               >
-                <div className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-transform">
-                  <Image
-                    src="/whatsapp-logo.png"
-                    alt="WhatsApp"
-                    width={22}
-                    height={22}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className="whitespace-nowrap">Konsultasi & Placement Test Gratis</span>
+                <span className="whitespace-nowrap">{currentSettings.heroPrimaryCtaText || 'Daftar Sekarang'}</span>
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
               </a>
 
               <Link
                 href="/program"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-amber-50 text-slate-900 border-2 border-white font-black text-base px-6 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 border-2 sm:border-[2.5px] border-black font-black text-sm sm:text-base px-6 py-3 sm:py-3.5 rounded-full shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
               >
-                <span>Lihat Program Kelas</span>
-                <ArrowRight className="w-4 h-4 text-sky-600" />
+                <span>{currentSettings.heroSecondaryCtaText || 'Lihat Program Kelas'}</span>
+                <ArrowRight className="w-4 h-4 text-slate-900 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
             {/* Social Proof Numbers in Cute Cards */}
-            <div className="pt-4 grid grid-cols-3 gap-3 text-center">
-              <div className="bg-white/70 backdrop-blur-xs p-3 rounded-2xl border border-white/80 shadow-xs">
-                <p className="text-2xl sm:text-3xl font-black text-rose-600">5.000+</p>
-                <p className="text-[11px] sm:text-xs text-slate-700 font-bold">Alumni Lulus</p>
+            <div className="pt-1.5 sm:pt-2 grid grid-cols-3 gap-2 sm:gap-2.5 text-center max-w-lg mx-auto lg:mx-0">
+              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
+                <p className="text-xl sm:text-2xl font-black text-rose-600">{currentSettings.heroCard1Number || '5.000+'}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard1Text || 'Alumni Lulus'}</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-xs p-3 rounded-2xl border border-white/80 shadow-xs">
-                <p className="text-2xl sm:text-3xl font-black text-amber-700">98.4%</p>
-                <p className="text-[11px] sm:text-xs text-slate-700 font-bold">Lulus HSK 1-6</p>
+              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
+                <p className="text-xl sm:text-2xl font-black text-amber-700">{currentSettings.heroCard2Number || '98.4%'}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard2Text || 'Lulus HSK 1-6'}</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-xs p-3 rounded-2xl border border-white/80 shadow-xs">
-                <p className="text-2xl sm:text-3xl font-black text-sky-700">100%</p>
-                <p className="text-[11px] sm:text-xs text-slate-700 font-bold">Tutor HSK 6</p>
+              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
+                <p className="text-xl sm:text-2xl font-black text-sky-700">{currentSettings.heroCard3Number || '100%'}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard3Text || 'Tutor HSK 6'}</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Photo Showcase with Playful Badges (5 cols) */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Visual Photo Showcase with Asymmetrical Curved Corners (5 cols) */}
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Floating "Well done" Sticker */}
-              <div className="absolute -top-6 right-2 sm:-right-3 z-30 bg-gradient-to-tr from-amber-400 to-yellow-300 border-3 border-white rounded-2xl px-3.5 py-1.5 shadow-xl rotate-12 flex items-center gap-1.5">
-                <Star className="w-5 h-5 text-amber-700 fill-amber-500" />
-                <div className="leading-tight">
-                  <p className="text-[9px] font-black text-amber-950 uppercase">WELL</p>
-                  <p className="text-[11px] font-black text-orange-600 uppercase tracking-wide">DONE!</p>
+
+              {/* Floating Top Badge: Laoshi Bersertifikasi HSK 6 */}
+              <div className="absolute -top-5 sm:-top-7 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-xs rounded-full py-2 px-4 sm:px-5 shadow-xl border-2 border-white flex items-center gap-3">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                </div>
+                <div className="leading-tight text-left">
+                  <p className="text-[11px] sm:text-xs font-bold text-blue-600">Laoshi Bersertifikasi</p>
+                  <p className="text-base sm:text-lg font-black text-blue-600 tracking-tight">HSK 6</p>
                 </div>
               </div>
 
-              {/* Main Photo Container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 transform hover:scale-[1.02] transition-transform duration-300">
-                <Image
-                  src={currentSettings.heroPhotoUrl || "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&auto=format&fit=crop&q=80"}
-                  alt="Suasana Belajar Mandarin Interaktif di Bright Mandarin"
-                  width={600}
-                  height={420}
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                  className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-
-                {/* Photo Top Badge */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className="px-3 py-1 bg-white/95 backdrop-blur-xs text-orange-600 text-xs font-black rounded-full shadow-md flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-orange-600 animate-pulse" />
-                    <span>#BisaMandarin</span>
-                  </span>
-                </div>
-
-                {/* Photo Bottom Caption */}
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                  <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-black rounded-lg shadow-xs">
-                    Kelas Interaktif & Menyenangkan
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-black leading-snug drop-shadow-md">
-                    "Dari Nol Dasar hingga Percakapan Percaya Diri dalam Hitungan Bulan!"
-                  </h3>
-                  <p className="text-xs text-amber-200 font-bold">
-                    Bright Mandarin (明辉补习班) - Metode Cepat & Menyenangkan
-                  </p>
-                </div>
-              </div>
-
-              {/* Floating Badge 1: HSK Top Tier */}
-              <div className="absolute -top-5 left-2 sm:-left-5 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 animate-float hover:scale-105 transition-all">
-                <div className="w-12 h-12 rounded-xl overflow-hidden shadow-xs shrink-0 border border-purple-200/80 flex items-center justify-center bg-purple-600">
+              {/* Main Photo Container with Asymmetrical Curved Corners and Thick White Border */}
+              <div className="relative overflow-hidden border-[6px] sm:border-[8px] border-white shadow-2xl bg-white rounded-tl-[65px] sm:rounded-tl-[85px] lg:rounded-tl-[95px] rounded-tr-[30px] sm:rounded-tr-[40px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-br-[65px] sm:rounded-br-[85px] lg:rounded-br-[95px]">
+                <div className="relative w-full h-[330px] sm:h-[370px] lg:h-[390px]">
                   <Image
-                    src="/icon-jaminan-kualitas-hsk6.png"
-                    alt="Laoshi Min. HSK 6"
-                    width={48}
-                    height={48}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
+                    src={currentSettings.heroPhotoUrl || "/hero-classroom.jpg"}
+                    alt="Suasana Belajar Mandarin Interaktif di Bright Mandarin"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
-                </div>
-                <div>
-                  <p className="text-[11px] text-amber-700 font-bold">Standar Kualitas</p>
-                  <p className="text-xs sm:text-sm font-black text-slate-900">Laoshi Min. HSK 6</p>
+
+                  {/* Chinese Calligraphy Doodle Overlay inside Photo: 你好 Nǐ hǎo */}
+                  <div className="absolute top-5 right-5 z-10 select-none pointer-events-none drop-shadow-sm bg-white/45 backdrop-blur-xs rounded-2xl px-3 py-1.5 border border-white/60">
+                    <div className="flex items-center gap-2">
+                      <div className="text-center font-bold text-slate-800">
+                        <div className="text-2xl sm:text-3xl font-extrabold tracking-wider leading-none">
+                          你好
+                        </div>
+                        <div className="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">
+                          Nǐ hǎo
+                        </div>
+                      </div>
+                      {/* Sunburst Accent doodle rays */}
+                      <div className="flex flex-col gap-1 text-amber-500">
+                        <span className="w-3.5 h-1 bg-amber-400 rounded-full rotate-[20deg]" />
+                        <span className="w-4 h-1 bg-amber-400 rounded-full rotate-[5deg]" />
+                        <span className="w-3.5 h-1 bg-amber-400 rounded-full -rotate-[15deg]" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Floating Badge 2: Beasiswa Tiongkok */}
-              <div className="absolute -bottom-5 right-2 sm:-right-3 z-20 bg-white/95 backdrop-blur-xs rounded-2xl p-3 shadow-xl border-2 border-amber-200 flex items-center gap-3 hover:scale-105 transition-all">
-                <div className="w-12 h-12 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/icon-scholarship.png"
-                    alt="Beasiswa Kuliah ke China"
-                    width={48}
-                    height={48}
-                    loading="lazy"
-                    className="w-full h-full object-contain drop-shadow-sm"
-                  />
-                </div>
-                <div>
-                  <p className="text-[11px] text-rose-600 font-bold">Peluang Masa Depan</p>
-                  <p className="text-xs sm:text-sm font-black text-slate-900">Beasiswa Kuliah ke China</p>
-                </div>
+              {/* Floating Bottom Badge: Kelas Interaktif & Menyenangkan */}
+              <div className="absolute -bottom-4 sm:-bottom-5 -right-2 sm:right-2 z-20 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 border-2 sm:border-3 border-white rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-xl flex items-center gap-2.5 -rotate-2 hover:rotate-0 transition-transform">
+                <Star className="w-5 h-5 text-slate-900 fill-slate-900 shrink-0" />
+                <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight whitespace-nowrap">
+                  Kelas Interaktif & Menyenangkan
+                </span>
               </div>
 
             </div>

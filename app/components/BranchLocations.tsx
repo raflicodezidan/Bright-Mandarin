@@ -31,14 +31,14 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
         {/* Formal Header Hierarchy */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            LOKASI LEARNING CENTER
+            {currentSettings.lokasiSectionTitle || 'LOKASI LEARNING CENTER'}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Kunjungi Kantor & Ruang Kelas Resmi Bright Mandarin
+            {currentSettings.lokasiSectionSubtitle || 'Kunjungi Kantor & Ruang Kelas Resmi Bright Mandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-            Pusat bimbingan belajar bahasa Mandarin modern di Kelapa Gading, Jakarta Utara dengan fasilitas ruang kelas ber-AC, smart multimedia, dan konsultasi gratis.
+            {currentSettings.lokasiSectionDesc || 'Pusat bimbingan belajar bahasa Mandarin modern di Kelapa Gading, Jakarta Utara dengan fasilitas ruang kelas ber-AC, smart multimedia, dan konsultasi gratis.'}
           </p>
         </div>
 

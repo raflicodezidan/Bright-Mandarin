@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Heart, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
-import { mockSiteSettings } from '@/lib/mockData';
+import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -24,9 +24,11 @@ function InstagramIcon({ className }: { className?: string }) {
 
 interface InstagramFeedProps {
   widgetEmbedHtml?: string;
+  settings?: SiteSettings;
 }
 
-export default function InstagramFeed({ widgetEmbedHtml }: InstagramFeedProps) {
+export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFeedProps) {
+  const currentSettings = settings || mockSiteSettings;
   const samplePosts = [
     {
       img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&auto=format&fit=crop&q=80',
@@ -147,24 +149,24 @@ export default function InstagramFeed({ widgetEmbedHtml }: InstagramFeedProps) {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            MEDIA SOSIAL & EDUKASI
+            {currentSettings.socialSectionTitle || 'MEDIA SOSIAL KAMI'}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin
+            {currentSettings.socialSectionSubtitle || 'Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-            Dapatkan edukasi kosakata harian, tips lolos ujian HSK, serta update peluang beasiswa kuliah ke China.
+            {currentSettings.socialSectionDesc || 'Dapatkan edukasi kosakata harian, tips lolos ujian HSK, serta update peluang beasiswa kuliah ke China.'}
           </p>
           <div>
             <a
-              href={mockSiteSettings.instagramUrl}
+              href={currentSettings.instagramUrl || mockSiteSettings.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
             >
               <InstagramIcon className="w-4 h-4" />
-              <span>Follow @brightmandarin</span>
+              <span>Follow {currentSettings.instagramHandle || '@brightmandarin'}</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-80" />
             </a>
           </div>
@@ -250,11 +252,10 @@ export default function InstagramFeed({ widgetEmbedHtml }: InstagramFeedProps) {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentIndex
-                    ? 'w-8 bg-orange-600'
-                    : 'w-2 bg-amber-300 hover:bg-amber-400'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
+                  ? 'w-8 bg-orange-600'
+                  : 'w-2 bg-amber-300 hover:bg-amber-400'
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}

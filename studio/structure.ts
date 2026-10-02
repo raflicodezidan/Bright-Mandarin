@@ -2,15 +2,15 @@ export const myStructure = (S: any) =>
   S.list()
     .title('Konten Bright Mandarin')
     .items([
-      // 1. Singleton untuk Pengaturan Situs & Kontak
+      // 1. Singleton untuk Pengaturan Teks & Konten Seluruh Website
       S.listItem()
-        .title('Pengaturan Situs, Kontak & Hero')
+        .title('Pengaturan Teks Website & Beranda')
         .id('siteSettings')
         .child(
           S.document()
             .schemaType('siteSettings')
             .documentId('siteSettings')
-            .title('Pengaturan Situs')
+            .title('Pengaturan Teks & Konten Seluruh Website')
         ),
 
       // 2. Singleton untuk Poster Iklan Popup Promo
