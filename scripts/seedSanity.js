@@ -209,7 +209,8 @@ async function runSeed() {
 
   for (const prog of programsData) {
     const imgAsset = await uploadImageFromUrl(prog.imgUrl, `${prog.slug.current}.jpg`);
-    await client.create({
+    await client.createOrReplace({
+      _id: `program-${prog.urutan}`,
       _type: 'program',
       judul: prog.judul,
       slug: prog.slug,
@@ -269,7 +270,8 @@ async function runSeed() {
 
   for (const p of pengajarData) {
     const imgAsset = await uploadImageFromUrl(p.imgUrl, `${p.nama.replace(/[^a-z0-9]/gi, '_')}.jpg`);
-    await client.create({
+    await client.createOrReplace({
+      _id: `pengajar-${p.urutan}`,
       _type: 'pengajar',
       nama: p.nama,
       gelar: p.gelar,
@@ -324,7 +326,8 @@ async function runSeed() {
   ];
 
   for (const k of keunggulanData) {
-    await client.create({
+    await client.createOrReplace({
+      _id: `keunggulan-${k.urutan}`,
       _type: 'keunggulan',
       title: k.title,
       badge: k.badge,
@@ -377,7 +380,8 @@ async function runSeed() {
 
   for (const t of testimoniData) {
     const imgAsset = await uploadImageFromUrl(t.imgUrl, `${t.nama.replace(/[^a-z0-9]/gi, '_')}.jpg`);
-    await client.create({
+    await client.createOrReplace({
+      _id: `testimoni-${t.urutan}`,
       _type: 'testimoni',
       nama: t.nama,
       peran: t.peran,
@@ -419,9 +423,11 @@ async function runSeed() {
     },
   ];
 
+  let bIdx = 1;
   for (const b of beritaData) {
     const imgAsset = await uploadImageFromUrl(b.imgUrl, `${b.slug.current}.jpg`);
-    await client.create({
+    await client.createOrReplace({
+      _id: `berita-${bIdx++}`,
       _type: 'berita',
       judul: b.judul,
       slug: b.slug,
@@ -452,9 +458,11 @@ async function runSeed() {
     },
   ];
 
+  let gIdx = 1;
   for (const g of galeriData) {
     const imgAsset = await uploadImageFromUrl(g.imgUrl, 'galeri-sample.jpg');
-    await client.create({
+    await client.createOrReplace({
+      _id: `galeri-${gIdx++}`,
       _type: 'galeri',
       judul: g.judul,
       tanggal: g.tanggal,
