@@ -2,13 +2,9 @@
 
 import React, { useState, useMemo, useRef } from 'react';
 import { 
-  Video, 
-  Image as ImageIcon, 
   X, 
   ChevronLeft, 
-  ChevronRight, 
-  MessageCircle,
-  Play
+  ChevronRight 
 } from 'lucide-react';
 import { GaleriItem } from '@/lib/mockData';
 
@@ -84,9 +80,11 @@ function KegiatanInstagramCard({
 
   const totalSlides = mediaList.length;
 
-  // Compute adaptive ratio for current active slide
-  const activeRatio = aspectRatios[currentSlide] || 16 / 9;
-  const clampedRatio = Math.max(0.65, Math.min(2.1, activeRatio));
+  // Compute adaptive ratio for current active slide (default to portrait 9:16 for video, 16:9 for image)
+  const isCurrentVideo = mediaList[currentSlide]?.type === 'video';
+  const defaultRatio = isCurrentVideo ? 9 / 16 : 16 / 9;
+  const activeRatio = aspectRatios[currentSlide] || defaultRatio;
+  const clampedRatio = Math.max(0.55, Math.min(2.1, activeRatio));
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -117,7 +115,7 @@ function KegiatanInstagramCard({
     <article className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200/90 shadow-lg hover:shadow-2xl transition-all duration-300">
       {/* 1. MEDIA SECTION: Adaptif Mengikuti Ukuran Asli Video atau Gambar */}
       <div 
-        className="relative w-full bg-slate-950 overflow-hidden group/media select-none transition-[aspect-ratio] duration-500 ease-in-out flex items-center justify-center max-h-[640px]"
+        className="relative w-full bg-[#18110c] overflow-hidden group/media select-none transition-[aspect-ratio] duration-500 ease-in-out flex items-center justify-center max-h-[640px]"
         style={{ aspectRatio: `${clampedRatio}` }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -128,13 +126,39 @@ function KegiatanInstagramCard({
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {mediaList.map((media, idx) => (
-            <div key={idx} className="relative w-full h-full shrink-0 flex items-center justify-center bg-slate-950">
+            <div key={idx} className="relative w-full h-full shrink-0 flex items-center justify-center overflow-hidden bg-[#18110c]">
+              {/* Ambient Background to Fill Empty Space (Menutup Blank Hitam) */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+                {media.type === 'video' ? (
+                  media.poster ? (
+                    <img
+                      src={media.poster}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover blur-3xl scale-150 opacity-60 brightness-95 saturate-125"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-amber-600/35 via-orange-600/25 to-stone-900" />
+                  )
+                ) : (
+                  <img
+                    src={media.url}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover blur-3xl scale-150 opacity-60 brightness-95 saturate-125"
+                  />
+                )}
+                {/* Soft warm glass overlay for seamless integration */}
+                <div className="absolute inset-0 bg-stone-950/25 backdrop-blur-xl" />
+              </div>
+
+              {/* Foreground Media */}
               {media.type === 'video' ? (
                 isYouTubeUrl(media.url) ? (
                   <iframe
                     src={getYouTubeEmbedUrl(media.url)}
                     title={item.judul}
-                    className="w-full h-full border-0"
+                    className="relative z-10 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
@@ -144,7 +168,7 @@ function KegiatanInstagramCard({
                     controls
                     playsInline
                     poster={media.poster}
-                    className="w-full h-full object-contain bg-black"
+                    className="relative z-10 w-full h-full object-contain"
                     onLoadedMetadata={(e) => {
                       const vid = e.currentTarget;
                       if (vid.videoWidth && vid.videoHeight) {
@@ -160,7 +184,7 @@ function KegiatanInstagramCard({
                 )
               ) : (
                 <div 
-                  className="w-full h-full cursor-pointer relative flex items-center justify-center bg-slate-950"
+                  className="relative z-10 w-full h-full cursor-pointer flex items-center justify-center"
                   onClick={() => {
                     const photosOnly = item.foto || [];
                     const photoIdx = photosOnly.findIndex((p) => p.url === media.url);
@@ -202,21 +226,6 @@ function KegiatanInstagramCard({
             </span>
           </div>
         )}
-
-        {/* Media Type Badge (Kiri Atas) */}
-        <div className="absolute top-4 left-4 z-20 pointer-events-none flex items-center gap-1.5">
-          {mediaList[currentSlide]?.type === 'video' ? (
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-red-600 text-white shadow-md">
-              <Video className="w-3.5 h-3.5" />
-              <span>Video</span>
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md shadow-md">
-              <ImageIcon className="w-3.5 h-3.5 text-amber-400" />
-              <span>Foto</span>
-            </span>
-          )}
-        </div>
 
         {/* Navigasi Panah Kiri (Scroll Kiri) */}
         {totalSlides > 1 && currentSlide > 0 && (
