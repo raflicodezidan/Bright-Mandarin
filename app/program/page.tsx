@@ -112,14 +112,14 @@ export default async function ProgramPage() {
                   </div>
                 </div>
 
-                {/* Card Footer: Price & CTA Button */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3 mt-4">
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold leading-tight">
+                {/* Card Footer: Price & CTA Button (Centered Stack) */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col items-center text-center gap-3 mt-4">
+                  <div className="w-full">
+                    <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-bold leading-tight mb-1">
                       Biaya & Informasi
                     </span>
                     <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
-                      {prog.harga || 'Hubungi kami untuk informasi program'}
+                      {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
                     </strong>
                   </div>
 
@@ -127,7 +127,7 @@ export default async function ProgramPage() {
                     href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+daftar+program+${encodeURIComponent(prog.judul)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-sm py-2.5 px-4 rounded-xl shadow-xs hover:shadow-md transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 shrink-0" />
                     <span>Daftar Kelas</span>

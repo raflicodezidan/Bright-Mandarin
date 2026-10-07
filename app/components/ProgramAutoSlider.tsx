@@ -168,14 +168,14 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                     </div>
                   </div>
 
-                  {/* Footer: Price & CTA */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 mt-3">
-                    <div className="min-w-0 flex-1">
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold leading-tight">
+                  {/* Footer: Price & CTA (Centered Stack) */}
+                  <div className="pt-3.5 border-t border-slate-100 flex flex-col items-center text-center gap-3 mt-3">
+                    <div className="w-full">
+                      <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-bold leading-tight mb-1">
                         Biaya & Informasi
                       </span>
                       <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
-                        {prog.harga || 'Hubungi kami untuk informasi program'}
+                        {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
                       </strong>
                     </div>
 
@@ -183,10 +183,10 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                       href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+tertarik+dengan+program+${encodeURIComponent(prog.judul)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-[1.02] active:scale-95"
                     >
-                      <MessageCircle className="w-3.5 h-3.5 shrink-0" />
-                      <span>Daftar</span>
+                      <MessageCircle className="w-4 h-4 shrink-0" />
+                      <span>Daftar Kelas</span>
                     </a>
                   </div>
                 </div>
