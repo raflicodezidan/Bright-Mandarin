@@ -189,7 +189,7 @@ export default function Footer() {
                 <Link href="/" className="hover:text-orange-600 transition-colors">Beranda</Link>
               </li>
               <li>
-                <Link href="/pengajar" className="hover:text-orange-600 transition-colors">Profil Pengajar (Laoshi)</Link>
+                <Link href="/#achievement" className="hover:text-orange-600 transition-colors">Achievement Murid</Link>
               </li>
               <li>
                 <Link href="/galeri" className="hover:text-orange-600 transition-colors">Galeri & Suasana Kelas</Link>

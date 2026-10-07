@@ -14,7 +14,7 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Beranda', href: '/' },
     { label: 'Program Kelas', href: '/program' },
-    { label: 'Pengajar (Laoshi)', href: '/pengajar' },
+    { label: 'Achievement', href: '/#achievement' },
     { label: 'Blog', href: '/berita' },
     { label: 'Galeri Kegiatan', href: '/galeri' },
     { label: 'Lokasi Center', href: '/#lokasi' },

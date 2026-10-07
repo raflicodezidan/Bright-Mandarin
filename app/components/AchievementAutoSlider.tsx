@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Award, Trophy, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Award, Trophy } from 'lucide-react';
 import { AchievementItem } from '@/lib/mockData';
 
 interface AchievementAutoSliderProps {
@@ -112,32 +112,22 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                 {/* Info Murid */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <h3 className="text-xl font-extrabold text-slate-900">
-                        {item.nama}
-                      </h3>
-                      <div className="flex items-center text-amber-500">
-                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      </div>
-                    </div>
-
-                    <div className="inline-block bg-orange-50 text-orange-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-orange-200/60 mb-3">
-                      {item.level}
-                    </div>
-
+                    <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                      {item.nama}
+                    </h3>
                     {item.keterangan && (
-                      <p className="text-xs text-slate-500 font-medium mb-4">
+                      <p className="text-xs text-slate-500 font-medium mt-1 mb-4">
                         {item.keterangan}
                       </p>
                     )}
                   </div>
 
                   {/* Card Footer: Highlight Test Score */}
-                  <div className="mt-2 pt-3.5 border-t border-amber-200/70 flex items-center justify-between bg-amber-50/60 -mx-6 -mb-6 px-6 py-3.5 rounded-b-3xl">
-                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
+                  <div className="mt-2 pt-3.5 border-t border-slate-200/80 flex items-center justify-between -mx-6 -mb-6 px-6 py-3.5 bg-slate-50/80 rounded-b-3xl">
+                    <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                       Test Score
                     </span>
-                    <span className="text-base font-black text-emerald-600 bg-white px-3 py-1 rounded-full border border-emerald-200 shadow-xs">
+                    <span className="text-base font-black text-slate-900 bg-white px-3.5 py-1 rounded-full border border-slate-200 shadow-xs font-mono">
                       {item.skor}
                     </span>
                   </div>
