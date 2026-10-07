@@ -71,12 +71,16 @@ export interface BeritaItem {
 export interface GaleriItem {
   _id: string;
   judul: string;
+  slug?: { current: string };
   tanggal: string;
   deskripsi: string;
+  ceritaLengkap?: string;
   kategori: string;
+  coverImageUrl?: string;
+  videoUrl?: string;
   foto: {
     url: string;
-    caption: string;
+    caption?: string;
   }[];
 }
 
@@ -785,9 +789,13 @@ export const mockGaleri: GaleriItem[] = [
   {
     _id: "gal-1",
     judul: "Suasana Belajar Kelas Offline di Learning Center Kelapa Gading",
+    slug: { current: "suasana-belajar-kelas-offline-kelapa-gading" },
     tanggal: "Februari 2026",
-    deskripsi: "Dokumentasi interaksi hangat antara laoshi dan para murid dalam simulasi percakapan dan latihan hanzi di kelas modern berfasilitas multimedia.",
     kategori: "Kelas Offline",
+    deskripsi: "Dokumentasi interaksi hangat antara laoshi dan para murid dalam simulasi percakapan dan latihan hanzi di kelas modern berfasilitas multimedia.",
+    ceritaLengkap: "Kegiatan belajar tatap muka di Bright Mandarin Learning Center Kelapa Gading dirancang interaktif dan menyenangkan. Setiap sesi menggabungkan materi tata bahasa praktis, pengucapan nada (pinyin), serta latihan percakapan langsung berpasangan. Ruang kelas yang nyaman ber-AC dan dilengkapi layar interaktif membuat siswa lebih fokus dan percaya diri mengekspresikan percakapan Mandarin.",
+    coverImageUrl: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     foto: [
       {
         url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80",
@@ -800,15 +808,23 @@ export const mockGaleri: GaleriItem[] = [
       {
         url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80",
         caption: "Diskusi seru dan latihan percakapan dua arah"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&auto=format&fit=crop&q=80",
+        caption: "Pemberian feedback pengucapan nada oleh laoshi"
       }
     ]
   },
   {
     _id: "gal-2",
-    judul: "Perayaan Festival Imlek & Workshop Kaligrafi Tionghoa (Shufa)",
+    judul: "Perayaan Festival Imlek & Workshop Seni Kaligrafi Tionghoa (Shufa)",
+    slug: { current: "perayaan-festival-imlek-workshop-kaligrafi-shufa" },
     tanggal: "Januari 2026",
-    deskripsi: "Murid-murid diajak mempraktikkan seni menulis kaligrafi kuas tradisional, belajar filosofi karakter 'Chun' dan 'Fu', serta menikmati hidangan khas bersama.",
     kategori: "Kegiatan Budaya",
+    deskripsi: "Murid-murid diajak mempraktikkan seni menulis kaligrafi kuas tradisional, belajar filosofi karakter 'Chun' dan 'Fu', serta menikmati kebersamaan.",
+    ceritaLengkap: "Menyambut Tahun Baru Imlek, Bright Mandarin mengadakan workshop kebudayaan Tionghoa bertajuk 'The Art of Shufa'. Murid dari kelas anak-anak hingga dewasa diperkenalkan pada empat harta karun kamar studi (kuas, tinta, kertas xuan, dan batu tinta). Selain mengasah keterampilan menulis indah, kegiatan ini memperdalam pemahaman filosofi nilai-nilai luhur di balik aksara Mandarin.",
+    coverImageUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop&q=80",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     foto: [
       {
         url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop&q=80",
@@ -823,5 +839,31 @@ export const mockGaleri: GaleriItem[] = [
         caption: "Foto bersama seluruh siswa dan laoshi di lobi center"
       }
     ]
+  },
+  {
+    _id: "gal-3",
+    judul: "Simulasi Ujian Resmi HSK & Pembagian Sertifikat Prestasi",
+    slug: { current: "simulasi-ujian-resmi-hsk-pembagian-sertifikat" },
+    tanggal: "Desember 2025",
+    kategori: "Ujian HSK",
+    deskripsi: "Pelaksanaan simulasi try-out HSK 1 hingga HSK 4 berbasis komputer dan kertas, mempersiapkan mental dan strategi pengerjaan soal siswa.",
+    ceritaLengkap: "Try-out HSK diadakan secara berkala untuk mengevaluasi kesiapan siswa sebelum mengikuti ujian resmi berstandar internasional. Dengan sistem penilaian komprehensif (mendengarkan, membaca, dan menulis), para laoshi dapat memberikan bimbingan tertarget pada kelemahan masing-masing peserta hingga mencapai skor di atas rata-rata.",
+    coverImageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    foto: [
+      {
+        url: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80",
+        caption: "Siswa fokus mengerjakan soal latihan membaca HSK"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80",
+        caption: "Sesi review jawaban dan pembahasan trik cepat bersama laoshi"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop&q=80",
+        caption: "Apresiasi sertifikat pencapaian nilai memuaskan"
+      }
+    ]
   }
 ];
+

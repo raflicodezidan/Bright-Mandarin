@@ -214,16 +214,20 @@ export async function getBeritaBySlug(slug: string): Promise<BeritaItem | null> 
   }
 }
 
-// 7. Query Galeri
+// 7. Query Galeri Kegiatan
 export async function getGaleri(): Promise<GaleriItem[]> {
   if (!client) return mockGaleri;
   try {
-    const query = `*[_type == "galeri"] | order(tanggal desc){
+    const query = `*[_type == "galeri"] | order(_createdAt desc){
       _id,
       judul,
+      slug,
       tanggal,
       deskripsi,
+      ceritaLengkap,
       kategori,
+      "coverImageUrl": coalesce(coverImage.asset->url, foto[0].asset->url),
+      "videoUrl": coalesce(videoFile.asset->url, videoUrl),
       "foto": foto[]{
         "url": asset->url,
         "caption": caption
@@ -234,6 +238,35 @@ export async function getGaleri(): Promise<GaleriItem[]> {
   } catch (error) {
     console.warn('Failed fetching galeri from Sanity, falling back to mock data', error);
     return mockGaleri;
+  }
+}
+
+// 7b. Query Single Galeri by Slug
+export async function getGaleriBySlug(slug: string): Promise<GaleriItem | null> {
+  if (!client) {
+    return mockGaleri.find((g) => g.slug?.current === slug || g._id === slug) || mockGaleri[0] || null;
+  }
+  try {
+    const query = `*[_type == "galeri" && (slug.current == $slug || _id == $slug)][0]{
+      _id,
+      judul,
+      slug,
+      tanggal,
+      deskripsi,
+      ceritaLengkap,
+      kategori,
+      "coverImageUrl": coalesce(coverImage.asset->url, foto[0].asset->url),
+      "videoUrl": coalesce(videoFile.asset->url, videoUrl),
+      "foto": foto[]{
+        "url": asset->url,
+        "caption": caption
+      }
+    }`;
+    const data = await client.fetch(query, { slug });
+    return data || mockGaleri.find((g) => g.slug?.current === slug || g._id === slug) || null;
+  } catch (error) {
+    console.warn('Failed fetching single galeri from Sanity', error);
+    return mockGaleri.find((g) => g.slug?.current === slug || g._id === slug) || null;
   }
 }
 
