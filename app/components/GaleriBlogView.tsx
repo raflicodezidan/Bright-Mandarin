@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { 
   Calendar, 
   Video, 
@@ -9,7 +9,7 @@ import {
   ChevronLeft, 
   ChevronRight, 
   MessageCircle,
-  Sparkles
+  Play
 } from 'lucide-react';
 import { GaleriItem } from '@/lib/mockData';
 
@@ -17,9 +17,265 @@ interface GaleriBlogViewProps {
   items: GaleriItem[];
 }
 
+interface MediaItem {
+  type: 'video' | 'image';
+  url: string;
+  poster?: string;
+  caption?: string;
+}
+
+// Single Card with Instagram-style Portrait Carousel
+function KegiatanInstagramCard({ 
+  item, 
+  onOpenLightbox 
+}: { 
+  item: GaleriItem; 
+  onOpenLightbox: (photos: { url: string; caption?: string }[], index: number, title: string) => void;
+}) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  // Helper to detect if a URL is YouTube
+  const isYouTubeUrl = (url?: string) => {
+    if (!url) return false;
+    return url.includes('youtube.com') || url.includes('youtu.be');
+  };
+
+  const getYouTubeEmbedUrl = (url: string) => {
+    if (url.includes('youtu.be/')) {
+      const id = url.split('youtu.be/')[1]?.split('?')[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (url.includes('watch?v=')) {
+      const id = url.split('watch?v=')[1]?.split('&')[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    return url;
+  };
+
+  // Build list of media items: video first, then photos
+  const mediaList = useMemo<MediaItem[]>(() => {
+    const list: MediaItem[] = [];
+    if (item.videoUrl) {
+      list.push({
+        type: 'video',
+        url: item.videoUrl,
+        poster: item.coverImageUrl || item.foto?.[0]?.url,
+        caption: `Video Dokumentasi: ${item.judul}`,
+      });
+    }
+    if (item.foto && item.foto.length > 0) {
+      item.foto.forEach((pic) => {
+        list.push({
+          type: 'image',
+          url: pic.url,
+          caption: pic.caption,
+        });
+      });
+    } else if (list.length === 0 && item.coverImageUrl) {
+      list.push({
+        type: 'image',
+        url: item.coverImageUrl,
+        caption: item.judul,
+      });
+    }
+    return list;
+  }, [item]);
+
+  const totalSlides = mediaList.length;
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev < totalSlides - 1 ? prev + 1 : prev));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 45 && currentSlide < totalSlides - 1) {
+      setCurrentSlide((prev) => prev + 1);
+    } else if (diff < -45 && currentSlide > 0) {
+      setCurrentSlide((prev) => prev - 1);
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <article className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200/90 shadow-lg hover:shadow-2xl transition-all duration-300">
+      {/* 1. MEDIA SECTION: Format Portrait Kayak Instagram (Aspect Ratio 4:5) */}
+      <div 
+        className="relative w-full aspect-[4/5] max-h-[620px] bg-slate-950 overflow-hidden group/media select-none"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Slides Track */}
+        <div 
+          className="flex h-full w-full transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {mediaList.map((media, idx) => (
+            <div key={idx} className="relative w-full h-full shrink-0 flex items-center justify-center bg-slate-950">
+              {media.type === 'video' ? (
+                isYouTubeUrl(media.url) ? (
+                  <iframe
+                    src={getYouTubeEmbedUrl(media.url)}
+                    title={item.judul}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    src={media.url}
+                    controls
+                    playsInline
+                    poster={media.poster}
+                    className="w-full h-full object-cover"
+                  >
+                    Browser Anda tidak mendukung pemutar video.
+                  </video>
+                )
+              ) : (
+                <div 
+                  className="w-full h-full cursor-pointer relative"
+                  onClick={() => {
+                    const photosOnly = item.foto || [];
+                    const photoIdx = photosOnly.findIndex((p) => p.url === media.url);
+                    onOpenLightbox(photosOnly, photoIdx >= 0 ? photoIdx : 0, item.judul);
+                  }}
+                >
+                  <img
+                    src={media.url}
+                    alt={media.caption || item.judul}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                    {media.caption && (
+                      <p className="text-white text-xs sm:text-sm font-medium leading-snug drop-shadow-md">
+                        {media.caption}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Counter Badge Ala Instagram (e.g., 1/6) */}
+        {totalSlides > 1 && (
+          <div className="absolute top-4 right-4 z-20 pointer-events-none">
+            <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold tracking-wide shadow-md">
+              {currentSlide + 1} / {totalSlides}
+            </span>
+          </div>
+        )}
+
+        {/* Media Type Badge (Kiri Atas) */}
+        <div className="absolute top-4 left-4 z-20 pointer-events-none flex items-center gap-1.5">
+          {mediaList[currentSlide]?.type === 'video' ? (
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-red-600 text-white shadow-md">
+              <Video className="w-3.5 h-3.5" />
+              <span>Video</span>
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md shadow-md">
+              <ImageIcon className="w-3.5 h-3.5 text-amber-400" />
+              <span>Foto</span>
+            </span>
+          )}
+        </div>
+
+        {/* Navigasi Panah Kiri (Scroll Kiri) */}
+        {totalSlides > 1 && currentSlide > 0 && (
+          <button
+            onClick={handlePrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 shadow-xl flex items-center justify-center transition-all z-20 cursor-pointer hover:scale-110 active:scale-95"
+            aria-label="Media Sebelumnya"
+          >
+            <ChevronLeft className="w-6 h-6 text-slate-900" />
+          </button>
+        )}
+
+        {/* Navigasi Panah Kanan (Scroll ke Kanan untuk Foto-Foto) */}
+        {totalSlides > 1 && currentSlide < totalSlides - 1 && (
+          <button
+            onClick={handleNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 shadow-xl flex items-center justify-center transition-all z-20 cursor-pointer hover:scale-110 active:scale-95"
+            aria-label="Media Selanjutnya"
+          >
+            <ChevronRight className="w-6 h-6 text-slate-900" />
+          </button>
+        )}
+
+        {/* Dots Pagination di Bawah Media */}
+        {totalSlides > 1 && (
+          <div className="absolute bottom-3 left-0 right-0 z-20 flex items-center justify-center gap-1.5 pointer-events-none">
+            {mediaList.map((_, dotIdx) => (
+              <span
+                key={dotIdx}
+                className={`transition-all duration-300 rounded-full ${
+                  dotIdx === currentSlide
+                    ? 'w-6 h-1.5 bg-amber-400 shadow-sm'
+                    : 'w-1.5 h-1.5 bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* 2. KONTEN KEGIATAN: Judul & Penjelasan Langsung di Bawah Media */}
+      <div className="p-6 sm:p-8 space-y-4">
+        {/* Meta Kategori & Tanggal */}
+        <div className="flex flex-wrap items-center gap-2.5 text-xs">
+          <span className="font-bold px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs">
+            {item.kategori}
+          </span>
+          <span className="flex items-center gap-1.5 font-semibold text-slate-600 bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full">
+            <Calendar className="w-3.5 h-3.5 text-orange-600" />
+            <span>{item.tanggal}</span>
+          </span>
+          {item.videoUrl && (
+            <span className="font-semibold text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full">
+              🎥 Ada Video
+            </span>
+          )}
+          {item.foto && item.foto.length > 0 && (
+            <span className="font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
+              📸 {item.foto.length} Foto
+            </span>
+          )}
+        </div>
+
+        {/* Judul Kegiatan */}
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-snug tracking-tight">
+          {item.judul}
+        </h2>
+
+        {/* Penjelasan Kegiatan (Langsung Lengkap) */}
+        <div className="text-slate-700 text-sm sm:text-base leading-relaxed space-y-2.5 font-normal pt-1 border-t border-slate-100">
+          <p>{item.deskripsi}</p>
+          {item.ceritaLengkap && item.ceritaLengkap !== item.deskripsi && (
+            <p className="text-slate-600">{item.ceritaLengkap}</p>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function GaleriBlogView({ items }: GaleriBlogViewProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
-  const [activeMediaTab, setActiveMediaTab] = useState<{ [id: string]: 'video' | 'image' }>({});
   const [lightboxData, setLightboxData] = useState<{
     photos: { url: string; caption?: string }[];
     currentIndex: number;
@@ -40,24 +296,6 @@ export default function GaleriBlogView({ items }: GaleriBlogViewProps) {
     if (selectedCategory === 'Semua') return items;
     return items.filter((item) => item.kategori === selectedCategory);
   }, [items, selectedCategory]);
-
-  // Helper to detect if a URL is YouTube
-  const isYouTubeUrl = (url?: string) => {
-    if (!url) return false;
-    return url.includes('youtube.com') || url.includes('youtu.be');
-  };
-
-  const getYouTubeEmbedUrl = (url: string) => {
-    if (url.includes('youtu.be/')) {
-      const id = url.split('youtu.be/')[1]?.split('?')[0];
-      return `https://www.youtube.com/embed/${id}`;
-    }
-    if (url.includes('watch?v=')) {
-      const id = url.split('watch?v=')[1]?.split('&')[0];
-      return `https://www.youtube.com/embed/${id}`;
-    }
-    return url;
-  };
 
   const openLightbox = (photos: { url: string; caption?: string }[], index: number, title: string) => {
     setLightboxData({
@@ -98,159 +336,15 @@ export default function GaleriBlogView({ items }: GaleriBlogViewProps) {
         })}
       </div>
 
-      {/* Kegiatan Cards Feed */}
-      <div className="space-y-12 max-w-4xl mx-auto">
-        {filteredItems.map((item) => {
-          const hasVideo = Boolean(item.videoUrl);
-          const currentTab = activeMediaTab[item._id] || (hasVideo ? 'video' : 'image');
-          const coverImage = item.coverImageUrl || item.foto?.[0]?.url || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800';
-
-          return (
-            <article
-              key={item._id}
-              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200/90 shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              {/* Media Section: Gambar or Video */}
-              <div className="relative bg-slate-950">
-                {/* Media Switcher Tab (jika memiliki video dan foto) */}
-                {hasVideo && (
-                  <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/60 backdrop-blur-md p-1 rounded-xl border border-white/20">
-                    <button
-                      onClick={() => setActiveMediaTab((prev) => ({ ...prev, [item._id]: 'video' }))}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        currentTab === 'video'
-                          ? 'bg-red-600 text-white shadow-sm'
-                          : 'text-white/80 hover:text-white hover:bg-white/10'
-                      }`}
-                    >
-                      <Video className="w-3.5 h-3.5" />
-                      <span>Video</span>
-                    </button>
-                    <button
-                      onClick={() => setActiveMediaTab((prev) => ({ ...prev, [item._id]: 'image' }))}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        currentTab === 'image'
-                          ? 'bg-amber-500 text-white shadow-sm'
-                          : 'text-white/80 hover:text-white hover:bg-white/10'
-                      }`}
-                    >
-                      <ImageIcon className="w-3.5 h-3.5" />
-                      <span>Foto Sampul</span>
-                    </button>
-                  </div>
-                )}
-
-                {/* Video Player */}
-                {hasVideo && currentTab === 'video' ? (
-                  <div className="relative aspect-video w-full overflow-hidden bg-black flex items-center justify-center">
-                    {isYouTubeUrl(item.videoUrl) ? (
-                      <iframe
-                        src={getYouTubeEmbedUrl(item.videoUrl!)}
-                        title={item.judul}
-                        className="w-full h-full border-0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <video
-                        src={item.videoUrl}
-                        controls
-                        playsInline
-                        poster={coverImage}
-                        className="w-full h-full object-contain"
-                      >
-                        Browser Anda tidak mendukung pemutar video HTML5.
-                      </video>
-                    )}
-                  </div>
-                ) : (
-                  /* Gambar Utama */
-                  <div className="relative h-72 sm:h-96 w-full overflow-hidden">
-                    <img
-                      src={coverImage}
-                      alt={item.judul}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                  </div>
-                )}
-              </div>
-
-              {/* Konten Kegiatan: Judul & Penjelasan Lengkap */}
-              <div className="p-6 sm:p-8 space-y-5">
-                {/* Meta Badges: Kategori & Tanggal */}
-                <div className="flex flex-wrap items-center gap-2.5 text-xs">
-                  <span className="font-bold px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs">
-                    {item.kategori}
-                  </span>
-                  <span className="flex items-center gap-1.5 font-semibold text-slate-600 bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full">
-                    <Calendar className="w-3.5 h-3.5 text-orange-600" />
-                    <span>{item.tanggal}</span>
-                  </span>
-                  {hasVideo && (
-                    <span className="flex items-center gap-1 font-bold text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full">
-                      <Video className="w-3.5 h-3.5" />
-                      <span>Video Dokumentasi</span>
-                    </span>
-                  )}
-                  {item.foto && item.foto.length > 0 && (
-                    <span className="flex items-center gap-1 font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
-                      <ImageIcon className="w-3.5 h-3.5 text-amber-600" />
-                      <span>{item.foto.length} Foto Dokumentasi</span>
-                    </span>
-                  )}
-                </div>
-
-                {/* Judul Kegiatan */}
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-snug tracking-tight">
-                  {item.judul}
-                </h2>
-
-                {/* Penjelasan Kegiatan */}
-                <div className="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3 font-normal">
-                  <p>{item.deskripsi}</p>
-                  {item.ceritaLengkap && item.ceritaLengkap !== item.deskripsi && (
-                    <p className="text-slate-600">{item.ceritaLengkap}</p>
-                  )}
-                </div>
-
-                {/* Galeri Foto Dokumentasi (5 Foto per Kegiatan) */}
-                {item.foto && item.foto.length > 0 && (
-                  <div className="pt-4 border-t border-slate-100 space-y-3">
-                    <div className="flex items-center justify-between text-xs font-bold text-slate-700">
-                      <span className="flex items-center gap-1.5 text-amber-700 uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        Foto Dokumentasi Acara ({item.foto.length} Foto)
-                      </span>
-                      <span className="text-slate-400 font-normal">Klik foto untuk melihat ukuran penuh</span>
-                    </div>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                      {item.foto.map((pic, pIdx) => (
-                        <div
-                          key={pIdx}
-                          onClick={() => openLightbox(item.foto, pIdx, item.judul)}
-                          className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-amber-200/60 shadow-xs hover:shadow-lg transition-all duration-300 cursor-pointer"
-                        >
-                          <img
-                            src={pic.url}
-                            alt={pic.caption || `Foto ${pIdx + 1} - ${item.judul}`}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-2 flex items-end">
-                            <p className="text-white text-[11px] font-medium leading-tight line-clamp-2">
-                              {pic.caption || 'Lihat foto'}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </article>
-          );
-        })}
+      {/* Kegiatan Cards: Instagram-style Portrait Carousel Feed */}
+      <div className="space-y-12 max-w-2xl mx-auto">
+        {filteredItems.map((item) => (
+          <KegiatanInstagramCard
+            key={item._id}
+            item={item}
+            onOpenLightbox={openLightbox}
+          />
+        ))}
       </div>
 
       {/* Lightbox Foto Preview Fullscreen */}
