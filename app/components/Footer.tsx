@@ -141,8 +141,17 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 <Clock className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
                 <div className="text-xs sm:text-sm text-slate-700 leading-relaxed w-full">
                   <span className="font-bold text-amber-950 block mb-1">Jam Operasional:</span>
-                  <div className="whitespace-pre-line text-slate-600 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-1">
-                    {currentSettings.jamOperasional}
+                  <div className="text-slate-600 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-2">
+                    <div>
+                      <p className="font-bold text-slate-800">Tutoring &amp; Kelas Reguler:</p>
+                      <p>Senin – Jumat: 12.00 – 18.30</p>
+                      <p>Sabtu: 09.00 – 15.00</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-800">Kelas Dewasa:</p>
+                      <p>Senin – Jumat: 18.00 – 20.00</p>
+                    </div>
+                    <p className="italic text-slate-500">Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.</p>
                   </div>
                 </div>
               </div>
@@ -262,7 +271,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         <div className="py-6 border-b border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-slate-900 font-extrabold text-sm sm:text-base">
             <span className="uppercase tracking-wider">Follow Us:</span>
-            <span className="text-xs text-orange-600 font-bold hidden md:inline">@{currentSettings.instagramHandle || 'bright_mandarin'}</span>
+            <span className="text-xs text-orange-600 font-bold hidden md:inline">@{(currentSettings.instagramHandle || 'bright_mandarin').replace(/^@+/, '')}</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2.5">
