@@ -138,14 +138,14 @@ function KegiatanInstagramCard({
                     controls
                     playsInline
                     poster={media.poster}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-black"
                   >
                     Browser Anda tidak mendukung pemutar video.
                   </video>
                 )
               ) : (
                 <div 
-                  className="w-full h-full cursor-pointer relative"
+                  className="w-full h-full cursor-pointer relative flex items-center justify-center bg-slate-950"
                   onClick={() => {
                     const photosOnly = item.foto || [];
                     const photoIdx = photosOnly.findIndex((p) => p.url === media.url);
@@ -155,9 +155,9 @@ function KegiatanInstagramCard({
                   <img
                     src={media.url}
                     alt={media.caption || item.judul}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4 pointer-events-none">
                     {media.caption && (
                       <p className="text-white text-xs sm:text-sm font-medium leading-snug drop-shadow-md">
                         {media.caption}
