@@ -1,5 +1,4 @@
 import React from 'react';
-import { Camera, Video, Sparkles, BookOpen } from 'lucide-react';
 import { getGaleri } from '@/lib/sanity';
 import GaleriBlogView from '@/app/components/GaleriBlogView';
 
@@ -18,10 +17,6 @@ export default async function GaleriPage() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         {/* Editorial Blog Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-300 text-orange-700 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4 shadow-xs">
-            <Sparkles className="w-4 h-4 text-orange-600" />
-            <span>Dokumentasi & Cerita Kegiatan</span>
-          </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             GALERI KEGIATAN & KELAS

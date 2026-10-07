@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useRef } from 'react';
 import { 
-  Calendar, 
   Video, 
   Image as ImageIcon, 
   X, 
@@ -236,25 +235,11 @@ function KegiatanInstagramCard({
 
       {/* 2. KONTEN KEGIATAN: Judul & Penjelasan Langsung di Bawah Media */}
       <div className="p-6 sm:p-8 space-y-4">
-        {/* Meta Kategori & Tanggal */}
-        <div className="flex flex-wrap items-center gap-2.5 text-xs">
-          <span className="font-bold px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs">
+        {/* Meta Kategori */}
+        <div>
+          <span className="font-bold text-xs px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs tracking-wide">
             {item.kategori}
           </span>
-          <span className="flex items-center gap-1.5 font-semibold text-slate-600 bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full">
-            <Calendar className="w-3.5 h-3.5 text-orange-600" />
-            <span>{item.tanggal}</span>
-          </span>
-          {item.videoUrl && (
-            <span className="font-semibold text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full">
-              🎥 Ada Video
-            </span>
-          )}
-          {item.foto && item.foto.length > 0 && (
-            <span className="font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
-              📸 {item.foto.length} Foto
-            </span>
-          )}
         </div>
 
         {/* Judul Kegiatan */}
