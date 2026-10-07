@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, MessageCircle, Users, BookOpen, Clock, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageCircle, Users, BookOpen, Clock, Sparkles, CheckCircle2 } from 'lucide-react';
 import { ProgramItem } from '@/lib/mockData';
 
 interface ProgramAutoSliderProps {
@@ -88,81 +88,93 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
               key={prog._id || idx}
               className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3.5"
             >
-              <div className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1.5">
-                <div className="relative h-52 overflow-hidden bg-slate-800">
+              <div className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1">
+                {/* Image Header */}
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 shrink-0">
                   <img
                     src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
                     alt={prog.judul}
                     className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                  
+                  {/* Badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
                       {prog.kategori}
                     </span>
                     {prog.targetUsia && (
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-900 backdrop-blur-xs shadow-xs">
+                      <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-800 backdrop-blur-xs shadow-xs">
                         {prog.targetUsia}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                {/* Card Content */}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-black text-slate-900 mb-2.5 group-hover/card:text-orange-600 transition-colors line-clamp-1">
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug line-clamp-2 min-h-[3rem] flex items-center">
                       {prog.judul}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-2 font-medium">
+                    
+                    {/* Overview */}
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-4 line-clamp-2">
                       {prog.ringkasan}
                     </p>
 
-                    <div className="space-y-2 py-3 border-y border-amber-200/60 text-xs text-slate-800 font-medium">
-                      {prog.targetUsia && (
-                        <div className="flex items-start justify-between gap-2">
-                          <span className="text-slate-500 flex items-center gap-1 shrink-0">
-                            <Users className="w-3.5 h-3.5 text-orange-500" />
-                            Target Usia:
-                          </span>
-                          <strong className="text-orange-600 font-bold text-right">{prog.targetUsia}</strong>
-                        </div>
-                      )}
+                    {/* Structured Information Box */}
+                    <div className="bg-amber-50/50 rounded-2xl p-4 border border-amber-200/70 space-y-2.5 text-xs mb-4">
                       {prog.materi && (
-                        <div className="flex items-start justify-between gap-2">
-                          <span className="text-slate-500 flex items-center gap-1 shrink-0">
-                            <BookOpen className="w-3.5 h-3.5 text-blue-500" />
-                            Materi:
-                          </span>
-                          <span className="text-slate-800 text-right font-semibold line-clamp-1">{prog.materi}</span>
+                        <div className="flex items-start gap-2">
+                          <BookOpen className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                          <div className="leading-relaxed">
+                            <span className="font-bold text-slate-800">Materi: </span>
+                            <span className="text-slate-600 font-normal">{prog.materi}</span>
+                          </div>
                         </div>
                       )}
+
                       {prog.metode && (
-                        <div className="flex items-start justify-between gap-2">
-                          <span className="text-slate-500 shrink-0">Metode:</span>
-                          <span className="text-slate-700 text-right line-clamp-1">{prog.metode}</span>
+                        <div className="flex items-start gap-2">
+                          <Sparkles className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
+                          <div className="leading-relaxed">
+                            <span className="font-bold text-slate-800">Metode: </span>
+                            <span className="text-slate-600 font-normal">{prog.metode}</span>
+                          </div>
                         </div>
                       )}
+
                       {prog.durasi && (
-                        <div className="flex items-start justify-between gap-2">
-                          <span className="text-slate-500 flex items-center gap-1 shrink-0">
-                            <Clock className="w-3.5 h-3.5 text-emerald-500" />
-                            Durasi:
-                          </span>
-                          <span className="text-slate-800 text-right font-semibold">{prog.durasi}</span>
+                        <div className="flex items-start gap-2">
+                          <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <div className="leading-relaxed">
+                            <span className="font-bold text-slate-800">Durasi: </span>
+                            <span className="text-slate-700 font-semibold">{prog.durasi}</span>
+                          </div>
                         </div>
                       )}
+
                       {prog.benefit && (
-                        <div className="pt-1 text-[11px] text-slate-600 leading-snug line-clamp-2 italic bg-amber-50/60 p-2 rounded-xl border border-amber-100">
-                          <span className="font-bold text-slate-800 not-italic">Benefit: </span>
-                          {prog.benefit}
+                        <div className="pt-2 border-t border-amber-200/60 flex items-start gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <div className="leading-relaxed">
+                            <span className="font-bold text-slate-800">Benefit: </span>
+                            <span className="text-slate-600 font-normal">{prog.benefit}</span>
+                          </div>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between gap-2">
+                  {/* Footer: Price & CTA */}
+                  <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3 mt-auto">
                     <div className="min-w-0">
-                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-bold">Biaya & Informasi</span>
-                      <strong className="text-xs sm:text-sm font-black text-slate-900 truncate block">
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                        Biaya & Informasi
+                      </span>
+                      <strong className="text-xs sm:text-sm font-bold text-slate-900 block truncate">
                         {prog.harga || 'Hubungi kami untuk informasi'}
                       </strong>
                     </div>
@@ -171,7 +183,7 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                       href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+tertarik+dengan+program+${encodeURIComponent(prog.judul)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer"
+                      className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
                       <span>Daftar</span>

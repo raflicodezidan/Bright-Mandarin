@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Users, BookOpen, Clock, Sparkles } from 'lucide-react';
+import { MessageCircle, Users, BookOpen, Clock, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getPrograms, mockSiteSettings } from '@/lib/sanity';
 
 export const revalidate = 60;
@@ -34,90 +34,94 @@ export default async function ProgramPage() {
           {programs.map((prog) => (
             <div
               key={prog._id}
-              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group/card hover:-translate-y-1"
             >
               <div>
-                <div className="relative h-60 overflow-hidden bg-slate-800">
+                {/* Image Header */}
+                <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-900 shrink-0">
                   <img
                     src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
                     alt={prog.judul}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                  
+                  {/* Badges */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                    <span className="text-xs font-bold px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
                       {prog.kategori}
                     </span>
                     {prog.targetUsia && (
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-900 backdrop-blur-xs shadow-xs">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/95 text-slate-800 backdrop-blur-xs shadow-xs">
                         {prog.targetUsia}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="p-7">
-                  <h2 className="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors leading-snug">
+                {/* Card Content */}
+                <div className="p-6 sm:p-7">
+                  <h2 className="text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug">
                     {prog.judul}
                   </h2>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-5 font-normal">
                     {prog.ringkasan}
                   </p>
 
-                  <div className="space-y-3 py-4 border-y border-amber-200/60 text-xs text-slate-800 mb-4">
-                    {prog.targetUsia && (
-                      <div className="flex items-start justify-between gap-3">
-                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
-                          <Users className="w-4 h-4 text-orange-500" />
-                          Target Usia:
-                        </span>
-                        <strong className="text-orange-600 font-bold text-right">{prog.targetUsia}</strong>
-                      </div>
-                    )}
+                  {/* Structured Details Box */}
+                  <div className="bg-amber-50/50 rounded-2xl p-4 border border-amber-200/70 space-y-3 text-xs sm:text-[13px] mb-2">
                     {prog.materi && (
-                      <div className="flex items-start justify-between gap-3">
-                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
-                          <BookOpen className="w-4 h-4 text-blue-500" />
-                          Materi:
-                        </span>
-                        <span className="font-semibold text-slate-800 text-right">{prog.materi}</span>
+                      <div className="flex items-start gap-2.5">
+                        <BookOpen className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                        <div className="leading-relaxed">
+                          <span className="font-bold text-slate-800">Materi: </span>
+                          <span className="text-slate-600 font-normal">{prog.materi}</span>
+                        </div>
                       </div>
                     )}
+
                     {prog.metode && (
-                      <div className="flex items-start justify-between gap-3">
-                        <span className="text-slate-500 font-medium shrink-0">Metode:</span>
-                        <span className="text-slate-700 text-right">{prog.metode}</span>
+                      <div className="flex items-start gap-2.5">
+                        <Sparkles className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                        <div className="leading-relaxed">
+                          <span className="font-bold text-slate-800">Metode: </span>
+                          <span className="text-slate-600 font-normal">{prog.metode}</span>
+                        </div>
                       </div>
                     )}
+
                     {prog.durasi && (
-                      <div className="flex items-start justify-between gap-3">
-                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
-                          <Clock className="w-4 h-4 text-emerald-500" />
-                          Durasi:
-                        </span>
-                        <strong className="font-semibold text-slate-900 text-right">{prog.durasi}</strong>
+                      <div className="flex items-start gap-2.5">
+                        <Clock className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <div className="leading-relaxed">
+                          <span className="font-bold text-slate-800">Durasi: </span>
+                          <span className="text-slate-700 font-semibold">{prog.durasi}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {prog.benefit && (
+                      <div className="pt-2.5 border-t border-amber-200/60 flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <div className="leading-relaxed">
+                          <span className="font-bold text-slate-800">Benefit: </span>
+                          <span className="text-slate-600 font-normal">{prog.benefit}</span>
+                        </div>
                       </div>
                     )}
                   </div>
-
-                  {prog.benefit && (
-                    <div className="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200/80 mb-2">
-                      <span className="text-xs font-bold text-orange-700 block mb-1">
-                        Benefit Program:
-                      </span>
-                      <p className="text-xs text-slate-700 leading-relaxed">
-                        {prog.benefit}
-                      </p>
-                    </div>
-                  )}
                 </div>
               </div>
 
-              <div className="p-7 pt-0 border-t border-amber-200/60 mt-4">
+              {/* Card Footer: Price & CTA Button */}
+              <div className="p-6 sm:p-7 pt-0 border-t border-slate-100 mt-2">
                 <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Biaya & Informasi</span>
-                    <strong className="text-xs sm:text-sm font-black text-slate-900 block">
-                      {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
+                    <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-bold">
+                      Biaya & Informasi
+                    </span>
+                    <strong className="text-xs sm:text-sm font-bold text-slate-900 block truncate">
+                      {prog.harga || 'Hubungi kami untuk informasi program'}
                     </strong>
                   </div>
 
@@ -125,7 +129,7 @@ export default async function ProgramPage() {
                     href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+daftar+program+${encodeURIComponent(prog.judul)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm px-6 py-3 rounded-2xl shadow-md transition-all hover:scale-105 cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Daftar Kelas</span>
