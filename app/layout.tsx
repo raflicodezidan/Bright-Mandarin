@@ -4,7 +4,7 @@ import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PromoModal from './components/PromoModal';
-import { getPopupPromo, mockSiteSettings } from '@/lib/sanity';
+import { getPopupPromo, getSiteSettings } from '@/lib/sanity';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const viewport: Viewport = {
@@ -46,7 +46,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const promoData = await getPopupPromo();
+  const [promoData, siteSettings] = await Promise.all([
+    getPopupPromo(),
+    getSiteSettings(),
+  ]);
 
   return (
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
@@ -59,12 +62,12 @@ export default async function RootLayout({
       <body className="antialiased text-brand-charcoal bg-[#FFFBEB] selection:bg-orange-500 selection:text-white overflow-x-hidden w-full max-w-full">
         <Navbar />
         <main className="pt-[66px] sm:pt-[70px] overflow-x-hidden w-full max-w-full">{children}</main>
-        <Footer />
+        <Footer settings={siteSettings} />
         <PromoModal promoData={promoData} />
 
         {/* Floating WhatsApp Action Button with Official Logo (Bottom Right) */}
         <a
-          href="https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+mencoba+Free+Trial+Class"
+          href={siteSettings.whatsappUtama || "https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+mencoba+Free+Trial+Class"}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Mau cobain Free Trial Class? Chat WhatsApp Bright Mandarin"

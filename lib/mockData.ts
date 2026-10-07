@@ -188,21 +188,24 @@ export const mockSiteSettings: SiteSettings = {
   namaSitus: "Bright Mandarin Education",
   tagline: "Kursus Bahasa Mandarin No. 1 Berstandar HSK 6 & Beasiswa Tiongkok",
   deskripsi: "Platform kursus bahasa Mandarin terpercaya dengan pengajar berkualifikasi HSK 6 lulusan universitas ternama Tiongkok. Menyediakan kelas Online, Offline Center di Kelapa Gading, dan Home Private.",
-  teleponHotline: "089699288009",
-  whatsappUtama: "https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kursus+Mandarin",
-  email: "halo@brightmandarin.com",
-  alamatPusat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
-  jamOperasional: "Senin - Minggu: 09.00 - 21.00 WIB",
-  instagramUrl: "https://instagram.com/brightmandarin",
-  instagramHandle: "@brightmandarin",
-  tiktokUrl: "https://tiktok.com/@brightmandarin",
-  tiktokHandle: "@brightmandarin",
+  teleponHotline: "+62 858-9059-2738",
+  whatsappUtama: "https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kursus+Mandarin",
+  email: "coursebrightmandarin@gmail.com",
+  alamatPusat: "Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia",
+  jamOperasional: `Tutoring & Kelas Reguler
+Senin – Jumat: 12.00 – 18.30
+Sabtu: 09.00 – 15.00
+Kelas Dewasa
+Senin – Jumat: 18.00 – 20.00
+Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
+  instagramUrl: "https://instagram.com/bright_mandarin",
+  instagramHandle: "bright_mandarin",
+  tiktokUrl: "https://tiktok.com/@bright_mandarin",
+  tiktokHandle: "bright_mandarin",
   facebookUrl: "https://facebook.com/brightmandarin",
   facebookName: "Bright Mandarin",
   youtubeUrl: "https://youtube.com/@brightmandarin",
   youtubeChannel: "Bright Mandarin Channel",
-  linkedinUrl: "https://linkedin.com/company/bright-mandarin",
-  linkedinName: "Bright Mandarin Education",
   // Hero
   heroBadgeText: "Kursus Mandarin Paling Seru & Terbukti!",
   heroHeadlineMain: "Kursus Mandarin No. 1 di Kelapa Gading",
@@ -254,11 +257,11 @@ export const mockSiteSettings: SiteSettings = {
   cabang: [
     {
       nama: "Bright Mandarin Learning Center",
-      alamat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
-      whatsapp: "089699288009",
-      email: "halo@brightmandarin.com",
-      linkMaps: "https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Venesia,+RW.5,+Klp.+Gading+Bar.,+Kec.+Klp.+Gading,+Jkt+Utara,+Daerah+Khusus+Ibukota+Jakarta+14240",
-      jamOperasional: "Senin - Minggu: 09.00 - 21.00 WIB"
+      alamat: "Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia",
+      whatsapp: "+62 858-9059-2738",
+      email: "coursebrightmandarin@gmail.com",
+      linkMaps: "https://www.google.com/maps/search/?api=1&query=Jl.+Venesia+EA+No.+2-3+Bukit+Gading+Mediterania+Kelapa+Gading+Jakarta",
+      jamOperasional: `Tutoring & Kelas Reguler (Senin - Jumat 12.00 - 18.30, Sabtu 09.00 - 15.00), Kelas Dewasa (Senin - Jumat 18.00 - 20.00)`
     }
   ]
 };

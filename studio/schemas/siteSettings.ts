@@ -43,39 +43,45 @@ export default {
     },
     {
       name: 'teleponHotline',
-      title: 'Nomor Telepon Hotline',
+      title: 'Nomor Telepon Hotline / WhatsApp',
       type: 'string',
       fieldset: 'kontak',
-      initialValue: '089699288009',
+      initialValue: '+62 858-9059-2738',
     },
     {
       name: 'whatsappUtama',
       title: 'Link WhatsApp Pendaftaran Utama',
       type: 'url',
       fieldset: 'kontak',
-      initialValue: 'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+program+kursus+bahasa+Mandarin',
+      initialValue: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+program+kursus+bahasa+Mandarin',
     },
     {
       name: 'email',
       title: 'Email Resmi',
       type: 'string',
       fieldset: 'kontak',
-      initialValue: 'halo@brightmandarin.com',
+      initialValue: 'coursebrightmandarin@gmail.com',
     },
     {
       name: 'alamatPusat',
       title: 'Alamat Kantor / Center Utama',
       type: 'text',
-      rows: 2,
+      rows: 3,
       fieldset: 'kontak',
-      initialValue: 'Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240',
+      initialValue: 'Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia',
     },
     {
       name: 'jamOperasional',
       title: 'Jam Operasional Layanan',
-      type: 'string',
+      type: 'text',
+      rows: 6,
       fieldset: 'kontak',
-      initialValue: 'Senin - Minggu: 09.00 - 21.00 WIB',
+      initialValue: `Tutoring & Kelas Reguler
+Senin – Jumat: 12.00 – 18.30
+Sabtu: 09.00 – 15.00
+Kelas Dewasa
+Senin – Jumat: 18.00 – 20.00
+Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
     },
 
     // ----------------------------------------------------
@@ -86,28 +92,28 @@ export default {
       title: 'Link Instagram',
       type: 'url',
       fieldset: 'sosmed',
-      initialValue: 'https://instagram.com/brightmandarin',
+      initialValue: 'https://instagram.com/bright_mandarin',
     },
     {
       name: 'instagramHandle',
       title: 'Username Instagram',
       type: 'string',
       fieldset: 'sosmed',
-      initialValue: '@brightmandarin',
+      initialValue: 'bright_mandarin',
     },
     {
       name: 'tiktokUrl',
       title: 'Link TikTok',
       type: 'url',
       fieldset: 'sosmed',
-      initialValue: 'https://tiktok.com/@brightmandarin',
+      initialValue: 'https://tiktok.com/@bright_mandarin',
     },
     {
       name: 'tiktokHandle',
       title: 'Username TikTok',
       type: 'string',
       fieldset: 'sosmed',
-      initialValue: '@brightmandarin',
+      initialValue: 'bright_mandarin',
     },
     {
       name: 'facebookUrl',
@@ -136,20 +142,6 @@ export default {
       type: 'string',
       fieldset: 'sosmed',
       initialValue: 'Bright Mandarin Channel',
-    },
-    {
-      name: 'linkedinUrl',
-      title: 'Link LinkedIn',
-      type: 'url',
-      fieldset: 'sosmed',
-      initialValue: 'https://linkedin.com/company/bright-mandarin',
-    },
-    {
-      name: 'linkedinName',
-      title: 'Nama Profil LinkedIn',
-      type: 'string',
-      fieldset: 'sosmed',
-      initialValue: 'Bright Mandarin Education',
     },
 
     // ----------------------------------------------------

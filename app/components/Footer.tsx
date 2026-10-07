@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock, Heart, ChevronRight } from 'lucide-react';
 import { mockSiteSettings } from '@/lib/mockData';
+import { SiteSettings } from '@/lib/sanity';
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -38,45 +39,33 @@ function YouTubeIcon({ className }: { className?: string }) {
   );
 }
 
-function LinkedInIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-    </svg>
-  );
-}
+export default function Footer({ settings }: { settings?: SiteSettings }) {
+  const currentSettings = settings || mockSiteSettings;
 
-export default function Footer() {
   const socialLinks = [
     {
       name: 'Instagram',
-      url: mockSiteSettings.instagramUrl || 'https://instagram.com/brightmandarin',
+      url: currentSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
       Icon: InstagramIcon,
       colorClass: 'bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white border-transparent shadow-md shadow-rose-500/20 hover:opacity-95',
     },
     {
       name: 'TikTok',
-      url: mockSiteSettings.tiktokUrl || 'https://tiktok.com/@brightmandarin',
+      url: currentSettings.tiktokUrl || 'https://tiktok.com/@bright_mandarin',
       Icon: TikTokIcon,
       colorClass: 'bg-slate-950 text-white border-transparent shadow-md shadow-slate-900/20 hover:bg-black',
     },
     {
       name: 'Facebook',
-      url: 'https://facebook.com/brightmandarin',
+      url: currentSettings.facebookUrl || 'https://facebook.com/brightmandarin',
       Icon: FacebookIcon,
       colorClass: 'bg-[#1877F2] text-white border-transparent shadow-md shadow-blue-500/20 hover:bg-[#166fe5]',
     },
     {
       name: 'YouTube',
-      url: mockSiteSettings.youtubeUrl || 'https://youtube.com/@brightmandarin',
+      url: currentSettings.youtubeUrl || 'https://youtube.com/@brightmandarin',
       Icon: YouTubeIcon,
       colorClass: 'bg-[#FF0000] text-white border-transparent shadow-md shadow-red-500/20 hover:bg-[#e60000]',
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/company/brightmandarin',
-      Icon: LinkedInIcon,
-      colorClass: 'bg-[#0A66C2] text-white border-transparent shadow-md shadow-sky-600/20 hover:bg-[#095196]',
     },
   ];
 
@@ -84,7 +73,7 @@ export default function Footer() {
     <footer className="bg-white text-slate-800 pt-16 pb-8 border-t-2 border-amber-200/80 shadow-inner">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-amber-200/80">
-          {/* Col 1: Brand Info */}
+          {/* Col 1: Brand Info & Kontak Utama */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3.5">
               <div className="w-14 h-14 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center p-0.5 shrink-0 border-2 border-amber-300">
@@ -114,22 +103,48 @@ export default function Footer() {
               Lembaga kursus bahasa Mandarin terkemuka dengan kurikulum terstruktur, tutor bersertifikat HSK 6 lulusan universitas top Tiongkok, serta mitra terpercaya persiapan beasiswa dan karir internasional.
             </p>
 
-            <div className="pt-2 space-y-2 text-sm text-slate-700 font-medium">
+            <div className="pt-2 space-y-3 text-sm text-slate-700 font-medium">
+              {/* Alamat Lengkap */}
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
-                <span>{mockSiteSettings.alamatPusat}</span>
+                <div className="whitespace-pre-line text-xs sm:text-sm text-slate-700 leading-snug">
+                  {currentSettings.alamatPusat}
+                </div>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>{mockSiteSettings.jamOperasional}</span>
-              </div>
+
+              {/* WhatsApp Hotline */}
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>{mockSiteSettings.teleponHotline}</span>
+                <a
+                  href={currentSettings.whatsappUtama}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-600 transition-colors font-bold text-xs sm:text-sm text-slate-800"
+                >
+                  {currentSettings.teleponHotline}
+                </a>
               </div>
+
+              {/* Email Resmi */}
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>{mockSiteSettings.email}</span>
+                <a
+                  href={`mailto:${currentSettings.email}`}
+                  className="hover:text-orange-600 transition-colors font-semibold text-xs sm:text-sm text-slate-800"
+                >
+                  {currentSettings.email}
+                </a>
+              </div>
+
+              {/* Jam Operasional */}
+              <div className="flex items-start gap-2.5 pt-1">
+                <Clock className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
+                <div className="text-xs sm:text-sm text-slate-700 leading-relaxed w-full">
+                  <span className="font-bold text-amber-950 block mb-1">Jam Operasional:</span>
+                  <div className="whitespace-pre-line text-slate-600 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-1">
+                    {currentSettings.jamOperasional}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -215,7 +230,7 @@ export default function Footer() {
               Bingung memilih level atau ingin tes penempatan gratis? Hubungi konsultan akademik kami sekarang.
             </p>
             <a
-              href={mockSiteSettings.whatsappUtama}
+              href={currentSettings.whatsappUtama}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-xs py-3 px-4 rounded-full transition-all shadow-md shadow-orange-500/20 hover:scale-105"
@@ -237,7 +252,7 @@ export default function Footer() {
                 Learning Center:
               </span>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                Jl. Raya Venesia, Kelapa Gading Barat, Jakarta Utara (089699288009)
+                Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta (+62 858-9059-2738)
               </p>
             </div>
           </div>
@@ -247,7 +262,7 @@ export default function Footer() {
         <div className="py-6 border-b border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-slate-900 font-extrabold text-sm sm:text-base">
             <span className="uppercase tracking-wider">Follow Us:</span>
-            <span className="text-xs text-orange-600 font-bold hidden md:inline">@brightmandarin</span>
+            <span className="text-xs text-orange-600 font-bold hidden md:inline">@{currentSettings.instagramHandle || 'bright_mandarin'}</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -284,4 +299,3 @@ export default function Footer() {
     </footer>
   );
 }
-
