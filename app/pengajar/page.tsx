@@ -3,11 +3,13 @@ import Image from 'next/image';
 import { Award, GraduationCap, Sparkles, MessageCircle, BookOpen } from 'lucide-react';
 import { getPengajar, mockSiteSettings } from '@/lib/sanity';
 
+import type { Metadata } from 'next';
+
 export const revalidate = 60;
 
-export const metadata = {
-  title: 'Tim Pengajar (Laoshi) — Bright Mandarin',
-  description: 'Kenali profil Laoshi berlatar belakang pendidikan universitas terkemuka Tiongkok dengan sertifikasi minimal HSK 6 di Bright Mandarin.',
+export const metadata: Metadata = {
+  title: 'Laoshi & Guru Mandarin Profesional di Kelapa Gading',
+  description: 'Kenali profil Laoshi berlatar belakang pendidikan universitas terkemuka Tiongkok dengan sertifikasi minimal HSK 6 di Bright Mandarin Kelapa Gading Jakarta Utara.',
 };
 
 export default async function PengajarPage() {

@@ -2,11 +2,22 @@ import React from 'react';
 import { MessageCircle, Users, BookOpen, Clock, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getPrograms, mockSiteSettings } from '@/lib/sanity';
 
+import type { Metadata } from 'next';
+
 export const revalidate = 60;
 
-export const metadata = {
-  title: 'Program Kursus Unggulan — Bright Mandarin',
-  description: 'Pilihan lengkap program kursus bahasa Mandarin: Bimbingan Belajar Akademik, Kelas Reguler, Kindergarten, Bright Mandarin Kids, HSK Preparation, HSKK Speaking Test, dan Kelas Percakapan.',
+export const metadata: Metadata = {
+  title: 'Program Kursus Mandarin di Kelapa Gading',
+  description: 'Pilihan lengkap program kursus & les bahasa Mandarin di Kelapa Gading: Bimbingan Belajar Akademik, Kelas Reguler, Kindergarten Kurikulum Internasional, Bright Mandarin Kids, Persiapan Ujian HSK 1–6, HSKK Speaking, dan Kelas Percakapan.',
+  keywords: [
+    'program kursus mandarin',
+    'kursus mandarin di kelapa gading',
+    'les mandarin anak kelapa gading',
+    'kursus hsk kelapa gading',
+    'les mandarin hskk jakarta',
+    'bimbingan belajar mandarin kelapa gading',
+    'les mandarin bukit gading mediterania'
+  ],
 };
 
 export default async function ProgramPage() {

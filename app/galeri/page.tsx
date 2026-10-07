@@ -2,11 +2,13 @@ import React from 'react';
 import { getGaleri } from '@/lib/sanity';
 import GaleriBlogView from '@/app/components/GaleriBlogView';
 
+import type { Metadata } from 'next';
+
 export const revalidate = 60;
 
-export const metadata = {
-  title: 'Galeri & Dokumentasi Kegiatan — Bright Mandarin',
-  description: 'Dokumentasi interaktif suasana kelas offline, workshop budaya Tionghoa, video kegiatan belajar, dan simulasi kelulusan ujian HSK di Bright Mandarin.',
+export const metadata: Metadata = {
+  title: 'Galeri & Suasana Kelas Mandarin di Kelapa Gading',
+  description: 'Dokumentasi interaktif suasana kelas offline di Kelapa Gading, workshop budaya Tionghoa, video kegiatan belajar murid, dan simulasi kelulusan ujian HSK di Bright Mandarin.',
 };
 
 export default async function GaleriPage() {

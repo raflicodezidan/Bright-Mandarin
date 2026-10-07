@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { Newspaper, Calendar, ArrowRight, Sparkles } from 'lucide-react';
 import { getBerita } from '@/lib/sanity';
 
+import type { Metadata } from 'next';
+
 export const revalidate = 60;
 
-export const metadata = {
-  title: 'Blog & Edukasi Mandarin — Bright Mandarin',
-  description: 'Kumpulan artikel blog edukasi, tips cepat menguasai nada pinyin & hanzi, info jadwal ujian HSK, dan panduan beasiswa kuliah ke China.',
+export const metadata: Metadata = {
+  title: 'Blog & Tips Belajar Bahasa Mandarin — Bright Mandarin',
+  description: 'Kumpulan artikel edukasi bahasa Mandarin, tips cepat menguasai nada pinyin & hanzi, info jadwal ujian HSK & HSKK resmi, dan panduan beasiswa kuliah ke China.',
 };
 
 export default async function BeritaPage() {
