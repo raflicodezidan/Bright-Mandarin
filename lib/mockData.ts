@@ -370,38 +370,38 @@ export const mockPrograms: ProgramItem[] = [
 export const mockAchievement: AchievementItem[] = [
   {
     _id: "achievement-1",
+    nama: "Nathan Budi",
+    level: "HSK 2",
+    skor: "188/200",
+    keterangan: "Kelas Reguler Primary",
+    fotoUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
+    urutan: 1
+  },
+  {
+    _id: "achievement-2",
+    nama: "Michelle Angela",
+    level: "HSK 3",
+    skor: "285/300",
+    keterangan: "HSK Preparation",
+    fotoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
+    urutan: 2
+  },
+  {
+    _id: "achievement-3",
+    nama: "David Kusuma",
+    level: "HSK 4",
+    skor: "271/300",
+    keterangan: "HSK Preparation",
+    fotoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
+    urutan: 3
+  },
+  {
+    _id: "achievement-4",
     nama: "Chloe",
     level: "HSK 1",
     skor: "195/200",
     keterangan: "Bright Mandarin Kids",
     fotoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80",
-    urutan: 1
-  },
-  {
-    _id: "achievement-2",
-    nama: "Nathan",
-    level: "HSK 2",
-    skor: "188/200",
-    keterangan: "Kelas Reguler",
-    fotoUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
-    urutan: 2
-  },
-  {
-    _id: "achievement-3",
-    nama: "Michelle",
-    level: "HSK 3",
-    skor: "285/300",
-    keterangan: "HSK Preparation",
-    fotoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
-    urutan: 3
-  },
-  {
-    _id: "achievement-4",
-    nama: "David",
-    level: "HSK 4",
-    skor: "271/300",
-    keterangan: "HSK Preparation",
-    fotoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
     urutan: 4
   },
   {

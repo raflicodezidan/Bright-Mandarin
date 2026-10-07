@@ -65,19 +65,41 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Achievement Murid-Murid (Background: Kuning-Oranye Hangat) */}
-      <section id="achievement" className="py-20 bg-orange-100/50 border-b border-amber-300/70 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              {siteSettings.achievementSectionTitle || 'ACHIEVEMENT MURID'}
-            </h2>
-            <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              {siteSettings.achievementSectionSubtitle || 'Prestasi & Skor Ujian Murid-Murid Bright Mandarin'}
+      {/* 5. Achievement Murid-Murid: Small Steps, Big Progress */}
+      <section id="achievement" className="py-20 sm:py-24 bg-[#FAF7F2] border-b border-amber-200/70 scroll-mt-20 relative overflow-hidden">
+        {/* Subtle watercolor / artistic brush wash in top-right and bottom-left */}
+        <div className="absolute -top-12 -right-12 w-96 h-80 bg-gradient-to-bl from-amber-200/50 via-orange-100/30 to-transparent pointer-events-none rounded-bl-full blur-2xl" />
+        <div className="absolute -bottom-12 -left-12 w-96 h-80 bg-gradient-to-tr from-amber-200/40 via-orange-100/20 to-transparent pointer-events-none rounded-tr-full blur-2xl" />
+
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+          {/* Section Header Matches Reference Mockup */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <p className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-slate-500 uppercase mb-2">
+              {siteSettings.achievementSectionTitle || 'MY ACHIEVEMENTS'}
             </p>
-            <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
-            <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              {siteSettings.achievementSectionDesc || 'Bukti nyata hasil belajar dan dedikasi murid-murid kami dalam meraih skor memuaskan pada ujian HSK dan HSKK.'}
+            
+            <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+              {/* Radiating Burst Left */}
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" className="text-amber-500 w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true">
+                <path d="M10 6L3 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M8 13L1 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M10 20L3 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                Small Steps, <span className="font-serif italic font-extrabold text-[#EAA023] sm:text-[1.08em] drop-shadow-xs">Big Progress</span>
+              </h2>
+
+              {/* Radiating Burst Right */}
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" className="text-amber-500 w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true">
+                <path d="M16 6L23 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M18 13L25 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M16 20L23 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            <p className="text-slate-500 text-xs sm:text-sm md:text-base font-normal mt-2.5">
+              {siteSettings.achievementSectionDesc || 'Every test is a step closer to my bigger goals.'}
             </p>
           </div>
 
