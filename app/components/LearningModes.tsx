@@ -51,41 +51,41 @@ export default function LearningModes({ settings }: { settings?: SiteSettings })
           </p>
         </div>
 
-        {/* Single Offline Class Card */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all duration-300 group">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            <div className="md:col-span-2 flex flex-col items-center text-center">
-              <div className="mb-4">
-                <IconOfflineMode />
-              </div>
-              <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-orange-600 mb-2">
-                Tatap Muka
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2 group-hover:text-orange-600 transition-colors leading-tight">
-                Kelas Offline Center
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                Tatap muka langsung di ruang kelas modern ber-AC
-              </p>
+        {/* Single Offline Class Card - Vertical Stack Layout */}
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl p-8 sm:p-10 border-2 border-amber-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 group">
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-4">
+              <IconOfflineMode />
             </div>
+            <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-orange-600 mb-1.5">
+              Tatap Muka
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2 group-hover:text-orange-600 transition-colors leading-tight">
+              Kelas Offline Center
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed font-medium max-w-md mx-auto mb-6">
+              Tatap muka langsung di ruang kelas modern ber-AC
+            </p>
 
-            <div className="md:col-span-3 md:border-l-2 md:border-dashed md:border-amber-200/80 md:pl-8">
-              <div className="space-y-3.5 mb-8">
+            {/* Checklist Details (Tersusun Rapi di Bawahnya) */}
+            <div className="w-full max-w-md border-t border-amber-200/80 pt-6 mb-8 text-left">
+              <div className="space-y-3.5">
                 {points.map((pt) => (
-                  <div key={pt} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-700 font-medium">
+                  <div key={pt} className="flex items-start gap-3 text-sm sm:text-base text-slate-700 font-medium">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{pt}</span>
                   </div>
                 ))}
               </div>
-              <Link
-                href="/#lokasi"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm py-3.5 px-8 rounded-2xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <span>Lihat Lokasi Center</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
+
+            <Link
+              href="/#lokasi"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm py-3.5 px-8 rounded-2xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>Lihat Lokasi Center</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
