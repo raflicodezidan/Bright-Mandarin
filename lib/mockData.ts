@@ -203,7 +203,7 @@ export const mockSiteSettings: SiteSettings = {
   heroBadgeText: "Kursus Mandarin Paling Seru & Terbukti!",
   heroHeadlineMain: "Kursus Mandarin No. 1 di Kelapa Gading",
   heroHeadlineHighlight: "Kuasai Mandarin, Buka Peluang ke Tiongkok!",
-  heroSubheadline: "Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi ceria bersertifikasi HSK 6 dari universitas top Tiongkok!",
+  heroSubheadline: "Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi berpengalaman dari universitas top Tiongkok!",
   heroSecondaryCtaText: "Lihat Program Kelas",
   heroCard1Number: "5.000+",
   heroCard1Text: "Alumni Puas & Fasih",

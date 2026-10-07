@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, GraduationCap, Star } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 export default function Hero({ settings }: { settings?: SiteSettings }) {
@@ -121,7 +121,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
 
             {/* Sub-headline */}
             <p className="text-xs sm:text-sm lg:text-[15px] text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 bg-white/40 backdrop-blur-xs p-3 sm:p-3.5 rounded-xl border border-white/60 shadow-xs">
-              {currentSettings.heroSubheadline || 'Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi ceria bersertifikasi HSK 6 dari universitas top Tiongkok!'}
+              {currentSettings.heroSubheadline || 'Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi berpengalaman dari universitas top Tiongkok!'}
             </p>
 
             {/* Call to Action */}
@@ -151,17 +151,6 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
           {/* Right Column: Visual Photo Showcase with Asymmetrical Curved Corners (5 cols) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-
-              {/* Floating Top Badge: Laoshi Bersertifikasi HSK 6 */}
-              <div className="absolute -top-5 sm:-top-7 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-xs rounded-full py-2 px-4 sm:px-5 shadow-xl border-2 border-white flex items-center gap-3">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-md">
-                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div className="leading-tight text-left">
-                  <p className="text-[11px] sm:text-xs font-bold text-blue-600">Laoshi Bersertifikasi</p>
-                  <p className="text-base sm:text-lg font-black text-blue-600 tracking-tight">HSK 6</p>
-                </div>
-              </div>
 
               {/* Main Photo Container with Asymmetrical Curved Corners and Thick White Border */}
               <div className="relative overflow-hidden border-[6px] sm:border-[8px] border-white shadow-2xl bg-white rounded-tl-[65px] sm:rounded-tl-[85px] lg:rounded-tl-[95px] rounded-tr-[30px] sm:rounded-tr-[40px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-br-[65px] sm:rounded-br-[85px] lg:rounded-br-[95px]">
