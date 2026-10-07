@@ -169,12 +169,12 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                   </div>
 
                   {/* Footer: Price & CTA */}
-                  <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3 mt-auto">
-                    <div className="min-w-0">
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 mt-3">
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold leading-tight">
                         Biaya & Informasi
                       </span>
-                      <strong className="text-xs sm:text-sm font-bold text-slate-900 block truncate">
+                      <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block truncate" title={prog.harga || 'Hubungi kami untuk informasi'}>
                         {prog.harga || 'Hubungi kami untuk informasi'}
                       </strong>
                     </div>
@@ -183,9 +183,9 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                       href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+tertarik+dengan+program+${encodeURIComponent(prog.judul)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
+                      className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
+                      <MessageCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>Daftar</span>
                     </a>
                   </div>
