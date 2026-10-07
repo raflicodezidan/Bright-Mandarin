@@ -174,8 +174,8 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                       <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold leading-tight">
                         Biaya & Informasi
                       </span>
-                      <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block truncate" title={prog.harga || 'Hubungi kami untuk informasi'}>
-                        {prog.harga || 'Hubungi kami untuk informasi'}
+                      <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
+                        {prog.harga || 'Hubungi kami untuk informasi program'}
                       </strong>
                     </div>
 
