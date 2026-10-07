@@ -79,6 +79,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'vGbF7uz5KnePfGCiww4OOGsAReqnfssk0AryjPxXCXU',
+  },
 };
 
 export default async function RootLayout({
@@ -150,6 +153,7 @@ export default async function RootLayout({
   return (
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
       <head>
+        <meta name="google-site-verification" content="vGbF7uz5KnePfGCiww4OOGsAReqnfssk0AryjPxXCXU" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://cdn.sanity.io" />
