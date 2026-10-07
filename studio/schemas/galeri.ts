@@ -77,8 +77,9 @@ export default {
     },
     {
       name: 'foto',
-      title: 'Koleksi Foto Dokumentasi',
+      title: 'Koleksi Foto Dokumentasi (Opsional)',
       type: 'array',
+      description: 'Bisa dikosongkan jika hanya ingin menampilkan video kegiatan',
       of: [
         {
           type: 'image',
@@ -92,7 +93,6 @@ export default {
           ],
         },
       ],
-      validation: (Rule: any) => Rule.required().min(1),
     },
   ],
 };

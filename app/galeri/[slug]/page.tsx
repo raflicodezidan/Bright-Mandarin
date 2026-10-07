@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { 
-  Calendar, 
   ArrowLeft, 
   Video, 
   Image as ImageIcon, 
@@ -80,20 +79,10 @@ export default async function GaleriDetailPage({ params }: PageProps) {
 
         {/* Blog Article Header */}
         <header className="mb-10 text-center sm:text-left space-y-4 bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-200 shadow-sm">
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs">
+          <div>
+            <span className="font-bold text-xs px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs tracking-wide">
               {item.kategori}
             </span>
-            <span className="flex items-center gap-1.5 text-slate-500 font-semibold bg-slate-100 px-3 py-1 rounded-full">
-              <Calendar className="w-3.5 h-3.5 text-orange-600" />
-              {item.tanggal}
-            </span>
-            {item.videoUrl && (
-              <span className="flex items-center gap-1 font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
-                <Video className="w-3 h-3" />
-                Ada Video
-              </span>
-            )}
           </div>
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-snug">
@@ -150,37 +139,39 @@ export default async function GaleriDetailPage({ params }: PageProps) {
           </section>
         )}
 
-        {/* Photo Gallery Grid */}
-        <section className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-200 shadow-sm space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-            <h2 className="text-base font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
-              <ImageIcon className="w-4 h-4 text-amber-600" />
-              Koleksi Foto Dokumentasi ({item.foto?.length || 0})
-            </h2>
-          </div>
+        {/* Photo Gallery Grid (Optional / If Photos Exist) */}
+        {item.foto && item.foto.length > 0 && (
+          <section className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-200 shadow-sm space-y-6">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <h2 className="text-base font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
+                <ImageIcon className="w-4 h-4 text-amber-600" />
+                Koleksi Foto Dokumentasi ({item.foto.length})
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {item.foto?.map((pic, idx) => (
-              <figure 
-                key={idx}
-                className="space-y-2 group rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 p-2 hover:border-amber-400 hover:shadow-md transition-all"
-              >
-                <div className="aspect-4/3 rounded-xl overflow-hidden bg-slate-900">
-                  <img
-                    src={pic.url}
-                    alt={pic.caption || item.judul}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                {pic.caption && (
-                  <figcaption className="text-xs text-slate-600 px-2 py-1 font-medium leading-relaxed">
-                    {pic.caption}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
-          </div>
-        </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {item.foto.map((pic, idx) => (
+                <figure 
+                  key={idx}
+                  className="space-y-2 group rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 p-2 hover:border-amber-400 hover:shadow-md transition-all"
+                >
+                  <div className="aspect-4/3 rounded-xl overflow-hidden bg-slate-900">
+                    <img
+                      src={pic.url}
+                      alt={pic.caption || item.judul}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  {pic.caption && (
+                    <figcaption className="text-xs text-slate-600 px-2 py-1 font-medium leading-relaxed">
+                      {pic.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* WhatsApp Call to Action */}
         <div className="mt-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-6 sm:p-8 text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
