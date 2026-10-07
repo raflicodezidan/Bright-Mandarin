@@ -792,7 +792,7 @@ export const mockGaleri: GaleriItem[] = [
     slug: { current: "suasana-belajar-kelas-offline-kelapa-gading" },
     tanggal: "Februari 2026",
     kategori: "Kelas Offline",
-    deskripsi: "Dokumentasi interaksi hangat antara laoshi dan para murid dalam simulasi percakapan dan latihan hanzi di kelas modern berfasilitas multimedia.",
+    deskripsi: "Dokumentasi interaksi hangat antara laoshi dan para murid dalam simulasi percakapan dan latihan hanzi di kelas modern berfasilitas multimedia. Pembelajaran dirancang interaktif dengan pembagian kelompok kecil untuk melatih kelancaran berbicara dan pelafalan nada (pinyin) secara presisi.",
     ceritaLengkap: "Kegiatan belajar tatap muka di Bright Mandarin Learning Center Kelapa Gading dirancang interaktif dan menyenangkan. Setiap sesi menggabungkan materi tata bahasa praktis, pengucapan nada (pinyin), serta latihan percakapan langsung berpasangan. Ruang kelas yang nyaman ber-AC dan dilengkapi layar interaktif membuat siswa lebih fokus dan percaya diri mengekspresikan percakapan Mandarin.",
     coverImageUrl: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
@@ -807,11 +807,15 @@ export const mockGaleri: GaleriItem[] = [
       },
       {
         url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80",
-        caption: "Diskusi seru dan latihan percakapan dua arah"
+        caption: "Diskusi seru dan latihan percakapan dua arah antar siswa"
       },
       {
         url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&auto=format&fit=crop&q=80",
-        caption: "Pemberian feedback pengucapan nada oleh laoshi"
+        caption: "Bimbingan personal pengucapan pinyin langsung bersama laoshi"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80",
+        caption: "Suasana kelas yang nyaman dan penuh antusiasme belajar"
       }
     ]
   },
@@ -821,7 +825,7 @@ export const mockGaleri: GaleriItem[] = [
     slug: { current: "perayaan-festival-imlek-workshop-kaligrafi-shufa" },
     tanggal: "Januari 2026",
     kategori: "Kegiatan Budaya",
-    deskripsi: "Murid-murid diajak mempraktikkan seni menulis kaligrafi kuas tradisional, belajar filosofi karakter 'Chun' dan 'Fu', serta menikmati kebersamaan.",
+    deskripsi: "Murid-murid diajak mempraktikkan seni menulis kaligrafi kuas tradisional, belajar filosofi karakter 'Chun' dan 'Fu', serta menikmati hidangan khas bersama. Kegiatan ini mengasah kesabaran, nilai seni, dan pengenalan budaya Tionghoa secara mendalam.",
     ceritaLengkap: "Menyambut Tahun Baru Imlek, Bright Mandarin mengadakan workshop kebudayaan Tionghoa bertajuk 'The Art of Shufa'. Murid dari kelas anak-anak hingga dewasa diperkenalkan pada empat harta karun kamar studi (kuas, tinta, kertas xuan, dan batu tinta). Selain mengasah keterampilan menulis indah, kegiatan ini memperdalam pemahaman filosofi nilai-nilai luhur di balik aksara Mandarin.",
     coverImageUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop&q=80",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -837,6 +841,14 @@ export const mockGaleri: GaleriItem[] = [
       {
         url: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&auto=format&fit=crop&q=80",
         caption: "Foto bersama seluruh siswa dan laoshi di lobi center"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&auto=format&fit=crop&q=80",
+        caption: "Seni gunting kertas merah tradisional bertema keberuntungan"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80",
+        caption: "Aktivitas pengenalan budaya teh dan tradisi perayaan festival"
       }
     ]
   },
@@ -846,7 +858,7 @@ export const mockGaleri: GaleriItem[] = [
     slug: { current: "simulasi-ujian-resmi-hsk-pembagian-sertifikat" },
     tanggal: "Desember 2025",
     kategori: "Ujian HSK",
-    deskripsi: "Pelaksanaan simulasi try-out HSK 1 hingga HSK 4 berbasis komputer dan kertas, mempersiapkan mental dan strategi pengerjaan soal siswa.",
+    deskripsi: "Pelaksanaan simulasi try-out HSK 1 hingga HSK 4 berbasis komputer dan kertas, mempersiapkan mental dan strategi pengerjaan soal siswa agar percaya diri meraih skor maksimal pada ujian resmi internasional.",
     ceritaLengkap: "Try-out HSK diadakan secara berkala untuk mengevaluasi kesiapan siswa sebelum mengikuti ujian resmi berstandar internasional. Dengan sistem penilaian komprehensif (mendengarkan, membaca, dan menulis), para laoshi dapat memberikan bimbingan tertarget pada kelemahan masing-masing peserta hingga mencapai skor di atas rata-rata.",
     coverImageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
@@ -862,6 +874,14 @@ export const mockGaleri: GaleriItem[] = [
       {
         url: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop&q=80",
         caption: "Apresiasi sertifikat pencapaian nilai memuaskan"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&auto=format&fit=crop&q=80",
+        caption: "Latihan intensif kosakata target ujian HSK"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80",
+        caption: "Foto kebersamaan siswa yang berhasil lulus dengan predikat terbaik"
       }
     ]
   }
