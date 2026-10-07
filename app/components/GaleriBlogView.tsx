@@ -32,6 +32,7 @@ function KegiatanInstagramCard({
   onOpenLightbox: (photos: { url: string; caption?: string }[], index: number, title: string) => void;
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [aspectRatios, setAspectRatios] = useState<{ [index: number]: number }>({});
   const touchStartX = useRef<number | null>(null);
 
   // Helper to detect if a URL is YouTube
@@ -83,6 +84,10 @@ function KegiatanInstagramCard({
 
   const totalSlides = mediaList.length;
 
+  // Compute adaptive ratio for current active slide
+  const activeRatio = aspectRatios[currentSlide] || 16 / 9;
+  const clampedRatio = Math.max(0.65, Math.min(2.1, activeRatio));
+
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
     setCurrentSlide((prev) => (prev > 0 ? prev - 1 : prev));
@@ -110,9 +115,10 @@ function KegiatanInstagramCard({
 
   return (
     <article className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200/90 shadow-lg hover:shadow-2xl transition-all duration-300">
-      {/* 1. MEDIA SECTION: Format Portrait Kayak Instagram (Aspect Ratio 4:5) */}
+      {/* 1. MEDIA SECTION: Adaptif Mengikuti Ukuran Asli Video atau Gambar */}
       <div 
-        className="relative w-full aspect-[4/5] max-h-[620px] bg-slate-950 overflow-hidden group/media select-none"
+        className="relative w-full bg-slate-950 overflow-hidden group/media select-none transition-[aspect-ratio] duration-500 ease-in-out flex items-center justify-center max-h-[640px]"
+        style={{ aspectRatio: `${clampedRatio}` }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -139,6 +145,15 @@ function KegiatanInstagramCard({
                     playsInline
                     poster={media.poster}
                     className="w-full h-full object-contain bg-black"
+                    onLoadedMetadata={(e) => {
+                      const vid = e.currentTarget;
+                      if (vid.videoWidth && vid.videoHeight) {
+                        setAspectRatios((prev) => ({
+                          ...prev,
+                          [idx]: vid.videoWidth / vid.videoHeight,
+                        }));
+                      }
+                    }}
                   >
                     Browser Anda tidak mendukung pemutar video.
                   </video>
@@ -156,6 +171,15 @@ function KegiatanInstagramCard({
                     src={media.url}
                     alt={media.caption || item.judul}
                     className="w-full h-full object-contain"
+                    onLoad={(e) => {
+                      const img = e.currentTarget;
+                      if (img.naturalWidth && img.naturalHeight) {
+                        setAspectRatios((prev) => ({
+                          ...prev,
+                          [idx]: img.naturalWidth / img.naturalHeight,
+                        }));
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4 pointer-events-none">
                     {media.caption && (
