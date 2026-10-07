@@ -342,14 +342,14 @@ export default {
       title: 'Judul Bagian Achievement Murid',
       type: 'string',
       fieldset: 'achievementSection',
-      initialValue: 'ACHIEVEMENT MURID',
+      initialValue: 'ACHIEVEMENT MURID BRIGHT MANDARIN',
     },
     {
       name: 'achievementSectionSubtitle',
       title: 'Sub-Judul Bagian Achievement Murid',
       type: 'string',
       fieldset: 'achievementSection',
-      initialValue: 'Prestasi & Skor Ujian Murid Bright Mandarin',
+      initialValue: 'Small Steps, Big Progress',
     },
     {
       name: 'achievementSectionDesc',
@@ -357,7 +357,7 @@ export default {
       type: 'text',
       rows: 3,
       fieldset: 'achievementSection',
-      initialValue: 'Bukti nyata hasil belajar murid-murid kami dalam ujian HSK dan HSKK.',
+      initialValue: 'Every test is a step closer to my bigger goals. Bukti nyata hasil belajar dan dedikasi murid-murid kami dalam meraih skor memuaskan pada ujian HSK dan HSKK.',
     },
 
     // ----------------------------------------------------

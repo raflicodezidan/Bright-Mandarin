@@ -226,9 +226,9 @@ export const mockSiteSettings: SiteSettings = {
   programSectionSubtitle: "Pilihan Program Kursus Mandarin Favorit & Terstruktur",
   programSectionDesc: "Program belajar Mandarin untuk semua usia: mulai dari bimbingan akademik sekolah, kelas reguler, persiapan HSK & HSKK, hingga kelas percakapan profesional.",
   // Achievement Murid Section
-  achievementSectionTitle: "ACHIEVEMENT MURID",
-  achievementSectionSubtitle: "Prestasi & Skor Ujian Murid Bright Mandarin",
-  achievementSectionDesc: "Bukti nyata hasil belajar murid-murid kami dalam ujian HSK dan HSKK.",
+  achievementSectionTitle: "ACHIEVEMENT MURID BRIGHT MANDARIN",
+  achievementSectionSubtitle: "Small Steps, Big Progress",
+  achievementSectionDesc: "Every test is a step closer to my bigger goals. Bukti nyata hasil belajar dan dedikasi murid-murid kami dalam meraih skor memuaskan pada ujian HSK dan HSKK.",
   // Berita Section
   beritaSectionTitle: "BLOG BRIGHT MANDARIN",
   beritaSectionSubtitle: "Tips Belajar & Info Beasiswa Kuliah ke Tiongkok",
