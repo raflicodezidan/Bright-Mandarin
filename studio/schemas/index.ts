@@ -1,4 +1,5 @@
 import program from './program';
+import achievement from './achievement';
 import pengajar from './pengajar';
 import berita from './berita';
 import galeri from './galeri';
@@ -10,6 +11,7 @@ import keunggulan from './keunggulan';
 export const schemaTypes = [
   siteSettings,
   program,
+  achievement,
   pengajar,
   testimoni,
   keunggulan,

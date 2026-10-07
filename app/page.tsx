@@ -9,16 +9,16 @@ import BranchLocations from './components/BranchLocations';
 import InstagramFeed from './components/InstagramFeed';
 import TestimoniSection from './components/TestimoniSection';
 import ProgramAutoSlider from './components/ProgramAutoSlider';
-import PengajarAutoSlider from './components/PengajarAutoSlider';
+import AchievementAutoSlider from './components/AchievementAutoSlider';
 import BeritaAutoSlider from './components/BeritaAutoSlider';
-import { getPrograms, getPengajar, getBerita, getTestimoni, getKeunggulan, getSiteSettings, mockSiteSettings } from '@/lib/sanity';
+import { getPrograms, getAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, mockSiteSettings } from '@/lib/sanity';
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [allPrograms, allPengajar, allBerita, allTestimoni, allKeunggulan, siteSettings] = await Promise.all([
+  const [allPrograms, allAchievement, allBerita, allTestimoni, allKeunggulan, siteSettings] = await Promise.all([
     getPrograms(),
-    getPengajar(),
+    getAchievement(),
     getBerita(),
     getTestimoni(),
     getKeunggulan(),
@@ -65,32 +65,23 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Preview Tim Pengajar (Background: Kuning-Oranye Hangat) */}
+      {/* 5. Achievement Murid-Murid (Background: Kuning-Oranye Hangat) */}
       <section className="py-20 bg-orange-100/50 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-              {siteSettings.pengajarSectionTitle || 'DEWAN PENGAJAR PROFESIONAL'}
+              {siteSettings.achievementSectionTitle || 'ACHIEVEMENT MURID'}
             </h2>
             <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-              {siteSettings.pengajarSectionSubtitle || 'Dibimbing Langsung oleh Laoshi Tersertifikasi Min. HSK 6'}
+              {siteSettings.achievementSectionSubtitle || 'Prestasi & Skor Ujian Murid-Murid Bright Mandarin'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
             <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              {siteSettings.pengajarSectionDesc || 'Lulusan universitas top Tiongkok dengan keahlian pedagogi ramah murid, dedikasi tinggi, dan metode yang komunikatif.'}
+              {siteSettings.achievementSectionDesc || 'Bukti nyata hasil belajar dan dedikasi murid-murid kami dalam meraih skor memuaskan pada ujian HSK dan HSKK.'}
             </p>
-            <div>
-              <Link
-                href="/pengajar"
-                className="inline-flex items-center gap-2 text-slate-800 hover:text-orange-600 font-bold text-sm bg-white hover:bg-amber-50 px-6 py-3 rounded-2xl border-2 border-amber-300 shadow-xs hover:shadow-md transition-all"
-              >
-                <span>Kenali Semua Laoshi</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
 
-          <PengajarAutoSlider pengajar={allPengajar} />
+          <AchievementAutoSlider achievement={allAchievement} />
         </div>
       </section>
 

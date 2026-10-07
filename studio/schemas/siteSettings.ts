@@ -9,7 +9,7 @@ export default {
     { name: 'whyUs', title: '4. Bagian Mengapa Memilih Kami (Why Choose Us)', options: { collapsible: true, collapsed: false } },
     { name: 'learningModes', title: '5. Bagian Metode Belajar (Online/Offline/Privat)', options: { collapsible: true, collapsed: false } },
     { name: 'programSection', title: '6. Bagian Preview Program Kursus Unggulan', options: { collapsible: true, collapsed: false } },
-    { name: 'pengajarSection', title: '7. Bagian Preview Dewan Pengajar (Laoshi)', options: { collapsible: true, collapsed: false } },
+    { name: 'achievementSection', title: '7. Bagian Achievement Murid-Murid', options: { collapsible: true, collapsed: false } },
     { name: 'beritaSection', title: '8. Bagian Preview Blog & Tips Mandarin', options: { collapsible: true, collapsed: false } },
     { name: 'lokasiSection', title: '9. Bagian Lokasi Learning Center', options: { collapsible: true, collapsed: false } },
     { name: 'socialSection', title: '10. Bagian Media Sosial / Instagram Feed', options: { collapsible: true, collapsed: false } },
@@ -335,29 +335,29 @@ export default {
     },
 
     // ----------------------------------------------------
-    // 7. Bagian Preview Dewan Pengajar (Laoshi)
+    // 7. Bagian Achievement Murid-Murid
     // ----------------------------------------------------
     {
-      name: 'pengajarSectionTitle',
-      title: 'Judul Bagian Dewan Pengajar',
+      name: 'achievementSectionTitle',
+      title: 'Judul Bagian Achievement Murid',
       type: 'string',
-      fieldset: 'pengajarSection',
-      initialValue: 'DEWAN PENGAJAR PROFESIONAL',
+      fieldset: 'achievementSection',
+      initialValue: 'ACHIEVEMENT MURID',
     },
     {
-      name: 'pengajarSectionSubtitle',
-      title: 'Sub-Judul Bagian Dewan Pengajar',
+      name: 'achievementSectionSubtitle',
+      title: 'Sub-Judul Bagian Achievement Murid',
       type: 'string',
-      fieldset: 'pengajarSection',
-      initialValue: 'Dibimbing Langsung oleh Laoshi Tersertifikasi Min. HSK 6',
+      fieldset: 'achievementSection',
+      initialValue: 'Prestasi & Skor Ujian Murid Bright Mandarin',
     },
     {
-      name: 'pengajarSectionDesc',
-      title: 'Deskripsi Bagian Dewan Pengajar',
+      name: 'achievementSectionDesc',
+      title: 'Deskripsi Bagian Achievement Murid',
       type: 'text',
       rows: 3,
-      fieldset: 'pengajarSection',
-      initialValue: 'Lulusan universitas top Tiongkok dengan keahlian pedagogi ramah murid, dedikasi tinggi, dan metode yang komunikatif.',
+      fieldset: 'achievementSection',
+      initialValue: 'Bukti nyata hasil belajar murid-murid kami dalam ujian HSK dan HSKK.',
     },
 
     // ----------------------------------------------------

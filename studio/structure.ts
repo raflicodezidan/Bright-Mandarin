@@ -28,7 +28,7 @@ export const myStructure = (S: any) =>
 
       // 3. Document list lainnya
       S.documentTypeListItem('program').title('Program Kelas Mandarin'),
-      S.documentTypeListItem('pengajar').title('Daftar Pengajar (Laoshi)'),
+      S.documentTypeListItem('achievement').title('Achievement Murid-Murid'),
       S.documentTypeListItem('testimoni').title('Testimoni Siswa & Alumni'),
       S.documentTypeListItem('keunggulan').title('Keunggulan / Kenapa Kami'),
       S.documentTypeListItem('berita').title('Berita & Info Beasiswa'),

@@ -2,6 +2,7 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import {
   mockPrograms,
+  mockAchievement,
   mockPengajar,
   mockBerita,
   mockGaleri,
@@ -10,6 +11,7 @@ import {
   mockTestimoni,
   mockKeunggulan,
   ProgramItem,
+  AchievementItem,
   PengajarItem,
   TestimoniItem,
   KeunggulanItem,
@@ -19,8 +21,8 @@ import {
   PopupPromoData
 } from './mockData';
 
-export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan };
-export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings };
+export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement };
+export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -63,12 +65,13 @@ export async function getPrograms(): Promise<ProgramItem[]> {
       judul,
       slug,
       kategori,
-      tipeKelas,
       ringkasan,
+      targetUsia,
+      materi,
+      metode,
       durasi,
-      targetLevel,
+      benefit,
       harga,
-      keunggulan,
       "gambarUrl": gambar.asset->url
     }`;
     const data = await client.fetch(query);
@@ -76,6 +79,27 @@ export async function getPrograms(): Promise<ProgramItem[]> {
   } catch (error) {
     console.warn('Failed fetching programs from Sanity, falling back to mock data', error);
     return mockPrograms;
+  }
+}
+
+// 2. Query Achievement Murid
+export async function getAchievement(): Promise<AchievementItem[]> {
+  if (!client) return mockAchievement;
+  try {
+    const query = `*[_type == "achievement"] | order(urutan asc, _createdAt desc){
+      _id,
+      nama,
+      level,
+      skor,
+      keterangan,
+      "fotoUrl": foto.asset->url,
+      urutan
+    }`;
+    const data = await client.fetch(query);
+    return data && data.length > 0 ? data : mockAchievement;
+  } catch (error) {
+    console.warn('Failed fetching achievement from Sanity, falling back to mock data', error);
+    return mockAchievement;
   }
 }
 
@@ -262,6 +286,9 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       pengajarSectionTitle,
       pengajarSectionSubtitle,
       pengajarSectionDesc,
+      achievementSectionTitle,
+      achievementSectionSubtitle,
+      achievementSectionDesc,
       beritaSectionTitle,
       beritaSectionSubtitle,
       beritaSectionDesc,

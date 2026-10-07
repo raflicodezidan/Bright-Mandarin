@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Sparkles, MessageCircle, ArrowRight, Award, GraduationCap, Trophy, CheckCircle2, Star, ThumbsUp } from 'lucide-react';
+import { ArrowRight, GraduationCap, Star } from 'lucide-react';
 import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 export default function Hero({ settings }: { settings?: SiteSettings }) {
@@ -124,38 +124,8 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               {currentSettings.heroSubheadline || 'Belajar bahasa Mandarin dengan metode akselerasi interaktif 3 - 4 bulan. Dibimbing langsung oleh para Laoshi ceria bersertifikasi HSK 6 dari universitas top Tiongkok!'}
             </p>
 
-            {/* Key Value Points in Cute Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 pt-0.5 max-w-xl mx-auto lg:mx-0 text-left">
-              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Seluruh Laoshi Min. HSK 6</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>FREE Jasa Pendaftaran Ujian HSK</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Kelas Online, Offline & Private</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/85 backdrop-blur-xs px-3 py-2 rounded-xl border border-white shadow-xs text-xs sm:text-[13px] text-slate-800 font-bold">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Garansi Lulus & Mengulang Gratis</span>
-              </div>
-            </div>
-
-            {/* Call to Actions */}
+            {/* Call to Action */}
             <div className="pt-1 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
-              <a
-                href={currentSettings.whatsappUtama || mockSiteSettings.whatsappUtama}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black text-sm sm:text-base px-7 py-3 sm:py-3.5 rounded-full shadow-lg shadow-red-600/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group border-2 border-red-500/60"
-              >
-                <span className="whitespace-nowrap">{currentSettings.heroPrimaryCtaText || 'Daftar Sekarang'}</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
-              </a>
-
               <Link
                 href="/program"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 border-2 sm:border-[2.5px] border-black font-black text-sm sm:text-base px-6 py-3 sm:py-3.5 rounded-full shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
@@ -166,7 +136,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
             </div>
 
             {/* Social Proof Numbers in Cute Cards */}
-            <div className="pt-1.5 sm:pt-2 grid grid-cols-3 gap-2 sm:gap-2.5 text-center max-w-lg mx-auto lg:mx-0">
+            <div className="pt-1.5 sm:pt-2 grid grid-cols-2 gap-2 sm:gap-2.5 text-center max-w-sm mx-auto lg:mx-0">
               <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
                 <p className="text-xl sm:text-2xl font-black text-rose-600">{currentSettings.heroCard1Number || '5.000+'}</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard1Text || 'Alumni Lulus'}</p>
@@ -174,10 +144,6 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
                 <p className="text-xl sm:text-2xl font-black text-amber-700">{currentSettings.heroCard2Number || '98.4%'}</p>
                 <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard2Text || 'Lulus HSK 1-6'}</p>
-              </div>
-              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
-                <p className="text-xl sm:text-2xl font-black text-sky-700">{currentSettings.heroCard3Number || '100%'}</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard3Text || 'Tutor HSK 6'}</p>
               </div>
             </div>
           </div>

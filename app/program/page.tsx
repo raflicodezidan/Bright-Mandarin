@@ -1,13 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
-import { Sparkles, MessageCircle, Clock, CheckCircle2, Award, BookOpen, Layers } from 'lucide-react';
+import { MessageCircle, Users, BookOpen, Clock, Sparkles } from 'lucide-react';
 import { getPrograms, mockSiteSettings } from '@/lib/sanity';
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: 'Program Kelas Kursus Mandarin — Bright Mandarin',
-  description: 'Pilihan lengkap program kursus bahasa Mandarin: Kids & Teens, Intensive HSK 1-6, Business Chinese, Daily Conversation, hingga Beasiswa Studi ke China.',
+  title: 'Program Kursus Unggulan — Bright Mandarin',
+  description: 'Pilihan lengkap program kursus bahasa Mandarin: Bimbingan Belajar Akademik, Kelas Reguler, Kindergarten, Bright Mandarin Kids, HSK Preparation, HSKK Speaking Test, dan Kelas Percakapan.',
 };
 
 export default async function ProgramPage() {
@@ -19,14 +18,14 @@ export default async function ProgramPage() {
         {/* Formal Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            KATALOG PROGRAM KELAS LENGKAP
+            PROGRAM KURSUS UNGGULAN
           </h1>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
-            Program Belajar Bahasa Mandarin Sesuai Target Anda
+            Program Belajar Bahasa Mandarin Sesuai Target & Usia Anda
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-            Mulai dari usia dini, siswa sekolah, persiapan ujian internasional HSK, hingga pebisnis dan calon penerima beasiswa universitas di Tiongkok.
+            Mulai dari bimbingan akademik sekolah, kelas reguler, kurikulum internasional anak, hingga persiapan ujian sertifikasi HSK, HSKK, dan percakapan bisnis profesional.
           </p>
         </div>
 
@@ -48,9 +47,11 @@ export default async function ProgramPage() {
                     <span className="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md">
                       {prog.kategori}
                     </span>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-900 backdrop-blur-xs shadow-xs">
-                      {prog.tipeKelas}
-                    </span>
+                    {prog.targetUsia && (
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-900 backdrop-blur-xs shadow-xs">
+                        {prog.targetUsia}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -62,37 +63,61 @@ export default async function ProgramPage() {
                     {prog.ringkasan}
                   </p>
 
-                  <div className="space-y-2.5 py-4 border-y border-amber-200/60 text-xs text-slate-800 mb-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Target Capaian:</span>
-                      <strong className="text-orange-600 font-bold">{prog.targetLevel}</strong>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Estimasi Waktu:</span>
-                      <strong className="font-semibold">{prog.durasi}</strong>
-                    </div>
+                  <div className="space-y-3 py-4 border-y border-amber-200/60 text-xs text-slate-800 mb-4">
+                    {prog.targetUsia && (
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
+                          <Users className="w-4 h-4 text-orange-500" />
+                          Target Usia:
+                        </span>
+                        <strong className="text-orange-600 font-bold text-right">{prog.targetUsia}</strong>
+                      </div>
+                    )}
+                    {prog.materi && (
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
+                          <BookOpen className="w-4 h-4 text-blue-500" />
+                          Materi:
+                        </span>
+                        <span className="font-semibold text-slate-800 text-right">{prog.materi}</span>
+                      </div>
+                    )}
+                    {prog.metode && (
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="text-slate-500 font-medium shrink-0">Metode:</span>
+                        <span className="text-slate-700 text-right">{prog.metode}</span>
+                      </div>
+                    )}
+                    {prog.durasi && (
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
+                          <Clock className="w-4 h-4 text-emerald-500" />
+                          Durasi:
+                        </span>
+                        <strong className="font-semibold text-slate-900 text-right">{prog.durasi}</strong>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="space-y-2 mb-4">
-                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-                      Keunggulan Program:
-                    </span>
-                    {prog.keunggulan?.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {prog.benefit && (
+                    <div className="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200/80 mb-2">
+                      <span className="text-xs font-bold text-orange-700 block mb-1">
+                        Benefit Program:
+                      </span>
+                      <p className="text-xs text-slate-700 leading-relaxed">
+                        {prog.benefit}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="p-7 pt-0 border-t border-amber-200/60 mt-4">
-                <div className="pt-4 flex items-center justify-between">
+                <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <span className="text-[11px] text-slate-500 uppercase tracking-wider block">Investasi Belajar</span>
-                    <strong className="text-lg font-black text-slate-900">
-                      {prog.harga || 'Mulai Rp 650.000'}
+                    <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Biaya & Informasi</span>
+                    <strong className="text-xs sm:text-sm font-black text-slate-900 block">
+                      {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
                     </strong>
                   </div>
 
@@ -100,7 +125,7 @@ export default async function ProgramPage() {
                     href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+daftar+program+${encodeURIComponent(prog.judul)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm px-6 py-3 rounded-2xl shadow-md transition-all hover:scale-105"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm px-6 py-3 rounded-2xl shadow-md transition-all hover:scale-105 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Daftar Kelas</span>

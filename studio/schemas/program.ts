@@ -1,6 +1,6 @@
 export default {
   name: 'program',
-  title: 'Program Kelas',
+  title: 'Program Kursus Unggulan',
   type: 'document',
   fields: [
     {
@@ -21,31 +21,9 @@ export default {
     },
     {
       name: 'kategori',
-      title: 'Kategori Usia & Minat',
+      title: 'Kategori Program',
       type: 'string',
-      options: {
-        list: [
-          { title: 'Mandarin Kids & Teens', value: 'Kids' },
-          { title: 'Mandarin Dewasa & Umum', value: 'Dewasa' },
-          { title: 'Persiapan Ujian HSK 1 - 6', value: 'HSK' },
-          { title: 'Mandarin Bisnis & Profesional', value: 'Bisnis' },
-          { title: 'Persiapan Kuliah & Beasiswa ke Tiongkok', value: 'Studi ke Tiongkok' },
-        ],
-      },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'tipeKelas',
-      title: 'Tipe Pelaksanaan Kelas',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Online (Zoom Multimedia)', value: 'Online' },
-          { title: 'Offline Center', value: 'Offline' },
-          { title: 'Home Private (Tutor ke Rumah / 1-on-1)', value: 'Home Private' },
-        ],
-      },
-      validation: (Rule: any) => Rule.required(),
+      description: 'Contoh: Akademik, Reguler, Kindergarten, Kids, HSK, HSKK, Percakapan',
     },
     {
       name: 'ringkasan',
@@ -55,28 +33,44 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'durasi',
-      title: 'Target Waktu / Durasi Belajar',
+      name: 'targetUsia',
+      title: 'Target Usia',
       type: 'string',
-      description: 'Contoh: 3 - 4 Bulan per Level, 12 Minggu',
+      description: 'Contoh: Siswa sekolah, Kindergarten – Adult, Primary 1–3, dsb.',
     },
     {
-      name: 'targetLevel',
-      title: 'Target Level Kelulusan',
+      name: 'materi',
+      title: 'Materi Pembelajaran',
+      type: 'text',
+      rows: 2,
+      description: 'Contoh: Speaking, Listening, Reading & Writing',
+    },
+    {
+      name: 'metode',
+      title: 'Metode Pembelajaran',
+      type: 'text',
+      rows: 2,
+      description: 'Contoh: Personalized learning & latihan interaktif',
+    },
+    {
+      name: 'durasi',
+      title: 'Durasi Belajar',
       type: 'string',
-      description: 'Contoh: HSK 1 - 6, YCT 1 - 4, BCT',
+      description: 'Contoh: Disesuaikan dengan kebutuhan siswa',
+    },
+    {
+      name: 'benefit',
+      title: 'Benefit Program',
+      type: 'text',
+      rows: 2,
+      description: 'Contoh: Membantu memahami materi, meningkatkan kemampuan Mandarin, dan mendukung prestasi akademik',
     },
     {
       name: 'harga',
-      title: 'Estimasi Biaya / Format Harga',
+      title: 'Informasi Biaya / Harga',
       type: 'string',
-      description: 'Contoh: Mulai Rp 650.000 / bln',
-    },
-    {
-      name: 'keunggulan',
-      title: 'Poin Keunggulan / Fasilitas Kelas',
-      type: 'array',
-      of: [{ type: 'string' }],
+      description: 'Contoh: Hubungi kami untuk informasi program dan biaya',
+      initialValue: 'Hubungi kami untuk informasi program dan biaya',
     },
     {
       name: 'gambar',
@@ -93,4 +87,11 @@ export default {
       initialValue: 0,
     },
   ],
+  preview: {
+    select: {
+      title: 'judul',
+      subtitle: 'targetUsia',
+      media: 'gambar',
+    },
+  },
 };
