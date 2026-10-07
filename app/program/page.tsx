@@ -34,7 +34,8 @@ export default async function ProgramPage() {
           {programs.map((prog) => (
             <div
               key={prog._id}
-              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1"
+              id={prog.slug?.current || prog._id}
+              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1 scroll-mt-28"
             >
               {/* Image Header */}
               <div className="relative h-52 sm:h-56 overflow-hidden bg-slate-900 shrink-0">

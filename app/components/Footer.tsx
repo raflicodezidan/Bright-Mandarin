@@ -165,39 +165,45 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             </h3>
             <ul className="space-y-2 text-sm text-slate-600 font-medium">
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Mandarin Kids & Teens</span>
+                <Link href="/program#bimbingan-belajar-akademik" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>Bimbingan Belajar Akademik</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Intensive HSK 1 - 6</span>
+                <Link href="/program#kelas-reguler" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>Kelas Reguler</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Business Mandarin</span>
+                <Link href="/program#kindergarten-international-curriculum" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>Kindergarten – Int. Curriculum</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Daily Conversation</span>
+                <Link href="/program#bright-mandarin-kids" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>Bright Mandarin Kids</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>VIP Home Private</span>
+                <Link href="/program#hsk-preparation" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>HSK Preparation</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Studi & Beasiswa China</span>
+                <Link href="/program#hskk-speaking-test" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>HSKK Speaking Test</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/program#kelas-percakapan" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>Kelas Percakapan</span>
                 </Link>
               </li>
             </ul>
