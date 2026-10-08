@@ -95,13 +95,6 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               </div>
             </div>
 
-            <div className="inline-flex items-center text-xs font-black px-3 py-1 rounded-full bg-amber-200/80 text-amber-950 border border-amber-300">
-              <span>Kursus Mandarin Terkemuka & Berprestasi</span>
-            </div>
-
-            <p className="text-sm text-slate-600 leading-relaxed max-w-md font-medium">
-              Lembaga kursus bahasa Mandarin terkemuka dengan kurikulum terstruktur, tutor bersertifikat HSK 6 lulusan universitas top Tiongkok, serta mitra terpercaya persiapan beasiswa dan karir internasional.
-            </p>
 
             <div className="pt-2 space-y-3 text-sm text-slate-700 font-medium">
               {/* Alamat Lengkap */}
