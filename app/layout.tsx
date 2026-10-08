@@ -19,9 +19,14 @@ export const metadata: Metadata = {
     default: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
     template: '%s | Bright Mandarin Kelapa Gading',
   },
-  description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya (Bukit Gading Mediterania, Jakarta Utara). Program kelas anak (Kids/Teens), reguler, persiapan ujian HSK 1–6 & HSKK, bimbingan akademik, hingga percakapan bisnis dengan tutor berstandar HSK 6 lulusan Tiongkok.',
+  description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya (Bukit Gading Mediterania, Jakarta Utara). Kursus Mandarin anak di Kelapa Gading dengan metode belajar interaktif dan seru, kelas reguler, persiapan ujian HSK 1–6 & HSKK, bimbingan akademik sekolah, hingga percakapan bisnis dengan tutor berstandar HSK 6 lulusan Tiongkok.',
   keywords: [
     'kursus mandarin di kelapa gading terbaik dan terpercaya',
+    'kursus mandarin anak di kelapa gading',
+    'kursus mandarin anak interaktif dan seru',
+    'kursus mandarin anak kelapa gading interaktif dan seru',
+    'les mandarin anak di kelapa gading',
+    'tempat les mandarin anak kelapa gading',
     'kursus mandarin di kelapa gading terbaik',
     'kursus mandarin di kelapa gading terpercaya',
     'kursus mandarin di kelapa gading',
@@ -58,7 +63,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
-    description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya. Bimbingan Laoshi tersertifikasi HSK 6 lulusan universitas top Tiongkok. Kelas Offline Center, Online, & Home Private.',
+    description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya. Kursus Mandarin anak interaktif dan seru, kelas reguler, serta persiapan HSK berstandar HSK 6 lulusan universitas top Tiongkok.',
     url: 'https://www.brightmandarin.courses',
     siteName: 'Bright Mandarin Education',
     locale: 'id_ID',
@@ -75,7 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
-    description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya berstandar HSK 6 di Jakarta Utara. Kelas anak, reguler, HSK, dan percakapan.',
+    description: 'Kursus Mandarin anak di Kelapa Gading interaktif dan seru. Belajar bersama tutor bersertifikasi HSK 6 lulusan Tiongkok.',
     images: ['/logo-official.png'],
   },
   robots: {

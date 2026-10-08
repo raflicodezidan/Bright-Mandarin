@@ -7,9 +7,13 @@ import type { Metadata } from 'next';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Program Kursus Mandarin di Kelapa Gading',
-  description: 'Pilihan lengkap program kursus & les bahasa Mandarin di Kelapa Gading: Bimbingan Belajar Akademik, Kelas Reguler, Kindergarten Kurikulum Internasional, Bright Mandarin Kids, Persiapan Ujian HSK 1–6, HSKK Speaking, dan Kelas Percakapan.',
+  title: 'Program Kursus Mandarin Anak & Dewasa di Kelapa Gading',
+  description: 'Pilihan lengkap kursus Mandarin anak di Kelapa Gading interaktif dan seru, bimbingan belajar akademik, kelas reguler, Kindergarten kurikulum internasional, Bright Mandarin Kids, persiapan HSK 1–6 & HSKK.',
   keywords: [
+    'kursus mandarin anak di kelapa gading',
+    'kursus mandarin anak interaktif dan seru',
+    'les mandarin anak di kelapa gading',
+    'tempat les mandarin anak kelapa gading',
     'program kursus mandarin',
     'kursus mandarin di kelapa gading',
     'les mandarin anak kelapa gading',
