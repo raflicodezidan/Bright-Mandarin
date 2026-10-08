@@ -43,7 +43,7 @@ export default {
       title: 'Link Tujuan (WhatsApp / URL Promo)',
       type: 'url',
       description: 'Link saat poster diklik (default: WhatsApp Admin Bright Mandarin)',
-      initialValue: 'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Brosur+dan+Konsultasi+Belajar',
+      initialValue: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Brosur+dan+Konsultasi+Belajar',
     },
     {
       name: 'teksTombol',

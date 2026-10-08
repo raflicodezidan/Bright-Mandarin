@@ -114,7 +114,7 @@ export const mockPopupPromo: PopupPromoData = {
   tipeTampilan: 'template_brosur',
   posterImageUrl: '',
   judulPromo: 'Promo Spesial Pendaftaran Batch Baru Bright Mandarin',
-  linkTujuan: 'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Diskon+Brosur+dan+Free+Placement+Test',
+  linkTujuan: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Diskon+Brosur+dan+Free+Placement+Test',
   teksTombol: 'Klaim Promo via WhatsApp',
 };
 

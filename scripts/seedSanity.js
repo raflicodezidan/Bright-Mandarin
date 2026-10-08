@@ -49,8 +49,8 @@ async function runSeed() {
     namaSitus: 'Bright Mandarin Education',
     tagline: 'Kursus Bahasa Mandarin No. 1 Berstandar HSK 6 & Beasiswa Tiongkok',
     deskripsi: 'Lembaga kursus bahasa Mandarin terakreditasi dengan silabus akselerasi interaktif 3-4 bulan dan tutor bersertifikasi HSK 6.',
-    teleponHotline: '089699288009',
-    whatsappUtama: 'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+program+kursus+bahasa+Mandarin',
+    teleponHotline: '085890592738',
+    whatsappUtama: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+program+kursus+bahasa+Mandarin',
     email: 'halo@brightmandarin.com',
     alamatPusat: 'Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240',
     jamOperasional: 'Senin - Minggu: 09.00 - 21.00 WIB',
@@ -128,7 +128,7 @@ async function runSeed() {
     aktif: true,
     tipeTampilan: 'template_brosur',
     judulPromo: 'Promo Spesial Pendaftaran Batch Baru Bright Mandarin',
-    linkTujuan: 'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Diskon+Brosur+dan+Free+Placement+Test',
+    linkTujuan: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Diskon+Brosur+dan+Free+Placement+Test',
     teksTombol: 'Klaim Promo via WhatsApp',
   };
   await client.createOrReplace(popupPromoDoc);

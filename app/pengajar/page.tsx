@@ -83,7 +83,7 @@ export default async function PengajarPage() {
 
                 <div className="pt-5 mt-4 border-t border-brand-border/60">
                   <a
-                    href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kelas+bersama+${encodeURIComponent(laoshi.nama)}`}
+                    href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kelas+bersama+${encodeURIComponent(laoshi.nama)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 bg-brand-cream hover:bg-brand-red text-brand-charcoal hover:text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-colors border border-brand-border hover:border-brand-red"

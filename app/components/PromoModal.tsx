@@ -37,7 +37,7 @@ export default function PromoModal({ promoData = mockPopupPromo }: PromoModalPro
 
   const targetLink =
     promoData.linkTujuan ||
-    'https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+Promo+Brosur+dan+Konsultasi+Belajar';
+    'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+Promo+Brosur+dan+Konsultasi+Belajar';
 
   // Fallback image if user hasn't uploaded a custom poster yet
   const displayImage =

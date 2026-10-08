@@ -185,7 +185,7 @@ export default async function GaleriDetailPage({ params }: PageProps) {
           </div>
 
           <a
-            href={`https://api.whatsapp.com/send/?phone=6289699288009&text=Halo+Admin+Bright+Mandarin%2C+saya+tertarik+dengan+kegiatan+${encodeURIComponent(item.judul)}`}
+            href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+tertarik+dengan+kegiatan+${encodeURIComponent(item.judul)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center justify-center gap-2 bg-white text-orange-600 hover:bg-amber-50 font-bold text-sm px-6 py-3 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"

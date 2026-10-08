@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock, Heart, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ChevronRight } from 'lucide-react';
 import { mockSiteSettings } from '@/lib/mockData';
 import { SiteSettings } from '@/lib/sanity';
 
@@ -301,14 +301,10 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600 font-medium">
-          <div>
+        <div className="pt-6 flex justify-center items-center text-center text-xs text-slate-600 font-medium">
+          <p>
             © {new Date().getFullYear()} <strong className="text-slate-900">Bright Mandarin Education</strong> (明辉补习班). All rights reserved.
-          </div>
-          <div className="flex items-center gap-2">
-            <span>Dirancang dengan standar edukasi & kenyamanan terbaik</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
-          </div>
+          </p>
         </div>
       </div>
     </footer>
