@@ -45,9 +45,6 @@ export default function Navbar() {
                   <span className="text-rose-600">BRIGHT</span>
                   <span className="text-sky-600 ml-1">MANDARIN</span>
                 </span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-200/80 text-amber-950 font-black whitespace-nowrap">
-                  明辉
-                </span>
               </div>
               <span className="text-[9.5px] sm:text-[11px] text-slate-600 font-semibold tracking-wide mt-0.5 whitespace-nowrap truncate max-w-[210px] sm:max-w-none">
                 明辉补习班 - Professional Mandarin Course Center
