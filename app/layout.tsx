@@ -42,9 +42,14 @@ export const metadata: Metadata = {
     canonical: 'https://www.brightmandarin.courses',
   },
   icons: {
-    icon: '/logo-official.png',
-    shortcut: '/logo-official.png',
-    apple: '/logo-official.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo-official.png', type: 'image/png', sizes: '192x192' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/logo-official.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'Kursus Bahasa Mandarin di Kelapa Gading — Bright Mandarin',
@@ -154,6 +159,10 @@ export default async function RootLayout({
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
       <head>
         <meta name="google-site-verification" content="vGbF7uz5KnePfGCiww4OOGsAReqnfssk0AryjPxXCXU" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/logo-official.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo-official.png" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://cdn.sanity.io" />
