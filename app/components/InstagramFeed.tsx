@@ -212,7 +212,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/card relative block rounded-2xl overflow-hidden aspect-square shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
+                    className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
                   >
                     <img
                       src={post.img}

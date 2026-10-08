@@ -434,15 +434,15 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
       title: 'Daftar Foto Postingan Instagram (Carousel Feed)',
       type: 'array',
       fieldset: 'socialSection',
-      description: 'Upload foto-foto postingan Instagram terbaru beserta caption untuk ditampilkan di carousel beranda.',
+      description: 'Upload foto-foto postingan Instagram terbaru beserta caption untuk ditampilkan di carousel beranda. Rekomendasi rasio foto/video adalah 4:5 (1080 x 1350 piksel).',
       of: [
         {
           type: 'object',
-          title: 'Postingan Instagram',
+          title: 'Postingan Instagram (4:5)',
           fields: [
             {
               name: 'gambar',
-              title: 'Foto Postingan / Poster',
+              title: 'Foto Postingan / Poster (Ideal: 4:5 / 1080x1350px)',
               type: 'image',
               options: { hotspot: true },
               validation: (Rule: any) => Rule.required(),
