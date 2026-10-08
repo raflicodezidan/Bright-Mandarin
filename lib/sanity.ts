@@ -18,11 +18,12 @@ import {
   BeritaItem,
   GaleriItem,
   SiteSettings,
-  PopupPromoData
+  PopupPromoData,
+  InstagramPostItem
 } from './mockData';
 
 export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement };
-export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings };
+export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -331,6 +332,13 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       socialSectionTitle,
       socialSectionSubtitle,
       socialSectionDesc,
+      instagramEmbedWidget,
+      "instagramPosts": instagramPosts[]{
+        "gambarUrl": gambar.asset->url,
+        caption,
+        linkPost,
+        likes
+      },
       testimoniSectionTitle,
       testimoniSectionSubtitle,
       testimoniSectionDesc,

@@ -429,6 +429,70 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
       fieldset: 'socialSection',
       initialValue: 'Pantau tips praktis bahasa Mandarin harian, info beasiswa Tiongkok terbaru, dan keceriaan suasana kelas kami setiap hari.',
     },
+    {
+      name: 'instagramPosts',
+      title: 'Daftar Foto Postingan Instagram (Carousel Feed)',
+      type: 'array',
+      fieldset: 'socialSection',
+      description: 'Upload foto-foto postingan Instagram terbaru beserta caption untuk ditampilkan di carousel beranda.',
+      of: [
+        {
+          type: 'object',
+          title: 'Postingan Instagram',
+          fields: [
+            {
+              name: 'gambar',
+              title: 'Foto Postingan / Poster',
+              type: 'image',
+              options: { hotspot: true },
+              validation: (Rule: any) => Rule.required(),
+            },
+            {
+              name: 'caption',
+              title: 'Caption / Teks Postingan',
+              type: 'text',
+              rows: 3,
+              placeholder: 'Contoh: Suasana kelas Kids Mandarin hari ini. Belajar pinyin dengan seru!',
+            },
+            {
+              name: 'linkPost',
+              title: 'Link ke Postingan Instagram (Opsional)',
+              type: 'url',
+              placeholder: 'https://www.instagram.com/p/xxxxxx/',
+              description: 'Jika diisi, pengunjung yang mengklik foto ini akan langsung diarahkan ke postingan tersebut.',
+            },
+            {
+              name: 'likes',
+              title: 'Jumlah Likes (Opsional, misal: 250)',
+              type: 'string',
+              initialValue: '150+',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'caption',
+              media: 'gambar',
+              subtitle: 'likes',
+            },
+            prepare({ title, media, subtitle }: any) {
+              return {
+                title: title ? (title.length > 40 ? title.substring(0, 40) + '...' : title) : 'Postingan Instagram',
+                subtitle: subtitle ? `Likes: ${subtitle}` : '',
+                media,
+              };
+            },
+          },
+        },
+      ],
+    },
+    {
+      name: 'instagramEmbedWidget',
+      title: 'Kode Embed Widget Instagram Otomatis (Opsional)',
+      type: 'text',
+      rows: 4,
+      fieldset: 'socialSection',
+      description: 'Jika nanti Anda menggunakan widget otomatis seperti Elfsight atau SnapWidget, tempelkan kodenya di sini. Jika diisi, widget otomatis akan menggantikan foto manual di atas.',
+    },
 
     // ----------------------------------------------------
     // 11. Bagian Testimoni & Ulasan Siswa

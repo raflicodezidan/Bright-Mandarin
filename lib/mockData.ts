@@ -93,6 +93,13 @@ export interface CabangItem {
   jamOperasional: string;
 }
 
+export interface InstagramPostItem {
+  gambarUrl?: string;
+  caption: string;
+  linkPost?: string;
+  likes?: string;
+}
+
 export interface PopupPromoData {
   aktif: boolean;
   tipeTampilan?: 'poster_custom' | 'template_brosur';
@@ -171,6 +178,8 @@ export interface SiteSettings {
   socialSectionTitle?: string;
   socialSectionSubtitle?: string;
   socialSectionDesc?: string;
+  instagramPosts?: InstagramPostItem[];
+  instagramEmbedWidget?: string;
   // 11. Testimoni Section
   testimoniSectionTitle?: string;
   testimoniSectionSubtitle?: string;

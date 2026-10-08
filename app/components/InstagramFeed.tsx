@@ -68,12 +68,28 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
     },
   ];
 
+  // Gunakan postingan dari Sanity Studio jika sudah diupload oleh admin
+  const displayPosts = (currentSettings.instagramPosts && currentSettings.instagramPosts.length > 0)
+    ? currentSettings.instagramPosts.map((p, idx) => ({
+        img: p.gambarUrl || samplePosts[idx % samplePosts.length].img,
+        caption: p.caption || 'Aktivitas belajar bahasa Mandarin bersama Bright Mandarin.',
+        likes: p.likes || '150+',
+        comments: '12',
+        link: p.linkPost || currentSettings.instagramUrl || mockSiteSettings.instagramUrl,
+      }))
+    : samplePosts.map((p) => ({
+        ...p,
+        link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl,
+      }));
+
+  const activeEmbedHtml = widgetEmbedHtml || currentSettings.instagramEmbedWidget;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsVisible, setItemsVisible] = useState(4);
   const touchStartX = useRef<number | null>(null);
 
-  const total = samplePosts.length;
+  const total = displayPosts.length;
 
   useEffect(() => {
     const updateVisible = () => {
@@ -126,19 +142,19 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
     touchStartX.current = null;
   };
 
-  if (widgetEmbedHtml) {
+  if (activeEmbedHtml) {
     return (
-      <section className="py-16 bg-brand-cream/40 border-b border-brand-border/60">
+      <section className="py-20 bg-amber-100/50 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-red bg-brand-red-light px-3 py-1 rounded-full border border-brand-red/20">
-              Instagram @brightmandarin
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-charcoal">
-              Aktivitas & Tips Harian di Media Sosial
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
+              {currentSettings.socialSectionTitle || 'MEDIA SOSIAL KAMI'}
             </h2>
+            <p className="text-lg sm:text-xl font-bold text-orange-600">
+              {currentSettings.socialSectionSubtitle || 'Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin'}
+            </p>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: widgetEmbedHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: activeEmbedHtml }} />
         </div>
       </section>
     );
@@ -187,13 +203,13 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                 transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)`,
               }}
             >
-              {samplePosts.map((post, idx) => (
+              {displayPosts.map((post, idx) => (
                 <div
                   key={idx}
                   className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3"
                 >
                   <a
-                    href={mockSiteSettings.instagramUrl}
+                    href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/card relative block rounded-2xl overflow-hidden aspect-square shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
