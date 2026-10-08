@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
     template: '%s | Bright Mandarin Kelapa Gading',
   },
-  description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya (Bukit Gading Mediterania, Jakarta Utara). Kursus Mandarin anak di Kelapa Gading dengan metode belajar interaktif dan seru, kelas reguler, persiapan ujian HSK 1–6 & HSKK, bimbingan akademik sekolah, hingga percakapan bisnis dengan tutor berstandar HSK 6 lulusan Tiongkok.',
+  description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya (Bukit Gading Mediterania, Jakarta Utara). Kursus Mandarin anak di Kelapa Gading interaktif dan seru. Mulai dari bimbingan akademik sekolah, kelas reguler, kurikulum internasional anak, hingga persiapan ujian sertifikasi HSK, HSKK, dan percakapan bisnis profesional.',
   keywords: [
     'kursus mandarin di kelapa gading terbaik dan terpercaya',
     'kursus mandarin anak di kelapa gading',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
-    description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya. Kursus Mandarin anak interaktif dan seru, kelas reguler, serta persiapan HSK berstandar HSK 6 lulusan universitas top Tiongkok.',
+    description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya. Mulai dari bimbingan akademik sekolah, kelas reguler, kurikulum internasional anak, hingga persiapan ujian sertifikasi HSK, HSKK, dan percakapan bisnis profesional.',
     url: 'https://www.brightmandarin.courses',
     siteName: 'Bright Mandarin Education',
     locale: 'id_ID',
@@ -136,7 +136,7 @@ export default async function RootLayout({
         url: 'https://www.brightmandarin.courses',
         logo: 'https://www.brightmandarin.courses/logo-official.png',
         image: 'https://www.brightmandarin.courses/logo-official.png',
-        description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya di Jakarta Utara. Menyediakan kelas anak (Kids/Teens), reguler, persiapan ujian HSK 1–6 & HSKK, bimbingan akademik, serta percakapan bisnis.',
+        description: 'Lembaga kursus Mandarin di Kelapa Gading terbaik dan terpercaya di Jakarta Utara. Mulai dari bimbingan akademik sekolah, kelas reguler, kurikulum internasional anak, hingga persiapan ujian sertifikasi HSK, HSKK, dan percakapan bisnis profesional.',
         telephone: '+62-858-9059-2738',
         email: 'coursebrightmandarin@gmail.com',
         priceRange: '$$',
