@@ -200,7 +200,7 @@ export const mockSiteSettings: SiteSettings = {
   teleponHotline: "+62 858-9059-2738",
   whatsappUtama: "https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kursus+Mandarin",
   email: "coursebrightmandarin@gmail.com",
-  alamatPusat: "Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia",
+  alamatPusat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
   jamOperasional: `Tutoring & Kelas Reguler
 Senin – Jumat: 12.00 – 18.30
 Sabtu: 09.00 – 15.00
@@ -266,10 +266,10 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   cabang: [
     {
       nama: "Bright Mandarin Learning Center",
-      alamat: "Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia",
+      alamat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
       whatsapp: "+62 858-9059-2738",
       email: "coursebrightmandarin@gmail.com",
-      linkMaps: "https://www.google.com/maps/search/?api=1&query=Jl.+Venesia+EA+No.+2-3+Bukit+Gading+Mediterania+Kelapa+Gading+Jakarta",
+      linkMaps: "https://www.google.com/maps/search/?api=1&query=Bright+Mandarin+Course,+Jl.+Raya+Venesia,+RW.5,+Klp.+Gading+Bar.,+Kec.+Klp.+Gading,+Jkt+Utara+14240",
       jamOperasional: `Tutoring & Kelas Reguler (Senin - Jumat 12.00 - 18.30, Sabtu 09.00 - 15.00), Kelas Dewasa (Senin - Jumat 18.00 - 20.00)`
     }
   ]

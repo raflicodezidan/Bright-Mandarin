@@ -132,8 +132,8 @@ export default async function RootLayout({
         priceRange: '$$',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Jl. Venesia EA No. 2–3, Bukit Gading Mediterania',
-          addressLocality: 'Kelapa Gading, Jakarta Utara',
+          streetAddress: 'Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading',
+          addressLocality: 'Jakarta Utara',
           addressRegion: 'DKI Jakarta',
           postalCode: '14240',
           addressCountry: 'ID',
@@ -143,7 +143,7 @@ export default async function RootLayout({
           latitude: -6.1557,
           longitude: 106.9038,
         },
-        hasMap: 'https://www.google.com/maps/search/?api=1&query=Jl.+Venesia+EA+No.+2-3+Bukit+Gading+Mediterania+Kelapa+Gading+Jakarta',
+        hasMap: 'https://www.google.com/maps/search/?api=1&query=Bright+Mandarin+Course,+Jl.+Raya+Venesia,+RW.5,+Klp.+Gading+Bar.,+Kec.+Klp.+Gading,+Jkt+Utara+14240',
         areaServed: [
           { '@type': 'AdministrativeArea', name: 'Kelapa Gading' },
           { '@type': 'AdministrativeArea', name: 'Jakarta Utara' },

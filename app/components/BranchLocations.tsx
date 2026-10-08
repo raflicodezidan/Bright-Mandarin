@@ -8,15 +8,18 @@ import { SiteSettings } from '@/lib/sanity';
 
 export default function BranchLocations({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
+  const defaultAlamat = "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240";
+  const defaultMapsQuery = "Bright Mandarin Course, Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara 14240";
+
   const center = (currentSettings.cabang && currentSettings.cabang.length > 0)
     ? currentSettings.cabang[0]
     : {
         nama: currentSettings.namaSitus ? `${currentSettings.namaSitus} Center` : "Bright Mandarin Learning Center",
-        alamat: currentSettings.alamatPusat || "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
-        linkMaps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentSettings.alamatPusat || "Jl. Raya Venesia, Klp. Gading Bar., Jkt Utara")}`,
+        alamat: currentSettings.alamatPusat || defaultAlamat,
+        linkMaps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(defaultMapsQuery)}`,
       };
 
-  const gmapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(center.alamat)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+  const gmapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(defaultMapsQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section id="lokasi" className="py-20 bg-yellow-100/50 border-b border-amber-300/70 relative overflow-hidden">

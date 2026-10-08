@@ -68,7 +68,7 @@ export default {
       type: 'text',
       rows: 3,
       fieldset: 'kontak',
-      initialValue: 'Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta, Indonesia',
+      initialValue: 'Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240',
     },
     {
       name: 'jamOperasional',
