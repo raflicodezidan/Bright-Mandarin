@@ -716,50 +716,50 @@ export const mockTestimoni: TestimoniItem[] = [
 export const mockKeunggulan: KeunggulanItem[] = [
   {
     _id: 'keunggulan-1',
-    title: 'Sertifikasi Min. HSK 6',
-    desc: 'Seluruh Laoshi di Bright Mandarin memiliki latar belakang pendidikan formal dengan sertifikasi minimal HSK 6 dari universitas bahasa Mandarin ternama di Tiongkok.',
-    badge: 'Jaminan Kualitas',
-    colorClass: 'text-amber-600',
+    title: 'Personal Speaking Practice',
+    desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
+    badge: 'Latihan Berbicara Pribadi',
+    colorClass: 'text-purple-600',
     urutan: 1
   },
   {
     _id: 'keunggulan-2',
-    title: 'Kelas Kids & Dewasa',
-    desc: 'Memiliki kurikulum berjenjang terpisah yang disesuaikan dengan psikologi anak (usia 4-15 th) serta kebutuhan profesional dan mahasiswa dewasa.',
-    badge: 'Fleksibel Usia',
-    colorClass: 'text-orange-600',
+    title: 'Structured Learning Program',
+    desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
+    badge: 'Program Pembelajaran Terstruktur',
+    colorClass: 'text-emerald-600',
     urutan: 2
   },
   {
     _id: 'keunggulan-3',
-    title: 'Study Plan Terstruktur 3-4 Bulan',
-    desc: 'Setiap level memiliki target pencapaian terukur dengan durasi 3 - 4 bulan sehingga murid tidak berputar-putar tanpa arah dan cepat menguasai target level.',
-    badge: 'Target Pasti',
-    colorClass: 'text-emerald-600',
+    title: 'Experienced Teachers',
+    desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
+    badge: 'Guru Berpengalaman',
+    colorClass: 'text-indigo-600',
     urutan: 3
   },
   {
     _id: 'keunggulan-4',
-    title: 'FREE Jasa Registrasi Ujian HSK',
-    desc: 'Bagi murid yang hendak mengikuti ujian HSK resmi internasional dari Tiongkok, tim kami mengurus seluruh proses pendaftaran tanpa biaya admin tambahan.',
-    badge: 'Gratis Pengurusan',
-    colorClass: 'text-rose-600',
+    title: 'Practical Mandarin Skills',
+    desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
+    badge: 'Keterampilan Praktis Mandarin',
+    colorClass: 'text-sky-600',
     urutan: 4
   },
   {
     _id: 'keunggulan-5',
-    title: 'Metode Sesuai Kebutuhan',
-    desc: 'Materi dapat disesuaikan: mulai dari HSK 1 - 6, Hanzi Tradisional / Simplified, Speaking & Daily Conversation, hingga Business Chinese untuk ekspansi usaha.',
-    badge: 'Custom Learning',
-    colorClass: 'text-sky-600',
+    title: 'HSK & Academic Support',
+    desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
+    badge: 'HSK & Dukungan Akademik',
+    colorClass: 'text-amber-600',
     urutan: 5
   },
   {
     _id: 'keunggulan-6',
-    title: 'Jaminan Mengulang Gratis',
-    desc: 'Kami memberikan garansi pengulangan kelas secara gratis bagi siswa yang belum mencapai target kelulusan HSK sesuai dengan komitmen belajar.',
-    badge: 'Garansi Lulus',
-    colorClass: 'text-indigo-600',
+    title: 'Engaging & Interactive Learning',
+    desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
+    badge: 'Pembelajaran Interaktif & Menarik',
+    colorClass: 'text-rose-600',
     urutan: 6
   }
 ];

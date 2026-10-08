@@ -5,288 +5,360 @@ import Image from 'next/image';
 // PINTEREST / DRIBBBLE 3D ILLUSTRATED ICONS
 // ==========================================
 
-// 1. Jaminan Kualitas: HSK 6 Purple Hanzi Badge
-function IconHSK6() {
+// 1. Personal Speaking Practice: 3D Dual Speech Bubbles with Soundwaves & Microphone
+function IconSpeakingPractice() {
   return (
     <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300">
       {/* Ambient 3D Glow */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-500/30 to-fuchsia-400/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-500/35 to-fuchsia-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
       
       {/* 3D Container */}
-      <div className="relative w-full h-full rounded-2xl overflow-hidden p-1 bg-gradient-to-br from-purple-600 to-purple-800 border-2 border-purple-300/80 shadow-lg shadow-purple-500/20 flex items-center justify-center">
-        <Image
-          src="/icon-jaminan-kualitas-hsk6.png"
-          alt="Jaminan Kualitas Sertifikasi Min. HSK 6"
-          width={72}
-          height={72}
-          className="w-full h-full object-cover rounded-xl drop-shadow-md group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-    </div>
-  );
-}
-
-// 2. Fleksibel Usia: Kids & Adult 3D Illustrated Avatars
-function IconKidsAdults() {
-  return (
-    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-orange-500/30 to-amber-400/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-orange-50 via-amber-50/80 to-orange-100/60 p-2.5 border border-orange-200/80 shadow-lg shadow-orange-500/15 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-purple-50 via-fuchsia-50/80 to-purple-100/70 p-2 border border-purple-200/90 shadow-lg shadow-purple-500/15 flex items-center justify-center overflow-hidden">
         <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
           <defs>
-            <linearGradient id="kidGrad" x1="12" y1="20" x2="32" y2="52" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FBBF24" />
-              <stop offset="1" stopColor="#F59E0B" />
+            <linearGradient id="speakGradMain" x1="10" y1="12" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#9333EA" />
+              <stop offset="1" stopColor="#6B21A8" />
             </linearGradient>
-            <linearGradient id="adultGrad" x1="28" y1="10" x2="56" y2="48" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FB923C" />
-              <stop offset="1" stopColor="#EA580C" />
+            <linearGradient id="speakGradSecond" x1="24" y1="22" x2="54" y2="52" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#EC4899" />
+              <stop offset="1" stopColor="#BE185D" />
             </linearGradient>
-            <linearGradient id="capGrad" x1="30" y1="6" x2="52" y2="20" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#4338CA" />
-              <stop offset="1" stopColor="#312E81" />
-            </linearGradient>
-          </defs>
-
-          {/* Adult Character (Right / Back) */}
-          {/* Body */}
-          <path d="M30 52C30 41 35 34 43 34C51 34 56 41 56 52H30Z" fill="url(#adultGrad)" />
-          {/* Head */}
-          <circle cx="43" cy="24" r="9" fill="#FFEDD5" />
-          <circle cx="43" cy="24" r="8" fill="#FED7AA" />
-          {/* Glasses */}
-          <rect x="36" y="22" width="6" height="4" rx="1.5" stroke="#4338CA" strokeWidth="1.5" fill="none" />
-          <rect x="44" y="22" width="6" height="4" rx="1.5" stroke="#4338CA" strokeWidth="1.5" fill="none" />
-          <path d="M42 24H44" stroke="#4338CA" strokeWidth="1.5" />
-          {/* Graduation Cap */}
-          <path d="M43 8L55 13L43 18L31 13L43 8Z" fill="url(#capGrad)" />
-          <path d="M53 14V22" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
-          <circle cx="53" cy="23" r="1.5" fill="#F59E0B" />
-
-          {/* Kid Character (Left / Front) */}
-          {/* Body */}
-          <path d="M10 54C10 44 15 38 23 38C31 38 36 44 36 54H10Z" fill="url(#kidGrad)" />
-          {/* Head */}
-          <circle cx="23" cy="28" r="8" fill="#FEF3C7" />
-          {/* Cute Smile & Cheeks */}
-          <circle cx="19" cy="30" r="1.5" fill="#F87171" opacity="0.6" />
-          <circle cx="27" cy="30" r="1.5" fill="#F87171" opacity="0.6" />
-          <path d="M21 31C21 33 25 33 25 31" stroke="#78350F" strokeWidth="1.2" strokeLinecap="round" />
-          {/* Cute Beanie */}
-          <path d="M15 26C15 20 18 16 23 16C28 16 31 20 31 26H15Z" fill="#F43F5E" />
-          <circle cx="23" cy="14" r="2.5" fill="#FBBF24" />
-
-          {/* Dynamic Floating Badges */}
-          <circle cx="12" cy="16" r="2.5" fill="#F59E0B" />
-          <path d="M54 28L55 30L57 31L55 32L54 34L53 32L51 31L53 30L54 28Z" fill="#FBBF24" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-// 3. Target Pasti: 3D Speed Rocket & Bullseye Calendar Target
-function IconStudyPlan() {
-  return (
-    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-300">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-emerald-500/30 to-teal-400/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50/80 to-emerald-100/60 p-2.5 border border-emerald-200/80 shadow-lg shadow-emerald-500/15 flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
-          <defs>
-            <linearGradient id="rocketBody" x1="18" y1="12" x2="48" y2="44" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" />
-              <stop offset="0.6" stopColor="#E0F2FE" />
-              <stop offset="1" stopColor="#38BDF8" />
-            </linearGradient>
-            <linearGradient id="rocketFin" x1="12" y1="28" x2="36" y2="52" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#F43F5E" />
-              <stop offset="1" stopColor="#BE123C" />
-            </linearGradient>
-            <linearGradient id="fireGrad" x1="16" y1="44" x2="28" y2="60" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FBBF24" />
-              <stop offset="0.5" stopColor="#F97316" />
-              <stop offset="1" stopColor="#EF4444" />
-            </linearGradient>
-          </defs>
-
-          {/* Orbit / Speed Path */}
-          <path d="M12 48C18 36 34 20 54 18" stroke="#059669" strokeWidth="2.5" strokeDasharray="3 3" opacity="0.6" />
-
-          {/* Speed Stars */}
-          <circle cx="16" cy="18" r="2" fill="#10B981" />
-          <circle cx="50" cy="46" r="2.5" fill="#34D399" />
-          <path d="M46 10L47 13L50 14L47 15L46 18L45 15L42 14L45 13L46 10Z" fill="#FBBF24" />
-
-          {/* Rocket Thruster Fire */}
-          <path d="M22 42L16 54C19 51 24 51 26 56L28 44Z" fill="url(#fireGrad)" />
-          <path d="M22 43L19 49C21 48 23 48 25 51L26 44Z" fill="#FEF08A" />
-
-          {/* Rocket Wings / Fins */}
-          <path d="M21 34L14 42C18 43 23 41 24 37Z" fill="url(#rocketFin)" />
-          <path d="M33 22L41 29C42 25 40 20 37 19Z" fill="url(#rocketFin)" />
-
-          {/* 3D Rocket Body */}
-          <path d="M46 14C46 14 36 18 28 26C20 34 22 42 22 42C22 42 30 44 38 36C46 28 46 14 46 14Z" fill="url(#rocketBody)" stroke="#0284C7" strokeWidth="1.5" />
-          
-          {/* Rocket Window */}
-          <circle cx="35" cy="25" r="4.5" fill="#0284C7" />
-          <circle cx="35" cy="25" r="3" fill="#38BDF8" />
-          <circle cx="34" cy="24" r="1" fill="#FFFFFF" />
-
-          {/* Calendar Check Target Badge */}
-          <rect x="36" y="38" width="18" height="16" rx="4" fill="#047857" stroke="#10B981" strokeWidth="1.5" />
-          <path d="M39 46L43 50L51 42" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-// 4. Gratis Pengurusan: 3D Official HSK Certificate & FREE Stamp
-function IconFreeReg() {
-  return (
-    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-amber-500/30 to-rose-400/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-amber-50 via-rose-50/70 to-orange-100/60 p-2.5 border border-amber-200/80 shadow-lg shadow-amber-500/15 flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
-          <defs>
-            <linearGradient id="docGrad" x1="14" y1="10" x2="48" y2="52" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" />
-              <stop offset="0.8" stopColor="#FFFBEB" />
-              <stop offset="1" stopColor="#FEF3C7" />
-            </linearGradient>
-            <linearGradient id="stampGrad" x1="30" y1="30" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#F43F5E" />
-              <stop offset="1" stopColor="#BE123C" />
-            </linearGradient>
-          </defs>
-
-          {/* Document Shadow */}
-          <rect x="14" y="12" width="34" height="42" rx="4" fill="#E2E8F0" opacity="0.6" transform="rotate(-6 14 12)" />
-
-          {/* 3D Certificate Document */}
-          <rect x="12" y="10" width="34" height="42" rx="4" fill="url(#docGrad)" stroke="#D97706" strokeWidth="2" />
-          
-          {/* Certificate Header Banner */}
-          <path d="M16 16H42" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
-          
-          {/* Certificate Text Lines */}
-          <path d="M16 23H38M16 28H34M16 33H28" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" />
-
-          {/* Golden Seal Ribbon on Document */}
-          <path d="M22 38L18 50L24 47L30 50L26 38" fill="#F59E0B" />
-          <circle cx="24" cy="38" r="5" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
-          <circle cx="24" cy="38" r="3" fill="#D97706" />
-
-          {/* 3D FREE VIP Stamp (Floating on top) */}
-          <g transform="rotate(12 44 42)">
-            <rect x="32" y="32" width="24" height="14" rx="4" fill="url(#stampGrad)" stroke="#FFFFFF" strokeWidth="1.5" className="drop-shadow-md" />
-            <text x="44" y="42" fontSize="7" fontWeight="900" fill="#FFFFFF" textAnchor="middle" fontFamily="sans-serif">
-              FREE
-            </text>
-          </g>
-
-          {/* Sparkle Stars */}
-          <circle cx="48" cy="14" r="2" fill="#F59E0B" />
-          <path d="M10 24L11.5 27L14.5 28.5L11.5 30L10 33L8.5 30L5.5 28.5L8.5 27L10 24Z" fill="#FBBF24" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-// 5. Custom Learning: 3D Calligraphy Brush & Chinese Character "中"
-function IconCustomLearning() {
-  return (
-    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-300">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-sky-500/30 to-blue-500/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-sky-50 via-blue-50/80 to-indigo-100/60 p-2.5 border border-sky-200/80 shadow-lg shadow-sky-500/15 flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
-          <defs>
-            <linearGradient id="cubeGrad" x1="10" y1="12" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#38BDF8" />
-              <stop offset="1" stopColor="#0284C7" />
-            </linearGradient>
-            <linearGradient id="brushGrad" x1="28" y1="8" x2="56" y2="36" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#F59E0B" />
-              <stop offset="0.7" stopColor="#78350F" />
-              <stop offset="1" stopColor="#1E293B" />
-            </linearGradient>
-          </defs>
-
-          {/* Floating Chinese Character Block */}
-          <rect x="10" y="14" width="34" height="34" rx="8" fill="url(#cubeGrad)" stroke="#0369A1" strokeWidth="1.5" />
-          <rect x="12" y="16" width="30" height="30" rx="6" fill="#0EA5E9" />
-          
-          {/* Hanzi "中" in Gold/White */}
-          {/* Middle box */}
-          <rect x="18" y="24" width="18" height="11" rx="2" stroke="#FFFFFF" strokeWidth="2.5" fill="none" />
-          {/* Vertical stroke */}
-          <path d="M27 18V41" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-
-          {/* Speech Bubble on Hanzi */}
-          <circle cx="15" cy="18" r="2.5" fill="#FEF08A" />
-
-          {/* 3D Traditional Calligraphy Brush (Crossing Over) */}
-          {/* Bamboo Handle */}
-          <path d="M52 10L42 26" stroke="#D97706" strokeWidth="3.5" strokeLinecap="round" />
-          <path d="M43 24L38 32" stroke="#78350F" strokeWidth="4" strokeLinecap="round" />
-          {/* Brush Tip (Black/Crimson ink) */}
-          <path d="M38 32C37 34 33 39 31 43C34 42 38 38 40 36L38 32Z" fill="#0F172A" />
-          {/* Ink Drop Splash */}
-          <circle cx="30" cy="46" r="2.5" fill="#0284C7" />
-          <circle cx="25" cy="49" r="1.5" fill="#38BDF8" />
-
-          {/* Sparkles */}
-          <path d="M48 38L49.5 41L52.5 42.5L49.5 44L48 47L46.5 44L43.5 42.5L46.5 41L48 38Z" fill="#FBBF24" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-// 6. Garansi Siswa: 3D Diamond Emerald Shield & 100% Ribbon
-function IconGuarantee() {
-  return (
-    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-500/30 to-indigo-500/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-purple-50 via-indigo-50/80 to-blue-100/60 p-2.5 border border-indigo-200/80 shadow-lg shadow-indigo-500/15 flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
-          <defs>
-            <linearGradient id="shieldGrad" x1="14" y1="8" x2="50" y2="54" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#6366F1" />
-              <stop offset="0.5" stopColor="#4F46E5" />
-              <stop offset="1" stopColor="#312E81" />
-            </linearGradient>
-            <linearGradient id="shieldGlass" x1="20" y1="12" x2="44" y2="36" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" stopOpacity="0.6" />
-              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="badgeGold" x1="20" y1="36" x2="44" y2="54" gradientUnits="userSpaceOnUse">
+            <linearGradient id="micGold" x1="32" y1="18" x2="48" y2="34" gradientUnits="userSpaceOnUse">
               <stop stopColor="#FDE047" />
               <stop offset="1" stopColor="#D97706" />
             </linearGradient>
           </defs>
 
-          {/* 3D Security Shield */}
-          <path d="M32 8L50 14V28C50 41 42 50 32 54C22 50 14 41 14 28V14L32 8Z" fill="url(#shieldGrad)" stroke="#818CF8" strokeWidth="2" />
+          {/* Primary 3D Speech Bubble (Left / Background) */}
+          <path
+            d="M12 28C12 19.163 19.163 12 28 12C36.837 12 44 19.163 44 28C44 32.2 42.4 36.0 39.8 38.9L42 46L34.5 43.1C32.5 43.7 30.3 44 28 44C19.163 44 12 36.837 12 28Z"
+            fill="url(#speakGradMain)"
+            stroke="#C084FC"
+            strokeWidth="1.5"
+          />
+          {/* Sound waves inside primary bubble */}
+          <path d="M20 28H23M25 24V32M28 21V35M31 25V31M33 28H35" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
 
-          {/* Inner Facet Glass */}
-          <path d="M32 12L46 17V28C46 38 39 46 32 49V12Z" fill="url(#shieldGlass)" />
+          {/* Secondary 3D Speech Bubble (Right / Foreground) */}
+          <path
+            d="M26 38C26 32 30.5 27 36 27C41.5 27 46 32 46 38C46 40.5 45.1 42.8 43.6 44.5L45 49L40.2 47.3C38.9 47.8 37.5 48 36 48C30.5 48 26 43 26 38Z"
+            fill="url(#speakGradSecond)"
+            stroke="#F472B6"
+            strokeWidth="1.5"
+            className="drop-shadow-sm"
+          />
+          
+          {/* Dynamic 3D Microphone Floating Badge */}
+          <g transform="translate(38, 14)">
+            <rect x="0" y="0" width="14" height="20" rx="7" fill="url(#micGold)" stroke="#FFFFFF" strokeWidth="1.2" />
+            <path d="M3 8V11C3 13.2 4.8 15 7 15C9.2 15 11 13.2 11 11V8" stroke="#78350F" strokeWidth="1.4" strokeLinecap="round" />
+            <path d="M7 15V19M4 19H10" stroke="#78350F" strokeWidth="1.4" strokeLinecap="round" />
+            <line x1="4" y1="4" x2="10" y2="4" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+            <line x1="4" y1="7" x2="10" y2="7" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+          </g>
 
-          {/* 3D Golden Checkmark Badge */}
-          <circle cx="32" cy="30" r="10" fill="url(#badgeGold)" stroke="#FFFFFF" strokeWidth="1.5" />
-          <path d="M27 30L30.5 33.5L37 27" stroke="#78350F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Sparkles of confident talk */}
+          <circle cx="15" cy="16" r="2" fill="#FDE047" />
+          <path d="M51 34L52 36L54 37L52 38L51 40L50 38L48 37L50 36L51 34Z" fill="#FBBF24" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
-          {/* 100% Free / Warranty Stars */}
-          <path d="M32 14L33 16L35 16.5L33.5 18L34 20L32 19L30 20L30.5 18L29 16.5L31 16L32 14Z" fill="#FDE047" />
-          <circle cx="16" cy="18" r="2" fill="#FBBF24" />
-          <circle cx="48" cy="42" r="2" fill="#818CF8" />
+// 2. Structured Learning Program: 3D Multi-tier Roadmap & Milestone Target
+function IconStructuredLearning() {
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-emerald-500/35 to-teal-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50/80 to-emerald-100/70 p-2 border border-emerald-200/90 shadow-lg shadow-emerald-500/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
+          <defs>
+            <linearGradient id="step1" x1="8" y1="42" x2="26" y2="54" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#10B981" />
+              <stop offset="1" stopColor="#047857" />
+            </linearGradient>
+            <linearGradient id="step2" x1="22" y1="30" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#34D399" />
+              <stop offset="1" stopColor="#059669" />
+            </linearGradient>
+            <linearGradient id="step3" x1="36" y1="18" x2="56" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#6EE7B7" />
+              <stop offset="1" stopColor="#10B981" />
+            </linearGradient>
+          </defs>
+
+          {/* Stepped Structured Levels (Foundational to Advanced) */}
+          {/* Step 1: Dasar / Foundation */}
+          <rect x="10" y="42" width="16" height="12" rx="3" fill="url(#step1)" stroke="#065F46" strokeWidth="1" />
+          <text x="18" y="50" fontSize="7" fontWeight="bold" fill="#FFFFFF" textAnchor="middle" fontFamily="sans-serif">1</text>
+
+          {/* Step 2: Level Kemampuan / Intermediate */}
+          <rect x="24" y="30" width="16" height="24" rx="3" fill="url(#step2)" stroke="#047857" strokeWidth="1" />
+          <text x="32" y="38" fontSize="7" fontWeight="bold" fill="#FFFFFF" textAnchor="middle" fontFamily="sans-serif">2</text>
+
+          {/* Step 3: Persiapan HSK / Advanced */}
+          <rect x="38" y="18" width="16" height="36" rx="3" fill="url(#step3)" stroke="#059669" strokeWidth="1" />
+          <text x="46" y="26" fontSize="7" fontWeight="bold" fill="#065F46" textAnchor="middle" fontFamily="sans-serif">3</text>
+
+          {/* Curved Upward Progression Arrow */}
+          <path
+            d="M12 36C18 24 30 16 48 12"
+            stroke="#F59E0B"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray="1 0"
+          />
+          {/* Milestone Flag at Top */}
+          <path d="M48 8V18" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
+          <path d="M48 8L56 12L48 16Z" fill="#F59E0B" stroke="#D97706" strokeWidth="1" />
+
+          {/* Floating Target Checkmark */}
+          <circle cx="20" cy="18" r="4.5" fill="#059669" stroke="#A7F3D0" strokeWidth="1.5" />
+          <path d="M18 18L19.5 19.5L22.5 16.5" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          
+          {/* Sparkles */}
+          <circle cx="56" cy="38" r="1.8" fill="#FBBF24" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 3. Experienced Teachers: 3D Professional Laoshi with Graduation Mortarboard & Book
+function IconExperiencedTeachers() {
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-300">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-500/35 to-blue-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-indigo-50 via-blue-50/80 to-indigo-100/70 p-2 border border-indigo-200/90 shadow-lg shadow-indigo-500/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
+          <defs>
+            <linearGradient id="teacherRobe" x1="16" y1="36" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#4F46E5" />
+              <stop offset="1" stopColor="#312E81" />
+            </linearGradient>
+            <linearGradient id="laoshiCap" x1="18" y1="10" x2="46" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#1E1B4B" />
+              <stop offset="1" stopColor="#312E81" />
+            </linearGradient>
+            <linearGradient id="bookCover" x1="36" y1="34" x2="54" y2="52" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#F59E0B" />
+              <stop offset="1" stopColor="#D97706" />
+            </linearGradient>
+          </defs>
+
+          {/* Teacher Robe / Body */}
+          <path d="M16 54C16 43 23 37 32 37C41 37 48 43 48 54H16Z" fill="url(#teacherRobe)" />
+          {/* White Shirt Collar */}
+          <path d="M29 37L32 43L35 37Z" fill="#FFFFFF" />
+
+          {/* Friendly Face */}
+          <circle cx="32" cy="27" r="9" fill="#FFEDD5" />
+          <circle cx="32" cy="27" r="8" fill="#FED7AA" />
+          {/* Smart Glasses */}
+          <rect x="26" y="25" width="5" height="3.5" rx="1.2" stroke="#312E81" strokeWidth="1.2" fill="none" />
+          <rect x="33" y="25" width="5" height="3.5" rx="1.2" stroke="#312E81" strokeWidth="1.2" fill="none" />
+          <path d="M31 27H33" stroke="#312E81" strokeWidth="1.2" />
+          {/* Warm Smile */}
+          <path d="M30 31C30 32.5 34 32.5 34 31" stroke="#9A3412" strokeWidth="1.2" strokeLinecap="round" />
+
+          {/* Academic Graduation Mortarboard */}
+          <path d="M32 12L46 17L32 22L18 17L32 12Z" fill="url(#laoshiCap)" stroke="#4338CA" strokeWidth="1" />
+          <path d="M43 18V24" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="43" cy="25" r="1.5" fill="#F59E0B" />
+
+          {/* 3D Teaching Book / Tablet held in front */}
+          <g transform="translate(34, 38)">
+            <rect x="0" y="0" width="18" height="14" rx="2.5" fill="url(#bookCover)" stroke="#FFFFFF" strokeWidth="1" className="drop-shadow-sm" />
+            <path d="M4 4H14M4 7H12M4 10H10" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+            <circle cx="14" cy="10" r="1.5" fill="#FEF08A" />
+          </g>
+
+          {/* Star of Excellence */}
+          <circle cx="14" cy="22" r="2.5" fill="#FBBF24" />
+          <path d="M50 28L51 30L53 31L51 32L50 34L49 32L47 31L49 30L50 28Z" fill="#FDE047" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 4. Practical Mandarin Skills: 3D Mini Globe, Travel Briefcase & Daily Conversation
+function IconPracticalSkills() {
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-sky-500/35 to-cyan-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-sky-50 via-cyan-50/80 to-blue-100/70 p-2 border border-sky-200/90 shadow-lg shadow-sky-500/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
+          <defs>
+            <linearGradient id="globeGrad" x1="14" y1="12" x2="42" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#38BDF8" />
+              <stop offset="1" stopColor="#0284C7" />
+            </linearGradient>
+            <linearGradient id="caseGrad" x1="26" y1="30" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#F59E0B" />
+              <stop offset="1" stopColor="#B45309" />
+            </linearGradient>
+          </defs>
+
+          {/* 3D Global Earth (Travel & International situations) */}
+          <circle cx="26" cy="26" r="15" fill="url(#globeGrad)" stroke="#0284C7" strokeWidth="1.5" />
+          {/* Continents & Lat/Long grid */}
+          <path d="M13 26H39" stroke="#E0F2FE" strokeWidth="1.2" strokeDasharray="2 2" opacity="0.8" />
+          <ellipse cx="26" cy="26" rx="8" ry="15" stroke="#E0F2FE" strokeWidth="1.2" opacity="0.8" />
+          <path d="M22 18C25 21 28 20 31 18C34 16 38 19 36 24C34 27 28 28 26 31C24 34 20 34 18 31" fill="#4ADE80" opacity="0.85" />
+
+          {/* 3D Professional & Travel Briefcase (Real-world practical usage) */}
+          <g transform="translate(26, 32)">
+            {/* Handle */}
+            <path d="M8 4V1C8 0.5 8.5 0 9 0H15C15.5 0 16 0.5 16 1V4" stroke="#78350F" strokeWidth="1.5" />
+            {/* Body */}
+            <rect x="0" y="4" width="24" height="16" rx="3.5" fill="url(#caseGrad)" stroke="#FFFFFF" strokeWidth="1.2" className="drop-shadow-md" />
+            {/* Straps / Locks */}
+            <rect x="5" y="4" width="2.5" height="16" fill="#78350F" opacity="0.4" />
+            <rect x="16.5" y="4" width="2.5" height="16" fill="#78350F" opacity="0.4" />
+            <circle cx="12" cy="12" r="2" fill="#FEF08A" stroke="#B45309" strokeWidth="1" />
+          </g>
+
+          {/* Mini Real-world Speech Chip (Daily Talk) */}
+          <g transform="translate(38, 12)">
+            <rect x="0" y="0" width="16" height="12" rx="3" fill="#FFFFFF" stroke="#0284C7" strokeWidth="1.2" className="drop-shadow-xs" />
+            <text x="8" y="8" fontSize="6" fontWeight="bold" fill="#0284C7" textAnchor="middle" fontFamily="sans-serif">你好</text>
+            <path d="M4 12L7 15V12H4Z" fill="#FFFFFF" />
+          </g>
+
+          <circle cx="12" cy="14" r="2" fill="#38BDF8" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 5. HSK & Academic Support: 3D Official HSK Certificate & Academic Ribbon Badge
+function IconAcademicSupport() {
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-300">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-amber-500/35 to-rose-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-amber-50 via-rose-50/80 to-orange-100/70 p-2 border border-amber-200/90 shadow-lg shadow-amber-500/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
+          <defs>
+            <linearGradient id="hskDoc" x1="12" y1="8" x2="44" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#FFFFFF" />
+              <stop offset="0.85" stopColor="#FFFBEB" />
+              <stop offset="1" stopColor="#FEF3C7" />
+            </linearGradient>
+            <linearGradient id="hskBadgeGrad" x1="28" y1="28" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#DC2626" />
+              <stop offset="1" stopColor="#991B1B" />
+            </linearGradient>
+            <linearGradient id="goldRibbon" x1="30" y1="36" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#FBBF24" />
+              <stop offset="1" stopColor="#D97706" />
+            </linearGradient>
+          </defs>
+
+          {/* Academic Certificate Document */}
+          <rect x="12" y="10" width="32" height="42" rx="4" fill="url(#hskDoc)" stroke="#D97706" strokeWidth="1.8" />
+          
+          {/* Certificate Header Banner */}
+          <path d="M16 16H40" stroke="#DC2626" strokeWidth="2.5" strokeLinecap="round" />
+          {/* Text Lines */}
+          <path d="M16 22H36M16 26H32M16 30H26" stroke="#94A3B8" strokeWidth="1.6" strokeLinecap="round" />
+
+          {/* Mini Academic Cap (Academic School Support) */}
+          <g transform="translate(10, 8)">
+            <path d="M12 0L20 4L12 8L4 4L12 0Z" fill="#1E293B" />
+            <path d="M18 5V9" stroke="#F59E0B" strokeWidth="1" />
+            <circle cx="18" cy="9.5" r="0.8" fill="#F59E0B" />
+          </g>
+
+          {/* Official 3D HSK Badge with Golden Laurel */}
+          <g transform="translate(28, 28)">
+            {/* Ribbons */}
+            <path d="M8 16L3 25L9 23L13 25L10 16" fill="url(#goldRibbon)" />
+            <path d="M16 16L13 25L17 23L23 25L18 16" fill="url(#goldRibbon)" />
+            
+            {/* Main Red Stamp */}
+            <circle cx="13" cy="13" r="11" fill="url(#hskBadgeGrad)" stroke="#FEF08A" strokeWidth="1.5" className="drop-shadow-md" />
+            {/* Golden Star & HSK Text */}
+            <text x="13" y="12" fontSize="6.5" fontWeight="900" fill="#FEF08A" textAnchor="middle" fontFamily="sans-serif">
+              HSK
+            </text>
+            <text x="13" y="18" fontSize="4.5" fontWeight="bold" fill="#FFFFFF" textAnchor="middle" fontFamily="sans-serif">
+              PASS
+            </text>
+          </g>
+
+          {/* Sparkles */}
+          <circle cx="48" cy="14" r="2" fill="#F59E0B" />
+          <path d="M8 26L9.5 28.5L12 29.5L9.5 30.5L8 33L6.5 30.5L4 29.5L6.5 28.5L8 26Z" fill="#FBBF24" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 6. Engaging & Interactive Learning: 3D Gamepad, Fun Activity Dice & Sparkles
+function IconInteractiveLearning() {
+  return (
+    <div className="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-rose-500/35 to-orange-400/35 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-rose-50 via-orange-50/80 to-amber-100/70 p-2 border border-rose-200/90 shadow-lg shadow-rose-500/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-md" fill="none">
+          <defs>
+            <linearGradient id="gameGrad" x1="12" y1="18" x2="48" y2="46" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#F43F5E" />
+              <stop offset="1" stopColor="#E11D48" />
+            </linearGradient>
+            <linearGradient id="diceGrad" x1="36" y1="12" x2="54" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#FBBF24" />
+              <stop offset="1" stopColor="#F59E0B" />
+            </linearGradient>
+          </defs>
+
+          {/* 3D Game Controller / Fun Practice Pad */}
+          <path
+            d="M16 26C13 26 10 29 11 34L13 46C14 50 18 52 21 49L26 44H38L43 49C46 52 50 50 51 46L53 34C54 29 51 26 48 26H16Z"
+            fill="url(#gameGrad)"
+            stroke="#FFFFFF"
+            strokeWidth="1.5"
+            className="drop-shadow-md"
+          />
+          
+          {/* D-Pad Buttons (Left) */}
+          <path d="M19 32V40M15 36H23" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
+          
+          {/* Action Buttons (Right: Colorful buttons for interactive games) */}
+          <circle cx="41" cy="33" r="1.8" fill="#FDE047" />
+          <circle cx="45" cy="37" r="1.8" fill="#38BDF8" />
+          <circle cx="37" cy="37" r="1.8" fill="#4ADE80" />
+          <circle cx="41" cy="41" r="1.8" fill="#C084FC" />
+
+          {/* Center Joy & Fun Indicators */}
+          <circle cx="30" cy="37" r="2" fill="#BE123C" />
+          <circle cx="34" cy="37" r="2" fill="#BE123C" />
+
+          {/* 3D Fun Activity Game Dice / Hanzi Cube Floating Top-Right */}
+          <g transform="translate(36, 10)">
+            <rect x="0" y="0" width="16" height="16" rx="3.5" fill="url(#diceGrad)" stroke="#FFFFFF" strokeWidth="1.2" className="drop-shadow-md" />
+            {/* Dots on dice */}
+            <circle cx="4.5" cy="4.5" r="1.3" fill="#FFFFFF" />
+            <circle cx="11.5" cy="4.5" r="1.3" fill="#FFFFFF" />
+            <circle cx="8" cy="8" r="1.5" fill="#DC2626" />
+            <circle cx="4.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+            <circle cx="11.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+          </g>
+
+          {/* Dynamic Interactive Sparkles */}
+          <path d="M14 14L15.5 17L18.5 18.5L15.5 20L14 23L12.5 20L9.5 18.5L12.5 17L14 14Z" fill="#FBBF24" />
+          <circle cx="26" cy="16" r="1.8" fill="#FB7185" />
+          <circle cx="56" cy="38" r="2" fill="#FBBF24" />
         </svg>
       </div>
     </div>
@@ -302,63 +374,71 @@ interface FeatureWhyUsProps {
 }
 
 export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps) {
-  const defaultIcons = [IconHSK6, IconKidsAdults, IconStudyPlan, IconFreeReg, IconCustomLearning, IconGuarantee];
+  const defaultIcons = [
+    IconSpeakingPractice,
+    IconStructuredLearning,
+    IconExperiencedTeachers,
+    IconPracticalSkills,
+    IconAcademicSupport,
+    IconInteractiveLearning,
+  ];
+
   const colorClasses = [
-    'text-amber-600',
-    'text-orange-600',
+    'text-purple-600',
     'text-emerald-600',
-    'text-rose-600',
-    'text-sky-600',
     'text-indigo-600',
+    'text-sky-600',
+    'text-amber-600',
+    'text-rose-600',
   ];
 
   const defaultFeatures = [
     {
-      IconComponent: IconHSK6,
-      title: 'Sertifikasi Min. HSK 6',
-      desc: 'Seluruh Laoshi di Bright Mandarin memiliki latar belakang pendidikan formal dengan sertifikasi minimal HSK 6 dari universitas bahasa Mandarin ternama di Tiongkok.',
-      badge: 'Jaminan Kualitas',
-      colorClass: 'text-amber-600',
+      IconComponent: IconSpeakingPractice,
+      title: 'Personal Speaking Practice',
+      desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
+      badge: 'Latihan Berbicara Pribadi',
+      colorClass: 'text-purple-600',
       customIconUrl: '',
     },
     {
-      IconComponent: IconKidsAdults,
-      title: 'Kelas Kids & Dewasa',
-      desc: 'Memiliki kurikulum berjenjang terpisah yang disesuaikan dengan psikologi anak (usia 4-15 th) serta kebutuhan profesional dan mahasiswa dewasa.',
-      badge: 'Fleksibel Usia',
-      colorClass: 'text-orange-600',
-      customIconUrl: '',
-    },
-    {
-      IconComponent: IconStudyPlan,
-      title: 'Study Plan Terstruktur 3-4 Bulan',
-      desc: 'Setiap level memiliki target pencapaian terukur dengan durasi 3 - 4 bulan sehingga murid tidak berputar-putar tanpa arah dan cepat menguasai target level.',
-      badge: 'Target Pasti',
+      IconComponent: IconStructuredLearning,
+      title: 'Structured Learning Program',
+      desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
+      badge: 'Program Pembelajaran Terstruktur',
       colorClass: 'text-emerald-600',
       customIconUrl: '',
     },
     {
-      IconComponent: IconFreeReg,
-      title: 'FREE Jasa Registrasi Ujian HSK',
-      desc: 'Bagi murid yang hendak mengikuti ujian HSK resmi internasional dari Tiongkok, tim kami mengurus seluruh proses pendaftaran tanpa biaya admin tambahan.',
-      badge: 'Gratis Pengurusan',
-      colorClass: 'text-rose-600',
+      IconComponent: IconExperiencedTeachers,
+      title: 'Experienced Teachers',
+      desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
+      badge: 'Guru Berpengalaman',
+      colorClass: 'text-indigo-600',
       customIconUrl: '',
     },
     {
-      IconComponent: IconCustomLearning,
-      title: 'Metode Sesuai Kebutuhan',
-      desc: 'Materi dapat disesuaikan: mulai dari HSK 1 - 6, Hanzi Tradisional / Simplified, Speaking & Daily Conversation, hingga Business Chinese untuk ekspansi usaha.',
-      badge: 'Custom Learning',
+      IconComponent: IconPracticalSkills,
+      title: 'Practical Mandarin Skills',
+      desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
+      badge: 'Keterampilan Praktis Mandarin',
       colorClass: 'text-sky-600',
       customIconUrl: '',
     },
     {
-      IconComponent: IconGuarantee,
-      title: 'Garansi Mengulang Gratis',
-      desc: 'Apabila kehadiran di atas 90% dan mengerjakan seluruh tugas namun belum lulus ujian level, kami berikan fasilitas mengulang kelas secara cuma-cuma.',
-      badge: 'Garansi Siswa',
-      colorClass: 'text-indigo-600',
+      IconComponent: IconAcademicSupport,
+      title: 'HSK & Academic Support',
+      desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
+      badge: 'HSK & Dukungan Akademik',
+      colorClass: 'text-amber-600',
+      customIconUrl: '',
+    },
+    {
+      IconComponent: IconInteractiveLearning,
+      title: 'Engaging & Interactive Learning',
+      desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
+      badge: 'Pembelajaran Interaktif & Menarik',
+      colorClass: 'text-rose-600',
       customIconUrl: '',
     },
   ];
