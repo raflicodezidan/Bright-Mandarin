@@ -34,7 +34,7 @@ export default function LearningModes({ settings }: { settings?: SiteSettings })
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-orange-100/50 border-b border-amber-300/70 relative overflow-hidden">
+    <section className="py-14 sm:py-20 bg-amber-100/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         {/* Single Offline Class Card - Enlarged & Centered */}
         <div className="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border-2 border-amber-200 shadow-md hover:shadow-2xl hover:border-amber-400 transition-all duration-300 group">
