@@ -382,7 +382,7 @@ export const mockPrograms: ProgramItem[] = [
   },
   {
     _id: "program-7",
-    judul: "Kelas Percakapan",
+    judul: "Kelas percakapan bisnis (BCT)",
     slug: { current: "kelas-percakapan" },
     kategori: "Percakapan",
     ringkasan: "Program khusus untuk kebutuhan komunikasi dalam lingkungan profesional. Siswa mempelajari percakapan dan kosakata Mandarin yang digunakan dalam dunia kerja, seperti memperkenalkan diri, meeting, presentasi, komunikasi dengan klien, negosiasi, hingga situasi bisnis sehari-hari.",

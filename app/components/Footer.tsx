@@ -75,25 +75,16 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-amber-200/80">
           {/* Col 1: Brand Info & Kontak Utama */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3.5">
-              <div className="w-14 h-14 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center p-0.5 shrink-0 border-2 border-amber-300">
-                <Image
-                  src="/logo-official.png"
-                  alt="Bright Mandarin Logo"
-                  width={56}
-                  height={56}
-                  className="w-full h-full object-contain"
-                  unoptimized
-                />
-              </div>
-              <div>
-                <span className="font-black text-2xl tracking-tight leading-none block">
-                  <span className="text-rose-600">BRIGHT</span>
-                  <span className="text-sky-600 ml-1">MANDARIN</span>
-                </span>
-                <p className="text-xs text-amber-900 font-bold mt-1">明辉补习班 - Professional Mandarin Course Center</p>
-              </div>
-            </div>
+            <Link href="/" className="inline-block group py-1">
+              <Image
+                src="/logo-brand.png"
+                alt="Bright Mandarin Logo - 明辉补习班"
+                width={180}
+                height={66}
+                className="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                unoptimized
+              />
+            </Link>
 
 
             <div className="pt-2 space-y-3 text-sm text-slate-700 font-medium">
@@ -196,7 +187,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               <li>
                 <Link href="/program#kelas-percakapan" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Kelas Percakapan</span>
+                  <span>Kelas Percakapan Bisnis (BCT)</span>
                 </Link>
               </li>
             </ul>
