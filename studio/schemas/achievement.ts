@@ -4,12 +4,6 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'nama',
-      title: 'Nama Murid',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
       name: 'level',
       title: 'Level Ujian / Tes',
       type: 'string',
@@ -47,14 +41,15 @@ export default {
   ],
   preview: {
     select: {
-      title: 'nama',
-      subtitle: 'skor',
+      level: 'level',
+      skor: 'skor',
+      keterangan: 'keterangan',
       media: 'foto',
     },
-    prepare({ title, subtitle, media }: any) {
+    prepare({ level, skor, keterangan, media }: any) {
       return {
-        title,
-        subtitle: subtitle ? `Score: ${subtitle}` : '',
+        title: level ? `${level} (Skor: ${skor || '-'})` : (skor || 'Achievement Murid'),
+        subtitle: keterangan || 'Bright Mandarin',
         media,
       };
     },

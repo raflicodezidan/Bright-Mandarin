@@ -15,7 +15,7 @@ export interface ProgramItem {
 
 export interface AchievementItem {
   _id: string;
-  nama: string;
+  nama?: string;
   level: string;
   skor: string;
   keterangan?: string;
