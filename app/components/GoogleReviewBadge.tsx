@@ -25,7 +25,7 @@ export function GoogleLogo({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 interface GoogleReviewBadgeProps {
-  variant?: 'floating' | 'banner';
+  variant?: 'hero' | 'banner';
   className?: string;
   url?: string;
 }
@@ -35,45 +35,40 @@ export default function GoogleReviewBadge({
   className = '',
   url = 'https://share.google/h4ySU4mqKW4a712F3',
 }: GoogleReviewBadgeProps) {
-  if (variant === 'floating') {
+  if (variant === 'hero') {
     return (
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`bg-white/95 backdrop-blur-md border-2 sm:border-[2.5px] border-white rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-left cursor-pointer ${className}`}
-        title="Lihat ulasan Bright Mandarin Course di Google Reviews"
+        className={`inline-flex items-center gap-3 bg-white hover:bg-slate-50/95 border-2 border-white shadow-lg hover:shadow-xl rounded-2xl px-4 py-2.5 transition-all duration-200 group text-left cursor-pointer max-w-full ${className}`}
+        title="Buka ulasan Bright Mandarin Course di Google"
       >
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 shadow-xs flex items-center justify-center shrink-0">
-            <GoogleLogo className="w-4 h-4 sm:w-5 sm:h-5" />
-          </div>
-          <div>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-bold text-slate-900 text-xs sm:text-sm tracking-tight leading-tight group-hover:text-blue-600 transition-colors">
-                Bright Mandarin Course
-              </span>
-              <div className="text-slate-400 flex flex-col gap-0.5 shrink-0 px-0.5">
-                <span className="w-0.5 h-0.5 rounded-full bg-slate-400" />
-                <span className="w-0.5 h-0.5 rounded-full bg-slate-400" />
-                <span className="w-0.5 h-0.5 rounded-full bg-slate-400" />
-              </div>
+        <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 shadow-xs">
+          <GoogleLogo className="w-5 h-5" />
+        </div>
+        <div className="min-w-0">
+          <div className="flex items-center justify-between gap-3">
+            <span className="font-extrabold text-slate-900 text-xs sm:text-sm tracking-tight leading-tight group-hover:text-blue-600 transition-colors truncate">
+              Bright Mandarin Course
+            </span>
+            <div className="text-slate-400 flex flex-col gap-0.5 shrink-0 px-0.5">
+              <span className="w-1 h-1 rounded-full bg-slate-400" />
+              <span className="w-1 h-1 rounded-full bg-slate-400" />
+              <span className="w-1 h-1 rounded-full bg-slate-400" />
             </div>
-            <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="font-bold text-slate-900 text-xs leading-none">4,9</span>
-              <div className="flex items-center gap-0.5 text-amber-400">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-[11px] text-blue-600 font-semibold underline underline-offset-1 hover:text-blue-700">
-                20 Google reviews
-              </span>
-            </div>
-            <p className="text-[10px] text-slate-500 font-medium leading-none mt-0.5">
-              Language school in North Jakarta
-            </p>
           </div>
+          <div className="flex items-center gap-1.5 mt-0.5">
+            <span className="font-black text-slate-900 text-xs leading-none">4,9</span>
+            <div className="flex items-center gap-0.5 text-amber-400">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+          </div>
+          <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium leading-none mt-1">
+            Language school in North Jakarta
+          </p>
         </div>
       </a>
     );
@@ -84,16 +79,16 @@ export default function GoogleReviewBadge({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-3.5 sm:gap-4 bg-white hover:bg-slate-50/90 px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl border-2 border-amber-200/90 hover:border-amber-400 shadow-md hover:shadow-xl transition-all duration-300 group text-left max-w-full ${className}`}
-      title="Lihat ulasan Bright Mandarin Course di Google Reviews"
+      className={`inline-flex items-center gap-4 bg-white hover:bg-slate-50/90 px-6 py-4 rounded-2xl border-2 border-amber-200/90 hover:border-amber-400 shadow-md hover:shadow-xl transition-all duration-300 group text-left max-w-full ${className}`}
+      title="Buka ulasan Bright Mandarin Course di Google"
     >
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white border border-slate-200/80 shadow-xs flex items-center justify-center shrink-0">
+      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-slate-50 border border-slate-100 shadow-xs flex items-center justify-center shrink-0">
         <GoogleLogo className="w-6 h-6 sm:w-7 sm:h-7" />
       </div>
 
       <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-3 sm:gap-6">
-          <span className="font-extrabold text-slate-900 text-sm sm:text-base tracking-tight leading-tight group-hover:text-blue-600 transition-colors">
+        <div className="flex items-center justify-between gap-4 sm:gap-6">
+          <span className="font-extrabold text-slate-900 text-base sm:text-lg tracking-tight leading-tight group-hover:text-blue-600 transition-colors">
             Bright Mandarin Course
           </span>
           <div className="text-slate-400 flex flex-col gap-0.5 shrink-0 px-1">
@@ -103,19 +98,16 @@ export default function GoogleReviewBadge({
           </div>
         </div>
 
-        <div className="flex items-center flex-wrap gap-1.5 mt-0.5 text-xs sm:text-sm">
+        <div className="flex items-center gap-2 mt-1 text-sm sm:text-base">
           <span className="font-bold text-slate-900">4,9</span>
           <div className="flex items-center gap-0.5 text-amber-400">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
           </div>
-          <span className="text-blue-600 font-semibold underline underline-offset-2 hover:text-blue-700">
-            20 Google reviews
-          </span>
         </div>
 
-        <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-none mt-1">
+        <p className="text-xs text-slate-500 font-medium leading-none mt-1.5">
           Language school in North Jakarta
         </p>
       </div>
