@@ -90,7 +90,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 6. Preview Blog & Tips Mandarin */}
+      {/* 6. Testimoni Siswa & Alumni */}
+      <TestimoniSection testimoni={allTestimoni} settings={siteSettings} />
+
+      {/* 7. Preview Blog & Tips Mandarin */}
       <section className="py-20 bg-amber-100/50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -119,14 +122,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 7. Cabang Lokasi Offline Center */}
-      <BranchLocations settings={siteSettings} />
-
-      {/* 8. Instagram Feed */}
+      {/* 8. Instagram Feed (Media Sosial) */}
       <InstagramFeed settings={siteSettings} />
 
-      {/* 9. Testimoni Siswa & Alumni */}
-      <TestimoniSection testimoni={allTestimoni} settings={siteSettings} />
+      {/* 9. Cabang Lokasi Offline Center */}
+      <BranchLocations settings={siteSettings} />
 
       {/* 10. Call to Action Banner: Yuk, Mulai Petualangan Baru! (Dapat dicustom via Sanity) */}
       <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden">
