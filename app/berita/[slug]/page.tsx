@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Calendar, ArrowLeft, Share2, MessageCircle, Sparkles, BookOpen } from 'lucide-react';
+import { Calendar, ArrowLeft } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
-import { getBeritaBySlug, mockSiteSettings } from '@/lib/sanity';
+import { getBeritaBySlug } from '@/lib/sanity';
 
 export const revalidate = 60;
 
@@ -110,30 +110,6 @@ export default async function BeritaDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Call To Action Box */}
-        <div className="bg-gradient-to-r from-brand-charcoal via-brand-charcoal-light to-brand-red text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center sm:text-left">
-            <span className="text-xs font-bold text-brand-gold uppercase tracking-wider block">
-              Siap Meningkatkan Skor HSK Anda?
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black">
-              Mulai Konsultasi Belajar Bersama Laoshi Kami
-            </h3>
-            <p className="text-xs sm:text-sm text-gray-300 max-w-md">
-              Dapatkan tes penempatan level gratis dan konsultasi jalur beasiswa kuliah ke China.
-            </p>
-          </div>
-
-          <a
-            href={mockSiteSettings.whatsappUtama}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-charcoal font-black text-sm px-6 py-3.5 rounded-xl shadow-lg transition-all hover:scale-105"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Chat WhatsApp</span>
-          </a>
-        </div>
       </div>
     </article>
   );
