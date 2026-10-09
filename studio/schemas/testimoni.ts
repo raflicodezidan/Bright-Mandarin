@@ -4,14 +4,8 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'nama',
-      title: 'Nama Siswa / Alumni / Wali Murid',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
       name: 'peran',
-      title: 'Profesi / Status / Peran',
+      title: 'Profesi / Status / Peran Siswa',
       type: 'string',
       description: 'Contoh: Penerima Beasiswa S1 Tsinghua University, Mahasiswa UI, Orang Tua Murid Kids',
       validation: (Rule: any) => Rule.required(),
@@ -54,7 +48,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'nama',
+      title: 'peran',
       subtitle: 'program',
       media: 'foto',
     },

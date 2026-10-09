@@ -316,7 +316,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                         <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-300 shadow-xl bg-slate-100 p-0.5">
                           <img
                             src={item.fotoUrl || item.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'}
-                            alt={item.nama}
+                            alt={item.peran || item.program || 'Testimoni Siswa'}
                             className="w-full h-full object-cover rounded-full"
                           />
                         </div>
@@ -325,14 +325,11 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                         </div>
                       </div>
 
-                      {/* 2. Nama & Identitas Siswa / Alumni */}
-                      <h4 className="text-lg sm:text-xl font-black text-slate-900 group-hover/card:text-orange-600 transition-colors">
-                        {item.nama}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-orange-600 font-extrabold mt-0.5">
+                      {/* 2. Identitas Peran / Program Siswa (Tanpa Nama Orang) */}
+                      <h4 className="text-base sm:text-lg font-black text-slate-900 group-hover/card:text-orange-600 transition-colors leading-snug">
                         {item.peran}
-                      </p>
-                      <span className="text-[11px] sm:text-xs text-slate-500 font-semibold bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60 mt-1.5 inline-block">
+                      </h4>
+                      <span className="text-[11px] sm:text-xs text-slate-500 font-semibold bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60 mt-2 inline-block">
                         {item.program}
                       </span>
 

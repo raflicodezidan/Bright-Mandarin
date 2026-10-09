@@ -37,7 +37,7 @@ export interface PengajarItem {
 export interface TestimoniItem {
   _id?: string;
   id?: number;
-  nama: string;
+  nama?: string;
   peran: string;
   program: string;
   rating: number;
