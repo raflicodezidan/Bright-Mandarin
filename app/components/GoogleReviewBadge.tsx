@@ -1,7 +1,7 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, MapPin } from 'lucide-react';
 
-export function GoogleLogo({ className = "w-5 h-5" }: { className?: string }) {
+export function GoogleLogo({ className = "w-7 h-7" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24">
       <path
@@ -24,6 +24,66 @@ export function GoogleLogo({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+// 5-Petal Chinese Blossom Flower matching reference image
+function BlossomFlower({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      {/* 5 rounded petals */}
+      <circle cx="12" cy="6.2" r="3.6" />
+      <circle cx="17.5" cy="10.2" r="3.6" />
+      <circle cx="15.4" cy="16.6" r="3.6" />
+      <circle cx="8.6" cy="16.6" r="3.6" />
+      <circle cx="6.5" cy="10.2" r="3.6" />
+      {/* Center pistil & stamen accents */}
+      <circle cx="12" cy="12" r="2.2" className="fill-amber-400" />
+      <circle cx="12" cy="12" r="1.1" className="fill-amber-600" />
+      <circle cx="12" cy="8.8" r="0.5" className="fill-amber-700" />
+      <circle cx="14.8" cy="11" r="0.5" className="fill-amber-700" />
+      <circle cx="13.7" cy="14.4" r="0.5" className="fill-amber-700" />
+      <circle cx="10.3" cy="14.4" r="0.5" className="fill-amber-700" />
+      <circle cx="9.2" cy="11" r="0.5" className="fill-amber-700" />
+    </svg>
+  );
+}
+
+// Sparkle rays radiating from top-left of the Google icon
+function SparkleRays({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      {/* Ray 1: Left */}
+      <rect
+        x="1"
+        y="12"
+        width="5"
+        height="2.5"
+        rx="1.25"
+        className="fill-amber-400"
+        transform="rotate(-15 3.5 13.25)"
+      />
+      {/* Ray 2: Top-left diagonal */}
+      <rect
+        x="3.5"
+        y="4.5"
+        width="5"
+        height="2.5"
+        rx="1.25"
+        className="fill-amber-400"
+        transform="rotate(-55 6 5.75)"
+      />
+      {/* Ray 3: Top */}
+      <rect
+        x="10.5"
+        y="1.5"
+        width="2.5"
+        height="5"
+        rx="1.25"
+        className="fill-amber-400"
+        transform="rotate(10 11.75 4)"
+      />
+    </svg>
+  );
+}
+
 interface GoogleReviewBadgeProps {
   variant?: 'hero' | 'banner';
   className?: string;
@@ -35,81 +95,100 @@ export default function GoogleReviewBadge({
   className = '',
   url = 'https://share.google/h4ySU4mqKW4a712F3',
 }: GoogleReviewBadgeProps) {
-  if (variant === 'hero') {
-    return (
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`inline-flex items-center gap-3 bg-white hover:bg-slate-50/95 border-2 border-white shadow-lg hover:shadow-xl rounded-2xl px-4 py-2.5 transition-all duration-200 group text-left cursor-pointer max-w-full ${className}`}
-        title="Buka ulasan Bright Mandarin Course di Google"
-      >
-        <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 shadow-xs">
-          <GoogleLogo className="w-5 h-5" />
-        </div>
-        <div className="min-w-0">
-          <div className="flex items-center justify-between gap-3">
-            <span className="font-extrabold text-slate-900 text-xs sm:text-sm tracking-tight leading-tight group-hover:text-blue-600 transition-colors truncate">
-              Bright Mandarin Course
-            </span>
-            <div className="text-slate-400 flex flex-col gap-0.5 shrink-0 px-0.5">
-              <span className="w-1 h-1 rounded-full bg-slate-400" />
-              <span className="w-1 h-1 rounded-full bg-slate-400" />
-              <span className="w-1 h-1 rounded-full bg-slate-400" />
-            </div>
-          </div>
-          <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="font-black text-slate-900 text-xs leading-none">4,9</span>
-            <div className="flex items-center gap-0.5 text-amber-400">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-          </div>
-          <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium leading-none mt-1">
-            Language school in North Jakarta
-          </p>
-        </div>
-      </a>
-    );
-  }
+  const isHero = variant === 'hero';
 
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-4 bg-white hover:bg-slate-50/90 px-6 py-4 rounded-2xl border-2 border-amber-200/90 hover:border-amber-400 shadow-md hover:shadow-xl transition-all duration-300 group text-left max-w-full ${className}`}
+      className={`relative overflow-hidden inline-flex items-center gap-3.5 sm:gap-4.5 bg-white hover:bg-amber-50/15 border-2 sm:border-[2.5px] border-amber-300 rounded-[24px] sm:rounded-[28px] ${
+        isHero
+          ? 'px-3.5 py-3 sm:px-4.5 sm:py-3.5'
+          : 'px-5 py-3.5 sm:px-6 sm:py-4'
+      } shadow-[0_8px_25px_rgba(245,158,11,0.18)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.26)] transition-all duration-300 group text-left cursor-pointer max-w-full ${className}`}
       title="Buka ulasan Bright Mandarin Course di Google"
     >
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-slate-50 border border-slate-100 shadow-xs flex items-center justify-center shrink-0">
-        <GoogleLogo className="w-6 h-6 sm:w-7 sm:h-7" />
+      {/* Corner Waves in the bottom right corner */}
+      <div className="absolute right-0 bottom-0 top-0 w-24 sm:w-32 pointer-events-none overflow-hidden rounded-r-[22px] sm:rounded-r-[26px]">
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 120 90"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="waveSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FDE68A" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#FBBF24" stopOpacity="0.35" />
+            </linearGradient>
+            <linearGradient id="waveWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FBBF24" />
+              <stop offset="100%" stopColor="#F59E0B" />
+            </linearGradient>
+          </defs>
+
+          {/* Background translucent wave */}
+          <path
+            d="M20 90 Q 55 60, 75 35 T 120 10 L 120 90 Z"
+            fill="url(#waveSoft)"
+          />
+
+          {/* Foreground rich warm amber wave */}
+          <path
+            d="M45 90 Q 72 72, 92 48 T 120 28 L 120 90 Z"
+            fill="url(#waveWarm)"
+          />
+        </svg>
       </div>
 
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-4 sm:gap-6">
-          <span className="font-extrabold text-slate-900 text-base sm:text-lg tracking-tight leading-tight group-hover:text-blue-600 transition-colors">
-            Bright Mandarin Course
-          </span>
-          <div className="text-slate-400 flex flex-col gap-0.5 shrink-0 px-1">
-            <span className="w-1 h-1 rounded-full bg-slate-400" />
-            <span className="w-1 h-1 rounded-full bg-slate-400" />
-            <span className="w-1 h-1 rounded-full bg-slate-400" />
-          </div>
+      {/* Blossom Flower in bottom-right wave corner */}
+      <div className="absolute right-2.5 bottom-2.5 sm:right-3.5 sm:bottom-3 z-10 text-amber-100 pointer-events-none drop-shadow-xs">
+        <BlossomFlower className="w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+
+      {/* Left Icon with Sparkles */}
+      <div className="relative shrink-0 z-10">
+        {/* Top-left radiating sparkle rays */}
+        <div className="absolute -top-2.5 -left-2.5 pointer-events-none select-none z-10">
+          <SparkleRays className="w-5 h-5 sm:w-6 sm:h-6" />
         </div>
 
-        <div className="flex items-center gap-2 mt-1 text-sm sm:text-base">
-          <span className="font-bold text-slate-900">4,9</span>
-          <div className="flex items-center gap-0.5 text-amber-400">
+        {/* White rounded container for Google Logo with soft shadow */}
+        <div className={`${
+          isHero ? 'w-12 h-12 sm:w-14 sm:h-14' : 'w-13 h-13 sm:w-16 sm:h-16'
+        } rounded-2xl bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center justify-center`}>
+          <GoogleLogo className={isHero ? "w-6 h-6 sm:w-7 sm:h-7" : "w-7 h-7 sm:w-8 sm:h-8"} />
+        </div>
+      </div>
+
+      {/* Text & Rating content */}
+      <div className="min-w-0 pr-6 sm:pr-8 z-10">
+        {/* Course Title */}
+        <h3 className={`font-black text-[#1A2E40] ${
+          isHero ? 'text-sm sm:text-base lg:text-lg' : 'text-base sm:text-lg lg:text-xl'
+        } tracking-tight leading-tight group-hover:text-blue-700 transition-colors truncate`}>
+          Bright Mandarin Course
+        </h3>
+
+        {/* Rating Pill: 5.0 | ★★★★★ */}
+        <div className="mt-1 sm:mt-1.5 inline-flex items-center gap-1.5 sm:gap-2 bg-[#FFF9EA] border border-amber-200/80 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-0.5 shadow-2xs">
+          <span className="font-black text-slate-900 text-xs sm:text-sm leading-none">
+            5.0
+          </span>
+          <span className="w-px h-3 bg-amber-200" />
+          <div className="flex items-center gap-0.5 text-[#FFB800]">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#FFB800] text-[#FFB800]" />
             ))}
           </div>
         </div>
 
-        <p className="text-xs text-slate-500 font-medium leading-none mt-1.5">
-          Language school in North Jakarta
-        </p>
+        {/* Location Subtitle */}
+        <div className="flex items-center gap-1.5 text-slate-500 font-medium text-[11px] sm:text-xs mt-1 sm:mt-1.5">
+          <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+          <span className="truncate">Language school in North Jakarta</span>
+        </div>
       </div>
     </a>
   );
