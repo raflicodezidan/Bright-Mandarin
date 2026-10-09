@@ -27,26 +27,26 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
           {/* Logo Brand */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-200 shrink-0">
+          <Link href="/" className="flex items-center gap-3 sm:gap-3.5 group shrink-0">
+            <div className="w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] rounded-full overflow-hidden flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-200 shrink-0">
               <Image
                 src="/logo-official.png"
                 alt="Bright Mandarin Logo"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
                 className="w-full h-full object-contain"
                 priority
                 unoptimized
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0 leading-tight">
-              <span className="font-black text-xs sm:text-sm tracking-tight text-rose-600 leading-none">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-black text-sm sm:text-base tracking-tight text-rose-600 leading-tight">
                 BRIGHT
               </span>
-              <span className="font-black text-xs sm:text-sm tracking-tight text-sky-600 leading-none mt-0.5">
+              <span className="font-black text-sm sm:text-base tracking-tight text-sky-600 leading-tight mt-0.5">
                 MANDARIN
               </span>
-              <span className="text-[10px] sm:text-[11px] text-slate-700 font-bold tracking-wider leading-none mt-1">
+              <span className="text-xs sm:text-[13px] text-slate-700 font-extrabold tracking-wider leading-tight mt-1">
                 明辉补习班
               </span>
             </div>
