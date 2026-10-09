@@ -7,7 +7,7 @@ import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
   return (
-    <section className="relative overflow-hidden w-full max-w-full bg-amber-400 pt-6 pb-12 lg:pt-8 lg:pb-14">
+    <section className="relative overflow-hidden w-full max-w-full bg-amber-400 pt-6 pb-12 lg:pt-8 lg:pb-14 border-b-4 border-amber-600/30">
       {/* Traditional Chinese Hero Background Image (Customizable via Sanity) */}
       <div className="absolute inset-0 z-0">
         <Image

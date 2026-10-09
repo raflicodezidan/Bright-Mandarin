@@ -257,7 +257,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
   };
 
   return (
-    <section id="testimoni" className="py-20 bg-amber-100/50 relative overflow-hidden">
+    <section id="testimoni" className="py-20 bg-amber-100/50 border-b border-amber-300/70 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">

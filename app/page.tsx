@@ -37,7 +37,7 @@ export default async function HomePage() {
       <LearningModes settings={siteSettings} />
 
       {/* 4. Preview Program Unggulan */}
-      <section className="py-20 bg-amber-100/50">
+      <section className="py-20 bg-amber-100/50 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
@@ -66,7 +66,7 @@ export default async function HomePage() {
       </section>
 
       {/* 5. Achievement Murid-Murid: Small Steps, Big Progress */}
-      <section id="achievement" className="py-20 sm:py-24 bg-amber-100/50 scroll-mt-20 relative overflow-hidden">
+      <section id="achievement" className="py-20 sm:py-24 bg-amber-100/50 border-b border-amber-200/70 scroll-mt-20 relative overflow-hidden">
         {/* Subtle watercolor / artistic brush wash in top-right and bottom-left */}
         <div className="absolute -top-12 -right-12 w-96 h-80 bg-gradient-to-bl from-amber-200/50 via-orange-100/30 to-transparent pointer-events-none rounded-bl-full blur-2xl" />
         <div className="absolute -bottom-12 -left-12 w-96 h-80 bg-gradient-to-tr from-amber-200/40 via-orange-100/20 to-transparent pointer-events-none rounded-tr-full blur-2xl" />
@@ -94,7 +94,7 @@ export default async function HomePage() {
       <TestimoniSection testimoni={allTestimoni} settings={siteSettings} />
 
       {/* 7. Preview Blog & Tips Mandarin */}
-      <section className="py-20 bg-amber-100/50">
+      <section className="py-20 bg-amber-100/50 border-b border-amber-300/70">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
@@ -129,7 +129,7 @@ export default async function HomePage() {
       <BranchLocations settings={siteSettings} />
 
       {/* 10. Call to Action Banner: Yuk, Mulai Petualangan Baru! (Dapat dicustom via Sanity) */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden border-t-2 border-amber-300">
         {/* Custom Uploaded Background Image from Sanity or fallback pattern */}
         {siteSettings.ctaBannerBgImageUrl ? (
           <div className="absolute inset-0 z-0">

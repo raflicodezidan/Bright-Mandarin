@@ -96,7 +96,7 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
     : defaultVisualAssets;
 
   return (
-    <section className="py-20 bg-amber-100/50 relative overflow-hidden">
+    <section className="py-20 bg-amber-100/50 border-b border-amber-300/70 relative overflow-hidden">
       {/* Decorative background blobs */}
       <div className="absolute top-10 right-5 w-72 h-72 rounded-full bg-yellow-300/25 blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-5 w-72 h-72 rounded-full bg-orange-300/25 blur-3xl pointer-events-none" />
