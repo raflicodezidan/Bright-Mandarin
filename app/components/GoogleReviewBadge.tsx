@@ -171,10 +171,10 @@ export default function GoogleReviewBadge({
           Bright Mandarin Course
         </h3>
 
-        {/* Rating Pill: 5.0 | ★★★★★ */}
+        {/* Rating Pill: 4,9 | ★★★★★ */}
         <div className="mt-1 sm:mt-1.5 inline-flex items-center gap-1.5 sm:gap-2 bg-[#FFF9EA] border border-amber-200/80 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-0.5 shadow-2xs">
           <span className="font-black text-slate-900 text-xs sm:text-sm leading-none">
-            5.0
+            4,9
           </span>
           <span className="w-px h-3 bg-amber-200" />
           <div className="flex items-center gap-0.5 text-[#FFB800]">
