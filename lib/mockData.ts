@@ -158,6 +158,12 @@ export interface SiteSettings {
   learningModesTitle?: string;
   learningModesSubtitle?: string;
   learningModesDesc?: string;
+  learningModesBadge?: string;
+  learningModesCardTitle?: string;
+  learningModesCardImageUrl?: string;
+  learningModesPoints?: string[];
+  learningModesButtonText?: string;
+  learningModesButtonLink?: string;
   // 6. Program Section
   programSectionTitle?: string;
   programSectionSubtitle?: string;
@@ -233,6 +239,18 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   learningModesTitle: "METODE BELAJAR",
   learningModesSubtitle: "Kelas Offline Tatap Muka di Learning Center Kelapa Gading",
   learningModesDesc: "Belajar langsung bersama Laoshi di ruang kelas modern ber-AC dengan suasana interaktif, fokus, dan menyenangkan.",
+  learningModesBadge: "Tatap Muka",
+  learningModesCardTitle: "Kelas Offline Center",
+  learningModesPoints: [
+    "Belajar langsung di Learning Center Kelapa Gading",
+    "Fasilitas multimedia & perpustakaan buku",
+    "Simulasi percakapan dan role-play langsung",
+    "Suasana belajar fokus bersama teman sebaya",
+    "Laporan nilai dan performance siswa secara berkala",
+    "Laporan video pembelajaran dan homework siswa secara berkala",
+  ],
+  learningModesButtonText: "Lihat Lokasi Center",
+  learningModesButtonLink: "/#lokasi",
   // Program Section
   programSectionTitle: "PROGRAM KURSUS UNGGULAN",
   programSectionSubtitle: "Pilihan Program Kursus Mandarin Favorit & Terstruktur",
