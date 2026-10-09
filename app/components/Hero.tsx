@@ -30,9 +30,8 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
 
             {/* Playful Responsive Pill Badge with Lively Motion */}
             <div className="flex justify-center lg:justify-start px-1">
-              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-white text-slate-800 text-xs sm:text-sm font-black shadow-md border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
-                <span className="text-orange-600 font-extrabold tracking-wide shrink-0">#BRIGHTMANDARIN</span>
-                <span className="text-sky-600 font-bold leading-tight">{currentSettings.heroBadgeText || 'Kursus Mandarin Paling Seru & Terbukti!'}</span>
+              <div className="inline-flex items-center justify-center px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-white text-sky-600 text-xs sm:text-sm font-bold shadow-md border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
+                <span className="leading-tight">{currentSettings.heroBadgeText || 'Kursus Mandarin Paling Seru & Terbukti!'}</span>
               </div>
             </div>
 

@@ -31,13 +31,28 @@ export default function LearningModes({ settings }: { settings?: SiteSettings })
     'Fasilitas multimedia & perpustakaan buku',
     'Simulasi percakapan dan role-play langsung',
     'Suasana belajar fokus bersama teman sebaya',
-    'Laporan nilai dan performance siswa secara berkala',
-    'Laporan video pembelajaran dan homework siswa secara berkala',
+    'Laporan berkala mengenai perkembangan nilai, performa, video pembelajaran, dan pengerjaan homework siswa.',
   ];
 
-  const points = (settings?.learningModesPoints && settings.learningModesPoints.length > 0)
+  const rawPoints = (settings?.learningModesPoints && settings.learningModesPoints.length > 0)
     ? settings.learningModesPoints
     : defaultPoints;
+
+  // Normalisasi menggabungkan kedua poin jika masih tersimpan versi lama terpisah
+  const points = rawPoints.reduce<string[]>((acc, pt) => {
+    if (
+      pt.includes('Laporan nilai dan performance') ||
+      pt.includes('Laporan video pembelajaran dan homework')
+    ) {
+      const merged = 'Laporan berkala mengenai perkembangan nilai, performa, video pembelajaran, dan pengerjaan homework siswa.';
+      if (!acc.includes(merged)) {
+        acc.push(merged);
+      }
+    } else {
+      acc.push(pt);
+    }
+    return acc;
+  }, []);
 
   const badge = settings?.learningModesBadge || 'Tatap Muka';
   const cardTitle = settings?.learningModesCardTitle || 'Kelas Offline Center';
