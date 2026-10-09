@@ -39,15 +39,15 @@ export default function Navbar() {
                 unoptimized
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0">
-              <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <span className="font-black text-base sm:text-lg lg:text-xl tracking-tight leading-none whitespace-nowrap">
-                  <span className="text-rose-600">BRIGHT</span>
-                  <span className="text-sky-600 ml-1">MANDARIN</span>
-                </span>
-              </div>
-              <span className="text-[9.5px] sm:text-[11px] text-slate-600 font-semibold tracking-wide mt-0.5 whitespace-nowrap truncate max-w-[210px] sm:max-w-none">
-                明辉补习班 - Professional Mandarin Course Center
+            <div className="flex flex-col justify-center min-w-0 leading-tight">
+              <span className="font-black text-xs sm:text-sm tracking-tight text-rose-600 leading-none">
+                BRIGHT
+              </span>
+              <span className="font-black text-xs sm:text-sm tracking-tight text-sky-600 leading-none mt-0.5">
+                MANDARIN
+              </span>
+              <span className="text-[10px] sm:text-[11px] text-slate-700 font-bold tracking-wider leading-none mt-1">
+                明辉补习班
               </span>
             </div>
           </Link>
