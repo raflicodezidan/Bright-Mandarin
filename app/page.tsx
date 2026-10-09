@@ -9,7 +9,6 @@ import BranchLocations from './components/BranchLocations';
 import InstagramFeed from './components/InstagramFeed';
 import TestimoniSection from './components/TestimoniSection';
 import ProgramAutoSlider from './components/ProgramAutoSlider';
-import PromoBannerSection from './components/PromoBannerSection';
 import AchievementAutoSlider from './components/AchievementAutoSlider';
 import BeritaAutoSlider from './components/BeritaAutoSlider';
 import { getPrograms, getAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, mockSiteSettings } from '@/lib/sanity';
@@ -66,10 +65,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Banner Promo & Registrasi Resmi */}
-      <PromoBannerSection settings={siteSettings} />
-
-      {/* 6. Achievement Murid-Murid: Small Steps, Big Progress */}
+      {/* 5. Achievement Murid-Murid: Small Steps, Big Progress */}
       <section id="achievement" className="py-20 sm:py-24 bg-amber-100/50 border-b border-amber-200/70 scroll-mt-20 relative overflow-hidden">
         {/* Subtle watercolor / artistic brush wash in top-right and bottom-left */}
         <div className="absolute -top-12 -right-12 w-96 h-80 bg-gradient-to-bl from-amber-200/50 via-orange-100/30 to-transparent pointer-events-none rounded-bl-full blur-2xl" />
