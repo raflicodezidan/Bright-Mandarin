@@ -104,7 +104,18 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
-            {settings?.whyUsTitle || 'MENGAPA MEMILIH BRIGHT MANDARIN?'}
+            {(() => {
+              const title = settings?.whyUsTitle || 'MENGAPA MEMILIH\nBRIGHT MANDARIN?';
+              const formattedTitle = title === 'MENGAPA MEMILIH BRIGHT MANDARIN?'
+                ? 'MENGAPA MEMILIH\nBRIGHT MANDARIN?'
+                : title;
+              return formattedTitle.split('\n').map((part, index) => (
+                <React.Fragment key={index}>
+                  {index > 0 && <br />}
+                  {part}
+                </React.Fragment>
+              ));
+            })()}
           </h2>
           <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
             {settings?.whyUsSubtitle || 'Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus'}

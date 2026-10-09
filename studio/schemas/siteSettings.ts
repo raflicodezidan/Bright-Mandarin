@@ -254,9 +254,10 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
     {
       name: 'whyUsTitle',
       title: 'Judul Utama Bagian Mengapa Memilih Kami',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       fieldset: 'whyUs',
-      initialValue: 'MENGAPA MEMILIH BRIGHT MANDARIN?',
+      initialValue: 'MENGAPA MEMILIH\nBRIGHT MANDARIN?',
     },
     {
       name: 'whyUsSubtitle',

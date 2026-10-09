@@ -232,7 +232,7 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   heroCard2Number: "98.7%",
   heroCard2Text: "Kelulusan Ujian HSK",
   // Why Us
-  whyUsTitle: "MENGAPA MEMILIH BRIGHT MANDARIN?",
+  whyUsTitle: "MENGAPA MEMILIH\nBRIGHT MANDARIN?",
   whyUsSubtitle: "Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus",
   whyUsDesc: "Kurikulum akselerasi terbukti, materi interaktif yang menyenangkan, serta bimbingan intensif dari para Laoshi terbaik lulusan Tiongkok.",
   // Learning Modes
