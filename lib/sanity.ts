@@ -348,6 +348,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       testimoniSectionTitle,
       testimoniSectionSubtitle,
       testimoniSectionDesc,
+      googleReviewUrl,
       ctaBannerBadge,
       ctaBannerTitle,
       ctaBannerSubtitle,

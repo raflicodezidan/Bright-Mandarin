@@ -572,6 +572,14 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
       fieldset: 'testimoniSection',
       initialValue: 'Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.',
     },
+    {
+      name: 'googleReviewUrl',
+      title: 'Link Ulasan Google Reviews (Share URL)',
+      type: 'url',
+      fieldset: 'testimoniSection',
+      initialValue: 'https://share.google/h4ySU4mqKW4a712F3',
+      description: 'Link share langsung ke profil ulasan Google Maps Bright Mandarin.',
+    },
 
     // ----------------------------------------------------
     // 12. Bagian Banner Ajakan Belajar (CTA Bawah)

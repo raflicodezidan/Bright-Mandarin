@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Star } from 'lucide-react';
 import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
+import GoogleReviewBadge from './GoogleReviewBadge';
 
 export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
@@ -149,8 +150,16 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
           </div>
 
           {/* Right Column: Visual Photo Showcase with Asymmetrical Curved Corners (5 cols) */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div className="lg:col-span-5 relative mt-8 lg:mt-0">
+            <div className="relative mx-auto max-w-md lg:max-w-none pt-4 sm:pt-6">
+
+              {/* Floating Google Review Rating Badge on Top of Hero Photo */}
+              <div className="absolute top-0 sm:-top-2 left-2 sm:-left-3 z-30">
+                <GoogleReviewBadge
+                  variant="floating"
+                  url={currentSettings.googleReviewUrl || "https://share.google/h4ySU4mqKW4a712F3"}
+                />
+              </div>
 
               {/* Main Photo Container with Asymmetrical Curved Corners and Thick White Border */}
               <div className="relative overflow-hidden border-[6px] sm:border-[8px] border-white shadow-2xl bg-white rounded-tl-[65px] sm:rounded-tl-[85px] lg:rounded-tl-[95px] rounded-tr-[30px] sm:rounded-tr-[40px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-br-[65px] sm:rounded-br-[85px] lg:rounded-br-[95px]">

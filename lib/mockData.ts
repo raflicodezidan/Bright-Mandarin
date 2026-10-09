@@ -190,6 +190,7 @@ export interface SiteSettings {
   testimoniSectionTitle?: string;
   testimoniSectionSubtitle?: string;
   testimoniSectionDesc?: string;
+  googleReviewUrl?: string;
   // 12. CTA Banner
   ctaBannerBadge?: string;
   ctaBannerTitle?: string;
@@ -275,6 +276,7 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   testimoniSectionTitle: "TESTIMONI & ULASAN SISWA",
   testimoniSectionSubtitle: "Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin",
   testimoniSectionDesc: "Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.",
+  googleReviewUrl: "https://share.google/h4ySU4mqKW4a712F3",
   // CTA Banner
   ctaBannerBadge: "Bersama Bright Mandarin!",
   ctaBannerTitle: "Yuk, Mulai Petualangan Baru! Belajar Mandarin Seru & Pasti Lulus!",

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Star, ChevronLeft, ChevronRight, MessageCircle, Quote, CheckCircle2 } from 'lucide-react';
 import { mockSiteSettings } from '@/lib/mockData';
 import { TestimoniItem, SiteSettings } from '@/lib/sanity';
+import GoogleReviewBadge from './GoogleReviewBadge';
 
 export type { TestimoniItem };
 
@@ -271,6 +272,14 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
           <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
             {settings?.testimoniSectionDesc || 'Dengarkan langsung pengalaman para siswa, orang tua murid, profesional, hingga peraih beasiswa universitas ternama Tiongkok.'}
           </p>
+        </div>
+
+        {/* Google Review Official Card Banner */}
+        <div className="flex justify-center mb-12">
+          <GoogleReviewBadge
+            variant="banner"
+            url={settings?.googleReviewUrl || "https://share.google/h4ySU4mqKW4a712F3"}
+          />
         </div>
 
         {/* Carousel Container */}
