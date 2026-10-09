@@ -325,13 +325,10 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                         </div>
                       </div>
 
-                      {/* 2. Identitas Peran / Program Siswa (Tanpa Nama Orang) */}
+                      {/* 2. Identitas Peran Siswa (Tanpa Nama Orang & Tanpa Program) */}
                       <h4 className="text-base sm:text-lg font-black text-slate-900 group-hover/card:text-orange-600 transition-colors leading-snug">
                         {item.peran}
                       </h4>
-                      <span className="text-[11px] sm:text-xs text-slate-500 font-semibold bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60 mt-2 inline-block">
-                        {item.program}
-                      </span>
 
                       {/* 3. Rating Bintang 5 di Bawah Nama */}
                       <div className="flex items-center justify-center gap-1.5 my-4 bg-amber-100/60 px-4 py-1.5 rounded-full border border-amber-200">

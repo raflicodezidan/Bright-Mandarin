@@ -39,7 +39,7 @@ export interface TestimoniItem {
   id?: number;
   nama?: string;
   peran: string;
-  program: string;
+  program?: string;
   rating: number;
   komentar: string;
   avatar?: string;

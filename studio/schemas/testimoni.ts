@@ -11,13 +11,6 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'program',
-      title: 'Program Kelas yang Diikuti',
-      type: 'string',
-      description: 'Contoh: Intensive HSK 5 & Bimbingan Beasiswa, Kids & Teens Level 2',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
       name: 'rating',
       title: 'Rating Bintang (1 - 5)',
       type: 'number',
@@ -49,7 +42,7 @@ export default {
   preview: {
     select: {
       title: 'peran',
-      subtitle: 'program',
+      subtitle: 'komentar',
       media: 'foto',
     },
   },
