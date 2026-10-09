@@ -238,7 +238,7 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                         item.fotoUrl ||
                         'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80'
                       }
-                      alt={item.nama}
+                      alt={item.keterangan || item.level || 'Achievement Murid Bright Mandarin'}
                       className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                     />
 
@@ -303,12 +303,9 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                     </div>
                   </div>
 
-                  {/* 4. INFORMASI MURID (NAMA & PROGRAM KELAS) */}
-                  <div className="mt-4 mb-4">
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                      {item.nama}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-500 mt-1">
+                  {/* 4. INFORMASI PROGRAM KELAS (TANPA NAMA SISWA) */}
+                  <div className="mt-3.5 mb-3 text-center">
+                    <p className="text-sm sm:text-base font-bold text-slate-700 tracking-tight">
                       {item.keterangan || 'Bright Mandarin Student'}
                     </p>
                   </div>

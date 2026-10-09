@@ -147,11 +147,6 @@ export default async function HomePage() {
         )}
 
         <div className="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10">
-          <div className="flex justify-center px-2">
-            <span className="inline-flex items-center justify-center text-xs sm:text-sm font-bold tracking-wide bg-white text-orange-600 px-4 sm:px-5 py-2 sm:py-1.5 rounded-2xl sm:rounded-full shadow-xs border border-white/80 max-w-full text-center">
-              <span>{siteSettings.ctaBannerBadge || 'A Brighter Future Through Mandarin'}</span>
-            </span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight drop-shadow-md">
             {siteSettings.ctaBannerTitle || 'Yuk, Mulai Petualangan Baru! Belajar Mandarin Seru & Pasti Lulus!'}
           </h2>
