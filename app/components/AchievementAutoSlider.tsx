@@ -231,8 +231,8 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                     />
                   </svg>
 
-                  {/* 3. GAMBAR MURID DENGAN INK BRUSH BORDER & BADGE HSK */}
-                  <div className="relative aspect-[16/10] sm:aspect-[4/2.6] rounded-[22px] overflow-hidden bg-slate-900 group-hover/card:shadow-md transition-shadow">
+                  {/* 3. GAMBAR MURID DENGAN INK BRUSH BORDER & BADGE HSK (PORTRAIT 3:4) */}
+                  <div className="relative aspect-[3/4] rounded-[22px] overflow-hidden bg-slate-900 group-hover/card:shadow-md transition-shadow">
                     <img
                       src={
                         item.fotoUrl ||
@@ -245,39 +245,39 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                     {/* Ink Brush Frame Overlay with Rough Calligraphic Bristles */}
                     <svg
                       className="absolute inset-0 w-full h-full pointer-events-none"
-                      viewBox="0 0 320 200"
+                      viewBox="0 0 240 320"
                       preserveAspectRatio="none"
                       fill="none"
                       aria-hidden="true"
                     >
                       {/* Top brush stroke */}
                       <path
-                        d="M6 8 C60 5, 140 4, 220 5 C270 6, 305 8, 314 11 C280 8, 200 7, 120 7 C50 8, 18 10, 6 8 Z"
+                        d="M6 8 C50 5, 120 4, 180 5 C210 6, 230 8, 236 11 C210 8, 150 7, 90 7 C40 8, 15 10, 6 8 Z"
                         fill={theme.photoBorderColor}
                         opacity="0.9"
                       />
-                      {/* Right dry brush bristles */}
+                      {/* Right dry brush stroke */}
                       <path
-                        d="M312 8 C315 45, 314 95, 315 145 C316 175, 313 192, 310 196 C312 170, 313 120, 312 70 C311 35, 311 18, 312 8 Z"
+                        d="M234 8 C236 70, 235 150, 236 230 C237 280, 234 308, 232 314 C234 270, 235 190, 234 110 C233 55, 233 28, 234 8 Z"
                         fill={theme.photoBorderColor}
                         opacity="0.9"
                       />
                       {/* Right bristle wisps */}
                       <path
-                        d="M313 35 L317 38 M314 65 L318 67 M313 105 L318 108 M314 135 L317 137"
+                        d="M235 55 L239 58 M236 105 L240 107 M235 175 L240 178 M236 225 L239 227"
                         stroke={theme.photoBorderColor}
                         strokeWidth="2"
                         strokeLinecap="round"
                       />
                       {/* Bottom brush stroke */}
                       <path
-                        d="M8 194 C65 192, 145 194, 225 193 C275 192, 305 195, 314 196 C275 194, 195 195, 115 194 C55 195, 20 193, 8 194 Z"
+                        d="M8 312 C50 310, 110 312, 170 311 C210 310, 230 313, 236 314 C210 312, 150 313, 90 312 C40 313, 16 311, 8 312 Z"
                         fill={theme.photoBorderColor}
                         opacity="0.9"
                       />
                       {/* Left brush stroke */}
                       <path
-                        d="M8 10 C6 45, 7 95, 6 145 C5 175, 7 190, 9 194 C7 170, 6 120, 7 70 C8 35, 7 20, 8 10 Z"
+                        d="M8 10 C6 70, 7 150, 6 230 C5 280, 7 305, 9 312 C7 270, 6 190, 7 110 C8 55, 7 30, 8 10 Z"
                         fill={theme.photoBorderColor}
                         opacity="0.9"
                       />
