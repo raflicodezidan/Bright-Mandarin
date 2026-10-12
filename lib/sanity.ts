@@ -23,7 +23,7 @@ import {
 } from './mockData';
 
 export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement };
-export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem, MediaSosialData };
+export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
