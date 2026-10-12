@@ -165,20 +165,20 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
 
         {/* Posts Container */}
         {!isCarousel ? (
-          /* Direct 4-item Responsive Grid */
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          /* Direct 4-item Responsive Grid (Full Uncropped Images) */
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
             {displayPosts.map((post, idx) => (
               <a
                 key={idx}
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5"
+                className="group/card relative block rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5"
               >
                 <img
                   src={post.img}
                   alt={`Instagram Post Bright Mandarin ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                  className="w-full h-auto object-contain block group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
                   <div className="w-full flex justify-end">
@@ -228,7 +228,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                       <img
                         src={post.img}
                         alt={`Instagram Post Bright Mandarin ${idx + 1}`}
-                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                        className="w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
                         <div className="w-full flex justify-end">
