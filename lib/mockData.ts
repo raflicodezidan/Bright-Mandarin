@@ -184,6 +184,8 @@ export interface SiteSettings {
   socialSectionTitle?: string;
   socialSectionSubtitle?: string;
   socialSectionDesc?: string;
+  instagramAspectRatio?: 'auto' | 'portrait' | 'square' | 'story' | string;
+  instagramShowCaptionLikes?: boolean;
   instagramPosts?: InstagramPostItem[];
   instagramEmbedWidget?: string;
   // 11. Testimoni Section
@@ -271,6 +273,8 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   socialSectionTitle: "MEDIA SOSIAL KAMI",
   socialSectionSubtitle: "Ikuti Keseharian, Tips Edukasi, & Aktivitas Seru di Instagram",
   socialSectionDesc: "Pantau tips praktis bahasa Mandarin harian, info beasiswa Tiongkok terbaru, dan keceriaan suasana kelas kami setiap hari.",
+  instagramAspectRatio: "auto",
+  instagramShowCaptionLikes: false,
   // Testimoni Section
   testimoniSectionTitle: "TESTIMONI & ULASAN SISWA",
   testimoniSectionSubtitle: "Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin",

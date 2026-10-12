@@ -338,6 +338,8 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       socialSectionTitle,
       socialSectionSubtitle,
       socialSectionDesc,
+      instagramAspectRatio,
+      instagramShowCaptionLikes,
       instagramEmbedWidget,
       "instagramPosts": instagramPosts[]{
         "gambarUrl": gambar.asset->url,

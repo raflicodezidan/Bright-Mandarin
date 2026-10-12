@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -32,18 +32,26 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   const samplePosts = [
     {
       img: '/instagram/post-1.jpg',
+      caption: 'Cerita Showcase Kita - Mid-Autumn Festival 2026 bersama murid-murid Bright Mandarin.',
+      likes: '240',
       link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
       img: '/instagram/post-2.png',
+      caption: 'Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin!',
+      likes: '315',
       link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
       img: '/instagram/post-3.jpg',
+      caption: 'Student Showcase Mid-Autumn Festival di Old Shanghai, Sedayu City.',
+      likes: '190',
       link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
       img: '/instagram/post-4.png',
+      caption: 'Kuis Kosakata Mandarin: Uji kemampuan bahasa Mandarin Anda! #BisaMandarin',
+      likes: '420',
       link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
   ];
@@ -52,11 +60,54 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   const displayPosts = (currentSettings.instagramPosts && currentSettings.instagramPosts.length > 0)
     ? currentSettings.instagramPosts.map((p, idx) => ({
         img: p.gambarUrl || samplePosts[idx % samplePosts.length].img,
+        caption: p.caption || samplePosts[idx % samplePosts.length]?.caption || '',
+        likes: p.likes || samplePosts[idx % samplePosts.length]?.likes || '',
         link: p.linkPost || currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
       }))
     : samplePosts;
 
   const activeEmbedHtml = widgetEmbedHtml || currentSettings.instagramEmbedWidget;
+
+  // Pengaturan rasio dari Sanity: 'auto' | 'portrait' | 'square' | 'story'
+  const aspectRatioSetting = currentSettings.instagramAspectRatio || 'auto';
+  const showCaptionLikes = Boolean(currentSettings.instagramShowCaptionLikes);
+
+  // Helper kelas rasio kartu dan gambar
+  const getCardAspectClasses = () => {
+    switch (aspectRatioSetting) {
+      case 'portrait':
+        // 1080 x 1350 (4:5)
+        return {
+          card: 'aspect-[4/5]',
+          img: 'w-full h-full object-cover',
+          gridAlign: '',
+        };
+      case 'square':
+        // 1080 x 1080 (1:1)
+        return {
+          card: 'aspect-square',
+          img: 'w-full h-full object-cover',
+          gridAlign: '',
+        };
+      case 'story':
+        // 1080 x 1920 (9:16)
+        return {
+          card: 'aspect-[9/16]',
+          img: 'w-full h-full object-cover',
+          gridAlign: '',
+        };
+      case 'auto':
+      default:
+        // Asli / Full uncropped
+        return {
+          card: '',
+          img: 'w-full h-auto object-contain block',
+          gridAlign: 'items-start',
+        };
+    }
+  };
+
+  const aspectStyles = getCardAspectClasses();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -165,35 +216,49 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
 
         {/* Posts Container */}
         {!isCarousel ? (
-          /* Direct 4-item Responsive Grid (Full Uncropped Images) */
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
+          /* Direct 4-item Responsive Grid */
+          <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ${aspectStyles.gridAlign}`}>
             {displayPosts.map((post, idx) => (
               <a
                 key={idx}
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/card relative block rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5"
+                className={`group/card relative block rounded-2xl overflow-hidden ${aspectStyles.card} shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5`}
               >
                 <img
                   src={post.img}
                   alt={`Instagram Post Bright Mandarin ${idx + 1}`}
-                  className="w-full h-auto object-contain block group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                  className={`${aspectStyles.img} group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
-                  <div className="w-full flex justify-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between text-white">
+                  <div className="flex justify-end">
                     <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-sm">
                       <InstagramIcon className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-center">
+
+                  <div className="flex flex-col items-center gap-2 text-center my-auto">
+                    {showCaptionLikes && post.caption && (
+                      <p className="text-xs line-clamp-3 leading-snug mb-1 font-medium text-white/90">
+                        {post.caption}
+                      </p>
+                    )}
                     <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-transform">
                       <InstagramIcon className="w-3.5 h-3.5" />
                       <span>Buka di Instagram</span>
                       <ExternalLink className="w-3 h-3" />
                     </span>
                   </div>
-                  <div className="w-full" />
+
+                  <div className="flex items-center justify-between text-xs font-bold text-white/90 min-h-[16px]">
+                    {showCaptionLikes && post.likes ? (
+                      <span className="flex items-center gap-1">
+                        <Heart className="w-3.5 h-3.5 fill-current text-rose-500" />
+                        {post.likes}
+                      </span>
+                    ) : <span />}
+                  </div>
                 </div>
               </a>
             ))}
@@ -223,27 +288,41 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
+                      className={`group/card relative block rounded-2xl overflow-hidden ${aspectStyles.card || 'aspect-[4/5]'} shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5`}
                     >
                       <img
                         src={post.img}
                         alt={`Instagram Post Bright Mandarin ${idx + 1}`}
-                        className="w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                        className={`${aspectStyles.img || 'w-full h-full object-contain'} group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
-                        <div className="w-full flex justify-end">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between text-white">
+                        <div className="flex justify-end">
                           <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-sm">
                             <InstagramIcon className="w-4 h-4" />
                           </div>
                         </div>
-                        <div className="text-center">
+
+                        <div className="flex flex-col items-center gap-2 text-center my-auto">
+                          {showCaptionLikes && post.caption && (
+                            <p className="text-xs line-clamp-3 leading-snug mb-1 font-medium text-white/90">
+                              {post.caption}
+                            </p>
+                          )}
                           <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                             <InstagramIcon className="w-3.5 h-3.5" />
                             <span>Buka di Instagram</span>
                             <ExternalLink className="w-3 h-3" />
                           </span>
                         </div>
-                        <div className="w-full" />
+
+                        <div className="flex items-center justify-between text-xs font-bold text-white/90 min-h-[16px]">
+                          {showCaptionLikes && post.likes ? (
+                            <span className="flex items-center gap-1">
+                              <Heart className="w-3.5 h-3.5 fill-current text-rose-500" />
+                              {post.likes}
+                            </span>
+                          ) : <span />}
+                        </div>
                       </div>
                     </a>
                   </div>
