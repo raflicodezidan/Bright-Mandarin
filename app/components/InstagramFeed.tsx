@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, Heart, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -31,40 +31,20 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   const currentSettings = settings || mockSiteSettings;
   const samplePosts = [
     {
-      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&auto=format&fit=crop&q=80',
-      caption: 'Keseruan kelas Kids Mandarin hari ini. Belajar pinyin dengan flashcard karakter dan metode interaktif.',
-      likes: '142',
-      comments: '18',
+      img: '/instagram/post-1.jpg',
+      link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
-      img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80',
-      caption: 'Tips menghafal 300 kosakata HSK 3 dalam 2 minggu secara terstruktur dan tahan lama.',
-      likes: '289',
-      comments: '43',
+      img: '/instagram/post-2.png',
+      link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
-      img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80',
-      caption: 'Selamat kepada murid kami Steven yang berhasil meraih beasiswa S2 ke Shanghai Jiao Tong University.',
-      likes: '512',
-      comments: '77',
+      img: '/instagram/post-3.jpg',
+      link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
     {
-      img: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80',
-      caption: 'Workshop seni kaligrafi kuas tradisional Tiongkok (Shufa) bersama Laoshi di center Kelapa Gading.',
-      likes: '198',
-      comments: '24',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80',
-      caption: 'Kelas Corporate Business Mandarin: Simulasi negosiasi bisnis dan etika transaksi supplier China.',
-      likes: '345',
-      comments: '36',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80',
-      caption: 'Suasana speaking club Mandarin: Latihan pelafalan 4 nada (tones) dan percakapan kontekstual.',
-      likes: '267',
-      comments: '29',
+      img: '/instagram/post-4.png',
+      link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
     },
   ];
 
@@ -72,15 +52,9 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   const displayPosts = (currentSettings.instagramPosts && currentSettings.instagramPosts.length > 0)
     ? currentSettings.instagramPosts.map((p, idx) => ({
         img: p.gambarUrl || samplePosts[idx % samplePosts.length].img,
-        caption: p.caption || 'Aktivitas belajar bahasa Mandarin bersama Bright Mandarin.',
-        likes: p.likes || '150+',
-        comments: '12',
-        link: p.linkPost || currentSettings.instagramUrl || mockSiteSettings.instagramUrl,
+        link: p.linkPost || currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
       }))
-    : samplePosts.map((p) => ({
-        ...p,
-        link: currentSettings.instagramUrl || mockSiteSettings.instagramUrl,
-      }));
+    : samplePosts;
 
   const activeEmbedHtml = widgetEmbedHtml || currentSettings.instagramEmbedWidget;
 
@@ -90,6 +64,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   const touchStartX = useRef<number | null>(null);
 
   const total = displayPosts.length;
+  const isCarousel = total > 4;
 
   useEffect(() => {
     const updateVisible = () => {
@@ -108,16 +83,16 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
 
   const maxIndex = Math.max(0, total - itemsVisible);
 
-  // Auto scroll to right every 3.5s
+  // Auto scroll to right every 3.5s if carousel is needed
   useEffect(() => {
-    if (isPaused || maxIndex <= 0) return;
+    if (!isCarousel || isPaused || maxIndex <= 0) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, 3500);
 
     return () => clearInterval(timer);
-  }, [isPaused, maxIndex]);
+  }, [isCarousel, isPaused, maxIndex]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -176,7 +151,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
           </p>
           <div>
             <a
-              href={currentSettings.instagramUrl || mockSiteSettings.instagramUrl}
+              href={currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin'}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
@@ -188,95 +163,127 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
           </div>
         </div>
 
-        {/* Carousel Container */}
-        <div
-          className="relative overflow-hidden group"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className="overflow-hidden py-3">
-            <div
-              className="flex transition-transform duration-700 ease-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)`,
-              }}
-            >
-              {displayPosts.map((post, idx) => (
-                <div
-                  key={idx}
-                  className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3"
-                >
-                  <a
-                    href={post.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
+        {/* Posts Container */}
+        {!isCarousel ? (
+          /* Direct 4-item Responsive Grid */
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {displayPosts.map((post, idx) => (
+              <a
+                key={idx}
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5"
+              >
+                <img
+                  src={post.img}
+                  alt={`Instagram Post Bright Mandarin ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
+                  <div className="w-full flex justify-end">
+                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-sm">
+                      <InstagramIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-transform">
+                      <InstagramIcon className="w-3.5 h-3.5" />
+                      <span>Buka di Instagram</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </span>
+                  </div>
+                  <div className="w-full" />
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          /* Carousel Container for >4 items */
+          <div
+            className="relative overflow-hidden group"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="overflow-hidden py-3">
+              <div
+                className="flex transition-transform duration-700 ease-out"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)`,
+                }}
+              >
+                {displayPosts.map((post, idx) => (
+                  <div
+                    key={idx}
+                    className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3"
                   >
-                    <img
-                      src={post.img}
-                      alt="Instagram Bright Mandarin"
-                      className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-5 flex flex-col justify-between text-white">
-                      <div className="flex justify-end">
-                        <InstagramIcon className="w-5 h-5 text-white/80" />
-                      </div>
-                      <div>
-                        <p className="text-xs line-clamp-3 leading-snug mb-3 font-medium">
-                          {post.caption}
-                        </p>
-                        <div className="flex items-center gap-4 text-xs font-bold text-white/90">
-                          <span className="flex items-center gap-1">
-                            <Heart className="w-3.5 h-3.5 fill-current text-rose-500" />
-                            {post.likes}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <MessageSquare className="w-3.5 h-3.5" />
-                            {post.comments}
+                    <a
+                      href={post.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/card relative block rounded-2xl overflow-hidden aspect-[4/5] shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5"
+                    >
+                      <img
+                        src={post.img}
+                        alt={`Instagram Post Bright Mandarin ${idx + 1}`}
+                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between items-center text-white">
+                        <div className="w-full flex justify-end">
+                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-sm">
+                            <InstagramIcon className="w-4 h-4" />
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                            <InstagramIcon className="w-3.5 h-3.5" />
+                            <span>Buka di Instagram</span>
+                            <ExternalLink className="w-3 h-3" />
                           </span>
                         </div>
+                        <div className="w-full" />
                       </div>
-                    </div>
-                  </a>
-                </div>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
+              aria-label="Previous Instagram Post"
+            >
+              <ChevronLeft className="w-6 h-6 text-orange-600" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
+              aria-label="Next Instagram Post"
+            >
+              <ChevronRight className="w-6 h-6 text-orange-600" />
+            </button>
+
+            {/* Pagination Dots */}
+            <div className="flex items-center justify-center gap-2 mt-6">
+              {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
+                    ? 'w-8 bg-orange-600'
+                    : 'w-2 bg-amber-300 hover:bg-amber-400'
+                    }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
               ))}
             </div>
           </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
-            aria-label="Previous Instagram Post"
-          >
-            <ChevronLeft className="w-6 h-6 text-orange-600" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
-            aria-label="Next Instagram Post"
-          >
-            <ChevronRight className="w-6 h-6 text-orange-600" />
-          </button>
-
-          {/* Pagination Dots */}
-          <div className="flex items-center justify-center gap-2 mt-6">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                  ? 'w-8 bg-orange-600'
-                  : 'w-2 bg-amber-300 hover:bg-amber-400'
-                  }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
