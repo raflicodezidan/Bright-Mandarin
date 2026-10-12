@@ -12,9 +12,8 @@ export default {
     { name: 'achievementSection', title: '7. Bagian Achievement Murid-Murid', options: { collapsible: true, collapsed: false } },
     { name: 'beritaSection', title: '8. Bagian Preview Blog & Tips Mandarin', options: { collapsible: true, collapsed: false } },
     { name: 'lokasiSection', title: '9. Bagian Lokasi Learning Center', options: { collapsible: true, collapsed: false } },
-    { name: 'socialSection', title: '10. Bagian Media Sosial / Instagram Feed', options: { collapsible: true, collapsed: false } },
-    { name: 'testimoniSection', title: '11. Bagian Testimoni & Ulasan Siswa', options: { collapsible: true, collapsed: false } },
-    { name: 'ctaBanner', title: '12. Bagian Banner Ajakan Belajar (CTA Bawah)', options: { collapsible: true, collapsed: false } },
+    { name: 'testimoniSection', title: '10. Bagian Testimoni & Ulasan Siswa', options: { collapsible: true, collapsed: false } },
+    { name: 'ctaBanner', title: '11. Bagian Banner Ajakan Belajar (CTA Bawah)', options: { collapsible: true, collapsed: false } },
   ],
   fields: [
     // ----------------------------------------------------
@@ -457,122 +456,7 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
     },
 
     // ----------------------------------------------------
-    // 10. Bagian Media Sosial / Instagram Feed
-    // ----------------------------------------------------
-    {
-      name: 'socialSectionTitle',
-      title: 'Judul Bagian Media Sosial',
-      type: 'string',
-      fieldset: 'socialSection',
-      initialValue: 'MEDIA SOSIAL KAMI',
-    },
-    {
-      name: 'socialSectionSubtitle',
-      title: 'Sub-Judul Bagian Media Sosial',
-      type: 'string',
-      fieldset: 'socialSection',
-      initialValue: 'Ikuti Keseharian, Tips Edukasi, & Aktivitas Seru di Instagram',
-    },
-    {
-      name: 'socialSectionDesc',
-      title: 'Deskripsi Bagian Media Sosial',
-      type: 'text',
-      rows: 3,
-      fieldset: 'socialSection',
-      initialValue: 'Pantau tips praktis bahasa Mandarin harian, info beasiswa Tiongkok terbaru, dan keceriaan suasana kelas kami setiap hari.',
-    },
-    {
-      name: 'instagramAspectRatio',
-      title: 'Pengaturan Rasio / Ukuran Foto Instagram Feed',
-      type: 'string',
-      fieldset: 'socialSection',
-      options: {
-        list: [
-          { title: 'Asli / Full Tanpa Terpotong (Auto / Uncropped)', value: 'auto' },
-          { title: 'Portrait 4:5 (1080 x 1350 px)', value: 'portrait' },
-          { title: 'Persegi / Square 1:1 (1080 x 1080 px)', value: 'square' },
-          { title: 'Story / Vertikal 9:16 (1080 x 1920 px)', value: 'story' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'auto',
-      description: 'Pilih bagaimana ukuran dan rasio foto Instagram ditampilkan di website.',
-    },
-    {
-      name: 'instagramShowCaptionLikes',
-      title: 'Tampilkan Caption & Jumlah Likes pada Hover?',
-      type: 'boolean',
-      fieldset: 'socialSection',
-      initialValue: false,
-      description: 'Aktifkan jika ingin memunculkan teks caption dan jumlah likes saat kursor diarahkan ke foto.',
-    },
-    {
-      name: 'instagramPosts',
-      title: 'Daftar Foto Postingan Instagram (Carousel Feed)',
-      type: 'array',
-      fieldset: 'socialSection',
-      description: 'Upload foto-foto postingan Instagram terbaru beserta caption untuk ditampilkan di carousel beranda. Rekomendasi rasio foto/video adalah 4:5 (1080 x 1350 piksel).',
-      of: [
-        {
-          type: 'object',
-          title: 'Postingan Instagram (4:5)',
-          fields: [
-            {
-              name: 'gambar',
-              title: 'Foto Postingan / Poster (Ideal: 4:5 / 1080x1350px)',
-              type: 'image',
-              options: { hotspot: true },
-              validation: (Rule: any) => Rule.required(),
-            },
-            {
-              name: 'caption',
-              title: 'Caption / Teks Postingan',
-              type: 'text',
-              rows: 3,
-              placeholder: 'Contoh: Suasana kelas Kids Mandarin hari ini. Belajar pinyin dengan seru!',
-            },
-            {
-              name: 'linkPost',
-              title: 'Link ke Postingan Instagram (Opsional)',
-              type: 'url',
-              placeholder: 'https://www.instagram.com/p/xxxxxx/',
-              description: 'Jika diisi, pengunjung yang mengklik foto ini akan langsung diarahkan ke postingan tersebut.',
-            },
-            {
-              name: 'likes',
-              title: 'Jumlah Likes (Opsional, misal: 250)',
-              type: 'string',
-              initialValue: '150+',
-            },
-          ],
-          preview: {
-            select: {
-              title: 'caption',
-              media: 'gambar',
-              subtitle: 'likes',
-            },
-            prepare({ title, media, subtitle }: any) {
-              return {
-                title: title ? (title.length > 40 ? title.substring(0, 40) + '...' : title) : 'Postingan Instagram',
-                subtitle: subtitle ? `Likes: ${subtitle}` : '',
-                media,
-              };
-            },
-          },
-        },
-      ],
-    },
-    {
-      name: 'instagramEmbedWidget',
-      title: 'Kode Embed Widget Instagram Otomatis (Opsional)',
-      type: 'text',
-      rows: 4,
-      fieldset: 'socialSection',
-      description: 'Jika nanti Anda menggunakan widget otomatis seperti Elfsight atau SnapWidget, tempelkan kodenya di sini. Jika diisi, widget otomatis akan menggantikan foto manual di atas.',
-    },
-
-    // ----------------------------------------------------
-    // 11. Bagian Testimoni & Ulasan Siswa
+    // 10. Bagian Testimoni & Ulasan Siswa
     // ----------------------------------------------------
     {
       name: 'testimoniSectionTitle',

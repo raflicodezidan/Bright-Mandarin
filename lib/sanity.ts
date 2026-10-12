@@ -23,7 +23,7 @@ import {
 } from './mockData';
 
 export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement };
-export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem };
+export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem, MediaSosialData };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -386,3 +386,73 @@ export async function getPopupPromo(): Promise<PopupPromoData> {
     return mockPopupPromo;
   }
 }
+
+// 10. Query Media Sosial / Instagram Feed (Dokumen Khusus Terpisah)
+export type MediaSosialData = {
+  socialSectionTitle?: string;
+  socialSectionSubtitle?: string;
+  socialSectionDesc?: string;
+  instagramUrl?: string;
+  instagramHandle?: string;
+  instagramAspectRatio?: 'auto' | 'portrait' | 'square' | 'story' | string;
+  instagramShowCaptionLikes?: boolean;
+  instagramPosts?: InstagramPostItem[];
+  instagramEmbedWidget?: string;
+};
+
+export async function getMediaSosial(): Promise<MediaSosialData> {
+  const fallbackData: MediaSosialData = {
+    socialSectionTitle: mockSiteSettings.socialSectionTitle,
+    socialSectionSubtitle: mockSiteSettings.socialSectionSubtitle,
+    socialSectionDesc: mockSiteSettings.socialSectionDesc,
+    instagramUrl: mockSiteSettings.instagramUrl,
+    instagramHandle: mockSiteSettings.instagramHandle,
+    instagramAspectRatio: mockSiteSettings.instagramAspectRatio,
+    instagramShowCaptionLikes: mockSiteSettings.instagramShowCaptionLikes,
+    instagramPosts: mockSiteSettings.instagramPosts,
+    instagramEmbedWidget: mockSiteSettings.instagramEmbedWidget,
+  };
+
+  if (!client) return fallbackData;
+
+  try {
+    const query = `*[_type == "mediaSosial"][0]{
+      socialSectionTitle,
+      socialSectionSubtitle,
+      socialSectionDesc,
+      instagramUrl,
+      instagramHandle,
+      instagramAspectRatio,
+      instagramShowCaptionLikes,
+      instagramEmbedWidget,
+      "instagramPosts": instagramPosts[]{
+        "gambarUrl": gambar.asset->url,
+        caption,
+        linkPost,
+        likes
+      }
+    }`;
+    const data = await client.fetch(query);
+    if (data && (data.socialSectionTitle || data.instagramPosts?.length || data.instagramAspectRatio)) {
+      return { ...fallbackData, ...data };
+    }
+
+    // Jika dokumen terpisah belum diisi, fallback ke siteSettings
+    const settings = await getSiteSettings();
+    return {
+      socialSectionTitle: settings.socialSectionTitle || fallbackData.socialSectionTitle,
+      socialSectionSubtitle: settings.socialSectionSubtitle || fallbackData.socialSectionSubtitle,
+      socialSectionDesc: settings.socialSectionDesc || fallbackData.socialSectionDesc,
+      instagramUrl: settings.instagramUrl || fallbackData.instagramUrl,
+      instagramHandle: settings.instagramHandle || fallbackData.instagramHandle,
+      instagramAspectRatio: settings.instagramAspectRatio || fallbackData.instagramAspectRatio,
+      instagramShowCaptionLikes: settings.instagramShowCaptionLikes ?? fallbackData.instagramShowCaptionLikes,
+      instagramPosts: settings.instagramPosts || fallbackData.instagramPosts,
+      instagramEmbedWidget: settings.instagramEmbedWidget || fallbackData.instagramEmbedWidget,
+    };
+  } catch (error) {
+    console.warn('Failed fetching mediaSosial from Sanity', error);
+    return fallbackData;
+  }
+}
+

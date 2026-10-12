@@ -11,18 +11,19 @@ import TestimoniSection from './components/TestimoniSection';
 import ProgramAutoSlider from './components/ProgramAutoSlider';
 import AchievementAutoSlider from './components/AchievementAutoSlider';
 import BeritaAutoSlider from './components/BeritaAutoSlider';
-import { getPrograms, getAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, mockSiteSettings } from '@/lib/sanity';
+import { getPrograms, getAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, getMediaSosial, mockSiteSettings } from '@/lib/sanity';
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [allPrograms, allAchievement, allBerita, allTestimoni, allKeunggulan, siteSettings] = await Promise.all([
+  const [allPrograms, allAchievement, allBerita, allTestimoni, allKeunggulan, siteSettings, mediaSosial] = await Promise.all([
     getPrograms(),
     getAchievement(),
     getBerita(),
     getTestimoni(),
     getKeunggulan(),
     getSiteSettings(),
+    getMediaSosial(),
   ]);
 
   return (
@@ -123,7 +124,7 @@ export default async function HomePage() {
       </section>
 
       {/* 8. Instagram Feed (Media Sosial) */}
-      <InstagramFeed settings={siteSettings} />
+      <InstagramFeed settings={mediaSosial} />
 
       {/* 9. Cabang Lokasi Offline Center */}
       <BranchLocations settings={siteSettings} />

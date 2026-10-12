@@ -13,7 +13,18 @@ export const myStructure = (S: any) =>
             .title('Pengaturan Teks & Konten Seluruh Website')
         ),
 
-      // 2. Singleton untuk Poster Iklan Popup Promo
+      // 2. Singleton untuk Media Sosial / Feed Instagram
+      S.listItem()
+        .title('Media Sosial Kami (Instagram Feed)')
+        .id('mediaSosial')
+        .child(
+          S.document()
+            .schemaType('mediaSosial')
+            .documentId('mediaSosial')
+            .title('Pengaturan Media Sosial & Feed Instagram')
+        ),
+
+      // 3. Singleton untuk Poster Iklan Popup Promo
       S.listItem()
         .title('Poster Iklan Popup / Brosur Promo')
         .id('popupPromo')

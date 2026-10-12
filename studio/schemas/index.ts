@@ -5,11 +5,13 @@ import berita from './berita';
 import galeri from './galeri';
 import siteSettings from './siteSettings';
 import popupPromo from './popupPromo';
+import mediaSosial from './mediaSosial';
 import testimoni from './testimoni';
 import keunggulan from './keunggulan';
 
 export const schemaTypes = [
   siteSettings,
+  mediaSosial,
   program,
   achievement,
   pengajar,

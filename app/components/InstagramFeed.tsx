@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
-import { mockSiteSettings, SiteSettings } from '@/lib/sanity';
+import { mockSiteSettings, SiteSettings, MediaSosialData } from '@/lib/sanity';
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -24,7 +24,7 @@ function InstagramIcon({ className }: { className?: string }) {
 
 interface InstagramFeedProps {
   widgetEmbedHtml?: string;
-  settings?: SiteSettings;
+  settings?: SiteSettings | MediaSosialData;
 }
 
 export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFeedProps) {
