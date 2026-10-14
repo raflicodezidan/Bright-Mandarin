@@ -54,6 +54,7 @@ export interface KeunggulanItem {
   badge: string;
   desc: string;
   customIconUrl?: string;
+  gambarUrl?: string;
   colorClass?: string;
   urutan?: number;
 }
@@ -804,6 +805,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'Personal Speaking Practice',
     desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
     badge: 'Latihan Berbicara Pribadi',
+    gambarUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-purple-600',
     urutan: 1
   },
@@ -812,6 +814,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'Structured Learning Program',
     desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
     badge: 'Program Pembelajaran Terstruktur',
+    gambarUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-emerald-600',
     urutan: 2
   },
@@ -820,6 +823,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'Experienced Teachers',
     desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
     badge: 'Guru Berpengalaman',
+    gambarUrl: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-indigo-600',
     urutan: 3
   },
@@ -828,6 +832,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'Practical Mandarin Skills',
     desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
     badge: 'Keterampilan Praktis Mandarin',
+    gambarUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-sky-600',
     urutan: 4
   },
@@ -836,6 +841,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'HSK & Academic Support',
     desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
     badge: 'HSK & Dukungan Akademik',
+    gambarUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-amber-600',
     urutan: 5
   },
@@ -844,6 +850,7 @@ export const mockKeunggulan: KeunggulanItem[] = [
     title: 'Engaging & Interactive Learning',
     desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
     badge: 'Pembelajaran Interaktif & Menarik',
+    gambarUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-rose-600',
     urutan: 6
   }

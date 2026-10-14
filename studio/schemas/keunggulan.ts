@@ -25,9 +25,9 @@ export default {
     },
     {
       name: 'customIcon',
-      title: 'Upload Ikon Custom (Opsional)',
+      title: 'Upload Gambar / Foto Landscape (Opsional)',
       type: 'image',
-      description: 'Upload gambar/ikon custom jika ingin mengganti ikon default bawaan sistem',
+      description: 'Upload gambar landscape kartu keunggulan jika ingin mengganti foto default bawaan sistem',
       options: {
         hotspot: true,
       },

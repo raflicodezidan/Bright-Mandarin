@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { KeunggulanItem, SiteSettings } from '@/lib/sanity';
 
 interface FeatureWhyUsProps {
@@ -7,70 +6,46 @@ interface FeatureWhyUsProps {
   settings?: SiteSettings;
 }
 
-// 6 Core 3D Rendered Icons & Visual Themes
+// 6 Landscape Educational Photography Assets
 const defaultVisualAssets = [
   {
-    imageUrl: '/keunggulan-speaking.jpg',
-    alt: 'Personal Speaking Practice 3D Icon',
-    glow: 'from-purple-500/35 to-fuchsia-400/35',
-    border: 'border-purple-200/90 hover:border-purple-400',
-    shadow: 'shadow-purple-500/15',
-    badgeColor: 'text-purple-600',
+    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80',
+    alt: 'Personal Speaking Practice',
     title: 'Personal Speaking Practice',
     badge: 'Latihan Berbicara Pribadi',
     desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
   },
   {
-    imageUrl: '/keunggulan-roadmap.jpg',
-    alt: 'Structured Learning Program 3D Icon',
-    glow: 'from-emerald-500/35 to-teal-400/35',
-    border: 'border-emerald-200/90 hover:border-emerald-400',
-    shadow: 'shadow-emerald-500/15',
-    badgeColor: 'text-emerald-600',
+    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80',
+    alt: 'Structured Learning Program',
     title: 'Structured Learning Program',
     badge: 'Program Pembelajaran Terstruktur',
     desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
   },
   {
-    imageUrl: '/keunggulan-teacher.jpg',
-    alt: 'Experienced Teachers 3D Icon',
-    glow: 'from-indigo-500/35 to-blue-400/35',
-    border: 'border-indigo-200/90 hover:border-indigo-400',
-    shadow: 'shadow-indigo-500/15',
-    badgeColor: 'text-indigo-600',
+    imageUrl: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=800&auto=format&fit=crop&q=80',
+    alt: 'Experienced Teachers',
     title: 'Experienced Teachers',
     badge: 'Guru Berpengalaman',
     desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
   },
   {
-    imageUrl: '/keunggulan-practical.jpg',
-    alt: 'Practical Mandarin Skills 3D Icon',
-    glow: 'from-sky-500/35 to-blue-400/35',
-    border: 'border-sky-200/90 hover:border-sky-400',
-    shadow: 'shadow-sky-500/15',
-    badgeColor: 'text-sky-600',
+    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
+    alt: 'Practical Mandarin Skills',
     title: 'Practical Mandarin Skills',
     badge: 'Keterampilan Praktis Mandarin',
     desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
   },
   {
-    imageUrl: '/keunggulan-academic.jpg',
-    alt: 'HSK & Academic Support 3D Icon',
-    glow: 'from-amber-500/35 to-orange-400/35',
-    border: 'border-amber-200/90 hover:border-amber-400',
-    shadow: 'shadow-amber-500/15',
-    badgeColor: 'text-amber-600',
+    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80',
+    alt: 'HSK & Academic Support',
     title: 'HSK & Academic Support',
     badge: 'HSK & Dukungan Akademik',
     desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
   },
   {
-    imageUrl: '/keunggulan-interactive.jpg',
-    alt: 'Engaging & Interactive Learning 3D Icon',
-    glow: 'from-rose-500/35 to-orange-400/35',
-    border: 'border-rose-200/90 hover:border-rose-400',
-    shadow: 'shadow-rose-500/15',
-    badgeColor: 'text-rose-600',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80',
+    alt: 'Engaging & Interactive Learning',
     title: 'Engaging & Interactive Learning',
     badge: 'Pembelajaran Interaktif & Menarik',
     desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
@@ -85,12 +60,8 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
           title: k.title,
           desc: k.desc,
           badge: k.badge || fallback.badge,
-          imageUrl: k.customIconUrl || fallback.imageUrl,
+          imageUrl: k.customIconUrl || (k as any).gambarUrl || fallback.imageUrl,
           alt: k.title,
-          glow: fallback.glow,
-          border: fallback.border,
-          shadow: fallback.shadow,
-          badgeColor: fallback.badgeColor,
         };
       })
     : defaultVisualAssets;
@@ -131,45 +102,38 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
             return (
               <div
                 key={idx}
-                className="group relative bg-white hover:bg-amber-50/30 rounded-3xl p-8 border-2 border-amber-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center justify-between"
+                className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1"
               >
-                <div className="flex flex-col items-center w-full">
-                  {/* Premium 3D Rendered Glossy Icon */}
-                  <div className="mb-5 flex justify-center">
-                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-300">
-                      {/* Ambient 3D Glow */}
-                      <div className={`absolute inset-0 rounded-3xl bg-gradient-to-tr ${item.glow} blur-xl opacity-75 group-hover:opacity-100 transition-opacity`} />
-                      
-                      {/* 3D Glass Container */}
-                      <div className={`relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden p-1 bg-white border-2 ${item.border} ${item.shadow} shadow-lg flex items-center justify-center`}>
-                        <Image
-                          src={item.imageUrl}
-                          alt={item.alt}
-                          width={112}
-                          height={112}
-                          priority={idx < 3}
-                          className="w-full h-full object-cover rounded-xl sm:rounded-2xl drop-shadow-sm group-hover:scale-105 transition-transform duration-300 select-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                {/* Image Header (Landscape) */}
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 shrink-0">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
 
-                  {/* Formal Sub-label Badge */}
-                  <div className="mb-2">
-                    <span className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase ${item.badgeColor}`}>
+                  {/* Badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
                       {item.badge}
                     </span>
                   </div>
+                </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-black text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
-                    {item.title}
-                  </h3>
+                {/* Card Content */}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug">
+                      {item.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                    {item.desc}
-                  </p>
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
