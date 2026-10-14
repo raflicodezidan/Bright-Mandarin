@@ -8,7 +8,7 @@ import LearningModes from './components/LearningModes';
 import BranchLocations from './components/BranchLocations';
 import InstagramFeed from './components/InstagramFeed';
 import TestimoniSection from './components/TestimoniSection';
-import HomeProgramSection from './components/HomeProgramSection';
+import ProgramAutoSlider from './components/ProgramAutoSlider';
 import AchievementAutoSlider from './components/AchievementAutoSlider';
 import BeritaAutoSlider from './components/BeritaAutoSlider';
 import { getPrograms, getHskAchievement, getExamSchoolAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, getMediaSosial, mockSiteSettings } from '@/lib/sanity';
@@ -63,7 +63,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <HomeProgramSection />
+          <ProgramAutoSlider programs={allPrograms} />
         </div>
       </section>
 
