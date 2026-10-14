@@ -170,7 +170,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
 
   if (activeEmbedHtml) {
     return (
-      <section className="py-20 bg-[#FFF8E6] border-b border-amber-200/60">
+      <section className="py-20 bg-[#FFFEF8] border-b border-amber-200/60">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
@@ -187,7 +187,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
   }
 
   return (
-    <section className="py-20 bg-[#FFF8E6] border-b border-amber-200/60">
+    <section className="py-20 bg-[#FFFEF8] border-b border-amber-200/60">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">

@@ -22,7 +22,7 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
   const gmapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(defaultMapsQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section id="lokasi" className="py-20 bg-[#FFF8E6] border-b border-amber-200/60 relative overflow-hidden">
+    <section id="lokasi" className="py-20 bg-[#FFFEF8] border-b border-amber-200/60 relative overflow-hidden">
       {/* Target anchor for both #lokasi and legacy #cabang */}
       <div id="cabang" className="absolute -top-24" />
 
