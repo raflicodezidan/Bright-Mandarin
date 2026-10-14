@@ -205,12 +205,16 @@ export interface SiteSettings {
   ctaBannerBgImageUrl?: string;
 }
 
+export const DEFAULT_WHATSAPP_PHONE = '6285890592738';
+export const DEFAULT_WHATSAPP_MESSAGE = `Halo Bright Mandarin! 👋🇨🇳\n\nSaya tertarik untuk belajar bahasa Mandarin dan ingin mengetahui informasi mengenai program kelas serta pendaftaran trial class.\n\nBoleh dibantu informasinya? Terima kasih! 😊`;
+export const DEFAULT_WHATSAPP_URL = `https://api.whatsapp.com/send/?phone=${DEFAULT_WHATSAPP_PHONE}&text=${encodeURIComponent(DEFAULT_WHATSAPP_MESSAGE)}`;
+
 export const mockSiteSettings: SiteSettings = {
   namaSitus: "Bright Mandarin Education",
   tagline: "Kursus Bahasa Mandarin No. 1 Berstandar HSK 6 & Beasiswa Tiongkok",
   deskripsi: "Platform kursus bahasa Mandarin terpercaya dengan pengajar berkualifikasi HSK 6 lulusan universitas ternama Tiongkok. Menyediakan kelas Online, Offline Center di Kelapa Gading, dan Home Private.",
   teleponHotline: "+62 858-9059-2738",
-  whatsappUtama: "https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+konsultasi+kursus+Mandarin",
+  whatsappUtama: DEFAULT_WHATSAPP_URL,
   email: "coursebrightmandarin@gmail.com",
   alamatPusat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
   jamOperasional: `Tutoring & Kelas Reguler

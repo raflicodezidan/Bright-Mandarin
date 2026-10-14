@@ -4,7 +4,7 @@ import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PromoModal from './components/PromoModal';
-import { getPopupPromo, getSiteSettings } from '@/lib/sanity';
+import { getPopupPromo, getSiteSettings, DEFAULT_WHATSAPP_URL } from '@/lib/sanity';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const viewport: Viewport = {
@@ -249,7 +249,7 @@ export default async function RootLayout({
 
         {/* Floating WhatsApp Action Button with Official Logo (Bottom Right) */}
         <a
-          href={siteSettings.whatsappUtama || "https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+mencoba+Free+Trial+Class"}
+          href={siteSettings.whatsappUtama || DEFAULT_WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Mau cobain Free Trial Class? Chat WhatsApp Bright Mandarin"

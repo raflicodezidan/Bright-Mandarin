@@ -10,6 +10,9 @@ import {
   mockPopupPromo,
   mockTestimoni,
   mockKeunggulan,
+  DEFAULT_WHATSAPP_URL,
+  DEFAULT_WHATSAPP_MESSAGE,
+  DEFAULT_WHATSAPP_PHONE,
   ProgramItem,
   AchievementItem,
   PengajarItem,
@@ -22,7 +25,7 @@ import {
   InstagramPostItem
 } from './mockData';
 
-export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement };
+export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement, DEFAULT_WHATSAPP_URL, DEFAULT_WHATSAPP_MESSAGE, DEFAULT_WHATSAPP_PHONE };
 export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
@@ -364,7 +367,11 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       cabang
     }`;
     const data = await client.fetch(query);
-    return data ? { ...mockSiteSettings, ...data } : mockSiteSettings;
+    const result = data ? { ...mockSiteSettings, ...data } : mockSiteSettings;
+    if (!result.whatsappUtama || result.whatsappUtama.includes('Halo+Admin') || result.whatsappUtama.includes('Halo%20Admin') || result.whatsappUtama.includes('Free+Trial')) {
+      result.whatsappUtama = DEFAULT_WHATSAPP_URL;
+    }
+    return result;
   } catch (error) {
     console.warn('Failed fetching siteSettings from Sanity', error);
     return mockSiteSettings;
