@@ -105,13 +105,13 @@ export default function AchievementAutoSlider({ achievement, badgeType = 'hsk' }
 
                     {/* Badge - Formal & Satu Warna Oranye Sesuai Tema */}
                     <div className="absolute top-3 left-3 z-10">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-600 text-white text-xs font-bold shadow-md tracking-wide">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 text-white text-sm font-black shadow-lg tracking-wide">
                         {badgeType === 'examSchool' ? (
-                          <GraduationCap className="w-3.5 h-3.5 text-white" />
+                          <GraduationCap className="w-5 h-5 text-white flex-shrink-0" />
                         ) : (
-                          <Trophy className="w-3.5 h-3.5 text-white" />
+                          <Trophy className="w-5 h-5 text-white flex-shrink-0" />
                         )}
-                        <span>{item.level}</span>
+                        <span className="text-sm font-black leading-none">{item.level}</span>
                       </div>
                     </div>
                   </div>

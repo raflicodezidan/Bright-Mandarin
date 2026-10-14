@@ -71,7 +71,7 @@ export default async function HomePage() {
       <section id="achievement" className="py-20 sm:py-24 bg-[#FFFEF8] border-b border-amber-200/60 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
-          {/* ── 5a. HSK / HSKK Achievement ── */}
+          {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
               {siteSettings.achievementSectionTitle || 'ACHIEVEMENT MURID BRIGHT MANDARIN'}
@@ -86,34 +86,19 @@ export default async function HomePage() {
           </div>
 
           {/* HSK Slider */}
-          <div className="mb-20 sm:mb-24">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1 h-7 bg-orange-600 rounded-full" />
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
-                🏆 HSK / HSKK Certificate
-              </h3>
-            </div>
+          <div className="mb-16 sm:mb-20">
             <AchievementAutoSlider achievement={hskAchievement} badgeType="hsk" />
           </div>
 
-          {/* ── 5b. Exam School / Kompetisi Achievement ── */}
-          <div className="pt-6 border-t border-amber-200/60">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-                Prestasi murid kami tidak hanya di ujian sertifikasi internasional — nilai mandarin di sekolah pun ikut melejit! 🎓
-              </p>
-            </div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1 h-7 bg-orange-600 rounded-full" />
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
-                🏫 Ujian Sekolah & Kompetisi
-              </h3>
-            </div>
-            <AchievementAutoSlider achievement={examSchoolAchievement} badgeType="examSchool" />
-          </div>
+          {/* Divider */}
+          <div className="border-t border-amber-200/60 mb-16 sm:mb-20" />
+
+          {/* Exam School Slider */}
+          <AchievementAutoSlider achievement={examSchoolAchievement} badgeType="examSchool" />
 
         </div>
       </section>
+
 
       {/* 6. Testimoni Siswa & Alumni */}
       <TestimoniSection testimoni={allTestimoni} settings={siteSettings} />

@@ -1,6 +1,6 @@
 export default {
   name: 'achievement',
-  title: 'Achievement HSK / HSKK',
+  title: 'Achievement Murid (HSK & Ujian Sekolah)',
   type: 'document',
   fields: [
     {
