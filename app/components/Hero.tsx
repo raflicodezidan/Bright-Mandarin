@@ -171,25 +171,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />
 
-                  {/* Chinese Calligraphy Doodle Overlay inside Photo: 你好 Nǐ hǎo */}
-                  <div className="absolute top-5 right-5 z-10 select-none pointer-events-none drop-shadow-sm bg-white/45 backdrop-blur-xs rounded-2xl px-3 py-1.5 border border-white/60">
-                    <div className="flex items-center gap-2">
-                      <div className="text-center font-bold text-slate-800">
-                        <div className="text-2xl sm:text-3xl font-extrabold tracking-wider leading-none">
-                          你好
-                        </div>
-                        <div className="text-[11px] sm:text-xs font-semibold text-slate-700 mt-0.5">
-                          Nǐ hǎo
-                        </div>
-                      </div>
-                      {/* Sunburst Accent doodle rays */}
-                      <div className="flex flex-col gap-1 text-amber-500">
-                        <span className="w-3.5 h-1 bg-amber-400 rounded-full rotate-[20deg]" />
-                        <span className="w-4 h-1 bg-amber-400 rounded-full rotate-[5deg]" />
-                        <span className="w-3.5 h-1 bg-amber-400 rounded-full -rotate-[15deg]" />
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
