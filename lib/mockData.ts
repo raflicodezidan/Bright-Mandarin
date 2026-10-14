@@ -66,7 +66,10 @@ export interface BeritaItem {
   ringkasan: string;
   konten?: any;
   gambarUtamaUrl: string;
+  videoVerticalUrl?: string;
+  videoJudul?: string;
 }
+
 
 export interface GaleriItem {
   _id: string;

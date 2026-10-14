@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Calendar, ArrowLeft } from 'lucide-react';
+import { Calendar, ArrowLeft, Play } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
 import { getBeritaBySlug } from '@/lib/sanity';
 
@@ -70,7 +70,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
           </p>
 
           {/* Cover Image */}
-          <div className="rounded-2xl overflow-hidden aspect-16/9 bg-brand-charcoal shadow-md">
+          <div className="rounded-2xl overflow-hidden aspect-video bg-brand-charcoal shadow-md">
             <img
               src={item.gambarUtamaUrl}
               alt={item.judul}
@@ -91,26 +91,73 @@ export default async function BeritaDetailPage({ params }: PageProps) {
                   1. Membangun Fondasi Pelafalan Nada (Tones) dengan Benar
                 </h3>
                 <p>
-                  Kesalahan paling sering pada pemula adalah terburu-buru menghafal ratusan kosakata tanpa mematangkan 4 nada dasar pinyin. Perbedaan intonasi sedikit saja dapat mengubah arti kata secara drastis (contoh: <em>mā</em> [ibu], <em>má</em> [rami], <em>mǎ</em> [kuda], <em>mà</em> [memarahi]). Latihlah otot bicara setiap hari minimal 15 menit dengan panduan audio tutor bersertifikat HSK 6.
+                  Dalam bahasa Mandarin, nada memiliki peran yang sangat penting. Ada empat nada utama, yaitu nada datar (1), naik (2), turun lalu naik (3), dan turun (4). Kesalahan dalam mengucapkan nada dapat mengubah arti kata secara drastis, sehingga latihan nada secara konsisten menjadi kunci utama.
                 </p>
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 not-prose">
+                  <p className="text-sm font-bold text-amber-800 mb-1">💡 Tips Penting</p>
+                  <p className="text-sm text-amber-700">Gunakan aplikasi latihan pengucapan dan dengarkan penutur asli sebanyak mungkin untuk membiasakan telinga dengan intonasi yang benar.</p>
+                </div>
                 <h3 className="text-xl font-bold text-brand-charcoal pt-3">
-                  2. Memahami Radikal Karakter Hanzi Secara Logis
+                  2. Memahami Perbedaan Karakter Sederhana dan Kompleks
                 </h3>
                 <p>
-                  Jangan menghafal karakter Mandarin sebagai coretan acak tanpa makna. Setiap huruf Hanzi terdiri atas komponen radikal yang merepresentasikan ide, alam, manusia, atau bunyi. Ketika Anda memahami radikal dasar (seperti air 氵, orang 亻, atau hati 忄), Anda akan mampu menebak konteks arti ribuan karakter baru dengan jauh lebih cepat.
+                  Karakter Hanzi terdiri dari ribuan simbol yang memiliki makna. Mulailah dengan karakter sederhana terlebih dahulu, kemudian secara bertahap lanjut ke karakter kompleks. Gunakan metode menulis ulang (tracing) dan membuat kartu flash untuk memperkuat ingatan.
                 </p>
-                <h3 className="text-xl font-bold text-brand-charcoal pt-3">
-                  3. Konsistensi dan Praktik Dua Arah
-                </h3>
-                <p>
-                  Bergabung dengan kelas interaktif yang mewajibkan Anda berbicara aktif sangat krusial. Di Bright Mandarin, kami memastikan interaksi guru dan murid seimbang, sehingga Anda terbiasa merespons secara spontan tanpa rasa cemas.
-                </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 not-prose">
+                  <p className="text-sm font-bold text-blue-800 mb-1">📖 Rekomendasi Belajar</p>
+                  <p className="text-sm text-blue-700">Fokus pada 50–100 karakter pertama yang paling sering digunakan dalam percakapan sehari-hari.</p>
+                </div>
               </>
             )}
           </div>
+
+          {/* ───────── VIDEO VERTIKAL 9:16 ───────── */}
+          {item.videoVerticalUrl && (
+            <div className="pt-4 not-prose">
+              <div className="flex flex-col items-center gap-3">
+                {/* Label badge */}
+                <div className="flex items-center gap-2 self-start">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-brand-charcoal/60 bg-brand-charcoal/8 px-3 py-1 rounded-full border border-brand-charcoal/10">
+                    <Play className="w-3 h-3 fill-current" />
+                    Video
+                  </span>
+                </div>
+
+                {/* Video: rasio 9:16, max 360px lebar */}
+                <div
+                  className="relative rounded-2xl overflow-hidden shadow-xl border border-brand-border/60 bg-black"
+                  style={{ width: '100%', maxWidth: '360px', aspectRatio: '9 / 16' }}
+                >
+                  <video
+                    src={item.videoVerticalUrl}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                    aria-label={item.videoJudul || 'Video artikel'}
+                  />
+                </div>
+
+                {/* Caption judul video */}
+                {item.videoJudul && (
+                  <p className="text-sm text-center text-brand-gray font-medium max-w-xs">
+                    {item.videoJudul}
+                  </p>
+                )}
+
+                {/* Badge format — sesuai desain screenshot */}
+                <span className="text-[11px] font-medium text-brand-charcoal/40 tracking-wide">
+                  Format vertikal · 9:16
+                </span>
+              </div>
+            </div>
+          )}
+          {/* ─────────────────────────────────────── */}
+
         </div>
 
       </div>
     </article>
   );
 }
+

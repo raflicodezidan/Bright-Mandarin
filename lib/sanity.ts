@@ -181,7 +181,9 @@ export async function getBerita(): Promise<BeritaItem[]> {
       kategori,
       ringkasan,
       konten,
-      "gambarUtamaUrl": gambarUtama.asset->url
+      "gambarUtamaUrl": gambarUtama.asset->url,
+      "videoVerticalUrl": videoVertical.asset->url,
+      videoJudul
     }`;
     const data = await client.fetch(query);
     return data && data.length > 0 ? data : mockBerita;
@@ -205,7 +207,9 @@ export async function getBeritaBySlug(slug: string): Promise<BeritaItem | null> 
       kategori,
       ringkasan,
       konten,
-      "gambarUtamaUrl": gambarUtama.asset->url
+      "gambarUtamaUrl": gambarUtama.asset->url,
+      "videoVerticalUrl": videoVertical.asset->url,
+      videoJudul
     }`;
     const data = await client.fetch(query, { slug });
     return data || mockBerita.find((b) => b.slug.current === slug) || null;

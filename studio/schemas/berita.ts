@@ -59,6 +59,21 @@ export default {
       },
     },
     {
+      name: 'videoVertical',
+      title: 'Video Vertikal 9:16 (Opsional)',
+      description: 'Upload video format vertikal 9:16 (seperti Reels / TikTok) untuk ditampilkan di dalam artikel.',
+      type: 'file',
+      options: {
+        accept: 'video/*',
+      },
+    },
+    {
+      name: 'videoJudul',
+      title: 'Judul / Caption Video',
+      description: 'Teks keterangan yang tampil di bawah video vertikal.',
+      type: 'string',
+    },
+    {
       name: 'konten',
       title: 'Isi Konten Artikel',
       type: 'array',
