@@ -149,39 +149,33 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             </h3>
             <ul className="space-y-2 text-sm text-slate-600 font-medium">
               <li>
-                <Link href="/program#bimbingan-belajar-akademik" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                <Link href="/program#bimbingan-belajar" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Bimbel (Bimbingan Belajar)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kelas-reguler" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                <Link href="/program#reguler-kindergarten" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Kelas Reguler</span>
+                  <span>Kindergarten</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kindergarten-international-curriculum" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Kindergarten (Kinder)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/program#hskk-speaking-test" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                <Link href="/program#reguler-speaking-hskk-bct" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Speaking Class: HSKK &amp; BCT</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#hsk-preparation" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                <Link href="/program#reguler-hsk-class" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>HSK Class</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kelas-percakapan" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                <Link href="/program#reguler-conversation-class" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Conversation Class (Convre Class)</span>
+                  <span>Conversation Class</span>
                 </Link>
               </li>
             </ul>
