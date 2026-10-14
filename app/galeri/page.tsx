@@ -15,7 +15,7 @@ export default async function GaleriPage() {
   const galeriList = await getGaleri();
 
   return (
-    <div className="py-12 lg:py-20 bg-gradient-to-b from-amber-50/70 via-yellow-50/40 to-orange-50/50 min-h-screen">
+    <div className="py-12 lg:py-20 bg-[#FFF8E6] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         {/* Editorial Blog Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">

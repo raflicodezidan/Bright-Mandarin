@@ -64,7 +64,7 @@ export default async function GaleriDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="py-12 lg:py-20 bg-gradient-to-b from-amber-50/70 via-yellow-50/40 to-orange-50/50 min-h-screen">
+    <div className="py-12 lg:py-20 bg-[#FFF8E6] min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <div className="mb-8">

@@ -36,7 +36,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
   }
 
   return (
-    <article className="py-12 lg:py-20 bg-brand-cream/20 min-h-screen">
+    <article className="py-12 lg:py-20 bg-[#FFF8E6] min-h-screen">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Back Link */}
         <div className="mb-8">
