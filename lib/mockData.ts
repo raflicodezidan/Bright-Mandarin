@@ -21,6 +21,7 @@ export interface AchievementItem {
   keterangan?: string;
   fotoUrl?: string;
   urutan?: number;
+  kategori?: 'hsk' | 'examSchool';
 }
 
 export interface PengajarItem {
@@ -454,6 +455,60 @@ export const mockAchievement: AchievementItem[] = [
     keterangan: "HSKK Speaking Test",
     fotoUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80",
     urutan: 5
+  }
+];
+
+// Mock data untuk Exam School Achievement (Nilai Ujian Sekolah / Rapor / Kompetisi)
+export const mockExamSchoolAchievement: AchievementItem[] = [
+  {
+    _id: "exam-1",
+    nama: "Kevin Sutanto",
+    level: "UAS Mandarin",
+    skor: "98/100",
+    keterangan: "Kelas 5 SD — Nilai Tertinggi",
+    fotoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    urutan: 1,
+    kategori: "examSchool"
+  },
+  {
+    _id: "exam-2",
+    nama: "Sisi Larasati",
+    level: "UTS Mandarin",
+    skor: "95/100",
+    keterangan: "Kelas 3 SMP — Peringkat 1",
+    fotoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=80",
+    urutan: 2,
+    kategori: "examSchool"
+  },
+  {
+    _id: "exam-3",
+    nama: "Rafi Pratama",
+    level: "Kompetisi Mandarin",
+    skor: "Juara 2 Kota",
+    keterangan: "Lomba Pidato Bahasa Mandarin",
+    fotoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&q=80",
+    urutan: 3,
+    kategori: "examSchool"
+  },
+  {
+    _id: "exam-4",
+    nama: "Felicia Tan",
+    level: "Ujian Akhir",
+    skor: "97/100",
+    keterangan: "SMA — Nilai Sempurna",
+    fotoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80",
+    urutan: 4,
+    kategori: "examSchool"
+  },
+  {
+    _id: "exam-5",
+    nama: "Billy Chen",
+    level: "PAT Mandarin",
+    skor: "100/100",
+    keterangan: "SD Kelas 6 — Nilai Sempurna",
+    fotoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
+    urutan: 5,
+    kategori: "examSchool"
   }
 ];
 

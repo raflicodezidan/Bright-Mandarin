@@ -3,6 +3,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import {
   mockPrograms,
   mockAchievement,
+  mockExamSchoolAchievement,
   mockPengajar,
   mockBerita,
   mockGaleri,
@@ -25,7 +26,7 @@ import {
   InstagramPostItem
 } from './mockData';
 
-export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement, DEFAULT_WHATSAPP_URL, DEFAULT_WHATSAPP_MESSAGE, DEFAULT_WHATSAPP_PHONE };
+export { mockSiteSettings, mockPopupPromo, mockTestimoni, mockKeunggulan, mockAchievement, mockExamSchoolAchievement, DEFAULT_WHATSAPP_URL, DEFAULT_WHATSAPP_MESSAGE, DEFAULT_WHATSAPP_PHONE };
 export type { PopupPromoData, TestimoniItem, KeunggulanItem, ProgramItem, AchievementItem, PengajarItem, BeritaItem, GaleriItem, SiteSettings, InstagramPostItem };
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9f5rpp8c';
@@ -86,7 +87,51 @@ export async function getPrograms(): Promise<ProgramItem[]> {
   }
 }
 
-// 2. Query Achievement Murid
+// 2a. Query Achievement HSK / HSKK
+export async function getHskAchievement(): Promise<AchievementItem[]> {
+  if (!client) return mockAchievement;
+  try {
+    const query = `*[_type == "achievement" && (kategori == "hsk" || !defined(kategori))] | order(urutan asc, _createdAt desc){
+      _id,
+      nama,
+      level,
+      skor,
+      keterangan,
+      kategori,
+      "fotoUrl": foto.asset->url,
+      urutan
+    }`;
+    const data = await client.fetch(query);
+    return data && data.length > 0 ? data : mockAchievement;
+  } catch (error) {
+    console.warn('Failed fetching HSK achievement from Sanity, falling back to mock data', error);
+    return mockAchievement;
+  }
+}
+
+// 2b. Query Achievement Ujian Sekolah / Kompetisi
+export async function getExamSchoolAchievement(): Promise<AchievementItem[]> {
+  if (!client) return mockExamSchoolAchievement;
+  try {
+    const query = `*[_type == "achievement" && kategori == "examSchool"] | order(urutan asc, _createdAt desc){
+      _id,
+      nama,
+      level,
+      skor,
+      keterangan,
+      kategori,
+      "fotoUrl": foto.asset->url,
+      urutan
+    }`;
+    const data = await client.fetch(query);
+    return data && data.length > 0 ? data : mockExamSchoolAchievement;
+  } catch (error) {
+    console.warn('Failed fetching exam school achievement from Sanity, falling back to mock data', error);
+    return mockExamSchoolAchievement;
+  }
+}
+
+// 2c. Query semua Achievement (untuk backward compat)
 export async function getAchievement(): Promise<AchievementItem[]> {
   if (!client) return mockAchievement;
   try {
@@ -96,6 +141,7 @@ export async function getAchievement(): Promise<AchievementItem[]> {
       level,
       skor,
       keterangan,
+      kategori,
       "fotoUrl": foto.asset->url,
       urutan
     }`;

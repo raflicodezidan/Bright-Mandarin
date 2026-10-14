@@ -11,14 +11,15 @@ import TestimoniSection from './components/TestimoniSection';
 import ProgramAutoSlider from './components/ProgramAutoSlider';
 import AchievementAutoSlider from './components/AchievementAutoSlider';
 import BeritaAutoSlider from './components/BeritaAutoSlider';
-import { getPrograms, getAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, getMediaSosial, mockSiteSettings } from '@/lib/sanity';
+import { getPrograms, getHskAchievement, getExamSchoolAchievement, getBerita, getTestimoni, getKeunggulan, getSiteSettings, getMediaSosial, mockSiteSettings } from '@/lib/sanity';
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [allPrograms, allAchievement, allBerita, allTestimoni, allKeunggulan, siteSettings, mediaSosial] = await Promise.all([
+  const [allPrograms, hskAchievement, examSchoolAchievement, allBerita, allTestimoni, allKeunggulan, siteSettings, mediaSosial] = await Promise.all([
     getPrograms(),
-    getAchievement(),
+    getHskAchievement(),
+    getExamSchoolAchievement(),
     getBerita(),
     getTestimoni(),
     getKeunggulan(),
@@ -66,15 +67,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 5. Achievement Murid-Murid: Small Steps, Big Progress */}
-      <section id="achievement" className="py-20 sm:py-24 bg-[#FFFEF8] border-b border-amber-200/60 scroll-mt-20 relative overflow-hidden">
-        {/* Subtle watercolor / artistic brush wash in top-right and bottom-left */}
-        <div className="absolute -top-12 -right-12 w-96 h-80 bg-gradient-to-bl from-amber-200/40 via-orange-100/20 to-transparent pointer-events-none rounded-bl-full blur-2xl" />
-        <div className="absolute -bottom-12 -left-12 w-96 h-80 bg-gradient-to-tr from-amber-200/30 via-orange-100/10 to-transparent pointer-events-none rounded-tr-full blur-2xl" />
+      {/* 5. Achievement Murid: HSK & Ujian Sekolah */}
+      <section id="achievement" className="py-20 sm:py-24 bg-[#FFFEF8] border-b border-amber-200/60 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
-          {/* Section Header: Gaya Sama Persis Seperti Section Lainnya */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          {/* ── 5a. HSK / HSKK Achievement ── */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
               {siteSettings.achievementSectionTitle || 'ACHIEVEMENT MURID BRIGHT MANDARIN'}
             </h2>
@@ -82,12 +80,38 @@ export default async function HomePage() {
               {siteSettings.achievementSectionSubtitle || 'Small Steps, Big Progress'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
-            <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed mb-6">
-              {siteSettings.achievementSectionDesc || 'Every test is a step closer to my bigger goals. Bukti nyata hasil belajar dan dedikasi murid-murid kami dalam meraih skor memuaskan pada ujian HSK dan HSKK.'}
+            <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+              {siteSettings.achievementSectionDesc || 'Bukti nyata hasil belajar murid-murid kami dalam meraih skor memuaskan pada ujian sertifikasi HSK dan HSKK.'}
             </p>
           </div>
 
-          <AchievementAutoSlider achievement={allAchievement} />
+          {/* HSK Slider */}
+          <div className="mb-20 sm:mb-24">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-7 bg-orange-600 rounded-full" />
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
+                🏆 HSK / HSKK Certificate
+              </h3>
+            </div>
+            <AchievementAutoSlider achievement={hskAchievement} badgeType="hsk" />
+          </div>
+
+          {/* ── 5b. Exam School / Kompetisi Achievement ── */}
+          <div className="pt-6 border-t border-amber-200/60">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+                Prestasi murid kami tidak hanya di ujian sertifikasi internasional — nilai mandarin di sekolah pun ikut melejit! 🎓
+              </p>
+            </div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-7 bg-orange-600 rounded-full" />
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
+                🏫 Ujian Sekolah & Kompetisi
+              </h3>
+            </div>
+            <AchievementAutoSlider achievement={examSchoolAchievement} badgeType="examSchool" />
+          </div>
+
         </div>
       </section>
 

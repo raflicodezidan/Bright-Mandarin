@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Trophy } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Trophy, GraduationCap } from 'lucide-react';
 import { AchievementItem } from '@/lib/mockData';
 
 interface AchievementAutoSliderProps {
   achievement: AchievementItem[];
+  badgeType?: 'hsk' | 'examSchool';
 }
 
-export default function AchievementAutoSlider({ achievement }: AchievementAutoSliderProps) {
+export default function AchievementAutoSlider({ achievement, badgeType = 'hsk' }: AchievementAutoSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsVisible, setItemsVisible] = useState(3);
@@ -102,10 +103,14 @@ export default function AchievementAutoSlider({ achievement }: AchievementAutoSl
                       className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                     />
 
-                    {/* HSK Badge - Formal & Satu Warna Oranye Sesuai Tema */}
+                    {/* Badge - Formal & Satu Warna Oranye Sesuai Tema */}
                     <div className="absolute top-3 left-3 z-10">
                       <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-600 text-white text-xs font-bold shadow-md tracking-wide">
-                        <Trophy className="w-3.5 h-3.5 text-white" />
+                        {badgeType === 'examSchool' ? (
+                          <GraduationCap className="w-3.5 h-3.5 text-white" />
+                        ) : (
+                          <Trophy className="w-3.5 h-3.5 text-white" />
+                        )}
                         <span>{item.level}</span>
                       </div>
                     </div>
