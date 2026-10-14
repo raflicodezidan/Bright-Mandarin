@@ -70,16 +70,16 @@ const colorPalette = [
 export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps) {
   const displayFeatures = (keunggulan && keunggulan.length > 0)
     ? keunggulan.map((k, idx) => {
-        const fallback = defaultVisualAssets[idx % defaultVisualAssets.length];
-        return {
-          title: k.title,
-          desc: k.desc,
-          badge: k.badge || fallback.badge,
-          badgeColor: colorPalette[idx % colorPalette.length],
-          imageUrl: k.customIconUrl || (k as any).gambarUrl || fallback.imageUrl,
-          alt: k.title,
-        };
-      })
+      const fallback = defaultVisualAssets[idx % defaultVisualAssets.length];
+      return {
+        title: k.title,
+        desc: k.desc,
+        badge: k.badge || fallback.badge,
+        badgeColor: colorPalette[idx % colorPalette.length],
+        imageUrl: k.customIconUrl || (k as any).gambarUrl || fallback.imageUrl,
+        alt: k.title,
+      };
+    })
     : defaultVisualAssets;
 
   return (
@@ -134,7 +134,7 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Badge / Label Utama — diperbesar, paling atas */}
-                    <h3 className={`text-[10px] sm:text-[11px] font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-none tracking-wider uppercase whitespace-nowrap overflow-hidden ${item.badgeColor}`}>
+                    <h3 className={`text-[11px] sm:text-[12px] font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-none tracking-wider uppercase whitespace-nowrap overflow-hidden ${item.badgeColor}`}>
                       {item.badge}
                     </h3>
 
