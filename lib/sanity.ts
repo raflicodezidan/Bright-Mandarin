@@ -391,7 +391,11 @@ export async function getPopupPromo(): Promise<PopupPromoData> {
       teksTombol
     }`;
     const data = await client.fetch(query);
-    return data ? { ...mockPopupPromo, ...data } : mockPopupPromo;
+    const result = data ? { ...mockPopupPromo, ...data } : mockPopupPromo;
+    if (!result.linkTujuan || result.linkTujuan.includes('Halo+Admin') || result.linkTujuan.includes('Halo%20Admin')) {
+      result.linkTujuan = DEFAULT_WHATSAPP_URL;
+    }
+    return result;
   } catch (error) {
     console.warn('Failed fetching popupPromo from Sanity', error);
     return mockPopupPromo;

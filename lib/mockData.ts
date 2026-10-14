@@ -112,12 +112,16 @@ export interface PopupPromoData {
   teksTombol?: string;
 }
 
+export const DEFAULT_WHATSAPP_PHONE = '6285890592738';
+export const DEFAULT_WHATSAPP_MESSAGE = `Halo Bright Mandarin! 👋🇨🇳\n\nSaya tertarik untuk belajar bahasa Mandarin dan ingin mengetahui informasi mengenai program kelas serta pendaftaran trial class.\n\nBoleh dibantu informasinya? Terima kasih! 😊`;
+export const DEFAULT_WHATSAPP_URL = `https://api.whatsapp.com/send/?phone=${DEFAULT_WHATSAPP_PHONE}&text=${encodeURIComponent(DEFAULT_WHATSAPP_MESSAGE)}`;
+
 export const mockPopupPromo: PopupPromoData = {
   aktif: true,
   tipeTampilan: 'template_brosur',
   posterImageUrl: '',
   judulPromo: 'Promo Spesial Pendaftaran Batch Baru Bright Mandarin',
-  linkTujuan: 'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+klaim+Promo+Diskon+Brosur+dan+Free+Placement+Test',
+  linkTujuan: DEFAULT_WHATSAPP_URL,
   teksTombol: 'Klaim Promo via WhatsApp',
 };
 
@@ -204,10 +208,6 @@ export interface SiteSettings {
   ctaBannerButtonProgram?: string;
   ctaBannerBgImageUrl?: string;
 }
-
-export const DEFAULT_WHATSAPP_PHONE = '6285890592738';
-export const DEFAULT_WHATSAPP_MESSAGE = `Halo Bright Mandarin! 👋🇨🇳\n\nSaya tertarik untuk belajar bahasa Mandarin dan ingin mengetahui informasi mengenai program kelas serta pendaftaran trial class.\n\nBoleh dibantu informasinya? Terima kasih! 😊`;
-export const DEFAULT_WHATSAPP_URL = `https://api.whatsapp.com/send/?phone=${DEFAULT_WHATSAPP_PHONE}&text=${encodeURIComponent(DEFAULT_WHATSAPP_MESSAGE)}`;
 
 export const mockSiteSettings: SiteSettings = {
   namaSitus: "Bright Mandarin Education",

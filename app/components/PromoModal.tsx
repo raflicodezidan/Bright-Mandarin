@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { PopupPromoData, mockPopupPromo } from '@/lib/mockData';
+import { PopupPromoData, mockPopupPromo, DEFAULT_WHATSAPP_URL } from '@/lib/sanity';
 
 interface PromoModalProps {
   promoData?: PopupPromoData;
@@ -36,8 +36,9 @@ export default function PromoModal({ promoData = mockPopupPromo }: PromoModalPro
   if (!isOpen || !isEnabled) return null;
 
   const targetLink =
-    promoData.linkTujuan ||
-    'https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Admin+Bright+Mandarin%2C+saya+ingin+tanya+Promo+Brosur+dan+Konsultasi+Belajar';
+    !promoData.linkTujuan || promoData.linkTujuan.includes('Halo+Admin') || promoData.linkTujuan.includes('Halo%20Admin')
+      ? DEFAULT_WHATSAPP_URL
+      : promoData.linkTujuan;
 
   // Fallback image if user hasn't uploaded a custom poster yet
   const displayImage =
