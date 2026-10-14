@@ -158,31 +158,29 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               />
             </div>
 
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Main Photo Container with Asymmetrical Curved Corners and Thick White Border */}
-              <div className="relative overflow-hidden border-[6px] sm:border-[8px] border-white shadow-2xl bg-white rounded-tl-[65px] sm:rounded-tl-[85px] lg:rounded-tl-[95px] rounded-tr-[30px] sm:rounded-tr-[40px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-br-[65px] sm:rounded-br-[85px] lg:rounded-br-[95px]">
-                <div className="relative w-full h-[330px] sm:h-[370px] lg:h-[390px]">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
+              {/* Main Photo Container: 16:9 Aspect Ratio to preserve full illustration without cropping */}
+              <div className="relative overflow-hidden border-4 sm:border-[6px] border-white shadow-2xl bg-white rounded-2xl sm:rounded-3xl">
+                <div className="relative w-full aspect-[16/9]">
                   <Image
-                    src={currentSettings.heroPhotoUrl || "/hero-classroom.jpg"}
-                    alt="Suasana Belajar Mandarin Interaktif di Bright Mandarin"
+                    src={currentSettings.heroPhotoUrl || "/hero-banner.png"}
+                    alt="Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin"
                     fill
                     priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+                    className="object-cover object-center"
                   />
-
-
                 </div>
               </div>
 
               {/* Floating Bottom Badge: Kelas Interaktif & Menyenangkan */}
-              <div className="absolute -bottom-4 sm:-bottom-5 -right-2 sm:right-2 z-20 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 border-2 sm:border-3 border-white rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-xl flex items-center gap-2.5 -rotate-2 hover:rotate-0 transition-transform">
-                <Star className="w-5 h-5 text-slate-900 fill-slate-900 shrink-0" />
+              <div className="absolute -bottom-3 sm:-bottom-4 right-2 sm:right-4 z-20 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 border-2 sm:border-[2.5px] border-white rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 shadow-lg flex items-center gap-2 -rotate-1 hover:rotate-0 transition-transform">
+                <Star className="w-4 h-4 text-slate-900 fill-slate-900 shrink-0" />
                 <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight whitespace-nowrap">
                   Kelas Interaktif & Menyenangkan
                 </span>
               </div>
-
             </div>
           </div>
 
