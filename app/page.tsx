@@ -86,12 +86,12 @@ export default async function HomePage() {
           </div>
 
           {/* HSK Slider */}
-          <div className="mb-16 sm:mb-20">
+          <div className="mb-8">
             <AchievementAutoSlider achievement={hskAchievement} badgeType="hsk" />
           </div>
 
           {/* Divider */}
-          <div className="border-t border-amber-200/60 mb-16 sm:mb-20" />
+          <div className="border-t border-amber-200/60 mb-8" />
 
           {/* Exam School Slider */}
           <AchievementAutoSlider achievement={examSchoolAchievement} badgeType="examSchool" />
