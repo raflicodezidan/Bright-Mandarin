@@ -6,20 +6,22 @@ interface FeatureWhyUsProps {
   settings?: SiteSettings;
 }
 
-// 6 Landscape Educational Photography Assets
+// 6 Landscape Educational Photography Assets & Visual Configurations
 const defaultVisualAssets = [
   {
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80',
-    alt: 'Personal Speaking Practice',
-    title: 'Personal Speaking Practice',
-    badge: 'Latihan Berbicara Pribadi',
-    desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
+    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80',
+    alt: 'BMC Showcase',
+    title: 'Speak, Shine & Perform',
+    badge: 'BMC Showcase',
+    badgeColor: 'text-purple-600',
+    desc: 'BMC Showcase menjadi wadah bagi siswa untuk mengembangkan kepercayaan diri melalui penampilan berbahasa Mandarin, seperti pidato, percakapan, menyanyi, drama, dan berbagai pertunjukan seni lainnya. Melalui pengalaman tampil di depan audiens, siswa dapat mengasah kemampuan berbahasa Mandarin sekaligus mengekspresikan kreativitas dan bakat mereka.',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80',
     alt: 'Structured Learning Program',
     title: 'Structured Learning Program',
     badge: 'Program Pembelajaran Terstruktur',
+    badgeColor: 'text-emerald-600',
     desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
   },
   {
@@ -27,13 +29,15 @@ const defaultVisualAssets = [
     alt: 'Experienced Teachers',
     title: 'Experienced Teachers',
     badge: 'Guru Berpengalaman',
+    badgeColor: 'text-indigo-600',
     desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
   },
   {
     imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
     alt: 'Practical Mandarin Skills',
     title: 'Practical Mandarin Skills',
-    badge: 'Keterampilan Praktis Mandarin',
+    badge: 'Keterampilan Percakapan Mandarin',
+    badgeColor: 'text-sky-600',
     desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
   },
   {
@@ -41,6 +45,7 @@ const defaultVisualAssets = [
     alt: 'HSK & Academic Support',
     title: 'HSK & Academic Support',
     badge: 'HSK & Dukungan Akademik',
+    badgeColor: 'text-amber-600',
     desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
   },
   {
@@ -48,8 +53,18 @@ const defaultVisualAssets = [
     alt: 'Engaging & Interactive Learning',
     title: 'Engaging & Interactive Learning',
     badge: 'Pembelajaran Interaktif & Menarik',
+    badgeColor: 'text-rose-600',
     desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
   },
+];
+
+const colorPalette = [
+  'text-purple-600',
+  'text-emerald-600',
+  'text-indigo-600',
+  'text-sky-600',
+  'text-amber-600',
+  'text-rose-600',
 ];
 
 export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps) {
@@ -60,6 +75,7 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
           title: k.title,
           desc: k.desc,
           badge: k.badge || fallback.badge,
+          badgeColor: colorPalette[idx % colorPalette.length],
           imageUrl: k.customIconUrl || (k as any).gambarUrl || fallback.imageUrl,
           alt: k.title,
         };
@@ -104,33 +120,33 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
                 key={idx}
                 className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1"
               >
-                {/* Image Header (Landscape) */}
+                {/* Image Header (Landscape) - Bersih tanpa teks ditempel di gambar */}
                 <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 shrink-0">
                   <img
                     src={item.imageUrl}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-
-                  {/* Badges */}
-                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
-                      {item.badge}
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
                 </div>
 
-                {/* Card Content */}
-                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                {/* Card Content - Judul & Badge di bawah gambar dengan warna yang berbeda-beda */}
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug">
+                    {/* Badge / Label Kategori di bawah gambar dengan warna berbeda-beda */}
+                    <div className="mb-2">
+                      <span className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase ${item.badgeColor}`}>
+                        {item.badge}
+                      </span>
+                    </div>
+
+                    {/* Judul Utama */}
+                    <h3 className="text-xl font-black text-slate-900 mb-3 group-hover/card:text-orange-600 transition-colors leading-snug">
                       {item.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {/* Deskripsi Penjelasan */}
+                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
                       {item.desc}
                     </p>
                   </div>

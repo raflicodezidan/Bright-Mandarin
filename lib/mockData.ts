@@ -802,10 +802,10 @@ export const mockTestimoni: TestimoniItem[] = [
 export const mockKeunggulan: KeunggulanItem[] = [
   {
     _id: 'keunggulan-1',
-    title: 'Personal Speaking Practice',
-    desc: 'Siswa mendapatkan kesempatan untuk berlatih berbicara secara langsung dan aktif, sehingga lebih percaya diri menggunakan bahasa Mandarin dalam percakapan sehari-hari.',
-    badge: 'Latihan Berbicara Pribadi',
-    gambarUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80',
+    title: 'Speak, Shine & Perform',
+    desc: 'BMC Showcase menjadi wadah bagi siswa untuk mengembangkan kepercayaan diri melalui penampilan berbahasa Mandarin, seperti pidato, percakapan, menyanyi, drama, dan berbagai pertunjukan seni lainnya. Melalui pengalaman tampil di depan audiens, siswa dapat mengasah kemampuan berbahasa Mandarin sekaligus mengekspresikan kreativitas dan bakat mereka.',
+    badge: 'BMC Showcase',
+    gambarUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80',
     colorClass: 'text-purple-600',
     urutan: 1
   },
