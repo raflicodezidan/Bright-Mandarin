@@ -128,7 +128,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   <div className="text-slate-600 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-2">
                     <div>
                       <p className="font-bold text-slate-800">Tutoring &amp; Kelas Reguler:</p>
-                      <p>Senin – Jumat: 12.00 – 18.30</p>
+                      <p>Senin – Jumat: 12.00 – 20.00</p>
                       <p>Sabtu: 09.00 – 15.00</p>
                     </div>
                     <div>
@@ -151,7 +151,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               <li>
                 <Link href="/program#bimbingan-belajar-akademik" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Bimbingan Belajar Akademik</span>
+                  <span>Bimbel (Bimbingan Belajar)</span>
                 </Link>
               </li>
               <li>
@@ -163,31 +163,25 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               <li>
                 <Link href="/program#kindergarten-international-curriculum" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Kindergarten – Int. Curriculum</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/program#bright-mandarin-kids" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Bright Mandarin Kids</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/program#hsk-preparation" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>HSK Preparation</span>
+                  <span>Kindergarten (Kinder)</span>
                 </Link>
               </li>
               <li>
                 <Link href="/program#hskk-speaking-test" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>HSKK Speaking Test</span>
+                  <span>Speaking Class: HSKK &amp; BCT</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/program#hsk-preparation" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                  <span>HSK Class</span>
                 </Link>
               </li>
               <li>
                 <Link href="/program#kelas-percakapan" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>Kelas Percakapan Bisnis (BCT)</span>
+                  <span>Conversation Class (Convre Class)</span>
                 </Link>
               </li>
             </ul>

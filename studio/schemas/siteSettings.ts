@@ -76,7 +76,7 @@ export default {
       rows: 6,
       fieldset: 'kontak',
       initialValue: `Tutoring & Kelas Reguler
-Senin – Jumat: 12.00 – 18.30
+Senin – Jumat: 12.00 – 20.00
 Sabtu: 09.00 – 15.00
 Kelas Dewasa
 Senin – Jumat: 18.00 – 20.00

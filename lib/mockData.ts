@@ -219,7 +219,7 @@ export const mockSiteSettings: SiteSettings = {
   email: "coursebrightmandarin@gmail.com",
   alamatPusat: "Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240",
   jamOperasional: `Tutoring & Kelas Reguler
-Senin – Jumat: 12.00 – 18.30
+Senin – Jumat: 12.00 – 20.00
 Sabtu: 09.00 – 15.00
 Kelas Dewasa
 Senin – Jumat: 18.00 – 20.00
@@ -301,7 +301,7 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
       whatsapp: "+62 858-9059-2738",
       email: "coursebrightmandarin@gmail.com",
       linkMaps: "https://www.google.com/maps/search/?api=1&query=Bright+Mandarin+Course,+Jl.+Raya+Venesia,+RW.5,+Klp.+Gading+Bar.,+Kec.+Klp.+Gading,+Jkt+Utara+14240",
-      jamOperasional: `Tutoring & Kelas Reguler (Senin - Jumat 12.00 - 18.30, Sabtu 09.00 - 15.00), Kelas Dewasa (Senin - Jumat 18.00 - 20.00)`
+      jamOperasional: `Tutoring & Kelas Reguler (Senin - Jumat 12.00 - 20.00, Sabtu 09.00 - 15.00), Kelas Dewasa (Senin - Jumat 18.00 - 20.00)`
     }
   ]
 };
