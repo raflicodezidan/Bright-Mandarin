@@ -53,7 +53,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-48x48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icon-96x96.png', type: 'image/png', sizes: '96x96' },
       { url: '/icon-192x192.png', type: 'image/png', sizes: '192x192' },
       { url: '/icon-512x512.png', type: 'image/png', sizes: '512x512' },
     ],
@@ -230,11 +232,6 @@ export default async function RootLayout({
   return (
     <html lang="id" className="scroll-smooth overflow-x-hidden w-full max-w-full">
       <head>
-        <meta name="google-site-verification" content="vGbF7uz5KnePfGCiww4OOGsAReqnfssk0AryjPxXCXU" />
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/logo-official.png?v=2" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/logo-official.png?v=2" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://cdn.sanity.io" />
