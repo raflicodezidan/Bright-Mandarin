@@ -134,13 +134,13 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Badge / Label Utama — diperbesar, paling atas */}
-                    <h3 className={`text-xl sm:text-2xl font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-snug tracking-wide uppercase ${item.badgeColor}`}>
+                    <h3 className={`text-sm sm:text-base font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-none tracking-widest uppercase truncate ${item.badgeColor}`}>
                       {item.badge}
                     </h3>
 
                     {/* Sub-title — lebih kecil di bawah */}
                     <div className="mb-3">
-                      <span className="text-sm sm:text-base font-semibold text-slate-700 leading-snug">
+                      <span className="text-base sm:text-lg font-black text-slate-900 leading-snug">
                         {item.title}
                       </span>
                     </div>
