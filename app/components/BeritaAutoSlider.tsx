@@ -99,16 +99,10 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
                     alt={item.judul}
                     className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow-xs">
-                    {item.kategori}
-                  </span>
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs text-slate-500 font-medium block mb-2">
-                      {item.tanggal}
-                    </span>
                     <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover/card:text-orange-600 transition-colors line-clamp-2">
                       {item.judul}
                     </h3>
