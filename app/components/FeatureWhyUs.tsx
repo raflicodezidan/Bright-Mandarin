@@ -133,17 +133,17 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
                 {/* Card Content - Judul & Badge di bawah gambar dengan warna yang berbeda-beda */}
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    {/* Badge / Label Kategori di bawah gambar dengan warna berbeda-beda */}
-                    <div className="mb-2">
-                      <span className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase ${item.badgeColor}`}>
+                    {/* Judul Utama — diperbesar */}
+                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-1.5 group-hover/card:text-orange-600 transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+
+                    {/* Badge / Sub-label — dikecilkan */}
+                    <div className="mb-3">
+                      <span className={`text-[10px] sm:text-xs font-extrabold tracking-widest uppercase ${item.badgeColor}`}>
                         {item.badge}
                       </span>
                     </div>
-
-                    {/* Judul Utama */}
-                    <h3 className="text-xl font-black text-slate-900 mb-3 group-hover/card:text-orange-600 transition-colors leading-snug">
-                      {item.title}
-                    </h3>
 
                     {/* Deskripsi Penjelasan */}
                     <p className="text-sm text-slate-600 leading-relaxed font-normal">
