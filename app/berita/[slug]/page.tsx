@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Calendar, ArrowLeft, Play } from 'lucide-react';
+import { ArrowLeft, Play } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
 import { getBeritaBySlug } from '@/lib/sanity';
 
@@ -51,15 +51,6 @@ export default async function BeritaDetailPage({ params }: PageProps) {
 
         {/* Article Header */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-brand-border shadow-sm mb-8 space-y-6">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-brand-red text-white">
-              {item.kategori}
-            </span>
-            <span className="flex items-center gap-1.5 text-xs text-brand-gray font-medium">
-              <Calendar className="w-3.5 h-3.5 text-brand-gold-dark" />
-              <span>Dipublikasikan pada {item.tanggal}</span>
-            </span>
-          </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold text-brand-charcoal tracking-tight leading-tight">
             {item.judul}

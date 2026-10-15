@@ -20,30 +20,6 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'tanggal',
-      title: 'Tanggal Publikasi',
-      type: 'date',
-      options: {
-        dateFormat: 'YYYY-MM-DD',
-      },
-      initialValue: () => new Date().toISOString().split('T')[0],
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'kategori',
-      title: 'Kategori Artikel',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Tips Belajar Mandarin', value: 'Tips Belajar' },
-          { title: 'Info Beasiswa & Studi China', value: 'Beasiswa' },
-          { title: 'Seputar Ujian HSK / YCT', value: 'Ujian HSK' },
-          { title: 'Budaya & Bahasa Tionghoa', value: 'Budaya' },
-          { title: 'Pengumuman Resmi', value: 'Pengumuman' },
-        ],
-      },
-    },
-    {
       name: 'ringkasan',
       title: 'Ringkasan Pendek (Excerpt)',
       type: 'text',

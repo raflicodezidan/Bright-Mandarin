@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Newspaper, Calendar, ArrowRight, Sparkles } from 'lucide-react';
+import { Newspaper, ArrowRight, Sparkles } from 'lucide-react';
 import { getBerita } from '@/lib/sanity';
 
 import type { Metadata } from 'next';
@@ -47,16 +47,9 @@ export default async function BeritaPage() {
                     alt={item.judul}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-brand-red text-white shadow-xs">
-                    {item.kategori}
-                  </span>
                 </div>
 
                 <div className="p-7">
-                  <div className="flex items-center gap-1.5 text-xs text-brand-gray font-medium mb-3">
-                    <Calendar className="w-3.5 h-3.5 text-brand-gold-dark" />
-                    <span>{item.tanggal}</span>
-                  </div>
 
                   <h2 className="text-xl font-extrabold text-brand-charcoal mb-3 group-hover:text-brand-red transition-colors leading-snug">
                     {item.judul}
