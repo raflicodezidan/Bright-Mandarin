@@ -281,7 +281,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         {/* Bottom Bar */}
         <div className="pt-6 flex justify-center items-center text-center text-xs text-slate-600 font-medium">
           <p>
-            © {new Date().getFullYear()} <strong className="text-slate-900">Bright Mandarin Education</strong> (明辉补习班). All rights reserved.
+            © {new Date().getFullYear()} <strong className="text-slate-900">Bright Mandarin Course</strong> (明辉补习班). All rights reserved.
           </p>
         </div>
       </div>
