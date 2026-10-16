@@ -9,16 +9,14 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
   return (
     <section className="relative overflow-hidden w-full max-w-full bg-amber-400 pt-6 pb-12 lg:pt-8 lg:pb-14 border-b-4 border-amber-600/30">
-      {/* Traditional Chinese Hero Background Image (Customizable via Sanity) */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={currentSettings.heroBgImageUrl || "/hero-chinese-bg.png"}
-          alt="Bright Mandarin Oriental Background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center select-none pointer-events-none"
-        />
+      {/* Traditional Chinese Hero Background Image (CSS background murni dekoratif, tidak diindeks sebagai gambar pencarian Google) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center select-none pointer-events-none"
+        style={{
+          backgroundImage: `url(${currentSettings.heroBgImageUrl || '/hero-chinese-bg.png'})`,
+        }}
+        aria-hidden="true"
+      >
         {/* Soft atmospheric gradient overlay for balanced text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-amber-300/20 via-transparent to-amber-400/15 pointer-events-none" />
       </div>
