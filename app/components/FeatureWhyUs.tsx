@@ -131,10 +131,10 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
                 </div>
 
                 {/* Card Content - Judul & Badge di bawah gambar dengan warna yang berbeda-beda */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div className="px-4 py-5 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    {/* Badge / Label Utama — diperbesar, paling atas */}
-                    <h3 className={`text-[13px] sm:text-[14px] font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-tight tracking-wider uppercase ${item.badgeColor}`}>
+                    {/* Badge / Label Utama — sebaris penuh di mobile & desktop tanpa terpotong */}
+                    <h3 className={`text-[11px] min-[360px]:text-[11.5px] min-[390px]:text-[12.5px] sm:text-[14px] font-black mb-1.5 group-hover/card:opacity-80 transition-opacity leading-snug tracking-tight sm:tracking-wider uppercase whitespace-nowrap ${item.badgeColor}`}>
                       {item.badge}
                     </h3>
 
