@@ -131,7 +131,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
 
                 {/* Caption judul video */}
                 {item.videoJudul && (
-                  <p className="text-sm text-center text-brand-gray font-medium max-w-xs">
+                  <p className="text-base sm:text-lg text-center text-slate-900 font-bold max-w-sm sm:max-w-md leading-snug">
                     {item.videoJudul}
                   </p>
                 )}
