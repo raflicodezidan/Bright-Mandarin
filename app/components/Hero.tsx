@@ -173,14 +173,8 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               </div>
 
               {/* Floating Bottom Badge: Kelas Interaktif & Menyenangkan */}
-              <div className="absolute -bottom-4 sm:-bottom-5 -right-2 sm:right-2 z-20 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 border-2 sm:border-3 border-white rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform">
-                <span
-                  className="text-xs sm:text-sm font-black text-white tracking-tight whitespace-nowrap"
-                  style={{
-                    WebkitTextStroke: '1px black',
-                    textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 1px 2px rgba(0,0,0,0.4)',
-                  }}
-                >
+              <div className="absolute -bottom-4 sm:-bottom-5 -right-2 sm:right-2 z-20 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 border-2 sm:border-3 border-white rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform">
+                <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight whitespace-nowrap">
                   Kelas Interaktif & Menyenangkan
                 </span>
               </div>
