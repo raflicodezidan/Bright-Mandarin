@@ -73,16 +73,25 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
+        url: '/hero-banner-square.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin Kelapa Gading',
+        type: 'image/png',
+      },
+      {
         url: '/hero-banner.png',
         width: 1200,
         height: 630,
         alt: 'Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin Kelapa Gading',
+        type: 'image/png',
       },
       {
         url: '/logo-official.png',
         width: 800,
         height: 800,
         alt: 'Bright Mandarin Education Kelapa Gading',
+        type: 'image/png',
       },
     ],
   },
@@ -90,7 +99,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
     description: 'Kursus Mandarin anak di Kelapa Gading interaktif dan seru. Belajar bersama tutor bersertifikasi HSK 6 lulusan Tiongkok.',
-    images: ['/hero-banner.png'],
+    images: ['/hero-banner-square.png'],
+  },
+  other: {
+    thumbnail: 'https://www.brightmandarin.courses/hero-banner-square.png',
+    'image:width': '1200',
+    'image:height': '1200',
   },
   robots: {
     index: true,
@@ -118,7 +132,7 @@ export default async function RootLayout({
     getSiteSettings(),
   ]);
 
-  // Schema Markup JSON-LD (@graph) untuk LocalBusiness, WebSite, dan SiteNavigationElement (Mendorong Google Sitelinks)
+  // Schema Markup JSON-LD (@graph) untuk LocalBusiness, WebSite, dan SiteNavigationElement (Mendorong Google Sitelinks & Rich Snippets)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -144,9 +158,12 @@ export default async function RootLayout({
         name: 'Kursus Mandarin di Kelapa Gading Terbaik dan Terpercaya - Bright Mandarin',
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: 'https://www.brightmandarin.courses/hero-banner.png',
+          '@id': 'https://www.brightmandarin.courses/#primaryimage',
+          url: 'https://www.brightmandarin.courses/hero-banner-square.png',
+          contentUrl: 'https://www.brightmandarin.courses/hero-banner-square.png',
           width: '1200',
-          height: '630',
+          height: '1200',
+          caption: 'Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin Kelapa Gading',
         },
       },
       {
@@ -157,6 +174,7 @@ export default async function RootLayout({
         url: 'https://www.brightmandarin.courses',
         logo: 'https://www.brightmandarin.courses/logo-official.png',
         image: [
+          'https://www.brightmandarin.courses/hero-banner-square.png',
           'https://www.brightmandarin.courses/hero-banner.png',
           'https://www.brightmandarin.courses/logo-official.png',
         ],
@@ -164,6 +182,14 @@ export default async function RootLayout({
         telephone: '+62-858-9059-2738',
         email: 'coursebrightmandarin@gmail.com',
         priceRange: '$$',
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5.0',
+          bestRating: '5',
+          worstRating: '1',
+          ratingCount: '48',
+          reviewCount: '48',
+        },
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Jl. Raya Venesia, RW.5, Klp. Gading Bar., Kec. Klp. Gading',
