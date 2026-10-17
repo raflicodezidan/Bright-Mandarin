@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, MessageCircle, Users, BookOpen, Clock, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProgramItem } from '@/lib/mockData';
 
 interface ProgramAutoSliderProps {
@@ -88,105 +88,86 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
               key={prog._id || idx}
               className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3.5"
             >
-              <div className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1">
-                {/* Image Header */}
-                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 shrink-0">
+              <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1">
+                {/* Image Header - Clean without badges */}
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-100 shrink-0">
                   <img
                     src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
                     alt={prog.judul}
                     className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                  
-                  {/* Badges */}
-                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
-                      {prog.kategori}
-                    </span>
-                    {prog.targetUsia && (
-                      <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 text-slate-800 backdrop-blur-xs shadow-xs">
-                        {prog.targetUsia}
-                      </span>
-                    )}
-                  </div>
                 </div>
 
                 {/* Card Content */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug line-clamp-2 min-h-[3rem] flex items-center">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug line-clamp-2 min-h-[3rem] flex items-center">
                       {prog.judul}
                     </h3>
                     
                     {/* Overview */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-4 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-5 line-clamp-2">
                       {prog.ringkasan}
                     </p>
 
-                    {/* Structured Information Box */}
-                    <div className="bg-amber-50/50 rounded-2xl p-4 border border-amber-200/70 space-y-2.5 text-xs mb-4">
+                    {/* Structured Details Table */}
+                    <div className="border-y border-slate-100 divide-y divide-slate-100 text-xs sm:text-sm mb-5">
                       {prog.materi && (
-                        <div className="flex items-start gap-2">
-                          <BookOpen className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                          <div className="leading-relaxed">
-                            <span className="font-bold text-slate-800">Materi: </span>
-                            <span className="text-slate-600 font-normal">{prog.materi}</span>
-                          </div>
+                        <div className="py-2.5 grid grid-cols-[90px_1fr] sm:grid-cols-[105px_1fr] gap-2 items-start">
+                          <span className="font-bold text-slate-900">Materi</span>
+                          <span className="text-slate-600 leading-relaxed line-clamp-2">{prog.materi}</span>
                         </div>
                       )}
 
                       {prog.metode && (
-                        <div className="flex items-start gap-2">
-                          <Sparkles className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
-                          <div className="leading-relaxed">
-                            <span className="font-bold text-slate-800">Metode: </span>
-                            <span className="text-slate-600 font-normal">{prog.metode}</span>
-                          </div>
+                        <div className="py-2.5 grid grid-cols-[90px_1fr] sm:grid-cols-[105px_1fr] gap-2 items-start">
+                          <span className="font-bold text-slate-900">Metode</span>
+                          <span className="text-slate-600 leading-relaxed line-clamp-2">{prog.metode}</span>
                         </div>
                       )}
 
                       {prog.durasi && (
-                        <div className="flex items-start gap-2">
-                          <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                          <div className="leading-relaxed">
-                            <span className="font-bold text-slate-800">Durasi: </span>
-                            <span className="text-slate-700 font-semibold">{prog.durasi}</span>
-                          </div>
+                        <div className="py-2.5 grid grid-cols-[90px_1fr] sm:grid-cols-[105px_1fr] gap-2 items-start">
+                          <span className="font-bold text-slate-900">Durasi</span>
+                          <span className="text-slate-600 leading-relaxed">{prog.durasi}</span>
                         </div>
                       )}
 
                       {prog.benefit && (
-                        <div className="pt-2 border-t border-amber-200/60 flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                          <div className="leading-relaxed">
-                            <span className="font-bold text-slate-800">Benefit: </span>
-                            <span className="text-slate-600 font-normal">{prog.benefit}</span>
-                          </div>
+                        <div className="py-2.5 grid grid-cols-[90px_1fr] sm:grid-cols-[105px_1fr] gap-2 items-start">
+                          <span className="font-bold text-slate-900">Benefit</span>
+                          <span className="text-slate-600 leading-relaxed line-clamp-2">{prog.benefit}</span>
+                        </div>
+                      )}
+
+                      {prog.targetUsia && (
+                        <div className="py-2.5 grid grid-cols-[90px_1fr] sm:grid-cols-[105px_1fr] gap-2 items-start">
+                          <span className="font-bold text-slate-900">Target Usia</span>
+                          <span className="text-slate-600 leading-relaxed">{prog.targetUsia}</span>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  {/* Footer: Price & CTA (Centered Stack) */}
-                  <div className="pt-3.5 border-t border-slate-100 flex flex-col items-center text-center gap-3 mt-3">
+                  {/* Footer: Price & CTA */}
+                  <div className="flex flex-col items-center text-center gap-3 mt-auto">
                     <div className="w-full">
-                      <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-bold leading-tight mb-1">
-                        Biaya & Informasi
+                      <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-semibold leading-tight mb-1">
+                        BIAYA & INFORMASI
                       </span>
-                      <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
+                      <p className="text-xs sm:text-sm text-slate-700 font-medium block leading-snug">
                         {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
-                      </strong>
+                      </p>
                     </div>
 
                     <a
                       href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Bright+Mandarin!+%F0%9F%8C%9F+Saya+tertarik+untuk+belajar+bahasa+Mandarin+dan+ingin+mengetahui+informasi+mengenai+program+kelas+serta+pendaftaran+trial+class.+Boleh+dibantu+informasinya?+Terima+kasih!+%F0%9F%99%8F`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer hover:scale-[1.02] active:scale-95"
+                      className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
                     >
-                      <MessageCircle className="w-4 h-4 shrink-0" />
-                      <span>Daftar Kelas</span>
+                      Daftar Kelas
                     </a>
                   </div>
                 </div>

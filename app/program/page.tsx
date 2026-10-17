@@ -1,5 +1,4 @@
 import React from 'react';
-import { MessageCircle, Users, BookOpen, Clock, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getPrograms, mockSiteSettings } from '@/lib/sanity';
 
 import type { Metadata } from 'next';
@@ -50,103 +49,84 @@ export default async function ProgramPage() {
             <div
               key={prog._id}
               id={prog.slug?.current || prog._id}
-              className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1 scroll-mt-28"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1 scroll-mt-28"
             >
-              {/* Image Header */}
-              <div className="relative h-52 sm:h-56 overflow-hidden bg-slate-900 shrink-0">
+              {/* Image Header - Clean without badges */}
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-slate-100 shrink-0">
                 <img
                   src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
                   alt={prog.judul}
                   className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                
-                {/* Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                  <span className="text-xs font-bold px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm tracking-wide">
-                    {prog.kategori}
-                  </span>
-                  {prog.targetUsia && (
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/95 text-slate-800 backdrop-blur-xs shadow-xs">
-                      {prog.targetUsia}
-                    </span>
-                  )}
-                </div>
               </div>
 
               {/* Card Content */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-xl font-bold text-slate-900 mb-2 group-hover/card:text-orange-600 transition-colors leading-snug">
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 leading-snug">
                     {prog.judul}
                   </h2>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4 font-normal">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
                     {prog.ringkasan}
                   </p>
 
-                  {/* Structured Details Box */}
-                  <div className="bg-amber-50/50 rounded-2xl p-4 border border-amber-200/70 space-y-2.5 text-xs sm:text-[13px] mb-4">
+                  {/* Structured Details Table */}
+                  <div className="border-y border-slate-100 divide-y divide-slate-100 text-sm mb-6">
                     {prog.materi && (
-                      <div className="flex items-start gap-2.5">
-                        <BookOpen className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                        <div className="leading-relaxed">
-                          <span className="font-bold text-slate-800">Materi: </span>
-                          <span className="text-slate-600 font-normal">{prog.materi}</span>
-                        </div>
+                      <div className="py-3 grid grid-cols-[100px_1fr] sm:grid-cols-[115px_1fr] gap-3 items-start">
+                        <span className="font-bold text-slate-900">Materi</span>
+                        <span className="text-slate-600 leading-relaxed">{prog.materi}</span>
                       </div>
                     )}
 
                     {prog.metode && (
-                      <div className="flex items-start gap-2.5">
-                        <Sparkles className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
-                        <div className="leading-relaxed">
-                          <span className="font-bold text-slate-800">Metode: </span>
-                          <span className="text-slate-600 font-normal">{prog.metode}</span>
-                        </div>
+                      <div className="py-3 grid grid-cols-[100px_1fr] sm:grid-cols-[115px_1fr] gap-3 items-start">
+                        <span className="font-bold text-slate-900">Metode</span>
+                        <span className="text-slate-600 leading-relaxed">{prog.metode}</span>
                       </div>
                     )}
 
                     {prog.durasi && (
-                      <div className="flex items-start gap-2.5">
-                        <Clock className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <div className="leading-relaxed">
-                          <span className="font-bold text-slate-800">Durasi: </span>
-                          <span className="text-slate-700 font-semibold">{prog.durasi}</span>
-                        </div>
+                      <div className="py-3 grid grid-cols-[100px_1fr] sm:grid-cols-[115px_1fr] gap-3 items-start">
+                        <span className="font-bold text-slate-900">Durasi</span>
+                        <span className="text-slate-600 leading-relaxed">{prog.durasi}</span>
                       </div>
                     )}
 
                     {prog.benefit && (
-                      <div className="pt-2.5 border-t border-amber-200/60 flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <div className="leading-relaxed">
-                          <span className="font-bold text-slate-800">Benefit: </span>
-                          <span className="text-slate-600 font-normal">{prog.benefit}</span>
-                        </div>
+                      <div className="py-3 grid grid-cols-[100px_1fr] sm:grid-cols-[115px_1fr] gap-3 items-start">
+                        <span className="font-bold text-slate-900">Benefit</span>
+                        <span className="text-slate-600 leading-relaxed">{prog.benefit}</span>
+                      </div>
+                    )}
+
+                    {prog.targetUsia && (
+                      <div className="py-3 grid grid-cols-[100px_1fr] sm:grid-cols-[115px_1fr] gap-3 items-start">
+                        <span className="font-bold text-slate-900">Target Usia</span>
+                        <span className="text-slate-600 leading-relaxed">{prog.targetUsia}</span>
                       </div>
                     )}
                   </div>
                 </div>
 
-                {/* Card Footer: Price & CTA Button (Centered Stack) */}
-                <div className="pt-4 border-t border-slate-100 flex flex-col items-center text-center gap-3 mt-4">
+                {/* Card Footer: Price & CTA Button */}
+                <div className="flex flex-col items-center text-center gap-3.5 mt-auto">
                   <div className="w-full">
-                    <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-bold leading-tight mb-1">
-                      Biaya & Informasi
+                    <span className="text-[11px] sm:text-xs text-slate-500 uppercase tracking-wider block font-semibold leading-tight mb-1">
+                      BIAYA & INFORMASI
                     </span>
-                    <strong className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
+                    <p className="text-xs sm:text-sm text-slate-700 font-medium block leading-snug">
                       {prog.harga || 'Hubungi kami untuk informasi program dan biaya'}
-                    </strong>
+                    </p>
                   </div>
 
                   <a
                     href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Bright+Mandarin!+%F0%9F%8C%9F+Saya+tertarik+untuk+belajar+bahasa+Mandarin+dan+ingin+mengetahui+informasi+mengenai+program+kelas+serta+pendaftaran+trial+class.+Boleh+dibantu+informasinya?+Terima+kasih!+%F0%9F%99%8F`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-sm py-2.5 px-4 rounded-xl shadow-xs hover:shadow-md transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
+                    className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-sm sm:text-base py-3 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
                   >
-                    <MessageCircle className="w-4 h-4 shrink-0" />
-                    <span>Daftar Kelas</span>
+                    Daftar Kelas
                   </a>
                 </div>
               </div>
