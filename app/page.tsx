@@ -120,10 +120,10 @@ export default async function HomePage() {
             <div>
               <Link
                 href="/berita"
-                className="inline-flex items-center gap-2 text-amber-950 hover:text-orange-600 font-bold text-sm bg-white hover:bg-amber-100 px-6 py-3 rounded-2xl border-2 border-amber-300 hover:shadow-md transition-all shadow-xs"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 border-2 sm:border-[2.5px] border-black font-black text-sm px-6 py-3 rounded-full shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
               >
                 <span>Lihat Semua Blog</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-slate-900 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
