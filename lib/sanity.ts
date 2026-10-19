@@ -410,6 +410,9 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       ctaBannerButtonWhatsapp,
       ctaBannerButtonProgram,
       "ctaBannerBgImageUrl": ctaBannerBgImage.asset->url,
+      galeriSectionTitle,
+      galeriSectionSubtitle,
+      galeriSectionDesc,
       cabang
     }`;
     const data = await client.fetch(query);

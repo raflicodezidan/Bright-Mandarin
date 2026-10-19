@@ -14,6 +14,7 @@ export default {
     { name: 'lokasiSection', title: '9. Bagian Lokasi Learning Center', options: { collapsible: true, collapsed: false } },
     { name: 'testimoniSection', title: '10. Bagian Testimoni & Ulasan Siswa', options: { collapsible: true, collapsed: false } },
     { name: 'ctaBanner', title: '11. Bagian Banner Ajakan Belajar (CTA Bawah)', options: { collapsible: true, collapsed: false } },
+    { name: 'galeriSection', title: '12. Bagian Galeri Kegiatan & Kelas', options: { collapsible: true, collapsed: false } },
   ],
   fields: [
     // ----------------------------------------------------
@@ -535,6 +536,35 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
       type: 'image',
       fieldset: 'ctaBanner',
       options: { hotspot: true },
+    },
+
+    // ----------------------------------------------------
+    // 12. Bagian Galeri Kegiatan & Kelas
+    // ----------------------------------------------------
+    {
+      name: 'galeriSectionTitle',
+      title: 'Judul Bagian Galeri (Huruf Kapital)',
+      type: 'string',
+      fieldset: 'galeriSection',
+      initialValue: 'GALERI KEGIATAN & KELAS',
+      description: 'Judul utama di bagian atas halaman Galeri Kegiatan (misal: GALERI KEGIATAN & KELAS)',
+    },
+    {
+      name: 'galeriSectionSubtitle',
+      title: 'Sub-Judul Bagian Galeri',
+      type: 'string',
+      fieldset: 'galeriSection',
+      initialValue: 'Cuplikan Momen Belajar, Video Interaktif, & Kebudayaan Mandarin',
+      description: 'Sub-judul yang ditampilkan di bawah judul utama (teks oranye)',
+    },
+    {
+      name: 'galeriSectionDesc',
+      title: 'Deskripsi Bagian Galeri',
+      type: 'text',
+      rows: 3,
+      fieldset: 'galeriSection',
+      initialValue: 'Jelajahi rangkuman kegiatan seru para siswa, rekaman video suasana belajar kelas offline, workshop kaligrafi Shufa, hingga try-out simulasi ujian internasional HSK.',
+      description: 'Paragraf deskripsi pengantar galeri kegiatan',
     },
   ],
 };

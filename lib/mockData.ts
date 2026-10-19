@@ -209,6 +209,10 @@ export interface SiteSettings {
   ctaBannerButtonWhatsapp?: string;
   ctaBannerButtonProgram?: string;
   ctaBannerBgImageUrl?: string;
+  // 13. Galeri Section
+  galeriSectionTitle?: string;
+  galeriSectionSubtitle?: string;
+  galeriSectionDesc?: string;
 }
 
 export const mockSiteSettings: SiteSettings = {
@@ -295,6 +299,10 @@ Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.`,
   ctaBannerSubtitle: "Daftarkan diri Anda atau putra-putri tercinta sekarang juga. Dapatkan FREE Placement Test dan konsultasi kurikulum langsung bersama Laoshi.",
   ctaBannerButtonWhatsapp: "Daftar via WhatsApp Sekarang",
   ctaBannerButtonProgram: "Eksplorasi Program Kelas",
+  // Galeri Section
+  galeriSectionTitle: "GALERI KEGIATAN & KELAS",
+  galeriSectionSubtitle: "Cuplikan Momen Belajar, Video Interaktif, & Kebudayaan Mandarin",
+  galeriSectionDesc: "Jelajahi rangkuman kegiatan seru para siswa, rekaman video suasana belajar kelas offline, workshop kaligrafi Shufa, hingga try-out simulasi ujian internasional HSK.",
   cabang: [
     {
       nama: "Bright Mandarin Learning Center",
