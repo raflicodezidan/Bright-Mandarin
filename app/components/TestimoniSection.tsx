@@ -265,7 +265,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             {settings?.testimoniSectionTitle || 'TESTIMONI & ULASAN SISWA'}
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
             {settings?.testimoniSectionSubtitle || 'Kisah Sukses & Pengalaman Belajar dari 5.000+ Alumni Bright Mandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -313,14 +313,11 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                     <div className="flex flex-col items-center w-full">
                       {/* 1. Gambar Orang Paling Atas Tengah (Ukuran Diperbesar) */}
                       <div className="relative mb-4 group-hover/card:scale-105 transition-transform duration-300">
-                        <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-300 shadow-xl bg-slate-100">
-                          <Image
-                            src={item.fotoUrl || item.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300'}
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-300 shadow-xl bg-slate-100 p-0.5">
+                          <img
+                            src={item.fotoUrl || item.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'}
                             alt={item.peran || item.program || 'Testimoni Siswa'}
-                            fill
-                            sizes="112px"
-                            quality={75}
-                            className="object-cover rounded-full"
+                            className="w-full h-full object-cover rounded-full"
                           />
                         </div>
                         <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-1 rounded-full shadow-md border-2 border-white">
@@ -329,9 +326,9 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
                       </div>
 
                       {/* 2. Identitas Peran Siswa (Tanpa Nama Orang & Tanpa Program) */}
-                      <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover/card:text-orange-700 transition-colors leading-snug">
+                      <h4 className="text-base sm:text-lg font-black text-slate-900 group-hover/card:text-orange-600 transition-colors leading-snug">
                         {item.peran}
-                      </h3>
+                      </h4>
 
                       {/* 3. Rating Bintang 5 di Bawah Nama */}
                       <div className="flex items-center justify-center gap-1.5 my-4 bg-amber-100/60 px-4 py-1.5 rounded-full border border-amber-200">
@@ -367,7 +364,7 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
             className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
             aria-label="Previous Testimonial"
           >
-            <ChevronLeft className="w-6 h-6 text-orange-700" />
+            <ChevronLeft className="w-6 h-6 text-orange-600" />
           </button>
 
           <button
@@ -375,45 +372,41 @@ export default function TestimoniSection({ testimoni = dataTestimoni, settings =
             className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
             aria-label="Next Testimonial"
           >
-            <ChevronRight className="w-6 h-6 text-orange-700" />
+            <ChevronRight className="w-6 h-6 text-orange-600" />
           </button>
 
           {/* Pagination Indicator Dots */}
-          <div className="flex items-center justify-center gap-1 mt-6">
+          <div className="flex items-center justify-center gap-2 mt-6">
             {Array.from({ length: Math.min(maxIndex + 1, 10) }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className="p-2 flex items-center justify-center cursor-pointer"
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentIndex % 10
+                    ? 'w-8 bg-orange-600'
+                    : 'w-2 bg-amber-300 hover:bg-amber-400'
+                }`}
                 aria-label={`Go to slide ${idx + 1}`}
-              >
-                <span
-                  className={`block h-2 rounded-full transition-all duration-300 ${
-                    idx === currentIndex % 10
-                      ? 'w-8 bg-orange-600'
-                      : 'w-2 bg-amber-400 hover:bg-amber-500'
-                  }`}
-                />
-              </button>
+              />
             ))}
           </div>
         </div>
 
         {/* Retained Consultation Card (Masih punya pertanyaan lain?) */}
-        <div className="mt-14 max-w-4xl mx-auto bg-gradient-to-r from-amber-700 via-orange-700 to-amber-800 text-white rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-orange-500/20 border-2 border-white/60">
+        <div className="mt-14 max-w-4xl mx-auto bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-orange-500/20 border-2 border-white/60">
           <h3 className="text-2xl sm:text-3xl font-black">Masih punya pertanyaan lain?</h3>
-          <p className="text-xs sm:text-sm text-white font-medium max-w-lg mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-amber-50 font-medium max-w-lg mx-auto leading-relaxed">
             Tim konsultan akademik kami siap membantu menjawab keraguan Anda dan merekomendasikan kelas yang tepat.
           </p>
           <a
             href={mockSiteSettings.whatsappUtama}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-emerald-900 text-xs sm:text-sm font-black px-4 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80 max-w-full"
+            className="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-emerald-800 text-xs sm:text-sm font-black px-4 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80 max-w-full"
           >
             <div className="w-5 h-5 shrink-0">
               <Image
-                src="/whatsapp-logo.svg"
+                src="/whatsapp-logo.png"
                 alt="WhatsApp"
                 width={20}
                 height={20}

@@ -23,7 +23,7 @@ export default async function PengajarPage() {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             DEWAN PENGAJAR PROFESIONAL
           </h1>
-          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
             Profil Laoshi Bersertifikasi Min. HSK 6
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -34,20 +34,16 @@ export default async function PengajarPage() {
 
         {/* Teachers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pengajar.map((laoshi, idx) => (
+          {pengajar.map((laoshi) => (
             <div
               key={laoshi._id}
               className="bg-white rounded-3xl overflow-hidden border border-brand-border shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group"
             >
               <div className="relative aspect-4/5 overflow-hidden bg-brand-charcoal">
-                <Image
+                <img
                   src={laoshi.fotoUrl}
                   alt={laoshi.nama}
-                  fill
-                  priority={idx < 2}
-                  sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 280px"
-                  quality={75}
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">

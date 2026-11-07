@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Trophy, GraduationCap } from 'lucide-react';
 import { AchievementItem } from '@/lib/mockData';
 
@@ -95,21 +94,18 @@ export default function AchievementAutoSlider({ achievement, badgeType = 'hsk' }
                 <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full border border-slate-200 group/card select-none">
                   {/* Foto Murid dengan HSK Badge Oranye */}
                   <div className="relative aspect-[3/4] rounded-lg sm:rounded-xl overflow-hidden bg-slate-100">
-                    <Image
+                    <img
                       src={
                         item.fotoUrl ||
-                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=75'
+                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80'
                       }
                       alt={item.keterangan || item.level || 'Achievement Murid Bright Mandarin'}
-                      fill
-                      sizes="(max-width: 640px) 88vw, (max-width: 1024px) 44vw, 350px"
-                      quality={75}
-                      className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                     />
 
                     {/* Badge - Formal & Satu Warna Oranye Sesuai Tema */}
                     <div className="absolute top-3 left-3 z-10">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-700 text-white text-sm font-black shadow-lg tracking-wide">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 text-white text-sm font-black shadow-lg tracking-wide">
                         {badgeType === 'examSchool' ? (
                           <GraduationCap className="w-5 h-5 text-white flex-shrink-0" />
                         ) : (
@@ -141,7 +137,7 @@ export default function AchievementAutoSlider({ achievement, badgeType = 'hsk' }
             className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 border-2 border-slate-200 shadow-md flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 z-20 cursor-pointer"
             aria-label="Previous Achievement Slide"
           >
-            <ChevronLeft className="w-6 h-6 text-orange-700" />
+            <ChevronLeft className="w-6 h-6 text-orange-600" />
           </button>
 
           <button
@@ -149,29 +145,25 @@ export default function AchievementAutoSlider({ achievement, badgeType = 'hsk' }
             className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 border-2 border-slate-200 shadow-md flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 z-20 cursor-pointer"
             aria-label="Next Achievement Slide"
           >
-            <ChevronRight className="w-6 h-6 text-orange-700" />
+            <ChevronRight className="w-6 h-6 text-orange-600" />
           </button>
         </>
       )}
 
       {/* Indicator Pagination Dots */}
       {maxIndex > 0 && (
-        <div className="flex items-center justify-center gap-1 mt-6">
+        <div className="flex items-center justify-center gap-2 mt-6">
           {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className="p-2 flex items-center justify-center cursor-pointer"
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === currentIndex
+                  ? 'w-8 bg-orange-600 shadow-xs'
+                  : 'w-2 bg-slate-300 hover:bg-slate-400'
+              }`}
               aria-label={`Go to slide ${idx + 1}`}
-            >
-              <span
-                className={`block h-2 rounded-full transition-all duration-300 ${
-                  idx === currentIndex
-                    ? 'w-8 bg-orange-600 shadow-xs'
-                    : 'w-2 bg-slate-400 hover:bg-slate-500'
-                }`}
-              />
-            </button>
+            />
           ))}
         </div>
       )}

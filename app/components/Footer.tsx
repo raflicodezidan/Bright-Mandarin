@@ -47,7 +47,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
       name: 'Instagram',
       url: currentSettings.instagramUrl || 'https://instagram.com/bright_mandarin',
       Icon: InstagramIcon,
-      colorClass: 'bg-gradient-to-tr from-amber-700 via-rose-700 to-purple-700 text-white border-transparent shadow-md shadow-rose-500/20 hover:opacity-95',
+      colorClass: 'bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white border-transparent shadow-md shadow-rose-500/20 hover:opacity-95',
     },
     {
       name: 'TikTok',
@@ -59,13 +59,13 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
       name: 'Facebook',
       url: currentSettings.facebookUrl || 'https://facebook.com/brightmandarin',
       Icon: FacebookIcon,
-      colorClass: 'bg-[#1565C0] text-white border-transparent shadow-md shadow-blue-500/20 hover:bg-[#0D47A1]',
+      colorClass: 'bg-[#1877F2] text-white border-transparent shadow-md shadow-blue-500/20 hover:bg-[#166fe5]',
     },
     {
       name: 'YouTube',
       url: currentSettings.youtubeUrl || 'https://youtube.com/@brightmandarin',
       Icon: YouTubeIcon,
-      colorClass: 'bg-[#C62828] text-white border-transparent shadow-md shadow-red-500/20 hover:bg-[#B71C1C]',
+      colorClass: 'bg-[#FF0000] text-white border-transparent shadow-md shadow-red-500/20 hover:bg-[#e60000]',
     },
   ];
 
@@ -82,6 +82,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 width={180}
                 height={66}
                 className="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                unoptimized
               />
             </Link>
 
@@ -89,7 +90,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             <div className="pt-2 space-y-3 text-sm text-slate-700 font-medium">
               {/* Alamat Lengkap */}
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-orange-700 shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
                 <div className="whitespace-pre-line text-xs sm:text-sm text-slate-700 leading-snug">
                   {currentSettings.alamatPusat}
                 </div>
@@ -97,12 +98,12 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
 
               {/* WhatsApp Hotline */}
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-orange-700 shrink-0" />
+                <Phone className="w-4 h-4 text-orange-600 shrink-0" />
                 <a
                   href={currentSettings.whatsappUtama}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-orange-700 transition-colors font-bold text-xs sm:text-sm text-slate-800"
+                  className="hover:text-orange-600 transition-colors font-bold text-xs sm:text-sm text-slate-800"
                 >
                   {currentSettings.teleponHotline}
                 </a>
@@ -110,10 +111,10 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
 
               {/* Email Resmi */}
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-orange-700 shrink-0" />
+                <Mail className="w-4 h-4 text-orange-600 shrink-0" />
                 <a
                   href={`mailto:${currentSettings.email}`}
-                  className="hover:text-orange-700 transition-colors font-semibold text-xs sm:text-sm text-slate-800"
+                  className="hover:text-orange-600 transition-colors font-semibold text-xs sm:text-sm text-slate-800"
                 >
                   {currentSettings.email}
                 </a>
@@ -121,10 +122,10 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
 
               {/* Jam Operasional */}
               <div className="flex items-start gap-2.5 pt-1">
-                <Clock className="w-4 h-4 text-orange-700 shrink-0 mt-1" />
+                <Clock className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
                 <div className="text-xs sm:text-sm text-slate-700 leading-relaxed w-full">
                   <span className="font-bold text-amber-950 block mb-1">Jam Operasional:</span>
-                  <div className="text-slate-700 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-2">
+                  <div className="text-slate-600 bg-amber-50/80 p-3 rounded-2xl border border-amber-200/80 text-xs font-medium space-y-2">
                     <div>
                       <p className="font-bold text-slate-800">Tutoring &amp; Kelas Reguler:</p>
                       <p>Senin – Jumat: 12.00 – 20.00</p>
@@ -134,7 +135,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                       <p className="font-bold text-slate-800">Kelas Dewasa:</p>
                       <p>Senin – Jumat: 18.00 – 20.00</p>
                     </div>
-                    <p className="italic text-slate-600">Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.</p>
+                    <p className="italic text-slate-500">Jadwal kelas dapat berbeda sesuai program dan ketersediaan kelas.</p>
                   </div>
                 </div>
               </div>
@@ -146,40 +147,40 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             <h3 className="text-sm font-black tracking-wider text-amber-950 uppercase">
               Program Belajar
             </h3>
-            <ul className="space-y-2 text-sm text-slate-700 font-medium">
+            <ul className="space-y-2 text-sm text-slate-600 font-medium">
               <li>
-                <Link href="/program#bimbingan-belajar-akademik" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#bimbingan-belajar-akademik" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Bimbel (Bimbingan Belajar)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kelas-reguler" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#kelas-reguler" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Kelas Reguler</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kindergarten-international-curriculum" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#kindergarten-international-curriculum" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Kindergarten (Kinder)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#hskk-speaking-test" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#hskk-speaking-test" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Speaking Class: HSKK &amp; BCT</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#hsk-preparation" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#hsk-preparation" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>HSK Class</span>
                 </Link>
               </li>
               <li>
-                <Link href="/program#kelas-percakapan" className="hover:text-orange-700 transition-colors inline-flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                <Link href="/program#kelas-percakapan" className="hover:text-orange-600 transition-colors inline-flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                   <span>Conversation Class (Convre Class)</span>
                 </Link>
               </li>
@@ -191,24 +192,24 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             <h3 className="text-sm font-black tracking-wider text-amber-950 uppercase">
               Navigasi
             </h3>
-            <ul className="space-y-2 text-sm text-slate-700 font-medium">
+            <ul className="space-y-2 text-sm text-slate-600 font-medium">
               <li>
-                <Link href="/" className="hover:text-orange-700 transition-colors">Beranda</Link>
+                <Link href="/" className="hover:text-orange-600 transition-colors">Beranda</Link>
               </li>
               <li>
-                <Link href="/#achievement" className="hover:text-orange-700 transition-colors">Achievement Murid</Link>
+                <Link href="/#achievement" className="hover:text-orange-600 transition-colors">Achievement Murid</Link>
               </li>
               <li>
-                <Link href="/galeri" className="hover:text-orange-700 transition-colors">Galeri & Suasana Kelas</Link>
+                <Link href="/galeri" className="hover:text-orange-600 transition-colors">Galeri & Suasana Kelas</Link>
               </li>
               <li>
-                <Link href="/berita" className="hover:text-orange-700 transition-colors">Blog & Artikel Mandarin</Link>
+                <Link href="/berita" className="hover:text-orange-600 transition-colors">Blog & Artikel Mandarin</Link>
               </li>
               <li>
-                <Link href="/#lokasi" className="hover:text-orange-700 transition-colors">Lokasi Learning Center</Link>
+                <Link href="/#lokasi" className="hover:text-orange-600 transition-colors">Lokasi Learning Center</Link>
               </li>
               <li>
-                <Link href="/#testimoni" className="hover:text-orange-700 transition-colors">Testimoni Siswa & Alumni</Link>
+                <Link href="/#testimoni" className="hover:text-orange-600 transition-colors">Testimoni Siswa & Alumni</Link>
               </li>
             </ul>
           </div>
@@ -218,18 +219,18 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
             <h3 className="text-sm font-black tracking-wider text-amber-950 uppercase">
               Konsultasi Cepat
             </h3>
-            <p className="text-xs text-slate-700 leading-relaxed font-medium">
+            <p className="text-xs text-slate-600 leading-relaxed font-medium">
               Bingung memilih level atau ingin tes penempatan gratis? Hubungi konsultan akademik kami sekarang.
             </p>
             <a
               href={currentSettings.whatsappUtama}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-xs py-3 px-4 rounded-full transition-all shadow-md shadow-orange-500/20 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-xs py-3 px-4 rounded-full transition-all shadow-md shadow-orange-500/20 hover:scale-105"
             >
               <div className="w-4.5 h-4.5 shrink-0">
                 <Image
-                  src="/whatsapp-logo.svg"
+                  src="/whatsapp-logo.png"
                   alt="WhatsApp"
                   width={18}
                   height={18}
@@ -243,7 +244,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               <span className="text-xs text-amber-950 font-bold uppercase tracking-wider block mb-2">
                 Learning Center:
               </span>
-              <p className="text-xs text-slate-700 leading-relaxed font-medium">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Jl. Venesia EA No. 2–3, Bukit Gading Mediterania, Kelapa Gading, Jakarta (+62 858-9059-2738)
               </p>
             </div>
@@ -254,7 +255,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         <div className="py-6 border-b border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-slate-900 font-extrabold text-sm sm:text-base">
             <span className="uppercase tracking-wider">Follow Us:</span>
-            <span className="text-xs text-orange-700 font-bold hidden md:inline">@{(currentSettings.instagramHandle || 'bright_mandarin').replace(/^@+/, '')}</span>
+            <span className="text-xs text-orange-600 font-bold hidden md:inline">@{(currentSettings.instagramHandle || 'bright_mandarin').replace(/^@+/, '')}</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -266,6 +267,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Follow Bright Mandarin on ${item.name}`}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all duration-200 hover:scale-105 active:scale-95 border ${item.colorClass}`}
                 >
                   <Icon className="w-4 h-4 shrink-0" />
@@ -277,7 +279,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex justify-center items-center text-center text-xs text-slate-700 font-medium">
+        <div className="pt-6 flex justify-center items-center text-center text-xs text-slate-600 font-medium">
           <p>
             © {new Date().getFullYear()} <strong className="text-slate-900">Bright Mandarin Course</strong> (明辉补习班). All rights reserved.
           </p>

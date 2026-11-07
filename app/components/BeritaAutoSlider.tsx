@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BeritaItem } from '@/lib/mockData';
 
@@ -95,19 +94,16 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
                 className="bg-white hover:bg-amber-50/30 rounded-3xl overflow-hidden border-2 border-amber-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1.5"
               >
                 <div className="relative h-48 overflow-hidden bg-slate-800">
-                  <Image
+                  <img
                     src={item.gambarUtamaUrl}
                     alt={item.judul}
-                    fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 380px"
-                    quality={75}
-                    className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover/card:text-orange-700 transition-colors line-clamp-2">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2.5 group-hover/card:text-orange-600 transition-colors line-clamp-2">
                       {item.judul}
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed line-clamp-2 font-medium">
@@ -115,7 +111,7 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
                     </p>
                   </div>
 
-                  <div className="pt-4 flex items-center gap-1.5 text-xs font-bold text-orange-700 group-hover/card:translate-x-1 transition-transform">
+                  <div className="pt-4 flex items-center gap-1.5 text-xs font-bold text-orange-600 group-hover/card:translate-x-1 transition-transform">
                     <span>Baca Selengkapnya</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
@@ -132,7 +128,7 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
         className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
         aria-label="Previous Blog Slide"
       >
-        <ChevronLeft className="w-6 h-6 text-orange-700" />
+        <ChevronLeft className="w-6 h-6 text-orange-600" />
       </button>
 
       <button
@@ -140,26 +136,22 @@ export default function BeritaAutoSlider({ berita }: BeritaAutoSliderProps) {
         className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
         aria-label="Next Blog Slide"
       >
-        <ChevronRight className="w-6 h-6 text-orange-700" />
+        <ChevronRight className="w-6 h-6 text-orange-600" />
       </button>
 
       {/* Indicator Pagination Dots */}
-      <div className="flex items-center justify-center gap-1 mt-6">
+      <div className="flex items-center justify-center gap-2 mt-6">
         {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className="p-2 flex items-center justify-center cursor-pointer"
+            className={`h-2 rounded-full transition-all duration-300 ${
+              idx === currentIndex
+                ? 'w-8 bg-orange-600'
+                : 'w-2 bg-amber-300 hover:bg-amber-400'
+            }`}
             aria-label={`Go to slide ${idx + 1}`}
-          >
-            <span
-              className={`block h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? 'w-8 bg-orange-600'
-                  : 'w-2 bg-amber-400 hover:bg-amber-500'
-              }`}
-            />
-          </button>
+          />
         ))}
       </div>
     </div>

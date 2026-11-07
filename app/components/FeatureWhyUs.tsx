@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { KeunggulanItem, SiteSettings } from '@/lib/sanity';
 
 interface FeatureWhyUsProps {
@@ -10,62 +9,62 @@ interface FeatureWhyUsProps {
 // 6 Landscape Educational Photography Assets & Visual Configurations
 const defaultVisualAssets = [
   {
-    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80',
     alt: 'BMC Showcase',
     title: 'Speak, Shine & Perform',
     badge: 'BMC Showcase',
-    badgeColor: 'text-purple-700',
+    badgeColor: 'text-purple-600',
     desc: 'BMC Showcase menjadi wadah bagi siswa untuk mengembangkan kepercayaan diri melalui penampilan berbahasa Mandarin, seperti pidato, percakapan, menyanyi, drama, dan berbagai pertunjukan seni lainnya. Melalui pengalaman tampil di depan audiens, siswa dapat mengasah kemampuan berbahasa Mandarin sekaligus mengekspresikan kreativitas dan bakat mereka.',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&auto=format&fit=crop&q=80',
     alt: 'Structured Learning Program',
     title: 'Structured Learning Program',
     badge: 'Program Pembelajaran Terstruktur',
-    badgeColor: 'text-emerald-700',
+    badgeColor: 'text-emerald-600',
     desc: 'Program pembelajaran disusun secara terstruktur sesuai usia, level kemampuan, dan kebutuhan siswa, dari dasar hingga persiapan HSK.',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=800&auto=format&fit=crop&q=80',
     alt: 'Experienced Teachers',
     title: 'Experienced Teachers',
     badge: 'Guru Berpengalaman',
-    badgeColor: 'text-indigo-700',
+    badgeColor: 'text-indigo-600',
     desc: 'Didampingi oleh guru yang berpengalaman dalam mengajar Mandarin untuk anak-anak, remaja, maupun dewasa.',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
     alt: 'Practical Mandarin Skills',
     title: 'Practical Mandarin Skills',
     badge: 'Keterampilan Percakapan Mandarin',
-    badgeColor: 'text-sky-700',
+    badgeColor: 'text-sky-600',
     desc: 'Tidak hanya belajar kosakata dan tata bahasa, tetapi juga bagaimana menggunakan Mandarin dalam situasi nyata, seperti percakapan, sekolah, perjalanan, hingga kebutuhan profesional.',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80',
     alt: 'HSK & Academic Support',
     title: 'HSK & Academic Support',
     badge: 'HSK & Dukungan Akademik',
-    badgeColor: 'text-amber-700',
+    badgeColor: 'text-amber-600',
     desc: 'Membantu siswa mempersiapkan ujian HSK sekaligus mendukung kebutuhan Mandarin di sekolah maupun pendidikan lanjutan.',
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&auto=format&fit=crop&q=75',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80',
     alt: 'Engaging & Interactive Learning',
     title: 'Engaging & Interactive Learning',
     badge: 'Pembelajaran Interaktif & Menarik',
-    badgeColor: 'text-rose-700',
+    badgeColor: 'text-rose-600',
     desc: 'Pembelajaran dibuat interaktif melalui speaking practice, games, activities, dan berbagai aktivitas yang membuat belajar Mandarin lebih menyenangkan.',
   },
 ];
 
 const colorPalette = [
-  'text-purple-700',
-  'text-emerald-700',
-  'text-indigo-700',
-  'text-sky-700',
-  'text-amber-700',
-  'text-rose-700',
+  'text-purple-600',
+  'text-emerald-600',
+  'text-indigo-600',
+  'text-sky-600',
+  'text-amber-600',
+  'text-rose-600',
 ];
 
 export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps) {
@@ -105,7 +104,7 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
               ));
             })()}
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
             {settings?.whyUsSubtitle || 'Belajar Mandarin Lebih Cepat, Seru, & Bergaransi Lulus'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -123,13 +122,10 @@ export default function FeatureWhyUs({ keunggulan, settings }: FeatureWhyUsProps
               >
                 {/* Image Header (Landscape) - Bersih tanpa teks ditempel di gambar */}
                 <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 shrink-0">
-                  <Image
+                  <img
                     src={item.imageUrl}
                     alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 380px"
-                    quality={75}
-                    className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
                 </div>

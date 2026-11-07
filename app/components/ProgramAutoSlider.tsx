@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProgramItem } from '@/lib/mockData';
 
@@ -92,13 +91,10 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
               <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1">
                 {/* Image Header - Clean without badges */}
                 <div className="relative h-40 sm:h-44 overflow-hidden bg-slate-100 shrink-0">
-                  <Image
-                    src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=700&auto=format&fit=crop&q=75'}
+                  <img
+                    src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
                     alt={prog.judul}
-                    fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 380px"
-                    quality={75}
-                    className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
                 </div>
 
@@ -157,7 +153,7 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                   {/* Footer: Price & CTA */}
                   <div className="flex flex-col items-center text-center gap-2 mt-auto pt-1">
                     <div className="w-full">
-                      <span className="text-[10px] sm:text-[11px] text-slate-600 uppercase tracking-wider block font-semibold leading-none mb-1">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider block font-semibold leading-none mb-1">
                         BIAYA & INFORMASI
                       </span>
                       <p className="text-xs sm:text-[13px] text-slate-700 font-medium block leading-snug">
@@ -169,7 +165,7 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
                       href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Bright+Mandarin!+%F0%9F%8C%9F+Saya+tertarik+untuk+belajar+bahasa+Mandarin+dan+ingin+mengetahui+informasi+mengenai+program+kelas+serta+pendaftaran+trial+class.+Boleh+dibantu+informasinya?+Terima+kasih!+%F0%9F%99%8F`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-xs sm:text-sm py-2.5 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
+                      className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs sm:text-sm py-2.5 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
                     >
                       Daftar Kelas
                     </a>
@@ -187,7 +183,7 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
         className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20 cursor-pointer"
         aria-label="Previous Program Slide"
       >
-        <ChevronLeft className="w-6 h-6 text-orange-700" />
+        <ChevronLeft className="w-6 h-6 text-orange-600" />
       </button>
 
       <button
@@ -195,26 +191,22 @@ export default function ProgramAutoSlider({ programs }: ProgramAutoSliderProps) 
         className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20 cursor-pointer"
         aria-label="Next Program Slide"
       >
-        <ChevronRight className="w-6 h-6 text-orange-700" />
+        <ChevronRight className="w-6 h-6 text-orange-600" />
       </button>
 
       {/* Indicator Pagination Dots */}
-      <div className="flex items-center justify-center gap-1 mt-6">
+      <div className="flex items-center justify-center gap-2 mt-6">
         {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className="p-2 flex items-center justify-center cursor-pointer"
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              idx === currentIndex
+                ? 'w-8 bg-orange-600'
+                : 'w-2 bg-amber-300 hover:bg-amber-400'
+            }`}
             aria-label={`Go to slide ${idx + 1}`}
-          >
-            <span
-              className={`block h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? 'w-8 bg-orange-600'
-                  : 'w-2 bg-amber-400 hover:bg-amber-500'
-              }`}
-            />
-          </button>
+          />
         ))}
       </div>
     </div>

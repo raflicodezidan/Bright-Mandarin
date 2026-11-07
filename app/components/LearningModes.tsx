@@ -17,6 +17,8 @@ function IconOfflineMode({ customImageUrl }: { customImageUrl?: string }) {
           width={144}
           height={144}
           className="w-full h-full object-contain drop-shadow-md"
+          priority
+          unoptimized
         />
       </div>
     </div>
@@ -66,19 +68,19 @@ export default function LearningModes({ settings }: { settings?: SiteSettings })
             <div className="mb-5">
               <IconOfflineMode customImageUrl={settings?.learningModesCardImageUrl} />
             </div>
-            <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-orange-700 mb-1.5">
+            <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-orange-600 mb-1.5">
               {badge}
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 mb-6 group-hover:text-orange-700 transition-colors leading-tight">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 mb-6 group-hover:text-orange-600 transition-colors leading-tight">
               {cardTitle}
-            </h2>
+            </h3>
 
             {/* Checklist Details */}
             <div className="w-full max-w-lg border-t border-amber-200/80 pt-6 mb-8 text-left">
               <div className="space-y-4">
                 {points.map((pt) => (
                   <div key={pt} className="flex items-start gap-3 text-sm sm:text-base text-slate-700 font-medium">
-                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-700 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{pt}</span>
                   </div>
                 ))}
@@ -87,7 +89,7 @@ export default function LearningModes({ settings }: { settings?: SiteSettings })
 
             <Link
               href={buttonLink}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-sm sm:text-base py-3.5 sm:py-4 px-8 sm:px-10 rounded-2xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm sm:text-base py-3.5 sm:py-4 px-8 sm:px-10 rounded-2xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>{buttonText}</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />

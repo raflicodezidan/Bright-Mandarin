@@ -35,6 +35,7 @@ export default function Navbar() {
               height={66}
               className="h-11 sm:h-13 lg:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
               priority
+              unoptimized
             />
           </Link>
 
@@ -48,8 +49,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`py-2 px-2 xl:px-3 rounded-lg transition-colors duration-200 relative whitespace-nowrap ${
                     isActive
-                      ? 'text-orange-700 font-extrabold after:absolute after:bottom-0 after:left-2 after:right-2 xl:after:left-3 xl:after:right-3 after:h-0.5 after:bg-orange-600 after:rounded-full'
-                      : 'text-slate-700 hover:text-orange-700'
+                      ? 'text-orange-600 font-extrabold after:absolute after:bottom-0 after:left-2 after:right-2 xl:after:left-3 xl:after:right-3 after:h-0.5 after:bg-orange-500 after:rounded-full'
+                      : 'text-slate-700 hover:text-orange-600'
                   }`}
                 >
                   {item.label}
@@ -64,11 +65,11 @@ export default function Navbar() {
               href={mockSiteSettings.whatsappUtama}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 text-xs md:text-sm font-black px-4.5 xl:px-5 py-2.5 rounded-full shadow-md shadow-orange-500/20 hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap group shrink-0"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs md:text-sm font-black px-4.5 xl:px-5 py-2.5 rounded-full shadow-md shadow-orange-500/20 hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap group shrink-0"
             >
               <div className="w-5 h-5 shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-transform">
                 <Image
-                  src="/whatsapp-logo.svg"
+                  src="/whatsapp-logo.png"
                   alt="WhatsApp"
                   width={20}
                   height={20}
@@ -115,11 +116,11 @@ export default function Navbar() {
                 href={mockSiteSettings.whatsappUtama}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-slate-950 py-3 rounded-full font-black text-sm shadow-md"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-3 rounded-full font-black text-sm shadow-md"
               >
                 <div className="w-5 h-5 shrink-0">
                   <Image
-                    src="/whatsapp-logo.svg"
+                    src="/whatsapp-logo.png"
                     alt="WhatsApp"
                     width={20}
                     height={20}

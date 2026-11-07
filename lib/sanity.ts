@@ -46,15 +46,6 @@ export const client = isSanityConfigured
 
 const builder = client ? imageUrlBuilder(client) : null;
 
-export function optimizeImageUrl(url: string | undefined, width: number = 800, quality: number = 78): string {
-  if (!url) return '';
-  if (url.includes('cdn.sanity.io')) {
-    const baseUrl = url.split('?')[0];
-    return `${baseUrl}?w=${width}&q=${quality}&auto=format&fit=max`;
-  }
-  return url;
-}
-
 export function urlFor(source: any) {
   if (!builder || !source) {
     return {
@@ -89,9 +80,7 @@ export async function getPrograms(): Promise<ProgramItem[]> {
       "gambarUrl": gambar.asset->url
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, gambarUrl: optimizeImageUrl(item.gambarUrl, 700, 75) }))
-      : mockPrograms;
+    return data && data.length > 0 ? data : mockPrograms;
   } catch (error) {
     console.warn('Failed fetching programs from Sanity, falling back to mock data', error);
     return mockPrograms;
@@ -113,9 +102,7 @@ export async function getHskAchievement(): Promise<AchievementItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, fotoUrl: optimizeImageUrl(item.fotoUrl, 600, 75) }))
-      : mockAchievement;
+    return data && data.length > 0 ? data : mockAchievement;
   } catch (error) {
     console.warn('Failed fetching HSK achievement from Sanity, falling back to mock data', error);
     return mockAchievement;
@@ -137,9 +124,7 @@ export async function getExamSchoolAchievement(): Promise<AchievementItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, fotoUrl: optimizeImageUrl(item.fotoUrl, 600, 75) }))
-      : mockExamSchoolAchievement;
+    return data && data.length > 0 ? data : mockExamSchoolAchievement;
   } catch (error) {
     console.warn('Failed fetching exam school achievement from Sanity, falling back to mock data', error);
     return mockExamSchoolAchievement;
@@ -161,9 +146,7 @@ export async function getAchievement(): Promise<AchievementItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, fotoUrl: optimizeImageUrl(item.fotoUrl, 600, 75) }))
-      : mockAchievement;
+    return data && data.length > 0 ? data : mockAchievement;
   } catch (error) {
     console.warn('Failed fetching achievement from Sanity, falling back to mock data', error);
     return mockAchievement;
@@ -185,9 +168,7 @@ export async function getPengajar(): Promise<PengajarItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, fotoUrl: optimizeImageUrl(item.fotoUrl, 600, 75) }))
-      : mockPengajar;
+    return data && data.length > 0 ? data : mockPengajar;
   } catch (error) {
     console.warn('Failed fetching pengajar from Sanity, falling back to mock data', error);
     return mockPengajar;
@@ -210,13 +191,7 @@ export async function getTestimoni(): Promise<TestimoniItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({
-          ...item,
-          fotoUrl: optimizeImageUrl(item.fotoUrl, 300, 75),
-          avatar: optimizeImageUrl(item.avatar, 300, 75),
-        }))
-      : mockTestimoni;
+    return data && data.length > 0 ? data : mockTestimoni;
   } catch (error) {
     console.warn('Failed fetching testimoni from Sanity, falling back to mock data', error);
     return mockTestimoni;
@@ -236,9 +211,7 @@ export async function getKeunggulan(): Promise<KeunggulanItem[]> {
       urutan
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, customIconUrl: optimizeImageUrl(item.customIconUrl, 700, 75) }))
-      : mockKeunggulan;
+    return data && data.length > 0 ? data : mockKeunggulan;
   } catch (error) {
     console.warn('Failed fetching keunggulan from Sanity, falling back to mock data', error);
     return mockKeunggulan;
@@ -262,9 +235,7 @@ export async function getBerita(): Promise<BeritaItem[]> {
       videoJudul
     }`;
     const data = await client.fetch(query);
-    return data && data.length > 0
-      ? data.map((item: any) => ({ ...item, gambarUtamaUrl: optimizeImageUrl(item.gambarUtamaUrl, 800, 75) }))
-      : mockBerita;
+    return data && data.length > 0 ? data : mockBerita;
   } catch (error) {
     console.warn('Failed fetching berita from Sanity, falling back to mock data', error);
     return mockBerita;
@@ -446,16 +417,6 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     }`;
     const data = await client.fetch(query);
     const result = data ? { ...mockSiteSettings, ...data } : mockSiteSettings;
-    if (result.heroBgImageUrl) result.heroBgImageUrl = optimizeImageUrl(result.heroBgImageUrl, 1200, 75);
-    if (result.heroPhotoUrl) result.heroPhotoUrl = optimizeImageUrl(result.heroPhotoUrl, 900, 80);
-    if (result.learningModesCardImageUrl) result.learningModesCardImageUrl = optimizeImageUrl(result.learningModesCardImageUrl, 400, 80);
-    if (result.ctaBannerBgImageUrl) result.ctaBannerBgImageUrl = optimizeImageUrl(result.ctaBannerBgImageUrl, 1200, 75);
-    if (result.instagramPosts) {
-      result.instagramPosts = result.instagramPosts.map((p: any) => ({
-        ...p,
-        gambarUrl: optimizeImageUrl(p.gambarUrl, 600, 75),
-      }));
-    }
     if (!result.whatsappUtama || result.whatsappUtama.includes('Halo+Admin') || result.whatsappUtama.includes('Halo%20Admin') || result.whatsappUtama.includes('Free+Trial')) {
       result.whatsappUtama = DEFAULT_WHATSAPP_URL;
     }
@@ -480,9 +441,6 @@ export async function getPopupPromo(): Promise<PopupPromoData> {
     }`;
     const data = await client.fetch(query);
     const result = data ? { ...mockPopupPromo, ...data } : mockPopupPromo;
-    if (result.posterImageUrl) {
-      result.posterImageUrl = optimizeImageUrl(result.posterImageUrl, 800, 78);
-    }
     if (!result.linkTujuan || result.linkTujuan.includes('Halo+Admin') || result.linkTujuan.includes('Halo%20Admin')) {
       result.linkTujuan = DEFAULT_WHATSAPP_URL;
     }
@@ -540,12 +498,6 @@ export async function getMediaSosial(): Promise<MediaSosialData> {
     }`;
     const data = await client.fetch(query);
     if (data && (data.socialSectionTitle || data.instagramPosts?.length || data.instagramAspectRatio)) {
-      if (data.instagramPosts) {
-        data.instagramPosts = data.instagramPosts.map((p: any) => ({
-          ...p,
-          gambarUrl: optimizeImageUrl(p.gambarUrl, 600, 75),
-        }));
-      }
       return { ...fallbackData, ...data };
     }
 

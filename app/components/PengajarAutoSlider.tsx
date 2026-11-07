@@ -91,13 +91,10 @@ export default function PengajarAutoSlider({ pengajar }: PengajarAutoSliderProps
             >
               <div className="bg-white rounded-3xl p-6 border-2 border-amber-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all duration-300 flex flex-col h-full group/card hover:-translate-y-1.5">
                 <div className="relative aspect-4/3 rounded-2xl overflow-hidden mb-5 bg-slate-800">
-                  <Image
+                  <img
                     src={laoshi.fotoUrl}
                     alt={laoshi.nama}
-                    fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 350px"
-                    quality={75}
-                    className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute bottom-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-lg backdrop-blur-xs flex items-center gap-1.5 border border-amber-400/40">
                     <Award className="w-3.5 h-3.5 text-amber-400" />
@@ -108,10 +105,10 @@ export default function PengajarAutoSlider({ pengajar }: PengajarAutoSliderProps
                 <h3 className="text-xl font-extrabold text-slate-900 mb-1">
                   {laoshi.nama}
                 </h3>
-                <p className="text-xs font-bold text-orange-700 uppercase tracking-wider mb-2">
+                <p className="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">
                   {laoshi.spesialisasi}
                 </p>
-                <p className="text-xs text-slate-600 font-medium mb-3">
+                <p className="text-xs text-slate-500 font-medium mb-3">
                   {laoshi.gelar}
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 font-medium">
@@ -129,7 +126,7 @@ export default function PengajarAutoSlider({ pengajar }: PengajarAutoSliderProps
         className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
         aria-label="Previous Teacher Slide"
       >
-        <ChevronLeft className="w-6 h-6 text-orange-700" />
+        <ChevronLeft className="w-6 h-6 text-orange-600" />
       </button>
 
       <button
@@ -137,26 +134,22 @@ export default function PengajarAutoSlider({ pengajar }: PengajarAutoSliderProps
         className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
         aria-label="Next Teacher Slide"
       >
-        <ChevronRight className="w-6 h-6 text-orange-700" />
+        <ChevronRight className="w-6 h-6 text-orange-600" />
       </button>
 
       {/* Indicator Pagination Dots */}
-      <div className="flex items-center justify-center gap-1 mt-6">
+      <div className="flex items-center justify-center gap-2 mt-6">
         {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className="p-2 flex items-center justify-center cursor-pointer"
+            className={`h-2 rounded-full transition-all duration-300 ${
+              idx === currentIndex
+                ? 'w-8 bg-orange-600'
+                : 'w-2 bg-amber-300 hover:bg-amber-400'
+            }`}
             aria-label={`Go to slide ${idx + 1}`}
-          >
-            <span
-              className={`block h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? 'w-8 bg-orange-600'
-                  : 'w-2 bg-amber-400 hover:bg-amber-500'
-              }`}
-            />
-          </button>
+          />
         ))}
       </div>
     </div>
