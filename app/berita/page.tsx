@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Newspaper, ArrowRight, Sparkles } from 'lucide-react';
 import { getBerita } from '@/lib/sanity';
 
@@ -23,7 +24,7 @@ export default async function BeritaPage() {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             BLOG BRIGHT MANDARIN
           </h1>
-          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             Tips Belajar Bahasa Mandarin & Info Beasiswa Tiongkok
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -34,7 +35,7 @@ export default async function BeritaPage() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {beritaList.map((item) => (
+          {beritaList.map((item, idx) => (
             <Link
               key={item._id}
               href={`/berita/${item.slug.current}`}
@@ -42,10 +43,14 @@ export default async function BeritaPage() {
             >
               <div>
                 <div className="relative h-52 overflow-hidden bg-brand-charcoal">
-                  <img
+                  <Image
                     src={item.gambarUtamaUrl}
                     alt={item.judul}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    priority={idx < 2}
+                    sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 380px"
+                    quality={75}
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 

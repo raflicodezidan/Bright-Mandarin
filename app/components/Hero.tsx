@@ -9,14 +9,21 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
   const currentSettings = settings || mockSiteSettings;
   return (
     <section className="relative overflow-hidden w-full max-w-full bg-amber-400 pt-6 pb-12 lg:pt-8 lg:pb-14 border-b-4 border-amber-600/30">
-      {/* Traditional Chinese Hero Background Image (CSS background murni dekoratif, tidak diindeks sebagai gambar pencarian Google) */}
+      {/* Traditional Chinese Hero Background Image */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center select-none pointer-events-none"
-        style={{
-          backgroundImage: `url(${currentSettings.heroBgImageUrl || '/hero-chinese-bg.png'})`,
-        }}
+        className="absolute inset-0 z-0 select-none pointer-events-none"
         aria-hidden="true"
       >
+        <Image
+          src={currentSettings.heroBgImageUrl || '/hero-chinese-bg.png'}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={70}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         {/* Soft atmospheric gradient overlay for balanced text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-amber-300/20 via-transparent to-amber-400/15 pointer-events-none" />
       </div>
@@ -28,7 +35,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
 
             {/* Playful Responsive Pill Badge with Lively Motion */}
             <div className="flex justify-center lg:justify-start px-1">
-              <div className="inline-flex items-center justify-center px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-white text-sky-600 text-xs sm:text-sm font-bold shadow-md border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
+              <div className="inline-flex items-center justify-center px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-white text-sky-700 text-xs sm:text-sm font-bold shadow-md border-2 border-white/90 animate-wiggle hover:scale-105 transition-all duration-200 cursor-default max-w-full text-center">
                 <span className="leading-tight">{currentSettings.heroBadgeText || 'Kursus Mandarin Paling Seru & Terbukti!'}</span>
               </div>
             </div>
@@ -58,7 +65,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
               </h1>
 
               {/* Secondary Highlight Sub-title (Smaller, Vibrant Red with Squiggle Underline) */}
-              <div className="text-xl sm:text-2xl lg:text-[1.85rem] font-black text-red-600 tracking-tight leading-tight">
+              <div className="text-xl sm:text-2xl lg:text-[1.85rem] font-black text-red-700 tracking-tight leading-tight">
                 {currentSettings.heroHeadlineHighlight && currentSettings.heroHeadlineHighlight !== 'Beasiswa ke Tiongkok' ? (
                   currentSettings.heroHeadlineHighlight.includes('Tiongkok') ? (
                     <>
@@ -75,7 +82,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                       <span className="relative inline-block">
                         Tiongkok!
                         <svg
-                          className="absolute -bottom-1.5 left-0 w-full h-3 text-red-500"
+                          className="absolute -bottom-1.5 left-0 w-full h-3 text-red-600"
                           viewBox="0 0 100 12"
                           preserveAspectRatio="none"
                           fill="none"
@@ -99,7 +106,7 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     <span className="relative inline-block">
                       Tiongkok!
                       <svg
-                        className="absolute -bottom-1.5 left-0 w-full h-3 text-red-500"
+                        className="absolute -bottom-1.5 left-0 w-full h-3 text-red-600"
                         viewBox="0 0 100 12"
                         preserveAspectRatio="none"
                         fill="none"
@@ -135,13 +142,13 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
 
             {/* Social Proof Numbers in Cute Cards */}
             <div className="pt-1.5 sm:pt-2 grid grid-cols-2 gap-2 sm:gap-2.5 text-center max-w-sm mx-auto lg:mx-0">
-              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
-                <p className="text-xl sm:text-2xl font-black text-rose-600">{currentSettings.heroCard1Number || '5.000+'}</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard1Text || 'Alumni Lulus'}</p>
+              <div className="bg-white/85 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
+                <p className="text-xl sm:text-2xl font-black text-rose-700">{currentSettings.heroCard1Number || '5.000+'}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-800 font-bold">{currentSettings.heroCard1Text || 'Alumni Lulus'}</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
-                <p className="text-xl sm:text-2xl font-black text-amber-700">{currentSettings.heroCard2Number || '98.4%'}</p>
-                <p className="text-[10px] sm:text-[11px] text-slate-700 font-bold">{currentSettings.heroCard2Text || 'Lulus HSK 1-6'}</p>
+              <div className="bg-white/85 backdrop-blur-xs p-2 sm:p-2.5 rounded-xl border border-white/80 shadow-xs">
+                <p className="text-xl sm:text-2xl font-black text-amber-800">{currentSettings.heroCard2Number || '98.4%'}</p>
+                <p className="text-[10px] sm:text-[11px] text-slate-800 font-bold">{currentSettings.heroCard2Text || 'Lulus HSK 1-6'}</p>
               </div>
             </div>
           </div>
@@ -165,8 +172,9 @@ export default function Hero({ settings }: { settings?: SiteSettings }) {
                     alt="Belajar Mandarin Mudah & Menyenangkan di Bright Mandarin"
                     fill
                     priority
-                    unoptimized
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+                    fetchPriority="high"
+                    quality={80}
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 45vw, 520px"
                     className="object-cover object-center"
                   />
                 </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { ExternalLink, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { mockSiteSettings, SiteSettings, MediaSosialData } from '@/lib/sanity';
 
@@ -193,7 +194,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             {currentSettings.socialSectionTitle || 'MEDIA SOSIAL KAMI'}
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             {currentSettings.socialSectionSubtitle || 'Ikuti Aktivitas & Tips Belajar di Instagram @brightmandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -205,7 +206,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
               href={currentSettings.instagramUrl || mockSiteSettings.instagramUrl || 'https://instagram.com/bright_mandarin'}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-700 via-rose-700 to-amber-700 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
             >
               <InstagramIcon className="w-4 h-4" />
               <span>Follow {currentSettings.instagramHandle || '@brightmandarin'}</span>
@@ -226,9 +227,13 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                 rel="noopener noreferrer"
                 className={`group/card relative block rounded-2xl overflow-hidden ${aspectStyles.card} shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200/80 hover:border-amber-400 hover:-translate-y-1.5`}
               >
-                <img
+                <Image
                   src={post.img}
                   alt={`Instagram Post Bright Mandarin ${idx + 1}`}
+                  width={540}
+                  height={675}
+                  sizes="(max-width: 1024px) 46vw, 280px"
+                  quality={75}
                   className={`${aspectStyles.img} group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between text-white">
@@ -244,7 +249,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                         {post.caption}
                       </p>
                     )}
-                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-transform">
+                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-700 to-amber-700 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg hover:scale-105 transition-transform">
                       <InstagramIcon className="w-3.5 h-3.5" />
                       <span>Buka di Instagram</span>
                       <ExternalLink className="w-3 h-3" />
@@ -290,9 +295,13 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                       rel="noopener noreferrer"
                       className={`group/card relative block rounded-2xl overflow-hidden ${aspectStyles.card || 'aspect-[4/5]'} shadow-sm hover:shadow-2xl transition-all duration-300 bg-slate-900 border-2 border-amber-200 hover:border-amber-400 hover:-translate-y-1.5`}
                     >
-                      <img
+                      <Image
                         src={post.img}
                         alt={`Instagram Post Bright Mandarin ${idx + 1}`}
+                        width={540}
+                        height={675}
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 280px"
+                        quality={75}
                         className={`${aspectStyles.img || 'w-full h-full object-contain'} group-hover/card:scale-105 transition-transform duration-500 opacity-95 group-hover/card:opacity-90`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 p-4 sm:p-5 flex flex-col justify-between text-white">
@@ -308,7 +317,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
                               {post.caption}
                             </p>
                           )}
-                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-pink-700 to-amber-700 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                             <InstagramIcon className="w-3.5 h-3.5" />
                             <span>Buka di Instagram</span>
                             <ExternalLink className="w-3 h-3" />
@@ -336,7 +345,7 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
               className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
               aria-label="Previous Instagram Post"
             >
-              <ChevronLeft className="w-6 h-6 text-orange-600" />
+              <ChevronLeft className="w-6 h-6 text-orange-700" />
             </button>
 
             <button
@@ -344,21 +353,25 @@ export default function InstagramFeed({ widgetEmbedHtml, settings }: InstagramFe
               className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 border-2 border-amber-300 shadow-xl flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 z-20"
               aria-label="Next Instagram Post"
             >
-              <ChevronRight className="w-6 h-6 text-orange-600" />
+              <ChevronRight className="w-6 h-6 text-orange-700" />
             </button>
 
             {/* Pagination Dots */}
-            <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="flex items-center justify-center gap-1 mt-6">
               {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                    ? 'w-8 bg-orange-600'
-                    : 'w-2 bg-amber-300 hover:bg-amber-400'
-                    }`}
+                  className="p-2 flex items-center justify-center cursor-pointer"
                   aria-label={`Go to slide ${idx + 1}`}
-                />
+                >
+                  <span
+                    className={`block h-2 rounded-full transition-all duration-300 ${idx === currentIndex
+                      ? 'w-8 bg-orange-600'
+                      : 'w-2 bg-amber-400 hover:bg-amber-500'
+                      }`}
+                  />
+                </button>
               ))}
             </div>
           </div>

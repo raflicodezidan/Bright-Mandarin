@@ -31,7 +31,7 @@ export default async function GaleriPage() {
             {title}
           </h1>
 
-          <p className="text-base sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-base sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             {subtitle}
           </p>
 

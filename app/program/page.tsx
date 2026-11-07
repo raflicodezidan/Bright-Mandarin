@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { getPrograms, mockSiteSettings } from '@/lib/sanity';
 
 import type { Metadata } from 'next';
@@ -34,7 +35,7 @@ export default async function ProgramPage() {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             PROGRAM KURSUS UNGGULAN
           </h1>
-          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             Program Belajar Bahasa Mandarin Sesuai Target & Usia Anda
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -45,7 +46,7 @@ export default async function ProgramPage() {
 
         {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((prog) => (
+          {programs.map((prog, idx) => (
             <div
               key={prog._id}
               id={prog.slug?.current || prog._id}
@@ -53,10 +54,14 @@ export default async function ProgramPage() {
             >
               {/* Image Header - Clean without badges */}
               <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100 shrink-0">
-                <img
-                  src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80'}
+                <Image
+                  src={prog.gambarUrl || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=700&auto=format&fit=crop&q=75'}
                   alt={prog.judul}
-                  className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                  fill
+                  priority={idx < 2}
+                  sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 380px"
+                  quality={75}
+                  className="object-cover group-hover/card:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -112,7 +117,7 @@ export default async function ProgramPage() {
                 {/* Card Footer: Price & CTA Button */}
                 <div className="flex flex-col items-center text-center gap-2.5 mt-auto pt-1">
                   <div className="w-full">
-                    <span className="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider block font-semibold leading-none mb-1">
+                    <span className="text-[10px] sm:text-[11px] text-slate-600 uppercase tracking-wider block font-semibold leading-none mb-1">
                       BIAYA & INFORMASI
                     </span>
                     <p className="text-xs sm:text-[13px] text-slate-700 font-medium block leading-snug">
@@ -124,7 +129,7 @@ export default async function ProgramPage() {
                     href={`https://api.whatsapp.com/send/?phone=6285890592738&text=Halo+Bright+Mandarin!+%F0%9F%8C%9F+Saya+tertarik+untuk+belajar+bahasa+Mandarin+dan+ingin+mengetahui+informasi+mengenai+program+kelas+serta+pendaftaran+trial+class.+Boleh+dibantu+informasinya?+Terima+kasih!+%F0%9F%99%8F`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs sm:text-sm py-2.5 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
+                    className="w-full block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-xs sm:text-sm py-2.5 px-4 rounded-xl text-center shadow-xs hover:shadow-md transition-all active:scale-[0.99] cursor-pointer"
                   >
                     Daftar Kelas
                   </a>

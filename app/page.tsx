@@ -45,7 +45,7 @@ export default async function HomePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
               {siteSettings.programSectionTitle || 'PROGRAM KURSUS UNGGULAN'}
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+            <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
               {siteSettings.programSectionSubtitle || 'Pilihan Program Kursus Mandarin Favorit & Terstruktur'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -55,10 +55,10 @@ export default async function HomePage() {
             <div>
               <Link
                 href="/program"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm sm:text-base py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-sm sm:text-base py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
               >
                 <span>Lihat Semua Program</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default async function HomePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
               {siteSettings.achievementSectionTitle || 'ACHIEVEMENT MURID BRIGHT MANDARIN'}
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+            <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
               {siteSettings.achievementSectionSubtitle || 'Small Steps, Big Progress'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -110,7 +110,7 @@ export default async function HomePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
               {siteSettings.beritaSectionTitle || 'BLOG BRIGHT MANDARIN'}
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+            <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
               {siteSettings.beritaSectionSubtitle || 'Tips Belajar & Info Beasiswa Kuliah ke Tiongkok'}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -120,10 +120,10 @@ export default async function HomePage() {
             <div>
               <Link
                 href="/berita"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm sm:text-base py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-sm sm:text-base py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
               >
                 <span>Lihat Semua Blog</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -139,18 +139,20 @@ export default async function HomePage() {
       <BranchLocations settings={siteSettings} />
 
       {/* 10. Call to Action Banner: Yuk, Mulai Petualangan Baru! (Dapat dicustom via Sanity) */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white relative overflow-hidden border-t-2 border-amber-300">
+      <section className="py-20 bg-gradient-to-r from-amber-700 via-orange-700 to-amber-800 text-white relative overflow-hidden border-t-2 border-amber-300">
         {/* Custom Uploaded Background Image from Sanity or fallback pattern */}
         {siteSettings.ctaBannerBgImageUrl ? (
           <div className="absolute inset-0 z-0">
             <Image
               src={siteSettings.ctaBannerBgImageUrl}
-              alt="CTA Background"
+              alt=""
+              aria-hidden="true"
               fill
               sizes="100vw"
+              quality={70}
               className="object-cover object-center select-none pointer-events-none"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-orange-950/40 via-transparent to-orange-950/25 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-950/65 via-orange-950/45 to-orange-950/50 pointer-events-none" />
           </div>
         ) : (
           <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:20px_20px]" />
@@ -160,7 +162,7 @@ export default async function HomePage() {
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight drop-shadow-md">
             {siteSettings.ctaBannerTitle || 'Yuk, Mulai Petualangan Baru! Belajar Mandarin Seru & Pasti Lulus!'}
           </h2>
-          <p className="text-base sm:text-lg text-amber-50 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white font-medium max-w-2xl mx-auto leading-relaxed">
             {siteSettings.ctaBannerSubtitle || 'Daftarkan diri Anda atau putra-putri tercinta sekarang juga. Dapatkan FREE Placement Test dan konsultasi kurikulum langsung bersama Laoshi.'}
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -168,11 +170,11 @@ export default async function HomePage() {
               href={siteSettings.whatsappUtama || mockSiteSettings.whatsappUtama}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-amber-50 text-emerald-800 text-base font-black px-8 py-4 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-amber-50 text-emerald-900 text-base font-black px-8 py-4 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white"
             >
               <div className="w-6 h-6 shrink-0">
                 <Image
-                  src="/whatsapp-logo.png"
+                  src="/whatsapp-logo.svg"
                   alt="WhatsApp"
                   width={24}
                   height={24}
@@ -184,7 +186,7 @@ export default async function HomePage() {
 
             <Link
               href="/program"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-600/30 hover:bg-amber-600/50 backdrop-blur-xs border-2 border-white/80 text-white font-black text-base px-8 py-4 rounded-full transition-all hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-orange-950/60 hover:bg-orange-950/80 backdrop-blur-xs border-2 border-white/90 text-white font-black text-base px-8 py-4 rounded-full transition-all hover:scale-105"
             >
               <span>{siteSettings.ctaBannerButtonProgram || 'Eksplorasi Program Kelas'}</span>
               <ArrowRight className="w-4 h-4" />

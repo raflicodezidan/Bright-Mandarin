@@ -96,6 +96,8 @@ export default function GoogleReviewBadge({
   url = 'https://share.google/h4ySU4mqKW4a712F3',
 }: GoogleReviewBadgeProps) {
   const isHero = variant === 'hero';
+  const waveSoftId = isHero ? 'waveSoftHero' : 'waveSoftBanner';
+  const waveWarmId = isHero ? 'waveWarmHero' : 'waveWarmBanner';
 
   return (
     <a
@@ -118,11 +120,11 @@ export default function GoogleReviewBadge({
           fill="none"
         >
           <defs>
-            <linearGradient id="waveSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={waveSoftId} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FDE68A" stopOpacity="0.45" />
               <stop offset="100%" stopColor="#FBBF24" stopOpacity="0.35" />
             </linearGradient>
-            <linearGradient id="waveWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={waveWarmId} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FBBF24" />
               <stop offset="100%" stopColor="#F59E0B" />
             </linearGradient>
@@ -131,13 +133,13 @@ export default function GoogleReviewBadge({
           {/* Background translucent wave */}
           <path
             d="M20 90 Q 55 60, 75 35 T 120 10 L 120 90 Z"
-            fill="url(#waveSoft)"
+            fill={`url(#${waveSoftId})`}
           />
 
           {/* Foreground rich warm amber wave */}
           <path
             d="M45 90 Q 72 72, 92 48 T 120 28 L 120 90 Z"
-            fill="url(#waveWarm)"
+            fill={`url(#${waveWarmId})`}
           />
         </svg>
       </div>
@@ -165,11 +167,11 @@ export default function GoogleReviewBadge({
       {/* Text & Rating content */}
       <div className="min-w-0 pr-6 sm:pr-8 z-10">
         {/* Course Title */}
-        <h3 className={`font-black text-[#1A2E40] ${
+        <p className={`font-black text-[#1A2E40] ${
           isHero ? 'text-sm sm:text-base lg:text-lg' : 'text-base sm:text-lg lg:text-xl'
         } tracking-tight leading-tight group-hover:text-blue-700 transition-colors truncate`}>
           Bright Mandarin Course
-        </h3>
+        </p>
 
         {/* Rating Pill: 4,9 | ★★★★★ */}
         <div className="mt-1 sm:mt-1.5 inline-flex items-center gap-1.5 sm:gap-2 bg-[#FFF9EA] border border-amber-200/80 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-0.5 shadow-2xs">
@@ -185,8 +187,8 @@ export default function GoogleReviewBadge({
         </div>
 
         {/* Location Subtitle */}
-        <div className="flex items-center gap-1.5 text-slate-500 font-medium text-[11px] sm:text-xs mt-1 sm:mt-1.5">
-          <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+        <div className="flex items-center gap-1.5 text-slate-600 font-medium text-[11px] sm:text-xs mt-1 sm:mt-1.5">
+          <MapPin className="w-3.5 h-3.5 text-slate-600 shrink-0" />
           <span className="truncate">Language school in North Jakarta</span>
         </div>
       </div>

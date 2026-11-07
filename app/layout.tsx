@@ -10,7 +10,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
@@ -307,12 +306,11 @@ export default async function RootLayout({
           href={siteSettings.whatsappUtama || DEFAULT_WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Mau cobain Free Trial Class? Chat WhatsApp Bright Mandarin"
           className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-white/95 hover:bg-white text-slate-900 font-extrabold text-sm pl-2 pr-3.5 sm:pr-4 py-2 sm:py-2.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-emerald-500/80 group max-w-[calc(100vw-24px)]"
         >
           <div className="relative w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform">
             <Image
-              src="/whatsapp-logo.png"
+              src="/whatsapp-logo.svg"
               alt="WhatsApp Admin Bright Mandarin"
               width={36}
               height={36}
@@ -323,7 +321,7 @@ export default async function RootLayout({
           </div>
           <div className="flex flex-col text-left leading-tight pr-1">
             <span className="text-xs font-black text-slate-900">Mau coba trial class gratis?</span>
-            <span className="text-[11px] font-extrabold text-emerald-600">WhatsApp sekarang juga</span>
+            <span className="text-[11px] font-extrabold text-emerald-700">WhatsApp sekarang juga</span>
           </div>
         </a>
         <SpeedInsights />

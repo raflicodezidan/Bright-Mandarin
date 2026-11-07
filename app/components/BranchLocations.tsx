@@ -36,7 +36,7 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             {currentSettings.lokasiSectionTitle || 'LOKASI LEARNING CENTER'}
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             {currentSettings.lokasiSectionSubtitle || 'Kunjungi Kantor & Ruang Kelas Resmi Bright Mandarin'}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -61,12 +61,10 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
                     width={80}
                     height={80}
                     className="w-full h-full object-contain"
-                    priority
-                    unoptimized
                   />
                 </div>
                 <div>
-                  <span className="text-xs sm:text-sm font-extrabold tracking-wider text-orange-600 uppercase block">
+                  <span className="text-xs sm:text-sm font-extrabold tracking-wider text-orange-700 uppercase block">
                     Kantor Pusat & Center
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1 leading-tight">
@@ -78,9 +76,9 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
               {/* Address Details */}
               <div className="bg-amber-50/70 rounded-2xl p-5 border border-amber-200/80 space-y-2">
                 <div className="flex items-start gap-3.5 text-slate-800">
-                  <MapPin className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-orange-700 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
                       Alamat Lengkap:
                     </span>
                     <p className="text-sm font-semibold text-slate-900 leading-relaxed mt-1">
@@ -97,7 +95,7 @@ export default function BranchLocations({ settings }: { settings?: SiteSettings 
                 href={center.linkMaps}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-black text-sm py-4 px-5 rounded-2xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-sm py-4 px-5 rounded-2xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
               >
                 <Navigation className="w-4 h-4 shrink-0" />
                 <span>Buka Petunjuk Arah di Google Maps</span>

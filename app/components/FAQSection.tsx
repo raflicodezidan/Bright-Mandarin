@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { mockSiteSettings } from '@/lib/mockData';
 
@@ -37,7 +38,7 @@ export default function FAQSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight uppercase">
             PERTANYAAN UMUM (FAQ)
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-orange-600 mt-2 mb-3">
+          <p className="text-lg sm:text-xl font-bold text-orange-700 mt-2 mb-3">
             Informasi Penting Seputar Pendaftaran, Kurikulum, & Ujian HSK
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-3" />
@@ -77,21 +78,23 @@ export default function FAQSection() {
         </div>
 
         {/* CTA still have questions */}
-        <div className="mt-12 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-orange-500/20 border-2 border-white/60">
+        <div className="mt-12 bg-gradient-to-r from-amber-700 via-orange-700 to-amber-800 text-white rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-orange-500/20 border-2 border-white/60">
           <h3 className="text-2xl font-black">Masih punya pertanyaan lain?</h3>
-          <p className="text-xs sm:text-sm text-amber-50 font-medium max-w-lg mx-auto">
+          <p className="text-xs sm:text-sm text-white font-medium max-w-lg mx-auto">
             Tim konsultan akademik kami siap membantu menjawab keraguan Anda dan merekomendasikan kelas yang tepat.
           </p>
           <a
             href={mockSiteSettings.whatsappUtama}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-emerald-800 text-xs sm:text-sm font-black px-4 sm:px-6 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80 max-w-full"
+            className="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-emerald-900 text-xs sm:text-sm font-black px-4 sm:px-6 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/80 max-w-full"
           >
             <div className="w-5 h-5 shrink-0">
-              <img
-                src="/whatsapp-logo.png"
+              <Image
+                src="/whatsapp-logo.svg"
                 alt="WhatsApp"
+                width={20}
+                height={20}
                 className="w-full h-full object-contain"
               />
             </div>
